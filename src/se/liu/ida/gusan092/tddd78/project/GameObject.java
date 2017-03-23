@@ -1,6 +1,11 @@
 package se.liu.ida.gusan092.tddd78.project;
 
-public interface GameObject
-{
+import java.awt.*;
 
+public abstract class GameObject
+{
+    protected int x;
+    protected int y;
+
+    protected Shape shape;
 }

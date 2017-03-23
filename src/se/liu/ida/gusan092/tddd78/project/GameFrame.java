@@ -2,7 +2,7 @@ package se.liu.ida.gusan092.tddd78.project;
 
 import javax.swing.*;
 
-public class MainFrame
+public class GameFrame
 {
     private Game currentGame = null;
     private JComponent currentComponent;

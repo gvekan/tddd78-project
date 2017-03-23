@@ -4,42 +4,23 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 
-public class Player implements Vehicle
+public class Player extends GameObject
 {
-    private double x;
-    private double y;
-    private double width;
-    private double height;
+    private static final double WIDTH = 20;
+    private static final double HEIGHT = 40;
 
-    private Shape shape;
+    private double x = (Game.WIDTH-WIDTH)/2;
+    private double y = Game.HEIGHT-HEIGHT;
 
-    public Player(final double width, final double height) {
-	this.width = width;
-	this.height = height;
-        x = (Game.WIDTH-width)/2;
-        y = Game.HEIGHT-height;
-        shape = new Rectangle2D.Double(x,y,width,height);
+
+    public Player() {
+        super(new Rectangle2D.Double((Game.WIDTH-WIDTH)/2,Game.HEIGHT-HEIGHT,WIDTH,HEIGHT));
     }
 
     public void move(int x, int y) {
-        this.x += x*5;
-        this.y += y*5;
+        this.x += x;
+        this.y += y;
         shape = new Rectangle2D.Double(this.x,this.y,width,height);
-    }
-
-    public void moveDown() {
-        y+=5;
-        shape = new Rectangle2D.Double(x,y,width,height);
-    }
-
-    public void moveLeft() {
-        x-=5;
-        shape = new Rectangle2D.Double(x,y,width,height);
-    }
-
-    public void moveRight() {
-        x+=5;
-        shape = new Rectangle2D.Double(x,y,width,height);
     }
 
     public void draw(Graphics2D graphics2D) {

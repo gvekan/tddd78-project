@@ -1,5 +1,10 @@
 package se.liu.ida.gusan092.tddd78.project;
 
+import java.awt.*;
+import java.awt.geom.Area;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game
 {
     public static final int WIDTH = 500;
