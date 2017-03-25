@@ -1,6 +1,60 @@
 package se.liu.ida.gusan092.tddd78.project;
 
-public interface GameObject
-{
+import java.awt.Rectangle;
+import java.awt.Graphics;
 
+public abstract class GameObject
+{
+    protected int x, y, velX, velY;
+    protected Id id;
+
+    public GameObject(final int x, final int y, final Id id) {
+	this.x = x;
+	this.y = y;
+	this.id = id;
+    }
+
+    public int getX() {
+	return x;
+    }
+
+    public void setX(final int x) {
+	this.x = x;
+    }
+
+    public int getY() {
+	return y;
+    }
+
+    public void setY(final int y) {
+	this.y = y;
+    }
+
+    public int getVelX() {
+	return velX;
+    }
+
+    public void setVelX(final int velX) {
+	this.velX = velX;
+    }
+
+    public int getVelY() {
+	return velY;
+    }
+
+    public void setVelY(final int velY) {
+	this.velY = velY;
+    }
+
+    public Id getId() {
+	return id;
+    }
+
+    public void setId(final Id id) {
+	this.id = id;
+    }
+
+    public abstract void tick();
+    public abstract void render(Graphics g);
+    public abstract Rectangle getBounds();
 }

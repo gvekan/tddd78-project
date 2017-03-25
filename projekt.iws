@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df068188-c51e-47d2-bc69-d637a0eb95f6" name="Default" comment="" />
+    <list default="true" id="df068188-c51e-47d2-bc69-d637a0eb95f6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Controller.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Id.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/KeyAction.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/AbstractGameObject.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/GameComponent$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/GameComponent$ArrowBinding.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/GameComponent$TimerListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/GameComponent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/GameLabel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/Key.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/MainComponent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/MainFrame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/MainLabel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/Vehicle.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/AbstractGameObject.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Key.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainComponent.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/Game.class" afterPath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/Game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/GameObject.class" afterPath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/GameObject.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/Player.class" afterPath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/Player.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projekt.iws" afterPath="$PROJECT_DIR$/projekt.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameObject.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameLabel.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/CollisionHandeler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainFrame.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Window.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainLabel.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Handeler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Vehicle.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/DefaultCollision.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,67 +46,44 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainLabel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainLabel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vehicle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Vehicle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainComponent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameComponent.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="102" column="57" lean-forward="true" selection-start-line="102" selection-start-column="57" selection-end-line="102" selection-end-column="57" />
+            <state relative-caret-position="255">
+              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
               <folding>
-                <element signature="e#1920#1921#0" expanded="true" />
-                <element signature="e#2000#2001#0" expanded="true" />
-                <element signature="e#3189#3190#0" expanded="true" />
-                <element signature="e#3251#3252#0" expanded="true" />
-                <element signature="e#3305#3306#0" expanded="true" />
+                <element signature="e#1427#1428#0" expanded="true" />
+                <element signature="e#1481#1482#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Key.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Key.java">
+      <file leaf-file-name="CollisionHandeler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/CollisionHandeler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            <state relative-caret-position="68">
+              <caret line="4" column="39" lean-forward="false" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultCollision.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/DefaultCollision.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeyAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/KeyAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -85,9 +92,14 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="-34">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="e#2245#2246#0" expanded="true" />
+                <element signature="e#2269#2270#0" expanded="true" />
+                <element signature="e#2902#2903#0" expanded="true" />
+                <element signature="e#2921#2922#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,18 +108,73 @@
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+              <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+              <folding>
+                <element signature="e#325#326#0" expanded="true" />
+                <element signature="e#342#343#0" expanded="true" />
+                <element signature="e#379#380#0" expanded="true" />
+                <element signature="e#398#399#0" expanded="true" />
+                <element signature="e#423#424#0" expanded="true" />
+                <element signature="e#440#441#0" expanded="true" />
+                <element signature="e#477#478#0" expanded="true" />
+                <element signature="e#496#497#0" expanded="true" />
+                <element signature="e#524#525#0" expanded="true" />
+                <element signature="e#544#545#0" expanded="true" />
+                <element signature="e#587#588#0" expanded="true" />
+                <element signature="e#612#613#0" expanded="true" />
+                <element signature="e#640#641#0" expanded="true" />
+                <element signature="e#660#661#0" expanded="true" />
+                <element signature="e#703#704#0" expanded="true" />
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#753#754#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
+                <element signature="e#809#810#0" expanded="true" />
+                <element signature="e#830#831#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Handeler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Handeler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-345">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="e#565#566#0" expanded="true" />
+                <element signature="e#608#609#0" expanded="true" />
+                <element signature="e#668#669#0" expanded="true" />
+                <element signature="e#714#715#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Window.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainFrame.java">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="136">
+              <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+              <folding>
+                <element signature="e#2053#2054#0" expanded="true" />
+                <element signature="e#2104#2105#0" expanded="true" />
+                <element signature="e#2135#2136#0" expanded="true" />
+                <element signature="e#2186#2187#0" expanded="true" />
+                <element signature="e#2217#2218#0" expanded="true" />
+                <element signature="e#2268#2269#0" expanded="true" />
+                <element signature="e#2300#2301#0" expanded="true" />
+                <element signature="e#2351#2352#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,9 +184,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
         <option value="Interface" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -141,20 +208,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Edge.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/SpeedBoost.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/SnakeDirection.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GroundType.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/SquareType.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Plain.java" />
-        <option value="$PROJECT_DIR$/readme.txt" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameObject.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Powerup.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Strip.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/StripObject.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/AbstractStripObject.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/PointMultiplier.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/CollisionHandeler.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Car.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/AbstractBoardObject.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Obstacle.java" />
@@ -166,15 +223,12 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Input.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Keys.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/KeyEvent.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Controller.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/TestGame.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/NewArrowTest.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/BoardObject.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent2.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameFrame2.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameFrame.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Struktur/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Struktur/MainComponent.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Struktur/Vehicle.java" />
@@ -187,11 +241,24 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Struktur/AbstractGameObject.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Struktur/notinuse/Vehicle.java" />
         <option value="$PROJECT_DIR$/src/Hej/AbstractGameObject.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/AbstractGameObject.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameKey.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Direction.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Key.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/AbstractGameObject.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameObjectType.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Id.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Handeler.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/CollisionHandeler.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/DefaultCollision.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Window.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Controlls.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/KeyAction.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/KeyInput.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Controller.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java" />
       </list>
     </option>
   </component>
@@ -224,6 +291,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -256,8 +325,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -278,11 +345,11 @@
       <recent name="D:\users\Gustav\Documents\IdeaProjects\TDDD78\projekt" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GameComponent (1)">
+  <component name="RunManager" selected="Application.Game">
     <configuration default="false" name="TestGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="se.liu.ida.gusan092.tddd78.project.*" />
+          <option name="PATTERN" value="se.liu.ida.gusan092.tddd78.project.Id" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -302,7 +369,7 @@
     <configuration default="false" name="GameComponent2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="se.liu.ida.gusan092.tddd78.project.*" />
+          <option name="PATTERN" value="se.liu.ida.gusan092.tddd78.project.Id" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -322,7 +389,7 @@
     <configuration default="false" name="GameComponent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="se.liu.ida.gusan092.tddd78.project.*" />
+          <option name="PATTERN" value="se.liu.ida.gusan092.tddd78.project.Id" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -339,14 +406,34 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="GameComponent (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="GameComponent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="se.liu.ida.gusan092.tddd78.project.*" />
+          <option name="PATTERN" value="se.liu.ida.gusan092.tddd78.project.Id" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="se.liu.ida.gusan092.tddd78.project.GameComponent" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="projekt" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="se.liu.ida.gusan092.tddd78.project.Id" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="se.liu.ida.gusan092.tddd78.project.Game" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -739,18 +826,20 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.TestGame" />
       <item index="1" class="java.lang.String" itemvalue="Application.GameComponent2" />
       <item index="2" class="java.lang.String" itemvalue="Application.GameComponent" />
-      <item index="3" class="java.lang.String" itemvalue="Application.GameComponent (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Application.GameComponent" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Game" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.GameComponent (1)" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.Game" />
         <item index="1" class="java.lang.String" itemvalue="Application.GameComponent" />
-        <item index="2" class="java.lang.String" itemvalue="Application.TestGame" />
-        <item index="3" class="java.lang.String" itemvalue="Application.GameComponent2" />
+        <item index="2" class="java.lang.String" itemvalue="Application.GameComponent" />
+        <item index="3" class="java.lang.String" itemvalue="Application.TestGame" />
+        <item index="4" class="java.lang.String" itemvalue="Application.GameComponent2" />
       </list>
     </recent_temporary>
   </component>
@@ -775,12 +864,14 @@
       <workItem from="1488967584327" duration="11123000" />
       <workItem from="1488979422985" duration="1144000" />
       <workItem from="1488997126053" duration="1117000" />
-      <workItem from="1489401373139" duration="5091000" />
+      <workItem from="1489401373139" duration="5447000" />
+      <workItem from="1489406925957" duration="9000" />
+      <workItem from="1490420450137" duration="27196000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51200000" />
+    <option name="totallyTimeSpent" value="78761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -839,8 +930,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -863,16 +954,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/speedBoost.java" />
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/AbstractBoardObject.java" />
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/AbstractSquareType.java" />
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Plain.java" />
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java" />
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/ObjectPixel.java" />
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/StripObjectMaker.java" />
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/PointMultiplier.java" />
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Powerup.java" />
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/CollisionHandeler.java" />
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/AbstractBoardObject.java" />
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Roadwork.java" />
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Ticker.java" />
@@ -880,7 +964,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="17" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="e#2245#2246#0" expanded="true" />
+            <element signature="e#2269#2270#0" expanded="true" />
+            <element signature="e#2902#2903#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -900,19 +989,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent2.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/InputMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
           <caret line="92" column="52" lean-forward="true" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -937,14 +1018,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameFrame2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameFrame2.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/Timer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2761">
@@ -952,22 +1026,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameFrame.java" />
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Vehicle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -979,47 +1039,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Struktur/GameFrame.java" />
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/BoardObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/BoardObject.java" />
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Controller.java" />
     <entry file="file://$PROJECT_DIR$/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/TestGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="37" lean-forward="false" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/TestGame.java" />
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
           <caret line="77" column="35" lean-forward="false" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
-          <folding />
+          <folding>
+            <element signature="e#2245#2246#0" expanded="true" />
+            <element signature="e#2269#2270#0" expanded="true" />
+            <element signature="e#2902#2903#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1031,22 +1078,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent2.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/JComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="1737" column="21" lean-forward="false" selection-start-line="1737" selection-start-column="21" selection-end-line="1737" selection-end-column="21" />
-          <folding>
-            <element signature="e#65158#65159#0" expanded="false" />
-            <element signature="e#65207#65208#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1054,18 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
           <caret line="1288" column="23" lean-forward="false" selection-start-line="1288" selection-start-column="23" selection-end-line="1288" selection-end-column="23" />
-          <folding>
-            <element signature="e#51748#51749#0" expanded="false" />
-            <element signature="e#51793#51794#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/AbstractGameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1073,6 +1097,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Direction.java" />
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="104" column="11" lean-forward="false" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1085,26 +1117,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainLabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1117,31 +1133,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Key.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Direction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/MainLabel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -1149,16 +1141,141 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameComponent.java">
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Id.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="102" column="57" lean-forward="true" selection-start-line="102" selection-start-column="57" selection-end-line="102" selection-end-column="57" />
+        <state relative-caret-position="68">
+          <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/DefaultPlayerCollisionHandeler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="43" lean-forward="false" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
           <folding>
-            <element signature="e#1920#1921#0" expanded="true" />
-            <element signature="e#2000#2001#0" expanded="true" />
-            <element signature="e#3189#3190#0" expanded="true" />
-            <element signature="e#3251#3252#0" expanded="true" />
-            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+            <element signature="e#587#588#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#703#704#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+            <element signature="e#809#810#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Handeler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#608#609#0" expanded="true" />
+            <element signature="e#668#669#0" expanded="true" />
+            <element signature="e#714#715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/CollisionHandeler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="39" lean-forward="false" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/DefaultCollision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/awt/Canvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="83" column="25" lean-forward="false" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/KeyAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="e#2053#2054#0" expanded="true" />
+            <element signature="e#2104#2105#0" expanded="true" />
+            <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#2186#2187#0" expanded="true" />
+            <element signature="e#2217#2218#0" expanded="true" />
+            <element signature="e#2268#2269#0" expanded="true" />
+            <element signature="e#2300#2301#0" expanded="true" />
+            <element signature="e#2351#2352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#2245#2246#0" expanded="true" />
+            <element signature="e#2269#2270#0" expanded="true" />
+            <element signature="e#2902#2903#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding>
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
           </folding>
         </state>
       </provider>
