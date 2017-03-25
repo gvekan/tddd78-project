@@ -7,11 +7,13 @@ public abstract class GameObject
 {
     protected int x, y, velX, velY;
     protected Id id;
+    protected Handeler handeler;
 
-    public GameObject(final int x, final int y, final Id id) {
+    protected GameObject(final int x, final int y, final Id id, final Handeler handeler) {
 	this.x = x;
 	this.y = y;
 	this.id = id;
+	this.handeler = handeler;
     }
 
     public int getX() {

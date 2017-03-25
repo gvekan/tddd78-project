@@ -12,41 +12,49 @@ public class Player extends GameObject
 {
     private int width = 20;
     private int height = 45;
-    private int downTimer;
 
+    private boolean halfTick = true;
 
-    private Handeler handeler;
     private CollisionHandeler collisionHandeler = new DefaultCollision();
 
-    public Player(final int x, final int y, final Id id, Handeler handeler) {
-        super(x, y, id);
-        this.handeler = handeler;
+    private Game game;
+
+    public Player(final int x, final int y, final Id id, Handeler handeler, Game game) {
+        super(x, y, id, handeler);
+        this.game = game;
     }
 
     @Override public void tick() {
         int oldX = x;
         int oldY = y;
-	x = Game.clamp(x + velX,0,Game.WIDTH-width);
-	List<GameObject> collisionsX = handeler.getCollisions(this);
+	if (velY <= 0){
+	    x = Game.clamp(x + velX,0,Game.WIDTH-width);
+	    if (handeler.hasCollision(this)) {
+		x = oldX;
+	    }
+        }
+	/*List<GameObject> collisionsX = handeler.getCollisions(this);
 	if (!collisionsX.isEmpty()) {
 	    x = oldX;
 	    for (GameObject collision:
 		    collisionsX) {
 		collisionHandeler.collision(collision);
 	    }
-	}
-	y = Game.clamp(y + velY,0,Game.HEIGHT-height);
-	List<GameObject> collisionsY = handeler.getCollisions(this);
-	if (!collisionsY.isEmpty()) {
-	    y = oldY;
-	    for (GameObject collision:
-		    collisionsY) {
-	        if (!collisionsX.contains(collision)) {
+	}*/
+	if (velY <= 0 || halfTick) {
+	    y = Game.clamp(y + velY, 0, Game.HEIGHT - height);
+	    List<GameObject> collisionsY = handeler.getCollisions(this);
+	    if (!collisionsY.isEmpty()) {
+		y = oldY;
+		for (GameObject collision : collisionsY) {
+		    collisionHandeler.collision(game, handeler, this, collision);
+	        /*if (!collisionsX.contains(collision)) {
 		    collisionHandeler.collision(collision);
+		}*/
 		}
 	    }
 	}
-
+	halfTick = !halfTick;
     }
 
     @Override public void render(final Graphics g) {

@@ -6,26 +6,28 @@ import java.awt.Canvas;
 import java.awt.image.BufferStrategy;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.util.Random;
 
 public class Game extends Canvas implements Runnable
 {
     public static final int WIDTH = 500, HEIGHT = 750;
 
-    public static final double ACCELERATION = 0.1;
+    public static final double ACCELERATION = 5;
     private static final double MIN_AMOUNT_OF_TICKS = 60.0;
     private double amountOfTicks = MIN_AMOUNT_OF_TICKS;
     private double ns = 1000000000 / amountOfTicks;
     private double speedIncreaser = MIN_AMOUNT_OF_TICKS;
-    public int speed = (int) Math.round(amountOfTicks/2);
 
     private Thread thread;
     private boolean threadRunning = false;
 
+    private Random random = new Random();
 
     private Handeler handeler = new Handeler();
+    private Hud hud = new Hud();
 
     public Game() {
-        Player player = new Player((WIDTH-20)/2,(HEIGHT-45),Id.PLAYER, handeler);
+        Player player = new Player((WIDTH-20)/2,(HEIGHT-45),Id.PLAYER, handeler,this);
 	handeler.addGameObject(player);
         this.addKeyListener(new Controller(player));
 
@@ -50,6 +52,7 @@ public class Game extends Canvas implements Runnable
 
 
     @Override public void run() {
+        this.requestFocus();
         long lastTime = System.nanoTime();
         double delta = 0;
         long timer = System.currentTimeMillis();
@@ -72,11 +75,12 @@ public class Game extends Canvas implements Runnable
                 System.out.println("FPS: " + frames);
                 frames = 0;
 
+		handeler.addGameObject(new Roadblock(random.nextInt(WIDTH-25),Id.ROADBLOCK, handeler));
+
                 speedIncreaser += ACCELERATION;
 		if (speedIncreaser%1 == 0) {
 		    amountOfTicks = speedIncreaser;
 		    ns = 1000000000 / amountOfTicks;
-		    speed = (int) Math.round(amountOfTicks/2);
 		    System.out.println("Amount of ticks: " + amountOfTicks);
 		}
 	    }
@@ -85,6 +89,7 @@ public class Game extends Canvas implements Runnable
 
     private void tick() {
 	handeler.tick();
+	hud.tick();
     }
 
     private void render() {
@@ -100,9 +105,21 @@ public class Game extends Canvas implements Runnable
         g.fillRect(0,0,WIDTH,HEIGHT);
 
         handeler.render(g);
+	hud.render(g);
 
 	g.dispose();
 	bs.show();
+    }
+
+    public void collision(Id collision) {
+        switch (collision) {
+	    case ROADBLOCK:
+	        int crash = (int) Math.round((amountOfTicks - MIN_AMOUNT_OF_TICKS)/2);
+	        amountOfTicks = MIN_AMOUNT_OF_TICKS + crash;
+	        speedIncreaser = amountOfTicks;
+		ns = 1000000000 / amountOfTicks;
+		hud.addHealth(-crash);
+	}
     }
 
     public static int clamp(int variable, int min, int max) {

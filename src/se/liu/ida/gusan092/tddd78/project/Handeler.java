@@ -4,23 +4,26 @@ import java.awt.Rectangle;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.awt.Graphics;
+import java.util.List;
 
 public class Handeler
 {
     private LinkedList<GameObject> gameObjects = new LinkedList<>();
+    //en fori loop bör användas då objekt kan ändras undertiden
 
     public void tick() {
-	for (GameObject go:
-	     gameObjects) {
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject go = gameObjects.get(i);
 	    go.tick();
 	}
     }
 
     public void render(Graphics g) {
-	for (GameObject go:
-	     gameObjects) {
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject go = gameObjects.get(i);
 	    go.render(g);
 	}
     }
@@ -40,27 +43,38 @@ public class Handeler
      * @return first GameObject with the Id
      */
     public GameObject getGameObjectById(Id id) {
-	for (GameObject go:
-	     gameObjects) {
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject go = gameObjects.get(i);
 	    if (go.getId() == id) {
-	        return go;
+		return go;
 	    }
 	}
 	return null;
     }
 
-
-    public ArrayList<GameObject> getCollisions(GameObject go) {
-        ArrayList<GameObject> collisions = new ArrayList<>();
+    public boolean hasCollision(GameObject go) {
         Rectangle r = go.getBounds();
         Id id = go.getId();
-    	for (GameObject test:
-    	     gameObjects) {
-    	    if (test.getId() != id && r.intersects(test.getBounds())) {
-    	        collisions.add(test);
-    	    }
-    	}
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject test = gameObjects.get(i);
+	    if (test.getId() != id && r.intersects(test.getBounds())) {
+		return true;
+	    }
+	}
+    	return false;
+    }
+
+    public List<GameObject> getCollisions(GameObject go) {
+        List<GameObject> collisions = new ArrayList<>();
+        Rectangle r = go.getBounds();
+        Id id = go.getId();
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject test = gameObjects.get(i);
+	    if (test.getId() != id && r.intersects(test.getBounds())) {
+		collisions.add(test);
+	    }
+	}
     	return collisions;
-        }
+    }
 
 }
