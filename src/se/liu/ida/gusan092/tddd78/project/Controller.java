@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class Controller extends KeyAdapter
 {
     private GameObject gameObject;
-    private EnumMap<KeyAction,Integer> keys = new EnumMap<>(KeyAction.class);
+    private EnumMap<KeyAction,Integer> keys = new EnumMap<>(KeyAction.class); //kan ersätrtas med hashmap med <Integer,KeyAction> samt switchar i keyPressed/Released
     private EnumMap<KeyAction,Boolean> pressed = new EnumMap<>(KeyAction.class);
 
     public Controller(final GameObject gameObject) {
