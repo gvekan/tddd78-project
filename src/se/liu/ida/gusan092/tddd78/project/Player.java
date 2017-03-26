@@ -1,8 +1,11 @@
 package se.liu.ida.gusan092.tddd78.project;
 
+import javafx.scene.shape.*;
+
 import java.awt.Graphics2D;
 
 import java.awt.*;
+import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 import java.util.*;
 import java.util.List;
@@ -10,9 +13,6 @@ import java.util.List;
 
 public class Player extends GameObject
 {
-    private int width = 20;
-    private int height = 45;
-
     private boolean halfTick = true;
 
     private CollisionHandeler collisionHandeler = new DefaultCollision();
@@ -20,38 +20,45 @@ public class Player extends GameObject
     private Game game;
 
     public Player(final int x, final int y, final Id id, Handeler handeler, Game game) {
-        super(x, y, id, handeler);
+        super(x, y, 20, 45, id, handeler);
         this.game = game;
     }
 
     @Override public void tick() {
-        int oldX = x;
-        int oldY = y;
-	if (velY <= 0){
-	    x = Game.clamp(x + velX,0,Game.WIDTH-width);
-	    if (handeler.hasCollision(this)) {
-		x = oldX;
+	if (halfTick) {
+	    if (velY <= 0) {
+		x = Game.clamp(x + velX, 0, Game.WIDTH - width);
 	    }
-        }
-	/*List<GameObject> collisionsX = handeler.getCollisions(this);
-	if (!collisionsX.isEmpty()) {
-	    x = oldX;
-	    for (GameObject collision:
-		    collisionsX) {
-		collisionHandeler.collision(collision);
-	    }
-	}*/
-	if (velY <= 0 || halfTick) {
 	    y = Game.clamp(y + velY, 0, Game.HEIGHT - height);
-	    List<GameObject> collisionsY = handeler.getCollisions(this);
-	    if (!collisionsY.isEmpty()) {
-		y = oldY;
-		for (GameObject collision : collisionsY) {
-		    collisionHandeler.collision(game, handeler, this, collision);
-	        /*if (!collisionsX.contains(collision)) {
-		    collisionHandeler.collision(collision);
-		}*/
-		}
+	}
+
+
+	List<GameObject> collisions = handeler.getCollisions(getLeftBound(),id); //hasCollision left
+	if (!collisions.isEmpty()) {
+	    for (int i = 0; i < collisions.size(); i++) {
+		final GameObject collision = collisions.get(i);
+		collisionHandeler.collisionLeft(game, handeler, this, collision);
+	    }
+	}
+	collisions = handeler.getCollisions(getRightBound(),id); //hasCollision right
+	if (!collisions.isEmpty()) {
+	    for (int i = 0; i < collisions.size(); i++) {
+		final GameObject collision = collisions.get(i);
+		collisionHandeler.collisionRight(game, handeler, this, collision);
+	    }
+	}
+	collisions = handeler.getCollisions(getFrontBound(),id); //hasCollision front
+	if (!collisions.isEmpty()) {
+	    for (int i = 0; i < collisions.size(); i++) {
+		final GameObject collision = collisions.get(i);
+		collisionHandeler.collisionFront(game, handeler, this, collision);
+	    }
+	}
+	collisions = handeler.getCollisions(getBackBound(),id); //hasCollision back
+	if (!collisions.isEmpty()) {
+	    for (int i = 0; i < collisions.size(); i++) {
+		final GameObject collision = collisions.get(i);
+		collisionHandeler.collisionBack(game, handeler, this, collision);
 	    }
 	}
 	halfTick = !halfTick;
@@ -64,7 +71,11 @@ public class Player extends GameObject
         g2d.fill(getBounds());
     }
 
-    @Override public Rectangle getBounds() {
-        return new Rectangle(x,y,width,height);
-    }
+    public Rectangle getFrontBound() {return new Rectangle(x+1, y,width-2,1);}
+
+    public Rectangle getBackBound() {return new Rectangle(x+1, y+height-1,width-2,1);}
+
+    public Rectangle getLeftBound() {return new Rectangle(x, y+1,1,height-2);}
+
+    public Rectangle getRightBound() {return new Rectangle(x+width-1, y+1,1,height-2);}
 }

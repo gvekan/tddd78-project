@@ -49,16 +49,28 @@ public class Controller extends KeyAdapter
 	int key = e.getKeyCode();
 	if (key == keys.get(KeyAction.MOVE_UP)) {
 	    pressed.put(KeyAction.MOVE_UP, false);
-	    moveDown();
+	    int velY = gameObject.getVelY();
+	    if (velY < 0 || (pressed.get(KeyAction.MOVE_DOWN) && velY == 0)) {
+		moveDown();
+	    }
 	} else if (key == keys.get(KeyAction.MOVE_DOWN)) {
 	    pressed.put(KeyAction.MOVE_DOWN, false);
-	    moveUp();
+	    int velY = gameObject.getVelY();
+	    if (velY > 0 || (pressed.get(KeyAction.MOVE_UP) && velY == 0)) {
+		moveUp();
+	    }
 	} else if (key == keys.get(KeyAction.MOVE_LEFT)) {
 	    pressed.put(KeyAction.MOVE_LEFT, false);
-	    moveRight();
+	    int velX = gameObject.getVelX();
+	    if (velX < 0 || (pressed.get(KeyAction.MOVE_RIGHT) && velX == 0)) {
+		moveRight();
+	    }
 	} else if (key == keys.get(KeyAction.MOVE_RIGHT)) {
 	    pressed.put(KeyAction.MOVE_RIGHT, false);
-	    moveLeft();
+	    int velX = gameObject.getVelX();
+	    if (velX > 0 || (pressed.get(KeyAction.MOVE_LEFT) && velX == 0)) {
+		moveLeft();
+	    }
 	}
     }
 

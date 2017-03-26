@@ -52,6 +52,27 @@ public class Handeler
 	return null;
     }
 
+    public boolean willHaveCollision(GameObject go) {
+	Rectangle r = go.getBounds();
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject test = gameObjects.get(i);
+	    if (r.intersects(test.getBounds())) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
+    public boolean hasCollision(Rectangle r, Id id) {
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject test = gameObjects.get(i);
+	    if (test.getId() != id && r.intersects(test.getBounds())) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
     public boolean hasCollision(GameObject go) {
         Rectangle r = go.getBounds();
         Id id = go.getId();
@@ -62,6 +83,17 @@ public class Handeler
 	    }
 	}
     	return false;
+    }
+
+    public List<GameObject> getCollisions(Rectangle r, Id id) {
+        List<GameObject> collisions = new ArrayList<>();
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject test = gameObjects.get(i);
+	    if (test.getId() != id && r.intersects(test.getBounds())) {
+		collisions.add(test);
+	    }
+	}
+    	return collisions;
     }
 
     public List<GameObject> getCollisions(GameObject go) {

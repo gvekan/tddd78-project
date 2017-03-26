@@ -13,7 +13,7 @@ public class Game extends Canvas implements Runnable
     public static final int WIDTH = 500, HEIGHT = 750;
 
     public static final double ACCELERATION = 5;
-    private static final double MIN_AMOUNT_OF_TICKS = 60.0;
+    public static final double MIN_AMOUNT_OF_TICKS = 60.0;
     private double amountOfTicks = MIN_AMOUNT_OF_TICKS;
     private double ns = 1000000000 / amountOfTicks;
     private double speedIncreaser = MIN_AMOUNT_OF_TICKS;
@@ -111,15 +111,22 @@ public class Game extends Canvas implements Runnable
 	bs.show();
     }
 
-    public void collision(Id collision) {
-        switch (collision) {
-	    case ROADBLOCK:
-	        int crash = (int) Math.round((amountOfTicks - MIN_AMOUNT_OF_TICKS)/2);
-	        amountOfTicks = MIN_AMOUNT_OF_TICKS + crash;
-	        speedIncreaser = amountOfTicks;
-		ns = 1000000000 / amountOfTicks;
-		hud.addHealth(-crash);
-	}
+    public double getAmountOfTicks() {
+        return amountOfTicks;
+    }
+
+    public void setAmountOfTicks(double amountOfTicks) {
+        this.amountOfTicks = clamp((int)amountOfTicks, (int)MIN_AMOUNT_OF_TICKS, (int)amountOfTicks + 1);
+	speedIncreaser = this.amountOfTicks;
+	ns = 1000000000 / this.amountOfTicks;
+    }
+
+    public void addHealth(int health) {
+        hud.addHealth(health);
+    }
+
+    public void addScore(int score) {
+        hud.addScore(score);
     }
 
     public static int clamp(int variable, int min, int max) {

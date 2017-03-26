@@ -10,13 +10,10 @@ import java.util.List;
 
 public class Roadblock extends GameObject
 {
-
-    public static final int WIDTH = 25;
-    public static final int HEIGHT = 5;
     private boolean halfTick = true;
 
     protected Roadblock(final int x, final Id id, Handeler handeler) {
-	super(x, -HEIGHT, id, handeler);
+	super(x, -5, 25, 5, id, handeler);
 	setVelY(1);
     }
 
@@ -36,9 +33,5 @@ public class Roadblock extends GameObject
 
         g2d.setColor(Color.WHITE);
         g2d.fill(getBounds());
-    }
-
-    @Override public Rectangle getBounds() {
-        return new Rectangle(x, y, WIDTH, HEIGHT);
     }
 }
