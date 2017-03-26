@@ -4,28 +4,11 @@ package se.liu.ida.gusan092.tddd78.project;
 import java.awt.Graphics2D;
 
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
-import java.util.*;
-import java.util.List;
 
-public class Roadblock extends GameObject
+public class Roadblock extends StillObject
 {
-    private boolean halfTick = true;
-
-    protected Roadblock(final int x, final Id id, Handeler handeler) {
-	super(x, -5, 25, 5, id, handeler);
-	setVelY(1);
-    }
-
-    @Override public void tick() {
-        if (y > Game.HEIGHT) {
-            handeler.removeGameObjects(this);
-	}
-        if (halfTick) {
-	    x += velX;
-	    y += velY;
-	}
-	halfTick = !halfTick;
+    protected Roadblock(final int x, final Identity identity, Handeler handeler) {
+	super(x, -5, 25, 5, identity, handeler);
     }
 
     @Override public void render(final Graphics g) {

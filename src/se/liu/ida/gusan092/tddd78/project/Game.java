@@ -24,10 +24,11 @@ public class Game extends Canvas implements Runnable
     private Random random = new Random();
 
     private Handeler handeler = new Handeler();
+    private Handeler environment = new Handeler();
     private Hud hud = new Hud();
 
     public Game() {
-        Player player = new Player((WIDTH-20)/2,(HEIGHT-45),Id.PLAYER, handeler,this);
+        Player player = new Player((WIDTH-20)/2, (HEIGHT-45), Identity.PLAYER, handeler, this);
 	handeler.addGameObject(player);
         this.addKeyListener(new Controller(player));
 
@@ -75,7 +76,7 @@ public class Game extends Canvas implements Runnable
                 System.out.println("FPS: " + frames);
                 frames = 0;
 
-		handeler.addGameObject(new Roadblock(random.nextInt(WIDTH-25),Id.ROADBLOCK, handeler));
+		handeler.addGameObject(new Roadblock(random.nextInt(WIDTH-25), Identity.ROADBLOCK, handeler));
 
                 speedIncreaser += ACCELERATION;
 		if (speedIncreaser%1 == 0) {
@@ -89,6 +90,7 @@ public class Game extends Canvas implements Runnable
 
     private void tick() {
 	handeler.tick();
+	environment.tick();
 	hud.tick();
     }
 
@@ -105,6 +107,7 @@ public class Game extends Canvas implements Runnable
         g.fillRect(0,0,WIDTH,HEIGHT);
 
         handeler.render(g);
+        environment.render(g);
 	hud.render(g);
 
 	g.dispose();

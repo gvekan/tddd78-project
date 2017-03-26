@@ -1,13 +1,9 @@
 package se.liu.ida.gusan092.tddd78.project;
 
-import javafx.scene.shape.*;
-
 import java.awt.Graphics2D;
 
 import java.awt.*;
 import java.awt.Rectangle;
-import java.awt.geom.Rectangle2D;
-import java.util.*;
 import java.util.List;
 
 
@@ -19,8 +15,8 @@ public class Player extends GameObject
 
     private Game game;
 
-    public Player(final int x, final int y, final Id id, Handeler handeler, Game game) {
-        super(x, y, 20, 45, id, handeler);
+    public Player(final int x, final int y, final Identity identity, Handeler handeler, Game game) {
+        super(x, y, 20, 45, identity, handeler);
         this.game = game;
     }
 
@@ -32,33 +28,47 @@ public class Player extends GameObject
 	    y = Game.clamp(y + velY, 0, Game.HEIGHT - height);
 	}
 
+	Rectangle side = getLeftBound();
+	List<GameObject> collisions = handeler.getCollisions(side, identity); //hasCollision left
+	if (!collisions.isEmpty()) {
+	    for (int i = 0; i < collisions.size(); i++) {
+		final GameObject collision = collisions.get(i);
+		if (side.intersects(collision.getBounds())) { // Because a collision can change player
+		    collisionHandeler.collisionLeft(game, handeler, this, collision);
+		}
+	    }
+	}
 
-	List<GameObject> collisions = handeler.getCollisions(getLeftBound(),id); //hasCollision left
+	side = getRightBound();
+	collisions = handeler.getCollisions(side, identity); //hasCollision right
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		collisionHandeler.collisionLeft(game, handeler, this, collision);
+		if (side.intersects(collision.getBounds())) { // Because a collision can change player
+		    collisionHandeler.collisionRight(game, handeler, this, collision);
+		}
 	    }
 	}
-	collisions = handeler.getCollisions(getRightBound(),id); //hasCollision right
+
+	side = getFrontBound();
+	collisions = handeler.getCollisions(side, identity); //hasCollision front
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		collisionHandeler.collisionRight(game, handeler, this, collision);
+		if (side.intersects(collision.getBounds())) { // Because a collision can change player
+		    collisionHandeler.collisionFront(game, handeler, this, collision);
+		}
 	    }
 	}
-	collisions = handeler.getCollisions(getFrontBound(),id); //hasCollision front
+
+	side = getBackBound();
+	collisions = handeler.getCollisions(side, identity); //hasCollision back
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		collisionHandeler.collisionFront(game, handeler, this, collision);
-	    }
-	}
-	collisions = handeler.getCollisions(getBackBound(),id); //hasCollision back
-	if (!collisions.isEmpty()) {
-	    for (int i = 0; i < collisions.size(); i++) {
-		final GameObject collision = collisions.get(i);
-		collisionHandeler.collisionBack(game, handeler, this, collision);
+		if (side.intersects(collision.getBounds())) { // Because a collision can change player
+		    collisionHandeler.collisionBack(game, handeler, this, collision);
+		}
 	    }
 	}
 	halfTick = !halfTick;

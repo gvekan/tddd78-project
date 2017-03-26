@@ -6,15 +6,15 @@ import java.awt.Graphics;
 public abstract class GameObject
 {
     protected int x, y, width, height, velX, velY;
-    protected Id id;
+    protected Identity identity;
     protected Handeler handeler;
 
-    protected GameObject(final int x, final int y, final int width, final int height, final Id id, final Handeler handeler) {
+    protected GameObject(final int x, final int y, final int width, final int height, final Identity identity, final Handeler handeler) {
 	this.x = x;
 	this.y = y;
 	this.width = width;
 	this.height = height;
-	this.id = id;
+	this.identity = identity;
 	this.handeler = handeler;
     }
 
@@ -66,12 +66,12 @@ public abstract class GameObject
 	this.velY = velY;
     }
 
-    public Id getId() {
-	return id;
+    public Identity getIdentity() {
+	return identity;
     }
 
-    public void setId(final Id id) {
-	this.id = id;
+    public void setIdentity(final Identity identity) {
+	this.identity = identity;
     }
 
     public Rectangle getBounds() {

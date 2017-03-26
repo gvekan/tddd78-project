@@ -1,10 +1,7 @@
 package se.liu.ida.gusan092.tddd78.project;
 
 import java.awt.Rectangle;
-import java.awt.geom.Area;
-import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.LinkedList;
 import java.awt.Graphics;
 import java.util.List;
@@ -38,14 +35,14 @@ public class Handeler
 
 
     /**
-     * @param id
+     * @param identity
      *
-     * @return first GameObject with the Id
+     * @return first GameObject with the Identity
      */
-    public GameObject getGameObjectById(Id id) {
+    public GameObject getGameObjectById(Identity identity) {
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject go = gameObjects.get(i);
-	    if (go.getId() == id) {
+	    if (go.getIdentity() == identity) {
 		return go;
 	    }
 	}
@@ -63,10 +60,10 @@ public class Handeler
 	return false;
     }
 
-    public boolean hasCollision(Rectangle r, Id id) {
+    public boolean hasCollision(Rectangle r, Identity identity) {
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (test.getId() != id && r.intersects(test.getBounds())) {
+	    if (test.getIdentity() != identity && r.intersects(test.getBounds())) {
 		return true;
 	    }
 	}
@@ -75,21 +72,21 @@ public class Handeler
 
     public boolean hasCollision(GameObject go) {
         Rectangle r = go.getBounds();
-        Id id = go.getId();
+        Identity identity = go.getIdentity();
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (test.getId() != id && r.intersects(test.getBounds())) {
+	    if (test.getIdentity() != identity && r.intersects(test.getBounds())) {
 		return true;
 	    }
 	}
     	return false;
     }
 
-    public List<GameObject> getCollisions(Rectangle r, Id id) {
+    public List<GameObject> getCollisions(Rectangle r, Identity identity) {
         List<GameObject> collisions = new ArrayList<>();
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (test.getId() != id && r.intersects(test.getBounds())) {
+	    if (test.getIdentity() != identity && r.intersects(test.getBounds())) {
 		collisions.add(test);
 	    }
 	}
@@ -99,10 +96,10 @@ public class Handeler
     public List<GameObject> getCollisions(GameObject go) {
         List<GameObject> collisions = new ArrayList<>();
         Rectangle r = go.getBounds();
-        Id id = go.getId();
+        Identity identity = go.getIdentity();
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (test.getId() != id && r.intersects(test.getBounds())) {
+	    if (test.getIdentity() != identity && r.intersects(test.getBounds())) {
 		collisions.add(test);
 	    }
 	}
