@@ -27,9 +27,9 @@ public class DefaultCollision implements CollisionHandeler
 		    handeler.removeGameObjects(collision);
 		    if (velY <= 0) {
 			if (velY == 0) {
-			    health = increase / 6;
+			    health = increase / 8;
 			} else {
-			    health = increase / 4;
+			    health = increase / 6;
 			}
 			if (health == 0) {
 			    health = 1;

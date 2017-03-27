@@ -91,7 +91,7 @@ public class Game extends Canvas implements Runnable
     private void tick() {
 	handeler.tick();
 	environment.tick();
-	hud.tick();
+	//hud.tick();
     }
 
     private void render() {
@@ -108,7 +108,7 @@ public class Game extends Canvas implements Runnable
 
         handeler.render(g);
         environment.render(g);
-	hud.render(g);
+	//hud.render(g);
 
 	g.dispose();
 	bs.show();
