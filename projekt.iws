@@ -5,14 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/Game.class" afterPath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/Game.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/GameObject.class" afterPath="$PROJECT_DIR$/out/production/projekt/se/liu/ida/gusan092/tddd78/project/GameObject.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projekt.iws" afterPath="$PROJECT_DIR$/projekt.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/DefaultCollision.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/DefaultCollision.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameObject.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/GameObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Roadblock.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Roadblock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/StillObject.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/StillObject.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/CollisionHandeler.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/CollisionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Handeler.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Handler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Hud.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Hud.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +21,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DefaultCollision.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DefaultCollision.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/DefaultCollision.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -58,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Hud.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Hud.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Hud.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -219,7 +212,6 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/KeyAction.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/KeyInput.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Controller.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Hud.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Id.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Identity.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Roadblockv1.java" />
@@ -231,6 +223,7 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Player.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Game.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/DefaultCollision.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Hud.java" />
       </list>
     </option>
   </component>
@@ -935,7 +928,7 @@
       <workItem from="1490420450137" duration="37250000" />
       <workItem from="1490513746962" duration="7254000" />
       <workItem from="1490532849011" duration="12890000" />
-      <workItem from="1490625297168" duration="4657000" />
+      <workItem from="1490625297168" duration="4785000" />
     </task>
     <task id="LOCAL-00001" summary="Ändrat strukturen och håller på att förfina player, finns en bugg då spelaren spawnas för långt ner på rutan">
       <created>1490453599403</created>
@@ -972,11 +965,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490545727994</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Lade in livet och poängen i player klassen ska nästa gång skapa en hud som använder dem värdena">
+      <created>1490635629304</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1490635629304</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113616000" />
+    <option name="totallyTimeSpent" value="113744000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -1073,7 +1073,8 @@
     <MESSAGE value="Fortfarande en bugg med grafiken och livet kanske inte funkar" />
     <MESSAGE value="Har integrerat en mycket bättre collisionhandeler" />
     <MESSAGE value="Förbettrat DefaultCollision ytterligare och skapat stillobject som är en abstarkt klass för objkt som är stilla" />
-    <option name="LAST_COMMIT_MESSAGE" value="Förbettrat DefaultCollision ytterligare och skapat stillobject som är en abstarkt klass för objkt som är stilla" />
+    <MESSAGE value="Lade in livet och poängen i player klassen ska nästa gång skapa en hud som använder dem värdena" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lade in livet och poängen i player klassen ska nästa gång skapa en hud som använder dem värdena" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1294,14 +1295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Hud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -1367,6 +1360,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/Hud.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
