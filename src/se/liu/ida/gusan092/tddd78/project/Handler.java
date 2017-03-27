@@ -6,22 +6,22 @@ import java.util.LinkedList;
 import java.awt.Graphics;
 import java.util.List;
 
-public class Handeler
+public class Handler
 {
-    private LinkedList<GameObject> gameObjects = new LinkedList<>();
+    private List<GameObject> gameObjects = new ArrayList<>();
     //en fori loop bör användas då objekt kan ändras undertiden
 
     public void tick() {
 	for (int i = 0; i < gameObjects.size(); i++) {
-	    final GameObject go = gameObjects.get(i);
-	    go.tick();
+	    final GameObject gameObject = gameObjects.get(i);
+	    gameObject.tick();
 	}
     }
 
     public void render(Graphics g) {
 	for (int i = 0; i < gameObjects.size(); i++) {
-	    final GameObject go = gameObjects.get(i);
-	    go.render(g);
+	    final GameObject gameObject = gameObjects.get(i);
+	    gameObject.render(g);
 	}
     }
 
@@ -41,65 +41,76 @@ public class Handeler
      */
     public GameObject getGameObjectById(Identity identity) {
 	for (int i = 0; i < gameObjects.size(); i++) {
-	    final GameObject go = gameObjects.get(i);
-	    if (go.getIdentity() == identity) {
-		return go;
+	    final GameObject gameObject = gameObjects.get(i);
+	    if (gameObject.getIdentity() == identity) {
+		return gameObject;
 	    }
 	}
 	return null;
     }
 
-    public boolean willHaveCollision(GameObject go) {
-	Rectangle r = go.getBounds();
+    public boolean willHaveCollision(GameObject gameObject) {
+	Rectangle rectangle = gameObject.getBounds();
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (r.intersects(test.getBounds())) {
+	    if (test.hasCollision(rectangle)) {
 		return true;
 	    }
 	}
 	return false;
     }
 
-    public boolean hasCollision(Rectangle r, Identity identity) {
+    public boolean hasCollision(Rectangle rectangle, Identity identity) {
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (test.getIdentity() != identity && r.intersects(test.getBounds())) {
+	    if (test.getIdentity() != identity && test.hasCollision(rectangle)) {
 		return true;
 	    }
 	}
 	return false;
     }
 
-    public boolean hasCollision(GameObject go) {
-        Rectangle r = go.getBounds();
-        Identity identity = go.getIdentity();
+    public boolean hasCollision(GameObject gameObject) {
+        Rectangle rectangle = gameObject.getBounds();
+        Identity identity = gameObject.getIdentity();
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (test.getIdentity() != identity && r.intersects(test.getBounds())) {
+	    if (test.getIdentity() != identity && test.hasCollision(rectangle)) {
 		return true;
 	    }
 	}
     	return false;
     }
 
-    public List<GameObject> getCollisions(Rectangle r, Identity identity) {
+    public List<GameObject> getCollisions(Rectangle rectangle, Identity identity) {
         List<GameObject> collisions = new ArrayList<>();
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (test.getIdentity() != identity && r.intersects(test.getBounds())) {
+	    if (test.getIdentity() != identity && test.hasCollision(rectangle)) {
 		collisions.add(test);
 	    }
 	}
     	return collisions;
     }
 
-    public List<GameObject> getCollisions(GameObject go) {
+    public List<GameObject> getCollisions(Rectangle rectangle, List<Identity> identities) {
         List<GameObject> collisions = new ArrayList<>();
-        Rectangle r = go.getBounds();
-        Identity identity = go.getIdentity();
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (test.getIdentity() != identity && r.intersects(test.getBounds())) {
+	    if (!identities.contains(test.getIdentity()) && test.hasCollision(rectangle)) {
+		collisions.add(test);
+	    }
+	}
+    	return collisions;
+    }
+
+    public List<GameObject> getCollisions(GameObject gameObject) {
+        List<GameObject> collisions = new ArrayList<>();
+        Rectangle rectangle = gameObject.getBounds();
+        Identity identity = gameObject.getIdentity();
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject test = gameObjects.get(i);
+	    if (test.getIdentity() != identity && test.hasCollision(rectangle)) {
 		collisions.add(test);
 	    }
 	}

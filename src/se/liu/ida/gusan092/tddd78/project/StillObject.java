@@ -5,15 +5,15 @@ public abstract class StillObject extends GameObject
     private boolean halfTick = true;
 
     protected StillObject(final int x, final int y, final int width, final int height, final Identity identity,
-			  final Handeler handeler)
+			  final Handler handler)
     {
-	super(x, y, width, height, identity, handeler);
+	super(x, y, width, height, identity, handler);
 	setVelY(1);
     }
 
     @Override public void tick() {
         if (y > Game.HEIGHT) {
-            handeler.removeGameObjects(this);
+            handler.removeGameObjects(this);
 	}
         if (halfTick) {
 	    x += velX;

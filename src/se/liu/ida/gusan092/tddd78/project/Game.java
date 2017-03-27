@@ -23,13 +23,13 @@ public class Game extends Canvas implements Runnable
 
     private Random random = new Random();
 
-    private Handeler handeler = new Handeler();
-    private Handeler environment = new Handeler();
-    private Hud hud = new Hud();
+    private Handler handler = new Handler();
+    private Handler environment = new Handler();
+    //private Hud hud = new Hud();
 
     public Game() {
-        Player player = new Player((WIDTH-20)/2, (HEIGHT-45), Identity.PLAYER, handeler, this);
-	handeler.addGameObject(player);
+        Player player = new Player((WIDTH-20)/2, (HEIGHT-45), Identity.PLAYER, handler, this);
+	handler.addGameObject(player);
         this.addKeyListener(new Controller(player));
 
         new Window(WIDTH,HEIGHT,"Test", this);
@@ -76,7 +76,7 @@ public class Game extends Canvas implements Runnable
                 System.out.println("FPS: " + frames);
                 frames = 0;
 
-		handeler.addGameObject(new Roadblock(random.nextInt(WIDTH-25), Identity.ROADBLOCK, handeler));
+		handler.addGameObject(new Roadblock(random.nextInt(WIDTH - 25), Identity.ROADBLOCK, handler));
 
                 speedIncreaser += ACCELERATION;
 		if (speedIncreaser%1 == 0) {
@@ -89,7 +89,7 @@ public class Game extends Canvas implements Runnable
     }
 
     private void tick() {
-	handeler.tick();
+	handler.tick();
 	environment.tick();
 	//hud.tick();
     }
@@ -106,7 +106,7 @@ public class Game extends Canvas implements Runnable
         g.setColor(Color.BLACK);
         g.fillRect(0,0,WIDTH,HEIGHT);
 
-        handeler.render(g);
+        handler.render(g);
         environment.render(g);
 	//hud.render(g);
 
@@ -122,14 +122,6 @@ public class Game extends Canvas implements Runnable
         this.amountOfTicks = clamp((int)amountOfTicks, (int)MIN_AMOUNT_OF_TICKS, (int)amountOfTicks + 1);
 	speedIncreaser = this.amountOfTicks;
 	ns = 1000000000 / this.amountOfTicks;
-    }
-
-    public void addHealth(int health) {
-        hud.addHealth(health);
-    }
-
-    public void addScore(int score) {
-        hud.addScore(score);
     }
 
     public static int clamp(int variable, int min, int max) {

@@ -1,146 +1,141 @@
 package se.liu.ida.gusan092.tddd78.project;
 
-public class DefaultCollision implements CollisionHandeler
+public class DefaultCollision implements CollisionHandler
 {
-    @Override public void collisionFront(Game game, Handeler handeler, GameObject go, GameObject collision) {
+    @Override public void collisionFront(Game game, Handler handler, GameObject gameObject, GameObject collision) {
 	Identity collisionId = collision.getIdentity();
-	if (collisionId != Identity.ENVIROMENT) {
-	    int velY = go.getVelY();
-	    int health = 0;
-	    int reduction = 0;
-	    int amountOfTicks = (int) game.getAmountOfTicks();
-	    int increase = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
-	    switch (collisionId) {
-		case TRAFFIC_BARRIER:
+	int velY = gameObject.getVelY();
+	int healthChange = 0;
+	int speedChange = 0;
+	int amountOfTicks = (int) game.getAmountOfTicks();
+	int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
+	switch (collisionId) {
+	    case TRAFFIC_BARRIER:
+		if (velY == 0) {
+		    healthChange = -1;
+		} else if (velY < 0) {
+		    healthChange = -speedIncreaseDiff / 4;
+		    if (healthChange == 0) {
+			healthChange = -1;
+		    }
+		}
+		speedChange = healthChange * 2;
+		gameObject.setVelY(0);
+		break;
+	    case ROADBLOCK:
+		handler.removeGameObjects(collision);
+		if (velY <= 0) {
 		    if (velY == 0) {
-			health = 1;
-		    } else if (velY < 0) {
-			health = increase / 4;
-			if (health == 0) {
-			    health = 1;
-			}
-		    }
-		    reduction = health * 2;
-		    go.setVelY(0);
-		    break;
-		case ROADBLOCK:
-		    handeler.removeGameObjects(collision);
-		    if (velY <= 0) {
-			if (velY == 0) {
-			    health = increase / 8;
-			} else {
-			    health = increase / 6;
-			}
-			if (health == 0) {
-			    health = 1;
-			}
-		    }
-		    reduction = health * 2;
-		    if (velY < 0) {
-			go.setVelY(0);
+			healthChange = -speedIncreaseDiff / 8;
 		    } else {
-		        go.setVelY(1);
+			healthChange = -speedIncreaseDiff / 6;
 		    }
-		    break;
-	    }
-	    game.addHealth(-health);
-	    game.setAmountOfTicks(amountOfTicks - reduction);
-	    go.setY(Game.clamp(go.getY() + 1, 0, Game.HEIGHT - go.getHeight()));
+		    if (healthChange == 0) {
+			healthChange = -1;
+		    }
+		}
+		speedChange = healthChange * 2;
+		if (velY < 0) {
+		    gameObject.setVelY(0);
+		} else {
+		    gameObject.setVelY(1);
+		}
+		break;
+	}
+	gameObject.addHealth(healthChange);
+	game.setAmountOfTicks(amountOfTicks + speedChange);
+	gameObject.setY(Game.clamp(gameObject.getY() + 1, 0, Game.HEIGHT - gameObject.getHeight()));
+    }
+
+    @Override
+    public void collisionBack(final Game game, final Handler handler, final GameObject gameObject, final GameObject collision) {
+	Identity collisionId = collision.getIdentity();
+	int velY = gameObject.getVelY();
+	switch (collisionId) {
+	    case TRAFFIC_BARRIER: //Backcollision can only happen from the side
+	    case ROADBLOCK: //Backcollision can only happen from the side
+		int velX = gameObject.getVelX();
+		if (velX < 0) {
+		    collisionLeft(game, handler, gameObject, collision);
+		} else if (velX > 0) {
+		    collisionRight(game, handler, gameObject, collision);
+		}
+		break;
 	}
     }
 
     @Override
-    public void collisionBack(final Game game, final Handeler handeler, final GameObject go, final GameObject collision) {
+    public void collisionLeft(final Game game, final Handler handler, final GameObject gameObject, final GameObject collision) {
 	Identity collisionId = collision.getIdentity();
 	if (collisionId != Identity.ENVIROMENT) {
-	    int velY = go.getVelY();
-	    switch (collisionId) {
-		case TRAFFIC_BARRIER: //Backcollision can only happen from the side
-		case ROADBLOCK: //Backcollision can only happen from the side
-		    int velX = go.getVelX();
-		    if (velX < 0) {
-			collisionLeft(game, handeler, go, collision);
-		    } else if (velX > 0) {
-			collisionRight(game, handeler, go, collision);
-		    }
-		    break;
-	    }
-	}
-    }
-
-    @Override
-    public void collisionLeft(final Game game, final Handeler handeler, final GameObject go, final GameObject collision) {
-	Identity collisionId = collision.getIdentity();
-	if (collisionId != Identity.ENVIROMENT) {
-	    int velX = go.getVelX();
-	    int health = 0;
-	    int reduction = 0;
+	    int velX = gameObject.getVelX();
+	    int healthChange = 0;
+	    int speedChange = 0;
 	    int amountOfTicks = (int) game.getAmountOfTicks();
-	    int increase = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
+	    int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 	    switch (collisionId) {
 		case TRAFFIC_BARRIER:
 		    if (velX >= 0) { //Correct defect because side-collision can not happen if velX == 0
-			collisionFront(game, handeler, go, collision);
+			collisionFront(game, handler, gameObject, collision);
 			break;
 		    }
-		    health = 1;
-		    reduction = 1;
+		    healthChange = -1;
+		    speedChange = -1;
 		    break;
 		case ROADBLOCK:
 		    if (velX >= 0) { //Correct defect because side-collision can not happen if velX == 0
-			collisionFront(game, handeler, go, collision);
+			collisionFront(game, handler, gameObject, collision);
 			break;
 		    }
-		    handeler.removeGameObjects(collision);
-		    health = increase / 8;
-		    if (health == 0) {
-			health = 1;
+		    handler.removeGameObjects(collision);
+		    healthChange = -speedIncreaseDiff / 8;
+		    if (healthChange == 0) {
+			healthChange = -1;
 		    }
-		    reduction = health;
-		    go.setVelX(0);
+		    speedChange = healthChange;
+		    gameObject.setVelX(0);
 		    break;
 	    }
-	    game.addHealth(-health);
-	    game.setAmountOfTicks(amountOfTicks - reduction);
-	    go.setX(Game.clamp(go.getX() + 1, 0, Game.HEIGHT - go.getHeight()));
+	    gameObject.addHealth(healthChange);
+	    game.setAmountOfTicks(amountOfTicks + speedChange);
+	    gameObject.setX(Game.clamp(gameObject.getX() + 1, 0, Game.HEIGHT - gameObject.getHeight()));
 	}
     }
 
     @Override
-    public void collisionRight(final Game game, final Handeler handeler, final GameObject go, final GameObject collision) {
+    public void collisionRight(final Game game, final Handler handler, final GameObject gameObject, final GameObject collision) {
 	Identity collisionId = collision.getIdentity();
-	if (collisionId != Identity.ENVIROMENT) {
-	    int velX = go.getVelX();
-	    int health = 0;
-	    int reduction = 0;
-	    int amountOfTicks = (int) game.getAmountOfTicks();
-	    int increase = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
-	    switch (collisionId) {
-		case TRAFFIC_BARRIER:
-		    if (velX <= 0) { //Correct defect because side-collision can not happen if velX == 0
-			collisionFront(game, handeler, go, collision);
-			break;
-		    }
-		    health = 1;
-		    reduction = 1;
+	int velX = gameObject.getVelX();
+	int healthChange = 0;
+	int speedChange = 0;
+	int amountOfTicks = (int) game.getAmountOfTicks();
+	int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
+	switch (collisionId) {
+	    case TRAFFIC_BARRIER:
+		if (velX <= 0) { //Correct defect because side-collision can not happen if velX == 0
+		    collisionFront(game, handler, gameObject, collision);
 		    break;
-		case ROADBLOCK:
-		    if (velX <= 0) { //Correct defect because side-collision can not happen if velX == 0
-			collisionFront(game, handeler, go, collision);
-			break;
-		    }
-		    handeler.removeGameObjects(collision);
-		    health = increase / 8;
-		    if (health == 0) {
-			health = 1;
-		    }
-		    reduction = health;
-		    go.setVelX(0);
+		}
+		healthChange = -1;
+		speedChange = -1;
+		break;
+	    case ROADBLOCK:
+		if (velX <= 0) { //Correct defect because side-collision can not happen if velX == 0
+		    collisionFront(game, handler, gameObject, collision);
 		    break;
-	    }
-	    game.addHealth(-health);
-	    game.setAmountOfTicks(amountOfTicks - reduction);
-	    go.setX(Game.clamp(go.getX() - 1, 0, Game.HEIGHT - go.getHeight()));
+		}
+		handler.removeGameObjects(collision);
+		healthChange = -speedIncreaseDiff / 8;
+		if (healthChange == 0) {
+		    healthChange = -1;
+		}
+		speedChange = healthChange;
+		gameObject.setVelX(0);
+		break;
 	}
+	gameObject.addHealth(healthChange);
+	game.setAmountOfTicks(amountOfTicks + speedChange);
+	gameObject.setX(Game.clamp(gameObject.getX() - 1, 0, Game.HEIGHT - gameObject.getHeight()));
+
     }
 }

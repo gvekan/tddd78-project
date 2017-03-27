@@ -5,17 +5,28 @@ import java.awt.Graphics;
 
 public abstract class GameObject
 {
-    protected int x, y, width, height, velX, velY;
+    protected int x, y, width, height, velX, velY, maxHealth, health, score = 0;
     protected Identity identity;
-    protected Handeler handeler;
+    protected Handler handler;
 
-    protected GameObject(final int x, final int y, final int width, final int height, final Identity identity, final Handeler handeler) {
+    protected GameObject(final int x, final int y, final int width, final int height, final Identity identity, final Handler handler) {
 	this.x = x;
 	this.y = y;
 	this.width = width;
 	this.height = height;
 	this.identity = identity;
-	this.handeler = handeler;
+	this.handler = handler;
+    }
+
+    protected GameObject(final int x, final int y, final int width, final int height, final int maxHealth, final Identity identity, final Handler handler) {
+	this.x = x;
+	this.y = y;
+	this.width = width;
+	this.height = height;
+	this.maxHealth = maxHealth;
+	health = maxHealth;
+	this.identity = identity;
+	this.handler = handler;
     }
 
     public int getX() {
@@ -66,6 +77,38 @@ public abstract class GameObject
 	this.velY = velY;
     }
 
+    public int getMaxHealth() {
+	return maxHealth;
+    }
+
+    public void setMaxHealth(final int maxHealth) {
+	this.maxHealth = maxHealth;
+    }
+
+    public int getHealth() {
+	return health;
+    }
+
+    public void setHealth(final int health) {
+	this.health = Game.clamp(health,0,maxHealth);
+    }
+
+    public void addHealth(int health) {
+	this.health = Game.clamp(this.health + health,0,maxHealth);
+    }
+
+    public int getScore() {
+	return score;
+    }
+
+    public void setScore(final int score) {
+	this.score = score;
+    }
+
+    public void addScore(int score) {
+        this.score = Game.clamp(this.score + score, 0, this.score + score + 1);
+    }
+
     public Identity getIdentity() {
 	return identity;
     }
@@ -76,6 +119,10 @@ public abstract class GameObject
 
     public Rectangle getBounds() {
 	return new Rectangle(x, y, width, height);
+    }
+
+    public boolean hasCollision(Rectangle r) {
+        return r.intersects(getBounds());
     }
 
     public abstract void tick();

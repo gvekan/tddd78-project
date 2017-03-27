@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 
 import java.awt.*;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,18 +12,20 @@ public class Player extends GameObject
 {
     private boolean halfTick = true;
 
-    private CollisionHandeler collisionHandeler = new DefaultCollision();
+    private CollisionHandler collisionHandler = new DefaultCollision();
 
     private Game game;
 
-    public static final int HEALTH = 200;
-    private int health = HEALTH;
     private int scorePerHalfTick = 1;
-    private int score = 0;
+    private List<Identity> noCollisionIdentities = new ArrayList<>();
 
-    public Player(final int x, final int y, final Identity identity, Handeler handeler, Game game) {
-        super(x, y, 20, 45, identity, handeler);
+
+    public Player(final int x, final int y, final Identity identity, Handler handler, Game game) {
+        super(x, y, 20, 45, 200, identity, handler);
         this.game = game;
+        setMaxHealth(200);
+        noCollisionIdentities.add(Identity.ENVIROMENT);
+	noCollisionIdentities.add(identity);
     }
 
     public void setScorePerHalfTick(final int scorePerHalfTick) {
@@ -39,45 +42,45 @@ public class Player extends GameObject
 	}
 
 	Rectangle side = getLeftBound();
-	List<GameObject> collisions = handeler.getCollisions(side, identity); //hasCollision left
+	List<GameObject> collisions = handler.getCollisions(side, noCollisionIdentities); //hasCollision left
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
 		if (side.intersects(collision.getBounds())) { // Because a collision can change player
-		    collisionHandeler.collisionLeft(game, handeler, this, collision);
+		    collisionHandler.collisionLeft(game, handler, this, collision);
 		}
 	    }
 	}
 
 	side = getRightBound();
-	collisions = handeler.getCollisions(side, identity); //hasCollision right
+	collisions = handler.getCollisions(side, noCollisionIdentities); //hasCollision right
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
 		if (side.intersects(collision.getBounds())) { // Because a collision can change player
-		    collisionHandeler.collisionRight(game, handeler, this, collision);
+		    collisionHandler.collisionRight(game, handler, this, collision);
 		}
 	    }
 	}
 
 	side = getFrontBound();
-	collisions = handeler.getCollisions(side, identity); //hasCollision front
+	collisions = handler.getCollisions(side, noCollisionIdentities); //hasCollision front
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
 		if (side.intersects(collision.getBounds())) { // Because a collision can change player
-		    collisionHandeler.collisionFront(game, handeler, this, collision);
+		    collisionHandler.collisionFront(game, handler, this, collision);
 		}
 	    }
 	}
 
 	side = getBackBound();
-	collisions = handeler.getCollisions(side, identity); //hasCollision back
+	collisions = handler.getCollisions(side, noCollisionIdentities); //hasCollision back
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
 		if (side.intersects(collision.getBounds())) { // Because a collision can change player
-		    collisionHandeler.collisionBack(game, handeler, this, collision);
+		    collisionHandler.collisionBack(game, handler, this, collision);
 		}
 	    }
 	}
@@ -90,16 +93,16 @@ public class Player extends GameObject
 	g2d.setColor(Color.CYAN);
 	g2d.fill(getBounds());
 	g.setColor(Color.RED);
-	g.fillRect((Game.WIDTH-HEALTH)/2,Game.HEIGHT-100, HEALTH, 25);
+	g.fillRect((Game.WIDTH-maxHealth)/2,Game.HEIGHT-100, maxHealth, 25);
 	g.setColor(Color.GREEN);
-	g.fillRect((Game.WIDTH-HEALTH)/2,Game.HEIGHT-100, health,25);
+	g.fillRect((Game.WIDTH-maxHealth)/2,Game.HEIGHT-100, health,25);
 
 	g.setColor(Color.WHITE);
-	g.drawString("Score: " + score,(Game.WIDTH+HEALTH+40)/2,Game.HEIGHT-80);
+	g.drawString("Score: " + score,(Game.WIDTH+maxHealth+40)/2,Game.HEIGHT-80);
     }
 
     public void addHealth(int health) {
-	this.health = Game.clamp(this.health + health, 0, HEALTH);
+	this.health = Game.clamp(this.health + health, 0, maxHealth);
     }
 
     public void addScore(int score) {

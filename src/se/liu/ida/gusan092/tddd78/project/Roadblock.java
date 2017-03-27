@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class Roadblock extends StillObject
 {
-    protected Roadblock(final int x, final Identity identity, Handeler handeler) {
-	super(x, -5, 25, 5, identity, handeler);
+    protected Roadblock(final int x, final Identity identity, Handler handler) {
+	super(x, -5, 25, 5, identity, handler);
     }
 
     @Override public void render(final Graphics g) {
