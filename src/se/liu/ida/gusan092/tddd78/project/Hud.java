@@ -4,5 +4,6 @@ import java.awt.Graphics;
 
 public interface Hud
 {
+    public void maxTick();
     public void render(Graphics g);
 }

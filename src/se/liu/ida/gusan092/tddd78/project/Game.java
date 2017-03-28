@@ -25,12 +25,13 @@ public class Game extends Canvas implements Runnable
 
     private Handler handler = new Handler();
     private Handler environment = new Handler();
-    //private Hud hud = new Hud();
+    private Hud hud;
 
     public Game() {
-        Player player = new Player((WIDTH-20)/2, (HEIGHT-45), Identity.PLAYER, handler, this);
-	handler.addGameObject(player);
+        Player player = new Player((WIDTH-20)/2, (HEIGHT-45), handler, this);
+	handler.add(player);
         this.addKeyListener(new Controller(player));
+        hud = new PlayerHud(player, this);
 
         new Window(WIDTH,HEIGHT,"Test", this);
 
@@ -67,6 +68,7 @@ public class Game extends Canvas implements Runnable
                 delta--;
 	    }
 	    if (threadRunning) {
+                maxTick();
                 render();
 	    }
 	    frames++;
@@ -76,7 +78,7 @@ public class Game extends Canvas implements Runnable
                 System.out.println("FPS: " + frames);
                 frames = 0;
 
-		handler.addGameObject(new Roadblock(random.nextInt(WIDTH - 25), Identity.ROADBLOCK, handler));
+		handler.add(new Roadblock(random.nextInt(WIDTH - 25), ObjectType.ROADBLOCK, handler));
 
                 speedIncreaser += ACCELERATION;
 		if (speedIncreaser%1 == 0) {
@@ -91,7 +93,11 @@ public class Game extends Canvas implements Runnable
     private void tick() {
 	handler.tick();
 	environment.tick();
-	//hud.tick();
+    }
+
+    private void maxTick() {
+        handler.maxTick();
+        hud.maxTick();
     }
 
     private void render() {
@@ -108,7 +114,7 @@ public class Game extends Canvas implements Runnable
 
         handler.render(g);
         environment.render(g);
-	//hud.render(g);
+	hud.render(g);
 
 	g.dispose();
 	bs.show();

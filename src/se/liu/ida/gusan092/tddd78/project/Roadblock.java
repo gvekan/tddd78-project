@@ -7,8 +7,16 @@ import java.awt.*;
 
 public class Roadblock extends StillObject
 {
-    protected Roadblock(final int x, final Identity identity, Handler handler) {
-	super(x, -5, 25, 5, identity, handler);
+    protected Roadblock(final int x, final ObjectType objectType, Handler handler) {
+	super(x, -5, 25, 5, objectType, handler);
+    }
+
+    @Override public void collision(final GameObject collision, final Side side) {
+        handler.remove(this);
+    }
+
+    @Override public void maxTick() {
+
     }
 
     @Override public void render(final Graphics g) {

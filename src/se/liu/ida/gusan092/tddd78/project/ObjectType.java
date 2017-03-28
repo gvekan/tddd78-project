@@ -1,6 +1,6 @@
 package se.liu.ida.gusan092.tddd78.project;
 
-public enum Identity
+public enum ObjectType
 {
     PLAYER,
     ROADBLOCK,
