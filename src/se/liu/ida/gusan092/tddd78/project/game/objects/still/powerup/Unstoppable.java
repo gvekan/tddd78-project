@@ -1,4 +1,11 @@
-package se.liu.ida.gusan092.tddd78.project;
+package se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup;
+
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.CollisionHandlerControlled;
+import se.liu.ida.gusan092.tddd78.project.game.Game;
+import se.liu.ida.gusan092.tddd78.project.game.Handler;
+import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
 import java.awt.*;
 
@@ -8,7 +15,7 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
     private long timer = 0;
     private int countdown = 5;
 
-    protected Unstoppable(final int x, final Handler handler)
+    public Unstoppable(final int x, final Handler handler)
     {
 	super(x, handler, Color.YELLOW);
     }
@@ -26,17 +33,16 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
     @Override public void collision(final Game game, final Handler handler, final ControlledObject controlledObject,
 				    final GameObject collision, final Side side)
     {
-        switch (collision.getObjectType()) {
+        switch (collision.getType()) {
 	    case TRAFFIC_BARRIER:
 	    case ROADBLOCK:
 	        handler.remove(collision);
 	        controlledObject.addScore(100);
 	}
-
     }
 
-    @Override public void collisionControlled(final Game game, final Handler handler, final ControlledObject controlledObject,
-					      final GameObject collision, final Side side)
+    @Override public void collisionActivated(final Game game, final Handler handler, final ControlledObject controlledObject,
+					     final GameObject collision, final Side side)
     {
 
     }

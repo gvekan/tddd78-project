@@ -1,5 +1,15 @@
-package se.liu.ida.gusan092.tddd78.project;
+package se.liu.ida.gusan092.tddd78.project.game;
 
+
+import se.liu.ida.gusan092.tddd78.project.game.hud.Hud;
+import se.liu.ida.gusan092.tddd78.project.game.hud.PlayerHud;
+import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Ammo;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Unstoppable;
+import se.liu.ida.gusan092.tddd78.project.gui.Window;
 
 import java.awt.Canvas;
 
@@ -28,14 +38,14 @@ public class Game extends Canvas implements Runnable
     private Hud hud;
 
     public Game() {
-        Player player = new Player((WIDTH-20)/2, (HEIGHT-45), handler, this);
+        Player player = new Player((WIDTH - 20) / 2, (HEIGHT - 45), handler, this);
 	handler.add(player);
         this.addKeyListener(new Controller(player));
         hud = new PlayerHud(player, this);
 
-        new Window(WIDTH,HEIGHT,"Test", this);
+        new Window(WIDTH, HEIGHT, "Test", this);
 
-	handler.add(new Unstoppable(random.nextInt(WIDTH - 25), handler));
+	handler.add(new Ammo(random.nextInt(WIDTH - 25), handler));
 
     }
 
@@ -80,7 +90,7 @@ public class Game extends Canvas implements Runnable
                 System.out.println("FPS: " + frames);
                 frames = 0;
 
-		handler.add(new Roadblock(random.nextInt(WIDTH - 25), ObjectType.ROADBLOCK, handler));
+		handler.add(new Roadblock(random.nextInt(WIDTH - 25), Type.ROADBLOCK, handler));
 
                 speedIncreaser += ACCELERATION;
 		if (speedIncreaser%1 == 0) {
@@ -93,11 +103,12 @@ public class Game extends Canvas implements Runnable
     }
 
     private void tick() {
-	handler.tick();
 	environment.tick();
+	handler.tick();
     }
 
     private void maxTick() {
+        environment.maxTick();
         handler.maxTick();
         hud.maxTick();
     }
@@ -114,8 +125,8 @@ public class Game extends Canvas implements Runnable
         g.setColor(Color.BLACK);
         g.fillRect(0,0,WIDTH,HEIGHT);
 
+	environment.render(g);
         handler.render(g);
-        environment.render(g);
 	hud.render(g);
 
 	g.dispose();
@@ -132,6 +143,10 @@ public class Game extends Canvas implements Runnable
 	ns = 1000000000 / this.amountOfTicks;
     }
 
+    public Handler getEnvironment() {
+        return environment;
+    }
+
     public static int clamp(int variable, int min, int max) {
         if (variable >= max) {
             return max;
@@ -141,6 +156,7 @@ public class Game extends Canvas implements Runnable
 	    return variable;
 	}
     }
+
 
     public static void main(String[] args) {
 	new Game();

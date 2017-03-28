@@ -1,4 +1,10 @@
-package se.liu.ida.gusan092.tddd78.project;
+package se.liu.ida.gusan092.tddd78.project.game.objects.controlled;
+
+import se.liu.ida.gusan092.tddd78.project.game.Game;
+import se.liu.ida.gusan092.tddd78.project.game.Handler;
+import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 
 public class ControlledCollision implements CollisionHandlerControlled
 {
@@ -22,8 +28,8 @@ public class ControlledCollision implements CollisionHandlerControlled
 	}
     }
 
-    @Override public void collisionControlled(final Game game, final Handler handler, final ControlledObject controlledObject,
-				    final GameObject collision, final Side side)
+    @Override public void collisionActivated(final Game game, final Handler handler, final ControlledObject controlledObject,
+					     final GameObject collision, final Side side)
     {
 
     }
@@ -31,7 +37,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 
     public void collisionFront(Game game, Handler handler, ControlledObject controlledObject, GameObject collision) {
         Side side = Side.FRONT;
-	ObjectType collisionId = collision.getObjectType();
+	Type collisionId = collision.getType();
 	int velY = controlledObject.getVelY();
 	int healthChange = 0;
 	int speedChange = 0;
@@ -81,7 +87,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 
     public void collisionBack(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
 	Side side = Side.BACK;
-	ObjectType collisionId = collision.getObjectType();
+	Type collisionId = collision.getType();
 	int velY = controlledObject.getVelY();
 	switch (collisionId) {
 	    case TRAFFIC_BARRIER: //Backcollision can only happen from the side
@@ -101,7 +107,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 
     public void collisionLeft(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
 	Side side = Side.LEFT;
-	ObjectType collisionId = collision.getObjectType();
+	Type collisionId = collision.getType();
 	int velX = controlledObject.getVelX();
 	int healthChange = 0;
 	int speedChange = 0;
@@ -142,7 +148,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 
     public void collisionRight(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
 	Side side = Side.RIGHT;
-	ObjectType collisionId = collision.getObjectType();
+	Type collisionId = collision.getType();
 	int velX = controlledObject.getVelX();
 	int healthChange = 0;
 	int speedChange = 0;

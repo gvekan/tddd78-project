@@ -1,25 +1,27 @@
-package se.liu.ida.gusan092.tddd78.project;
+package se.liu.ida.gusan092.tddd78.project.game;
+
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.EnumMap;
-import java.util.HashMap;
 
 public class Controller extends KeyAdapter
 {
-    private GameObject gameObject;
+    private ControlledObject controlledObject;
     private EnumMap<KeyAction,Integer> keys = new EnumMap<>(KeyAction.class); //kan ersätrtas med hashmap med <Integer,KeyAction> samt switchar i keyPressed/Released
     private EnumMap<KeyAction,Boolean> pressed = new EnumMap<>(KeyAction.class);
 
-    public Controller(final GameObject gameObject) {
-	this.gameObject = gameObject;
+    public Controller(final ControlledObject controlledObject) {
+	this.controlledObject = controlledObject;
 	//this.keys = keys;
 
 
-	keys.put(KeyAction.MOVE_UP, KeyEvent.VK_W);
-	keys.put(KeyAction.MOVE_DOWN, KeyEvent.VK_S);
-	keys.put(KeyAction.MOVE_LEFT, KeyEvent.VK_A);
-	keys.put(KeyAction.MOVE_RIGHT, KeyEvent.VK_D);
+	keys.put(KeyAction.MOVE_UP, KeyEvent.VK_UP);
+	keys.put(KeyAction.MOVE_DOWN, KeyEvent.VK_DOWN);
+	keys.put(KeyAction.MOVE_LEFT, KeyEvent.VK_LEFT);
+	keys.put(KeyAction.MOVE_RIGHT, KeyEvent.VK_RIGHT);
+	keys.put(KeyAction.USE_POWERUPS, KeyEvent.VK_SPACE);
 	for (KeyAction keyAction:
 	     keys.keySet()) {
 	    pressed.put(keyAction,false);
@@ -42,6 +44,8 @@ public class Controller extends KeyAdapter
 	} else if (key == keys.get(KeyAction.MOVE_RIGHT) && !pressed.get(KeyAction.MOVE_RIGHT)) {
 	    pressed.put(KeyAction.MOVE_RIGHT, true);
 	    moveRight();
+	} else if (key == keys.get(KeyAction.USE_POWERUPS)) {
+	    controlledObject.usePowerUps();
 	}
     }
 
@@ -49,25 +53,25 @@ public class Controller extends KeyAdapter
 	int key = e.getKeyCode();
 	if (key == keys.get(KeyAction.MOVE_UP)) {
 	    pressed.put(KeyAction.MOVE_UP, false);
-	    int velY = gameObject.getVelY();
+	    int velY = controlledObject.getVelY();
 	    if (velY < 0 || (pressed.get(KeyAction.MOVE_DOWN) && velY == 0)) {
 		moveDown();
 	    }
 	} else if (key == keys.get(KeyAction.MOVE_DOWN)) {
 	    pressed.put(KeyAction.MOVE_DOWN, false);
-	    int velY = gameObject.getVelY();
+	    int velY = controlledObject.getVelY();
 	    if (velY > 0 || (pressed.get(KeyAction.MOVE_UP) && velY == 0)) {
 		moveUp();
 	    }
 	} else if (key == keys.get(KeyAction.MOVE_LEFT)) {
 	    pressed.put(KeyAction.MOVE_LEFT, false);
-	    int velX = gameObject.getVelX();
+	    int velX = controlledObject.getVelX();
 	    if (velX < 0 || (pressed.get(KeyAction.MOVE_RIGHT) && velX == 0)) {
 		moveRight();
 	    }
 	} else if (key == keys.get(KeyAction.MOVE_RIGHT)) {
 	    pressed.put(KeyAction.MOVE_RIGHT, false);
-	    int velX = gameObject.getVelX();
+	    int velX = controlledObject.getVelX();
 	    if (velX > 0 || (pressed.get(KeyAction.MOVE_LEFT) && velX == 0)) {
 		moveLeft();
 	    }
@@ -75,18 +79,18 @@ public class Controller extends KeyAdapter
     }
 
     private void moveUp() {
-	gameObject.setVelY(gameObject.getVelY()-1);
+	controlledObject.setVelY(controlledObject.getVelY() - 1);
     }
 
     private void moveDown() {
-	gameObject.setVelY(gameObject.getVelY()+1);
+	controlledObject.setVelY(controlledObject.getVelY() + 1);
     }
 
     private void moveLeft() {
-	gameObject.setVelX(gameObject.getVelX()-1);
+	controlledObject.setVelX(controlledObject.getVelX() - 1);
     }
 
     private void moveRight() {
-	gameObject.setVelX(gameObject.getVelX()+1);
+	controlledObject.setVelX(controlledObject.getVelX() + 1);
     }
 }

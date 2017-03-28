@@ -1,4 +1,7 @@
-package se.liu.ida.gusan092.tddd78.project;
+package se.liu.ida.gusan092.tddd78.project.game.hud;
+
+import se.liu.ida.gusan092.tddd78.project.game.Game;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
 
 import java.awt.*;
 

@@ -1,4 +1,7 @@
-package se.liu.ida.gusan092.tddd78.project;
+package se.liu.ida.gusan092.tddd78.project.game.objects;
+
+import se.liu.ida.gusan092.tddd78.project.game.Handler;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
 
 import java.awt.Rectangle;
 import java.awt.Graphics;
@@ -6,15 +9,15 @@ import java.awt.Graphics;
 public abstract class GameObject
 {
     protected int x, y, width, height, velX, velY;
-    protected ObjectType objectType;
+    protected Type type;
     protected Handler handler;
 
-    protected GameObject(final int x, final int y, final int width, final int height, final ObjectType objectType, final Handler handler) {
+    protected GameObject(final int x, final int y, final int width, final int height, final Type type, final Handler handler) {
 	this.x = x;
 	this.y = y;
 	this.width = width;
 	this.height = height;
-	this.objectType = objectType;
+	this.type = type;
 	this.handler = handler;
     }
 
@@ -66,12 +69,12 @@ public abstract class GameObject
 	this.velY = velY;
     }
 
-    public ObjectType getObjectType() {
-	return objectType;
+    public Type getType() {
+	return type;
     }
 
-    public void setObjectType(final ObjectType objectType) {
-	this.objectType = objectType;
+    public void setType(final Type type) {
+	this.type = type;
     }
 
     public Rectangle getBounds() {

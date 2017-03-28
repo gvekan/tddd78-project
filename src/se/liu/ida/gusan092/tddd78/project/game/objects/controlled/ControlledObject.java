@@ -1,4 +1,11 @@
-package se.liu.ida.gusan092.tddd78.project;
+package se.liu.ida.gusan092.tddd78.project.game.objects.controlled;
+
+import se.liu.ida.gusan092.tddd78.project.game.Game;
+import se.liu.ida.gusan092.tddd78.project.game.Handler;
+import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -11,14 +18,15 @@ public abstract class ControlledObject extends GameObject
     protected Game game;
     protected CollisionHandlerControlled collisionHandler;
     protected List<PowerUp> powerUps = new ArrayList<>();
-    protected Color color = Color.CYAN;
+    protected Color color;
 
-    protected ControlledObject(final int x, final int y, final int width, final int height, final int maxHealth, final ObjectType objectType,
+    protected ControlledObject(final int x, final int y, final int width, final int height, final int maxHealth, final Type type, Color color,
 			       final Handler handler, final CollisionHandlerControlled collisionHandler, final Game game)
     {
-	super(x, y, width, height, objectType, handler);
+	super(x, y, width, height, type, handler);
 	this.maxHealth = maxHealth;
 	health = maxHealth;
+	this.color = color;
 	this.collisionHandler = collisionHandler;
 	this.game = game;
     }

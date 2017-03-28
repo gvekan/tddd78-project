@@ -1,5 +1,10 @@
-package se.liu.ida.gusan092.tddd78.project;
+package se.liu.ida.gusan092.tddd78.project.game.objects.still;
 
+
+import se.liu.ida.gusan092.tddd78.project.game.Handler;
+import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 
 import java.awt.Graphics2D;
 
@@ -7,8 +12,8 @@ import java.awt.*;
 
 public class Roadblock extends StillObject
 {
-    protected Roadblock(final int x, final ObjectType objectType, Handler handler) {
-	super(x, -5, 25, 5, objectType, handler);
+    public Roadblock(final int x, final Type type, Handler handler) {
+	super(x, -5, 25, 5, type, handler);
     }
 
     @Override public void collision(final GameObject collision, final Side side) {

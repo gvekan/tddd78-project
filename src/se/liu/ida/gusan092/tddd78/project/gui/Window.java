@@ -1,4 +1,6 @@
-package se.liu.ida.gusan092.tddd78.project;
+package se.liu.ida.gusan092.tddd78.project.gui;
+
+import se.liu.ida.gusan092.tddd78.project.game.Game;
 
 import javax.swing.*;
 import java.awt.*;
