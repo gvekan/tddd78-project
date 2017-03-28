@@ -19,12 +19,12 @@ public class Handler
 	}
     }
 
-    public void maxTick() {
-	for (int i = 0; i < controlledObjects.size(); i++) {
-	    final GameObject gameObject = controlledObjects.get(i);
-	    gameObject.maxTick();
-	}
-    }
+/*    public void maxTick() {
+    	for (int i = 0; i < controlledObjects.size(); i++) {
+    	    final GameObject gameObject = controlledObjects.get(i);
+    	    gameObject.maxTick();
+    	}
+        }*/
 
     public void render(Graphics g) {
 	for (int i = 0; i < controlledObjects.size(); i++) {

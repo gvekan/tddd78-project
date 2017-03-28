@@ -19,12 +19,7 @@ public class Ammo extends PowerUp
 	handler.add(new Bullet(controlledObject.getX()+getWidth()/2,controlledObject.getY()-4,handler,controlledObject));
 	ammo--;
 	if (ammo == 0) {
-	    controlledObject.setColor(oldColor);
-	    controlledObject.removePowerUp(this);
+	    reset();
 	}
-    }
-
-    @Override public void maxTick() {
-
     }
 }

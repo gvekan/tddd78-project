@@ -20,10 +20,6 @@ public class Roadblock extends StillObject
         handler.remove(this);
     }
 
-    @Override public void maxTick() {
-
-    }
-
     @Override public void render(final Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
 

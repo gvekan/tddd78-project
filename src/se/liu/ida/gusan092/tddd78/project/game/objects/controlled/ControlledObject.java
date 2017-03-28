@@ -110,10 +110,10 @@ public abstract class ControlledObject extends GameObject
 	powerUp.activate(this);
     }
 
-    @Override public void maxTick() {
+/*    @Override public void maxTick() {
 	for (int i = 0; i < powerUps.size(); i++) {
 	    final PowerUp powerUp = powerUps.get(i);
 	    powerUp.maxTick();
 	}
-    }
+    }*/
 }

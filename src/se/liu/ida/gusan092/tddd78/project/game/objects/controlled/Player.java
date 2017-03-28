@@ -7,6 +7,8 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Trail;
 
+import javax.swing.*;
+import java.awt.event.*;
 import java.awt.Graphics2D;
 
 import java.awt.*;
@@ -14,12 +16,20 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 
 
-public class Player extends ControlledObject
+public class Player extends ControlledObject implements Runnable
 {
     private boolean halfTick = true;
+    private boolean startTimer = true;
+    private long timer;
 
     public Player(final int x, final int y, Handler handler, Game game) {
         super(x, y, 20, 45, 200, Type.PLAYER,Color.CYAN, handler, new ControlledCollision(), game);
+	ActionListener taskPerformer = new ActionListener() {
+	    public void actionPerformed(ActionEvent evt) {
+		System.out.println("hej");
+	    }
+	};
+	new Timer(1000, taskPerformer).start();
     }
 
     @Override public void tick() {
@@ -78,6 +88,18 @@ public class Player extends ControlledObject
 	halfTick = !halfTick;
     }
 
+    /*i@Override public void maxTick() {
+	super.maxTick();
+	f (startTimer) {
+	    timer = System.currentTimeMillis();
+	    startTimer = false;
+	}
+	if (System.currentTimeMillis() - timer > 10) {
+	    timer += 10;
+	    System.out.println("hej");
+	}
+    }*/
+
     @Override public void render(final Graphics g) {
 	Graphics2D g2d = (Graphics2D) g;
 
@@ -92,4 +114,8 @@ public class Player extends ControlledObject
     public Rectangle getLeftBound() {return new Rectangle(x, y+1,1,height-2);}
 
     public Rectangle getRightBound() {return new Rectangle(x+width-1, y+1,1,height-2);}
+
+    @Override public void run() {
+
+    }
 }

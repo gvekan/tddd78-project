@@ -7,13 +7,17 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 {
     private CollisionHandlerControlled oldCollisionHandeler = null;
-    private long timer = 0;
+//    private long timer = 0;
     private int countdown = 5;
+    private Timer timer;
 
     public Unstoppable(final int x, final Handler handler)
     {
@@ -24,6 +28,18 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
         super.activate(controlledObject);
 	oldCollisionHandeler = controlledObject.getCollisionHandler();
 	controlledObject.setCollisionHandler(this);
+	ActionListener taskPerformer = new ActionListener() {
+	    public void actionPerformed(ActionEvent evt) {
+		countdown--;
+		if (countdown == 0) {
+		    controlledObject.setCollisionHandler(oldCollisionHandeler);
+		    reset();
+		    timer.stop();
+		}
+	    }
+	};
+	timer = new Timer(1000, taskPerformer);
+	timer.start();
     }
 
     @Override public void use() {
@@ -47,6 +63,8 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 
     }
 
+
+/*
     @Override public void maxTick() {
         if (countdown == 0) {
 	    controlledObject.setCollisionHandler(oldCollisionHandeler);
@@ -61,5 +79,5 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 	} else if (activated){
 	    timer = System.currentTimeMillis();
 	}
-    }
+    }*/
 }

@@ -91,6 +91,6 @@ public abstract class GameObject
 
     public abstract void collision(GameObject collision, Side side);
     public abstract void tick();
-    public abstract void maxTick();
+//    public abstract void maxTick();
     public abstract void render(Graphics g);
 }

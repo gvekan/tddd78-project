@@ -80,7 +80,7 @@ public class Game extends Canvas implements Runnable
                 delta--;
 	    }
 	    if (threadRunning) {
-                maxTick();
+//                maxTick();
                 render();
 	    }
 	    frames++;
@@ -107,11 +107,11 @@ public class Game extends Canvas implements Runnable
 	handler.tick();
     }
 
-    private void maxTick() {
+/*    private void maxTick() {
         environment.maxTick();
         handler.maxTick();
         hud.maxTick();
-    }
+    }*/
 
     private void render() {
 	BufferStrategy bs = this.getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
@@ -156,7 +156,6 @@ public class Game extends Canvas implements Runnable
 	    return variable;
 	}
     }
-
 
     public static void main(String[] args) {
 	new Game();

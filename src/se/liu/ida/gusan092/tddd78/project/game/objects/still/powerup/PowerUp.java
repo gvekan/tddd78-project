@@ -41,5 +41,11 @@ public abstract class PowerUp extends StillObject
         handler.remove(this);
    	controlledObject.addPowerUp(this);
     }
+
+    protected void reset() {
+	controlledObject.setColor(oldColor);
+	controlledObject.removePowerUp(this);
+    }
+
     public abstract void use();
 }

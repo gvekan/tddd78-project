@@ -42,9 +42,6 @@ public class Trail extends StillObject
 	alpha-=0.03;
     }
 
-    @Override public void maxTick() {
-    }
-
     @Override public void render(final Graphics g) {
 	Graphics2D g2d = (Graphics2D) g;
 
