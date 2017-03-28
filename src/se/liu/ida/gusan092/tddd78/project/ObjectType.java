@@ -7,6 +7,7 @@ public enum ObjectType
     TRAFFIC_BARRIER,
     ROAD,
     SMOKE,
-    POWERUP
+    POWERUP,
+    BULLET
 
 }

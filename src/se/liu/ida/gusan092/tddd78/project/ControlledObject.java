@@ -87,6 +87,13 @@ public abstract class ControlledObject extends GameObject
 	powerUps.remove(powerUp);
     }
 
+    public void usePowerUps(){
+	for (int i = 0; i < powerUps.size(); i++) {
+	    final PowerUp powerUp = powerUps.get(i);
+	    powerUp.use();
+	}
+    }
+
     @Override public void collision(final GameObject collision, final Side side) {
 	collisionHandler.collision(game, handler, this, collision, side);
     }

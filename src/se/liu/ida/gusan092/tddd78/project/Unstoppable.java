@@ -4,28 +4,23 @@ import java.awt.*;
 
 public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 {
-    private ControlledObject controlledObject = null;
     private CollisionHandlerControlled oldCollisionHandeler = null;
-    private Color oldColor = null;
     private long timer = 0;
     private int countdown = 5;
 
     protected Unstoppable(final int x, final Handler handler)
     {
-	super(x, handler);
+	super(x, handler, Color.YELLOW);
     }
 
     @Override public void activate(final ControlledObject controlledObject) {
-	if (!activated) {
-	    activated = true;
-	    this.controlledObject = controlledObject;
-	    oldCollisionHandeler = controlledObject.getCollisionHandler();
-	    controlledObject.setCollisionHandler(this);
-	    oldColor = controlledObject.getColor();
-	    controlledObject.setColor(Color.YELLOW);
-	    handler.remove(this);
-	    controlledObject.addPowerUp(this);
-	}
+        super.activate(controlledObject);
+	oldCollisionHandeler = controlledObject.getCollisionHandler();
+	controlledObject.setCollisionHandler(this);
+    }
+
+    @Override public void use() {
+
     }
 
     @Override public void collision(final Game game, final Handler handler, final ControlledObject controlledObject,
@@ -46,10 +41,6 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 
     }
 
-    @Override public void collision(final GameObject collision, final Side side) {
-        collision.powerUpCollision(this);
-    }
-
     @Override public void maxTick() {
         if (countdown == 0) {
 	    controlledObject.setCollisionHandler(oldCollisionHandeler);
@@ -64,12 +55,5 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 	} else if (activated){
 	    timer = System.currentTimeMillis();
 	}
-    }
-
-    @Override public void render(final Graphics g) {
-	Graphics2D g2d = (Graphics2D) g;
-
-	g2d.setColor(Color.YELLOW);
-	g2d.fill(getBounds());
     }
 }

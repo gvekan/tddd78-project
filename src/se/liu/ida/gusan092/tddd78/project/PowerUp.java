@@ -1,12 +1,38 @@
 package se.liu.ida.gusan092.tddd78.project;
 
+import java.awt.*;
+
 public abstract class PowerUp extends StillObject
 {
     protected boolean activated = false;
+    protected ControlledObject controlledObject = null;
+    protected Color color;
+    protected Color oldColor = null;
 
-    protected PowerUp(final int x, final Handler handler)
+    protected PowerUp(final int x, final Handler handler, Color color)
     {
 	super(x, -20, 20, 20, ObjectType.POWERUP, handler);
+	this.color = color;
     }
-    public abstract void activate(ControlledObject controlledObject);
+
+    @Override public void collision(final GameObject collision, final Side side) {
+        collision.powerUpCollision(this);
+    }
+
+    @Override public void render(final Graphics g) {
+	Graphics2D g2d = (Graphics2D) g;
+
+	g2d.setColor(color);
+	g2d.fill(getBounds());
+    }
+
+    public void activate(ControlledObject controlledObject) {
+        activated = true;
+        this.controlledObject = controlledObject;
+        oldColor = controlledObject.getColor();
+        controlledObject.setColor(color);
+        handler.remove(this);
+   	controlledObject.addPowerUp(this);
+    }
+    public abstract void use();
 }
