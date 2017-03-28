@@ -82,6 +82,10 @@ public abstract class GameObject
         return r.intersects(getBounds());
     }
 
+    public void powerUpCollision(PowerUp powerUp) {
+        handler.remove(powerUp);
+    }
+
     public abstract void collision(GameObject collision, Side side);
     public abstract void tick();
     public abstract void maxTick();

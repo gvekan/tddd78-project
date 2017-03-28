@@ -30,6 +30,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 
 
     public void collisionFront(Game game, Handler handler, ControlledObject controlledObject, GameObject collision) {
+        Side side = Side.FRONT;
 	ObjectType collisionId = collision.getObjectType();
 	int velY = controlledObject.getVelY();
 	int healthChange = 0;
@@ -48,9 +49,9 @@ public class ControlledCollision implements CollisionHandlerControlled
 		}
 		speedChange = healthChange * 2;
 		controlledObject.setVelY(0);
+		controlledObject.setY(Game.clamp(controlledObject.getY() + 1, 0, Game.HEIGHT - controlledObject.getHeight()));
 		break;
 	    case ROADBLOCK:
-		handler.remove(collision);
 		if (velY <= 0) {
 		    if (velY == 0) {
 			healthChange = -speedIncreaseDiff / 8;
@@ -67,15 +68,19 @@ public class ControlledCollision implements CollisionHandlerControlled
 		} else {
 		    controlledObject.setVelY(1);
 		}
-	    	collision.collision(controlledObject, Side.FRONT);
+	    	collision.collision(controlledObject, side);
+		controlledObject.setY(Game.clamp(controlledObject.getY() + 1, 0, Game.HEIGHT - controlledObject.getHeight()));
 		break;
+	    case POWERUP:
+	        collision.collision(controlledObject, side);
+	        break;
 	}
 	controlledObject.addHealth(healthChange);
 	game.setAmountOfTicks(amountOfTicks + speedChange);
-	controlledObject.setY(Game.clamp(controlledObject.getY() + 1, 0, Game.HEIGHT - controlledObject.getHeight()));
     }
 
     public void collisionBack(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
+	Side side = Side.BACK;
 	ObjectType collisionId = collision.getObjectType();
 	int velY = controlledObject.getVelY();
 	switch (collisionId) {
@@ -88,47 +93,55 @@ public class ControlledCollision implements CollisionHandlerControlled
 		    collisionRight(game, handler, controlledObject, collision);
 		}
 		break;
+	    case POWERUP:
+	        collision.collision(controlledObject, side);
+	        break;
 	}
     }
 
     public void collisionLeft(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
+	Side side = Side.LEFT;
 	ObjectType collisionId = collision.getObjectType();
-	if (collisionId != ObjectType.ENVIROMENT) {
-	    int velX = controlledObject.getVelX();
-	    int healthChange = 0;
-	    int speedChange = 0;
-	    int amountOfTicks = (int) game.getAmountOfTicks();
-	    int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
-	    switch (collisionId) {
-		case TRAFFIC_BARRIER:
-		    if (velX >= 0) { //Correct defect because side-collision can not happen if velX == 0
-			collisionFront(game, handler, controlledObject, collision);
-			break;
-		    }
+	int velX = controlledObject.getVelX();
+	int healthChange = 0;
+	int speedChange = 0;
+	int amountOfTicks = (int) game.getAmountOfTicks();
+	int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
+	switch (collisionId) {
+	    case TRAFFIC_BARRIER:
+		if (velX >= 0) { //Correct defect because side-collision can not happen if velX == 0
+		    collisionFront(game, handler, controlledObject, collision);
+		    break;
+		}
+		healthChange = -1;
+		speedChange = -1;
+		controlledObject.setX(Game.clamp(controlledObject.getX() + 1, 0, Game.HEIGHT - controlledObject.getHeight()));
+		break;
+	    case ROADBLOCK:
+		if (velX >= 0) { //Correct defect because side-collision can not happen if velX == 0
+		    collisionFront(game, handler, controlledObject, collision);
+		    break;
+		}
+		healthChange = -speedIncreaseDiff / 8;
+		if (healthChange == 0) {
 		    healthChange = -1;
-		    speedChange = -1;
-		    break;
-		case ROADBLOCK:
-		    if (velX >= 0) { //Correct defect because side-collision can not happen if velX == 0
-			collisionFront(game, handler, controlledObject, collision);
-			break;
-		    }
-		    healthChange = -speedIncreaseDiff / 8;
-		    if (healthChange == 0) {
-			healthChange = -1;
-		    }
-		    speedChange = healthChange;
-		    controlledObject.setVelX(0);
-		    collision.collision(controlledObject, Side.LEFT);
-		    break;
-	    }
-	    controlledObject.addHealth(healthChange);
-	    game.setAmountOfTicks(amountOfTicks + speedChange);
-	    controlledObject.setX(Game.clamp(controlledObject.getX() + 1, 0, Game.HEIGHT - controlledObject.getHeight()));
+		}
+		speedChange = healthChange;
+		controlledObject.setVelX(0);
+		collision.collision(controlledObject, side);
+		controlledObject.setX(Game.clamp(controlledObject.getX() + 1, 0, Game.HEIGHT - controlledObject.getHeight()));
+		break;
+	    case POWERUP:
+	        collision.collision(controlledObject, side);
+	        break;
 	}
+	controlledObject.addHealth(healthChange);
+	game.setAmountOfTicks(amountOfTicks + speedChange);
+
     }
 
     public void collisionRight(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
+	Side side = Side.RIGHT;
 	ObjectType collisionId = collision.getObjectType();
 	int velX = controlledObject.getVelX();
 	int healthChange = 0;
@@ -143,6 +156,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		}
 		healthChange = -1;
 		speedChange = -1;
+		controlledObject.setX(Game.clamp(controlledObject.getX() - 1, 0, Game.HEIGHT - controlledObject.getHeight()));
 		break;
 	    case ROADBLOCK:
 		if (velX <= 0) { //Correct defect because side-collision can not happen if velX == 0
@@ -156,12 +170,15 @@ public class ControlledCollision implements CollisionHandlerControlled
 		}
 		speedChange = healthChange;
 		controlledObject.setVelX(0);
-		collision.collision(controlledObject, Side.RIGHT);
+		collision.collision(controlledObject, side);
+		controlledObject.setX(Game.clamp(controlledObject.getX() - 1, 0, Game.HEIGHT - controlledObject.getHeight()));
 		break;
+	    case POWERUP:
+	        collision.collision(controlledObject, side);
+	        break;
 	}
 	controlledObject.addHealth(healthChange);
 	game.setAmountOfTicks(amountOfTicks + speedChange);
-	controlledObject.setX(Game.clamp(controlledObject.getX() - 1, 0, Game.HEIGHT - controlledObject.getHeight()));
 
     }
 }

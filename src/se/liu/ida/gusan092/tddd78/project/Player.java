@@ -12,7 +12,6 @@ public class Player extends ControlledObject
 {
     private boolean halfTick = true;
 
-
     public Player(final int x, final int y, Handler handler, Game game) {
         super(x, y, 20, 45, 200, ObjectType.PLAYER, handler, new ControlledCollision(), game);
     }
@@ -72,14 +71,10 @@ public class Player extends ControlledObject
 	halfTick = !halfTick;
     }
 
-    @Override public void maxTick() {
-
-    }
-
     @Override public void render(final Graphics g) {
 	Graphics2D g2d = (Graphics2D) g;
 
-	g2d.setColor(Color.CYAN);
+	g2d.setColor(color);
 	g2d.fill(getBounds());
     }
 

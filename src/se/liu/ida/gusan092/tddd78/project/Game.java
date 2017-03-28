@@ -35,6 +35,8 @@ public class Game extends Canvas implements Runnable
 
         new Window(WIDTH,HEIGHT,"Test", this);
 
+	handler.add(new Unstoppable(random.nextInt(WIDTH - 25), handler));
+
     }
 
     public synchronized void start() {
@@ -74,7 +76,7 @@ public class Game extends Canvas implements Runnable
 	    frames++;
 
             if (System.currentTimeMillis() - timer > 1000) {
-                timer += 1000;
+                                timer += 1000;
                 System.out.println("FPS: " + frames);
                 frames = 0;
 

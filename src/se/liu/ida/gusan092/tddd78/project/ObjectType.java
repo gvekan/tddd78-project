@@ -5,5 +5,8 @@ public enum ObjectType
     PLAYER,
     ROADBLOCK,
     TRAFFIC_BARRIER,
-    ENVIROMENT
+    ROAD,
+    SMOKE,
+    POWERUP
+
 }
