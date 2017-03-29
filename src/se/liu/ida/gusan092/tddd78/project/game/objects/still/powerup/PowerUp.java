@@ -22,8 +22,8 @@ public abstract class PowerUp extends StillObject
 	this.color = color;
     }
 
-    @Override public void collisionAsGameObject(final GameObject collision, final Side side) {
-        collision.powerUpCollision(this);
+    @Override public void collisionAsControlled(final ControlledObject collision, final Side side) {
+	collision.powerUpCollision(this);
     }
 
     @Override public void render(final Graphics g) {
