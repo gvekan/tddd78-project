@@ -20,6 +20,7 @@ import java.util.List;
 public class Player extends ControlledObject implements Runnable
 {
     private boolean halfTick = true;
+    public static final int MAX_Y = Game.HEIGHT-100;
 
     public Player(final int x, final int y, Handler handler, Game game) {
         super(x, y, 20, 45, 200, Type.PLAYER,Color.CYAN, handler, new ControlledCollision(), game);
@@ -35,15 +36,24 @@ public class Player extends ControlledObject implements Runnable
 	new Timer(10, taskPerformer).start();*/
     }
 
+    @Override public void setVelY(final int velY) {
+	if (y == MAX_Y && velY > 0) {
+	    this.velY = 0;
+	} else {
+	    this.velY = velY;
+	}
+    }
+
     @Override public void setX(final int x) {
 	this.x = Game.clamp(x, 0, Game.WIDTH - width);
     }
 
     @Override public void setY(final int y) {
-	this.y = Game.clamp(y, 0, Game.HEIGHT - height);
+	this.y = Game.clamp(y, 0, MAX_Y);
     }
 
     @Override public void tick() {
+        setVelY(velY);
 	if (halfTick) {
 	    if (velY <= 0) {
 		score += scorePerPixel - velY;
