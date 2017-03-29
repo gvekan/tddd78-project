@@ -15,9 +15,8 @@ import java.awt.event.ActionListener;
 public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 {
     private CollisionHandlerControlled oldCollisionHandeler = null;
-//    private long timer = 0;
     private int countdown = 5;
-    private Timer timer;
+    private Timer timer = null;
 
     public Unstoppable(final int x, final Handler handler)
     {
@@ -57,8 +56,8 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 	}
     }
 
-    @Override public void collisionActivated(final Game game, final Handler handler, final ControlledObject controlledObject,
-					     final GameObject collision, final Side side)
+    @Override public void collisionWithControlled(final Game game, final Handler handler, final ControlledObject controlledObject,
+						  final ControlledObject collision, final Side side)
     {
 
     }

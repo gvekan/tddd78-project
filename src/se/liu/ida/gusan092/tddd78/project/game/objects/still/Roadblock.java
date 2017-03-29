@@ -5,6 +5,7 @@ import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
 import java.awt.Graphics2D;
 
@@ -16,7 +17,7 @@ public class Roadblock extends StillObject
 	super(x, -5, 25, 5, type, handler);
     }
 
-    @Override public void collision(final GameObject collision, final Side side) {
+    @Override public void collisionAsGameObject(final GameObject collision, final Side side) {
         handler.remove(this);
     }
 

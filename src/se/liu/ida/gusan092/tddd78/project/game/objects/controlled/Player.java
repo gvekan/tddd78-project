@@ -35,14 +35,22 @@ public class Player extends ControlledObject implements Runnable
 	new Timer(10, taskPerformer).start();*/
     }
 
+    @Override public void setX(final int x) {
+	this.x = Game.clamp(x, 0, Game.WIDTH - width);
+    }
+
+    @Override public void setY(final int y) {
+	this.y = Game.clamp(y, 0, Game.HEIGHT - height);
+    }
+
     @Override public void tick() {
 	if (halfTick) {
 	    if (velY <= 0) {
 		score += scorePerPixel - velY;
-		x = Game.clamp(x + velX, 0, Game.WIDTH - width);
+		setX(x + velX);
 		addTrail();
 	    }
-	    y = Game.clamp(y + velY, 0, Game.HEIGHT - height);
+	    setY(y + velY);
 	}
 	controllCollision();
 	halfTick = !halfTick;
@@ -70,7 +78,7 @@ public class Player extends ControlledObject implements Runnable
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		if (side.intersects(collision.getBounds())) { // Because a collision can change player
+		if (side.intersects(collision.getBounds())) { // Because a collisionAsGameObject can change player
 		    collisionHandler.collision(game, handler, this, collision, Side.LEFT);
 		}
 	    }
@@ -81,7 +89,7 @@ public class Player extends ControlledObject implements Runnable
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		if (side.intersects(collision.getBounds())) { // Because a collision can change player
+		if (side.intersects(collision.getBounds())) { // Because a collisionAsGameObject can change player
 		    collisionHandler.collision(game, handler, this, collision, Side.RIGHT);
 		}
 	    }
@@ -92,7 +100,7 @@ public class Player extends ControlledObject implements Runnable
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		if (side.intersects(collision.getBounds())) { // Because a collision can change player
+		if (side.intersects(collision.getBounds())) { // Because a collisionAsGameObject can change player
 		    collisionHandler.collision(game, handler, this, collision, Side.FRONT);
 		}
 	    }
@@ -103,7 +111,7 @@ public class Player extends ControlledObject implements Runnable
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		if (side.intersects(collision.getBounds())) { // Because a collision can change player
+		if (side.intersects(collision.getBounds())) { // Because a collisionAsGameObject can change player
 		    collisionHandler.collision(game, handler, this, collision, Side.BACK);
 		}
 	    }

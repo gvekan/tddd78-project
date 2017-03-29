@@ -3,7 +3,9 @@ package se.liu.ida.gusan092.tddd78.project.game.objects.still;
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
 public abstract class StillObject extends GameObject
 {

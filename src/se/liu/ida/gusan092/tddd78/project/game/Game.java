@@ -41,7 +41,7 @@ public class Game extends Canvas implements Runnable
         Player player = new Player((WIDTH - 20) / 2, (HEIGHT - 100), handler, this);
 	handler.add(player);
         this.addKeyListener(new Controller(player));
-        hud = new PlayerHud(player, this);
+        hud = new PlayerHud(player);
 
 	handler.add(new Unstoppable(random.nextInt(WIDTH - 25), handler));
 

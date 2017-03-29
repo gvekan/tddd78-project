@@ -8,5 +8,5 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 public interface CollisionHandlerControlled
 {
     public void collision(Game game, Handler handler, ControlledObject controlledObject, GameObject collision, Side side);
-    public void collisionActivated(Game game, Handler handler, ControlledObject controlledObject, GameObject collision, Side side);
+    public void collisionWithControlled(Game game, Handler handler, ControlledObject controlledObject, ControlledObject collision, Side side);
 }

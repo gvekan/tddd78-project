@@ -1,6 +1,7 @@
 package se.liu.ida.gusan092.tddd78.project.game.objects;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
 
 import java.awt.Rectangle;
@@ -89,7 +90,12 @@ public abstract class GameObject
         handler.remove(powerUp);
     }
 
-    public abstract void collision(GameObject collision, Side side);
+    public void collisionAsGameObject(GameObject collision, Side side) {
+	throw new AssertionError("Only to be used with gameobjects with collision handler");
+    }
+    public void collisionAsControlled(ControlledObject collision, Side side) {
+	throw new AssertionError("Only to be used with gameobjects with collision handler");
+    }
     public abstract void tick();
 //    public abstract void maxTick();
     public abstract void render(Graphics g);

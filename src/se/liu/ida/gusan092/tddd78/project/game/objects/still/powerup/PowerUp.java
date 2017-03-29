@@ -22,7 +22,7 @@ public abstract class PowerUp extends StillObject
 	this.color = color;
     }
 
-    @Override public void collision(final GameObject collision, final Side side) {
+    @Override public void collisionAsGameObject(final GameObject collision, final Side side) {
         collision.powerUpCollision(this);
     }
 

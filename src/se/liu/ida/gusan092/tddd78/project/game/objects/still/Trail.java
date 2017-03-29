@@ -30,7 +30,7 @@ public class Trail extends StillObject
 	alpha -= 0.5;
     }
 
-    @Override public void collision(final GameObject collision, final Side side) {
+    @Override public void collisionAsGameObject(final GameObject collision, final Side side) {
 
     }
 

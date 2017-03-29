@@ -107,8 +107,12 @@ public abstract class ControlledObject extends GameObject
 	game.getEnvironment().add(new Trail(x, y + height - 1, width, 2 - velY, game.getEnvironment(), this));
     }
 
-    @Override public void collision(final GameObject collision, final Side side) {
-	collisionHandler.collision(game, handler, this, collision, side);
+    @Override public void collisionAsControlled(final ControlledObject collision, final Side side) {
+	collisionHandler.collisionWithControlled(game, handler, this, collision, side);
+    }
+
+    @Override public void collisionAsGameObject(final GameObject collision, final Side side) {
+	collisionHandler.collision(game,handler,this, collision, side);
     }
 
     @Override public void powerUpCollision(final PowerUp powerUp) {
