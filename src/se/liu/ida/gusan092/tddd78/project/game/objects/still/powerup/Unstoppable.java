@@ -20,7 +20,7 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 
     public Unstoppable(final int x, final Handler handler)
     {
-	super(x, handler, Color.YELLOW);
+	super(x, Color.YELLOW, handler);
     }
 
     @Override public void activate(final ControlledObject controlledObject) {

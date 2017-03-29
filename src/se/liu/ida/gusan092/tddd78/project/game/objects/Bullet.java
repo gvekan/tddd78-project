@@ -12,10 +12,9 @@ public class Bullet extends GameObject
 {
     private ControlledObject controlledObject;
 
-    public Bullet(final int x, final int y,
-		     final Handler handler, ControlledObject controlledObject)
+    public Bullet(final int x, final int y, final Handler handler, ControlledObject controlledObject)
     {
-	super(x, y, 3, 3, Type.BULLET, handler);
+	super(x, y, 3, 3, controlledObject.getColor(), Type.BULLET, handler);
 	this.controlledObject = controlledObject;
 	setVelY(-1);
     }
@@ -38,12 +37,5 @@ public class Bullet extends GameObject
 		handler.remove(this);
 	    }
 	}
-    }
-
-    @Override public void render(final Graphics g) {
-	Graphics2D g2d = (Graphics2D) g;
-
-	g2d.setColor(Color.RED);
-	g2d.fill(getBounds());
     }
 }

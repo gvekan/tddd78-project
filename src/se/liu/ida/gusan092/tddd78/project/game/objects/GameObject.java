@@ -4,20 +4,21 @@ import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
 
-import java.awt.Rectangle;
-import java.awt.Graphics;
+import java.awt.*;
 
 public abstract class GameObject
 {
     protected int x, y, width, height, velX, velY;
+    protected Color color;
     protected Type type;
     protected Handler handler;
 
-    protected GameObject(final int x, final int y, final int width, final int height, final Type type, final Handler handler) {
+    protected GameObject(final int x, final int y, final int width, final int height, final Color color, final Type type, final Handler handler) {
 	this.x = x;
 	this.y = y;
 	this.width = width;
 	this.height = height;
+	this.color = color;
 	this.type = type;
 	this.handler = handler;
     }
@@ -70,6 +71,14 @@ public abstract class GameObject
 	this.velY = velY;
     }
 
+    public Color getColor() {
+	return color;
+    }
+
+    public void setColor(final Color color) {
+	this.color = color;
+    }
+
     public Type getType() {
 	return type;
     }
@@ -96,7 +105,13 @@ public abstract class GameObject
     public void collisionAsControlled(ControlledObject collision, Side side) {
 	throw new AssertionError("Only to be used with gameobjects with collision handler");
     }
+
+    public void render(Graphics g) {
+	Graphics2D g2d = (Graphics2D) g;
+	g2d.setColor(color);
+	g2d.fill(getBounds());
+    }
+
     public abstract void tick();
 //    public abstract void maxTick();
-    public abstract void render(Graphics g);
 }

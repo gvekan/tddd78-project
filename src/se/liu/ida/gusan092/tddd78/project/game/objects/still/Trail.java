@@ -20,7 +20,7 @@ public class Trail extends StillObject
     public Trail(final int x, final int y, final int width, final int height, final Handler handler,
 		 final ControlledObject controlledObject)
     {
-	super(x, y, width, height, Type.TRAIL, handler);
+	super(x, y, width, height, controlledObject.getColor(), Type.TRAIL, handler);
 	this.controlledObject = controlledObject;
 	//setX(controlledObject.getX());
 	//setY(controlledObject.getY());
@@ -47,7 +47,7 @@ public class Trail extends StillObject
 
 	g2d.setComposite(makeTransparent(alpha));
 
-	g2d.setColor(controlledObject.getColor());
+	g2d.setColor(color);
 	//g2d.setColor(color);
 	//g2d.fillRect(x+width/5,y,width/5,height);
 	//g2d.fillRect(x+(width/5)*3,y,width/5,height);

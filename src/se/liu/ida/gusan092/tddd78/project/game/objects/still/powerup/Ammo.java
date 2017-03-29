@@ -12,7 +12,7 @@ public class Ammo extends PowerUp
     private int ammo = 10;
 
     public Ammo(final int x, final Handler handler) {
-	super(x, handler, Color.RED);
+	super(x, Color.MAGENTA, handler);
     }
 
     @Override public void use() {

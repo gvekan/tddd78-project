@@ -12,7 +12,6 @@ public class Window
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
         frame.add(game);
         frame.pack();
         frame.setVisible(true);

@@ -19,15 +19,13 @@ public abstract class ControlledObject extends GameObject
     protected Game game;
     protected CollisionHandlerControlled collisionHandler;
     protected List<PowerUp> powerUps = new ArrayList<>();
-    protected Color color;
 
     protected ControlledObject(final int x, final int y, final int width, final int height, final int maxHealth, final Type type, Color color,
 			       final Handler handler, final CollisionHandlerControlled collisionHandler, final Game game)
     {
-	super(x, y, width, height, type, handler);
+	super(x, y, width, height, color, type, handler);
 	this.maxHealth = maxHealth;
 	health = maxHealth;
-	this.color = color;
 	this.collisionHandler = collisionHandler;
 	this.game = game;
     }

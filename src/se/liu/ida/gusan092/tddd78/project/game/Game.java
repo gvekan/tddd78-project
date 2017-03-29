@@ -6,6 +6,7 @@ import se.liu.ida.gusan092.tddd78.project.game.hud.PlayerHud;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Ammo;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Unstoppable;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
 
@@ -38,12 +39,12 @@ public class Game extends Canvas implements Runnable
     private Hud hud;
 
     public Game() {
-        Player player = new Player((WIDTH - 20) / 2, (HEIGHT - 100), handler, this);
+        Player player = new Player((WIDTH - 20) / 2, Player.MAX_Y, handler, this);
 	handler.add(player);
         this.addKeyListener(new Controller(player));
         hud = new PlayerHud(player);
 
-	handler.add(new Unstoppable(random.nextInt(WIDTH - 25), handler));
+	handler.add(new Ammo(random.nextInt(WIDTH - 25), handler));
 
     }
 
@@ -106,11 +107,6 @@ public class Game extends Canvas implements Runnable
 	spawnTimer--;
     }
 
-/*    private void maxTick() {
-        environment.maxTick();
-        handler.maxTick();
-        hud.maxTick();
-    }*/
 
     private void render() {
 	BufferStrategy bs = this.getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
@@ -122,14 +118,14 @@ public class Game extends Canvas implements Runnable
 	Graphics g = bs.getDrawGraphics();
 
         g.setColor(Color.BLACK);
-        g.fillRect(0,0,WIDTH,HEIGHT);
+        g.fillRect(0,0,WIDTH,HEIGHT + hud.getHeight());
 
 	environment.render(g);
         handler.render(g);
 	hud.render(g);
 
 	g.dispose();
-	Toolkit.getDefaultToolkit().sync();
+//	Toolkit.getDefaultToolkit().sync();
 	bs.show();
     }
 

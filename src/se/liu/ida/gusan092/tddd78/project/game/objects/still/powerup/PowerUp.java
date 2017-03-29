@@ -16,21 +16,14 @@ public abstract class PowerUp extends StillObject
     protected Color color;
     protected Color oldColor = null;
 
-    protected PowerUp(final int x, final Handler handler, Color color)
+    protected PowerUp(final int x, final Color color, final Handler handler)
     {
-	super(x, -20, 20, 20, Type.POWERUP, handler);
+	super(x, -20, 20, 20, color, Type.POWERUP, handler);
 	this.color = color;
     }
 
     @Override public void collisionAsControlled(final ControlledObject collision, final Side side) {
 	collision.powerUpCollision(this);
-    }
-
-    @Override public void render(final Graphics g) {
-	Graphics2D g2d = (Graphics2D) g;
-
-	g2d.setColor(color);
-	g2d.fill(getBounds());
     }
 
     public void activate(ControlledObject controlledObject) {
