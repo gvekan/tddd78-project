@@ -41,4 +41,5 @@ public abstract class PowerUp extends StillObject
     }
 
     public abstract void use();
+    public abstract void stop();
 }

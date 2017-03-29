@@ -37,5 +37,8 @@ public class Bullet extends GameObject
 		handler.remove(this);
 	    }
 	}
+	if (y == 0) {
+	    handler.remove(this);
+	}
     }
 }

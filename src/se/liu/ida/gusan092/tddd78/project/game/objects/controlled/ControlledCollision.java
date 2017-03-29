@@ -58,8 +58,11 @@ public class ControlledCollision implements CollisionHandlerControlled
 		    }
 		}
 		speedChange = healthChange * 2;
-		controlledObject.setVelY(0);
-		controlledObject.setY(controlledObject.getY() + 1);
+		int testY = controlledObject.getY() + 1;
+		controlledObject.setY(testY);
+		if (controlledObject.getY() != testY) {
+		    controlledObject.setHealth(0);
+		}
 		break;
 	    case ROADBLOCK:
 		if (velY <= 0) {

@@ -75,7 +75,9 @@ public class Controller extends KeyAdapter
 	    if (velX > 0 || (pressed.get(KeyAction.MOVE_LEFT) && velX == 0)) {
 		moveLeft();
 	    }
-	}
+	} else if (key == keys.get(KeyAction.USE_POWERUPS)) {
+   	    controlledObject.stopPowerUps();
+   	}
     }
 
     private void moveUp() {

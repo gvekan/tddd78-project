@@ -101,6 +101,13 @@ public abstract class ControlledObject extends GameObject
 	}
     }
 
+    public void stopPowerUps(){
+	for (int i = 0; i < powerUps.size(); i++) {
+	    final PowerUp powerUp = powerUps.get(i);
+	    powerUp.stop();
+	}
+    }
+
     protected void addTrail() {
 	game.getEnvironment().add(new Trail(x, y + height - 1, width, 2 - velY, game.getEnvironment(), this));
     }
@@ -113,7 +120,7 @@ public abstract class ControlledObject extends GameObject
 	collisionHandler.collision(game,handler,this, collision, side);
     }
 
-    @Override public void powerUpCollision(final PowerUp powerUp) {
+    public void powerUpCollision(final PowerUp powerUp) {
 	powerUp.activate(this);
     }
 }

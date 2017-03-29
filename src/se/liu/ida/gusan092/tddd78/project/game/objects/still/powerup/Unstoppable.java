@@ -45,6 +45,10 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 
     }
 
+    @Override public void stop() {
+
+    }
+
     @Override public void collision(final Game game, final Handler handler, final ControlledObject controlledObject,
 				    final GameObject collision, final Side side)
     {

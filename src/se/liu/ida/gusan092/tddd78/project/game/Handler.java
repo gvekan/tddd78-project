@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class Handler
 {
-    private List<GameObject> gameObjects = new ArrayList<>();
+    private List<GameObject> gameObjects = new ArrayList<>(1000);
     //en fori loop bör användas då objekt kan ändras undertiden
 
     public void tick() {
@@ -65,8 +65,10 @@ public class Handler
         ArrayList<GameObject> collisions = new ArrayList<>();
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
-	    if (!Objects.equals(test, gameObject) && test.hasCollision(rectangle)) {
-		collisions.add(test);
+	    if (test != null) {
+		if (!Objects.equals(test, gameObject) && test.hasCollision(rectangle)) {
+		    collisions.add(test);
+		}
 	    }
 	}
     	return collisions;

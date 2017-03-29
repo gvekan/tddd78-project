@@ -22,4 +22,8 @@ public class Ammo extends PowerUp
 	    reset();
 	}
     }
+
+    @Override public void stop() {
+
+    }
 }
