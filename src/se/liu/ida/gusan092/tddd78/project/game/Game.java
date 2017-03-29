@@ -28,6 +28,8 @@ public class Game extends Canvas implements Runnable
     private double ns = 1000000000 / amountOfTicks;
     private double speedIncreaser = MIN_AMOUNT_OF_TICKS;
 
+    private int spawnTimer = 0;
+
     private Thread thread;
     private boolean threadRunning = false;
 
@@ -45,7 +47,7 @@ public class Game extends Canvas implements Runnable
 
         new Window(WIDTH, HEIGHT, "Test", this);
 
-	handler.add(new Ammo(random.nextInt(WIDTH - 25), handler));
+	handler.add(new Unstoppable(random.nextInt(WIDTH - 25), handler));
 
     }
 
@@ -80,17 +82,14 @@ public class Game extends Canvas implements Runnable
                 delta--;
 	    }
 	    if (threadRunning) {
-//                maxTick();
                 render();
 	    }
 	    frames++;
 
             if (System.currentTimeMillis() - timer > 1000) {
-                                timer += 1000;
+                timer += 1000;
                 System.out.println("FPS: " + frames);
                 frames = 0;
-
-		handler.add(new Roadblock(random.nextInt(WIDTH - 25), Type.ROADBLOCK, handler));
 
                 speedIncreaser += ACCELERATION;
 		if (speedIncreaser%1 == 0) {
@@ -103,8 +102,13 @@ public class Game extends Canvas implements Runnable
     }
 
     private void tick() {
+        if (spawnTimer == 0) {
+	    handler.add(new Roadblock(random.nextInt(WIDTH - 25), Type.ROADBLOCK, handler));
+	    spawnTimer = 60;
+	}
 	environment.tick();
 	handler.tick();
+	spawnTimer--;
     }
 
 /*    private void maxTick() {
