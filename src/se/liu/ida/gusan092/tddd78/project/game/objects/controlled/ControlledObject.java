@@ -5,6 +5,7 @@ import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.Trail;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
 
 import java.awt.*;
@@ -102,6 +103,10 @@ public abstract class ControlledObject extends GameObject
 	}
     }
 
+    protected void addTrail() {
+	game.getEnvironment().add(new Trail(x, y + height - 1, width, 2 - velY, game.getEnvironment(), this));
+    }
+
     @Override public void collision(final GameObject collision, final Side side) {
 	collisionHandler.collision(game, handler, this, collision, side);
     }
@@ -109,11 +114,4 @@ public abstract class ControlledObject extends GameObject
     @Override public void powerUpCollision(final PowerUp powerUp) {
 	powerUp.activate(this);
     }
-
-/*    @Override public void maxTick() {
-	for (int i = 0; i < powerUps.size(); i++) {
-	    final PowerUp powerUp = powerUps.get(i);
-	    powerUp.maxTick();
-	}
-    }*/
 }

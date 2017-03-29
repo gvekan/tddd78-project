@@ -62,22 +62,4 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
     {
 
     }
-
-
-/*
-    @Override public void maxTick() {
-        if (countdown == 0) {
-	    controlledObject.setCollisionHandler(oldCollisionHandeler);
-	    controlledObject.setColor(oldColor);
-	    controlledObject.removePowerUp(this);
-	}
-	if (timer > 0) {
-	    if (System.currentTimeMillis() - timer > 1000) {
-		timer += 1000;
-		countdown--;
-	    }
-	} else if (activated){
-	    timer = System.currentTimeMillis();
-	}
-    }*/
 }

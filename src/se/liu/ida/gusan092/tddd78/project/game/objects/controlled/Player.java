@@ -7,29 +7,32 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Trail;
 
-import javax.swing.*;
-import java.awt.event.*;
+import javax.swing.Timer;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.awt.Graphics2D;
-
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Color;
 import java.awt.Rectangle;
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class Player extends ControlledObject implements Runnable
 {
     private boolean halfTick = true;
-    private boolean startTimer = true;
-    private long timer;
 
     public Player(final int x, final int y, Handler handler, Game game) {
         super(x, y, 20, 45, 200, Type.PLAYER,Color.CYAN, handler, new ControlledCollision(), game);
-	ActionListener taskPerformer = new ActionListener() {
+/*	ActionListener taskPerformer = new ActionListener() {
 	    public void actionPerformed(ActionEvent evt) {
-		System.out.println("hej");
+		setX(Game.clamp(getX() + getVelX(), 0, Game.WIDTH - getWidth()));
+		if(getVelX() != 0) {
+		    addTrail();
+		}
+		controllCollision();
 	    }
 	};
-	new Timer(1000, taskPerformer).start();
+	new Timer(10, taskPerformer).start();*/
     }
 
     @Override public void tick() {
@@ -37,13 +40,33 @@ public class Player extends ControlledObject implements Runnable
 	    if (velY <= 0) {
 		score += scorePerPixel - velY;
 		x = Game.clamp(x + velX, 0, Game.WIDTH - width);
-		game.getEnvironment().add(new Trail(x, y+height-1, width, 2 - velY, game.getEnvironment(), this));
+		addTrail();
 	    }
 	    y = Game.clamp(y + velY, 0, Game.HEIGHT - height);
 	}
+	controllCollision();
+	halfTick = !halfTick;
+    }
+
+    @Override public void render(final Graphics g) {
+	Graphics2D g2d = (Graphics2D) g;
+
+	g2d.setColor(color);
+	g2d.fill(getBounds());
+    }
+
+    public Rectangle getFrontBound() {return new Rectangle(x+1, y,width-2,1);}
+
+    public Rectangle getBackBound() {return new Rectangle(x+1, y+height-1,width-2,1);}
+
+    public Rectangle getLeftBound() {return new Rectangle(x, y+1,1,height-2);}
+
+    public Rectangle getRightBound() {return new Rectangle(x+width-1, y+1,1,height-2);}
+
+    private void controllCollision() {
 
 	Rectangle side = getLeftBound();
-	ArrayList<GameObject> collisions = handler.getCollisions(side, this); //hasCollision left
+	List<GameObject> collisions = handler.getCollisions(side, this); //hasCollision left
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
@@ -85,35 +108,7 @@ public class Player extends ControlledObject implements Runnable
 		}
 	    }
 	}
-	halfTick = !halfTick;
     }
-
-    /*i@Override public void maxTick() {
-	super.maxTick();
-	f (startTimer) {
-	    timer = System.currentTimeMillis();
-	    startTimer = false;
-	}
-	if (System.currentTimeMillis() - timer > 10) {
-	    timer += 10;
-	    System.out.println("hej");
-	}
-    }*/
-
-    @Override public void render(final Graphics g) {
-	Graphics2D g2d = (Graphics2D) g;
-
-	g2d.setColor(color);
-	g2d.fill(getBounds());
-    }
-
-    public Rectangle getFrontBound() {return new Rectangle(x+1, y,width-2,1);}
-
-    public Rectangle getBackBound() {return new Rectangle(x+1, y+height-1,width-2,1);}
-
-    public Rectangle getLeftBound() {return new Rectangle(x, y+1,1,height-2);}
-
-    public Rectangle getRightBound() {return new Rectangle(x+width-1, y+1,1,height-2);}
 
     @Override public void run() {
 

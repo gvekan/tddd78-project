@@ -3,34 +3,32 @@ package se.liu.ida.gusan092.tddd78.project.game;
 
 import se.liu.ida.gusan092.tddd78.project.game.hud.Hud;
 import se.liu.ida.gusan092.tddd78.project.game.hud.PlayerHud;
-import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Ammo;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Unstoppable;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
 
-import java.awt.Canvas;
+import java.awt.*;
 
 import java.awt.image.BufferStrategy;
-import java.awt.Graphics;
-import java.awt.Color;
 import java.util.Random;
 
 public class Game extends Canvas implements Runnable
 {
+
     public static final int WIDTH = 500, HEIGHT = 750;
 
-    public static final double ACCELERATION = 5;
+    public static final double INCREASE = 5;
     public static final double MIN_AMOUNT_OF_TICKS = 60.0;
+    public static final int S_IN_NS = 1000000000;
     private double amountOfTicks = MIN_AMOUNT_OF_TICKS;
-    private double ns = 1000000000 / amountOfTicks;
+    private double ns = S_IN_NS / amountOfTicks;
     private double speedIncreaser = MIN_AMOUNT_OF_TICKS;
 
     private int spawnTimer = 0;
 
-    private Thread thread;
+    private Thread thread = new Thread(this);
     private boolean threadRunning = false;
 
     private Random random = new Random();
@@ -40,19 +38,16 @@ public class Game extends Canvas implements Runnable
     private Hud hud;
 
     public Game() {
-        Player player = new Player((WIDTH - 20) / 2, (HEIGHT - 45), handler, this);
+        Player player = new Player((WIDTH - 20) / 2, (HEIGHT - 100), handler, this);
 	handler.add(player);
         this.addKeyListener(new Controller(player));
         hud = new PlayerHud(player, this);
-
-        new Window(WIDTH, HEIGHT, "Test", this);
 
 	handler.add(new Unstoppable(random.nextInt(WIDTH - 25), handler));
 
     }
 
     public synchronized void start() {
-        thread = new Thread(this);
 	thread.start();
 	threadRunning = true;
     }
@@ -91,7 +86,7 @@ public class Game extends Canvas implements Runnable
                 System.out.println("FPS: " + frames);
                 frames = 0;
 
-                speedIncreaser += ACCELERATION;
+                speedIncreaser += INCREASE;
 		if (speedIncreaser%1 == 0) {
 		    amountOfTicks = speedIncreaser;
 		    ns = 1000000000 / amountOfTicks;
@@ -134,6 +129,7 @@ public class Game extends Canvas implements Runnable
 	hud.render(g);
 
 	g.dispose();
+	Toolkit.getDefaultToolkit().sync();
 	bs.show();
     }
 
@@ -161,7 +157,11 @@ public class Game extends Canvas implements Runnable
 	}
     }
 
+    @Override public Dimension getPreferredSize() {
+	return new Dimension(WIDTH, HEIGHT+hud.getHeight());
+    }
+
     public static void main(String[] args) {
-	new Game();
+	Window window = new Window("Test", new Game());
     }
 }
