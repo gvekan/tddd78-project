@@ -44,7 +44,8 @@ public class Controller extends KeyAdapter
 	} else if (key == keys.get(KeyAction.MOVE_RIGHT) && !pressed.get(KeyAction.MOVE_RIGHT)) {
 	    pressed.put(KeyAction.MOVE_RIGHT, true);
 	    moveRight();
-	} else if (key == keys.get(KeyAction.USE_POWERUPS)) {
+	} else if (key == keys.get(KeyAction.USE_POWERUPS) && !pressed.get(KeyAction.USE_POWERUPS)) {
+	    pressed.put(KeyAction.USE_POWERUPS, true);
 	    controlledObject.usePowerUps();
 	}
     }
@@ -76,6 +77,7 @@ public class Controller extends KeyAdapter
 		moveLeft();
 	    }
 	} else if (key == keys.get(KeyAction.USE_POWERUPS)) {
+	    pressed.put(KeyAction.USE_POWERUPS, false);
    	    controlledObject.stopPowerUps();
    	}
     }

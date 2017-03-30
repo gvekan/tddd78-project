@@ -84,7 +84,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		controlledObject.setY(controlledObject.getY() + 1);
 		break;
 	    case POWERUP:
-	        collision.collisionAsControlled(controlledObject, side);
+	        collision.collisionWithControlled(controlledObject, side);
 	        break;
 	}
 	controlledObject.addHealth(healthChange);
@@ -107,7 +107,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		break;
 	    case PLAYER:
 	    case POWERUP:
-	        collision.collisionAsControlled(controlledObject, side);
+	        collision.collisionWithControlled(controlledObject, side);
 	        break;
 	}
     }
@@ -122,7 +122,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 	int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 	switch (collisionId) {
 	    case TRAFFIC_BARRIER:
-		if (velX >= 0) { //Correct defect because side-collisionAsGameObject can not happen if velX == 0
+		if (velX >= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
 		    collisionFront(game, handler, controlledObject, collision);
 		    break;
 		}
@@ -131,7 +131,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		controlledObject.setX(Game.clamp(controlledObject.getX() + 1, 0, Game.HEIGHT - controlledObject.getHeight()));
 		break;
 	    case ROADBLOCK:
-		if (velX >= 0) { //Correct defect because side-collisionAsGameObject can not happen if velX == 0
+		if (velX >= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
 		    collisionFront(game, handler, controlledObject, collision);
 		    break;
 		}
@@ -145,7 +145,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		break;
 	    case PLAYER:
 	    case POWERUP:
-	        collision.collisionAsControlled(controlledObject, side);
+	        collision.collisionWithControlled(controlledObject, side);
 	        break;
 	}
 	controlledObject.addHealth(healthChange);
@@ -163,7 +163,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 	int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 	switch (collisionId) {
 	    case TRAFFIC_BARRIER:
-		if (velX <= 0) { //Correct defect because side-collisionAsGameObject can not happen if velX == 0
+		if (velX <= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
 		    collisionFront(game, handler, controlledObject, collision);
 		    break;
 		}
@@ -172,7 +172,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		controlledObject.setX(Game.clamp(controlledObject.getX() - 1, 0, Game.HEIGHT - controlledObject.getHeight()));
 		break;
 	    case ROADBLOCK:
-		if (velX <= 0) { //Correct defect because side-collisionAsGameObject can not happen if velX == 0
+		if (velX <= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
 		    collisionFront(game, handler, controlledObject, collision);
 		    break;
 		}
@@ -186,7 +186,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		break;
 	    case PLAYER:
 	    case POWERUP:
-	        collision.collisionAsControlled(controlledObject, side);
+	        collision.collisionWithControlled(controlledObject, side);
 	        break;
 	}
 	controlledObject.addHealth(healthChange);

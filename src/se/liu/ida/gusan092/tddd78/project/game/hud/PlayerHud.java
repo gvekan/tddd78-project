@@ -2,11 +2,13 @@ package se.liu.ida.gusan092.tddd78.project.game.hud;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GradientPaint;
+import java.util.List;
 
 public class PlayerHud implements Hud
 {
@@ -37,6 +39,15 @@ public class PlayerHud implements Hud
 
 	g2d.setColor(Color.WHITE);
 	g2d.drawString("Score: " + player.getScore(),(Game.WIDTH+240)/2,Game.HEIGHT+(HEIGHT/2));
+
+	List<PowerUp> powerUps = player.getPowerUps();
+	int powerHeight = Game.HEIGHT + (HEIGHT / 2);
+	for (int i = 0; i < powerUps.size(); i++) {
+	    PowerUp powerUp = powerUps.get(i);
+	    g2d.drawString(powerUp.decription(), 10, powerHeight);
+	    powerHeight += 10;
+	}
+
     }
 
     @Override public int getHeight() {

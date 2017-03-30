@@ -7,13 +7,13 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.CollisionHandlerControlled;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class Ghost extends PowerUp implements CollisionHandlerControlled
 {
 
-    protected Ghost(final int x, final Color color, final Handler handler) {
-	super(x, Color.PINK, handler);
+    public Ghost(final int x, final Color color, final Handler handler) {
+	super(x, Color.PINK, handler, PowerUpId.GHOST);
     }
 
     @Override public void use() {
@@ -22,6 +22,14 @@ public class Ghost extends PowerUp implements CollisionHandlerControlled
 
     @Override public void stop() {
 
+    }
+
+    @Override public void collisionHasSamePowerUp() {
+
+    }
+
+    @Override public String decription() {
+        return null;
     }
 
     @Override public void collision(final Game game, final Handler handler, final ControlledObject controlledObject,

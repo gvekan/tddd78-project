@@ -7,10 +7,11 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.Timer;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 {
@@ -20,7 +21,7 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 
     public Unstoppable(final int x, final Handler handler)
     {
-	super(x, Color.YELLOW, handler);
+	super(x, Color.YELLOW, handler, PowerUpId.UNSTOPPABLE);
     }
 
     @Override public void activate(final ControlledObject controlledObject) {
@@ -49,6 +50,28 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 
     }
 
+    @Override public void collisionHasSamePowerUp() {
+        super.collisionHasSamePowerUp();
+	countdown += 5;
+    }
+
+    @Override public String decription() {
+	return "Unstoppable: " + countdown;
+    }
+
+    @Override public void collisionWithControlled(final ControlledObject collision, final Side side) {
+	super.collisionWithControlled(collision, side);
+	List<PowerUp> powerUps = collision.getPowerUps();
+	for (int i = 0; i < powerUps.size(); i++) {
+	    PowerUp powerUp = powerUps.get(i);
+	    if (powerUp.getId() == id) {
+		powerUp.collisionHasSamePowerUp();
+		return;
+	    }
+	}
+	activate(collision);
+    }
+
     @Override public void collision(final Game game, final Handler handler, final ControlledObject controlledObject,
 				    final GameObject collision, final Side side)
     {
@@ -57,6 +80,9 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 	    case ROADBLOCK:
 	        handler.remove(collision);
 	        controlledObject.addScore(100);
+	        break;
+	    case POWERUP:
+	        collision.collisionWithControlled(controlledObject, side);
 	}
     }
 

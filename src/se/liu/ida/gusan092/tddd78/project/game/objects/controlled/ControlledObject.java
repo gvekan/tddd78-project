@@ -7,6 +7,7 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Trail;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUpId;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public abstract class ControlledObject extends GameObject
     protected Game game;
     protected CollisionHandlerControlled collisionHandler;
     protected List<PowerUp> powerUps = new ArrayList<>();
+    protected Color originalColor;
 
     protected ControlledObject(final int x, final int y, final int width, final int height, final int maxHealth, final Type type, Color color,
 			       final Handler handler, final CollisionHandlerControlled collisionHandler, final Game game)
@@ -28,6 +30,7 @@ public abstract class ControlledObject extends GameObject
 	health = maxHealth;
 	this.collisionHandler = collisionHandler;
 	this.game = game;
+	originalColor = color;
     }
 
     public int getMaxHealth() {
@@ -46,7 +49,7 @@ public abstract class ControlledObject extends GameObject
 	this.health = Game.clamp(health,0,maxHealth);
     }
 
-    public void addHealth(int health) {
+    public void addHealth(final int health) {
 	this.health = Game.clamp(this.health + health,0,maxHealth);
     }
 
@@ -58,7 +61,7 @@ public abstract class ControlledObject extends GameObject
 	this.score = score;
     }
 
-    public void addScore(int score) {
+    public void addScore(final int score) {
         this.score = Game.clamp(this.score + score, 0, this.score + score + 1);
     }
 
@@ -70,14 +73,6 @@ public abstract class ControlledObject extends GameObject
 	this.scorePerPixel = scorePerPixel;
     }
 
-    public Color getColor() {
-	return color;
-    }
-
-    public void setColor(final Color color) {
-	this.color = color;
-    }
-
     public CollisionHandlerControlled getCollisionHandler() {
 	return collisionHandler;
     }
@@ -86,11 +81,15 @@ public abstract class ControlledObject extends GameObject
 	this.collisionHandler = collisionHandler;
     }
 
-    public void addPowerUp(PowerUp powerUp) {
+    public void resetColor() {
+	color = originalColor;
+    }
+
+    public void addPowerUp(final PowerUp powerUp) {
 	powerUps.add(powerUp);
     }
 
-    public void removePowerUp(PowerUp powerUp) {
+    public void removePowerUp(final PowerUp powerUp) {
 	powerUps.remove(powerUp);
     }
 
@@ -108,19 +107,23 @@ public abstract class ControlledObject extends GameObject
 	}
     }
 
+    public List<PowerUp> getPowerUps() {
+        return powerUps;
+    }
+
     protected void addTrail() {
 	game.getEnvironment().add(new Trail(x, y + height - 1, width, 2 - velY, game.getEnvironment(), this));
     }
 
-    @Override public void collisionAsControlled(final ControlledObject collision, final Side side) {
+    @Override public void collisionWithControlled(final ControlledObject collision, final Side side) {
 	collisionHandler.collisionWithControlled(game, handler, this, collision, side);
     }
 
-    @Override public void collisionAsGameObject(final GameObject collision, final Side side) {
+    @Override public void collisionWithGameObject(final GameObject collision, final Side side) {
 	collisionHandler.collision(game,handler,this, collision, side);
     }
 
-    public void powerUpCollision(final PowerUp powerUp) {
+    /*public void powerUpCollision(final PowerUp powerUp) {
 	powerUp.activate(this);
-    }
+    }*/
 }

@@ -7,39 +7,59 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.StillObject;
 
-import java.awt.*;
+import java.awt.Color;
+import java.util.List;
 
 public abstract class PowerUp extends StillObject
 {
     protected boolean activated = false;
     protected ControlledObject controlledObject = null;
-    protected Color color;
-    protected Color oldColor = null;
+    protected PowerUp interruptedPowerUp = null;
+    protected PowerUpId id;
 
-    protected PowerUp(final int x, final Color color, final Handler handler)
+    protected PowerUp(final int x, final Color color, final Handler handler, final PowerUpId id)
     {
 	super(x, -20, 20, 20, color, Type.POWERUP, handler);
-	this.color = color;
+	this.id = id;
     }
 
-    @Override public void collisionAsControlled(final ControlledObject collision, final Side side) {
-	collision.powerUpCollision(this);
+    public PowerUpId getId() {
+	return id;
     }
 
-    public void activate(ControlledObject controlledObject) {
+    public void activate(final ControlledObject controlledObject) {
         activated = true;
-        this.controlledObject = controlledObject;
-        oldColor = controlledObject.getColor();
         controlledObject.setColor(color);
-        handler.remove(this);
    	controlledObject.addPowerUp(this);
     }
 
     protected void reset() {
-	controlledObject.setColor(oldColor);
 	controlledObject.removePowerUp(this);
+	if (interruptedPowerUp != null) {
+	    controlledObject.addPowerUp(interruptedPowerUp);
+	}
+	List<PowerUp> powerUps = controlledObject.getPowerUps();
+	if (powerUps.isEmpty()) {
+	    controlledObject.resetColor();
+	} else {
+	    PowerUp powerUp = powerUps.get(powerUps.size()-1);
+	    controlledObject.setColor(powerUp.getColor());
+	}
+    }
+
+    @Override public void collisionWithGameObject(final GameObject collision, final Side side) {
+	handler.remove(this);
+    }
+
+    @Override public void collisionWithControlled(final ControlledObject collision, final Side side) {
+	handler.remove(this);
+	this.controlledObject = collision;
+    }
+    public void collisionHasSamePowerUp() {
+        controlledObject.setColor(color);
     }
 
     public abstract void use();
     public abstract void stop();
+    public abstract String decription();
 }

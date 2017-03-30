@@ -88,7 +88,7 @@ public class Player extends ControlledObject implements Runnable
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		if (side.intersects(collision.getBounds())) { // Because a collisionAsGameObject can change player
+		if (side.intersects(collision.getBounds())) { // Because a collisionWithGameObject can change player
 		    collisionHandler.collision(game, handler, this, collision, Side.LEFT);
 		}
 	    }
@@ -99,7 +99,7 @@ public class Player extends ControlledObject implements Runnable
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		if (side.intersects(collision.getBounds())) { // Because a collisionAsGameObject can change player
+		if (side.intersects(collision.getBounds())) { // Because a collisionWithGameObject can change player
 		    collisionHandler.collision(game, handler, this, collision, Side.RIGHT);
 		}
 	    }
@@ -110,7 +110,7 @@ public class Player extends ControlledObject implements Runnable
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		if (side.intersects(collision.getBounds())) { // Because a collisionAsGameObject can change player
+		if (side.intersects(collision.getBounds())) { // Because a collisionWithGameObject can change player
 		    collisionHandler.collision(game, handler, this, collision, Side.FRONT);
 		}
 	    }
@@ -121,7 +121,7 @@ public class Player extends ControlledObject implements Runnable
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		if (side.intersects(collision.getBounds())) { // Because a collisionAsGameObject can change player
+		if (side.intersects(collision.getBounds())) { // Because a collisionWithGameObject can change player
 		    collisionHandler.collision(game, handler, this, collision, Side.BACK);
 		}
 	    }

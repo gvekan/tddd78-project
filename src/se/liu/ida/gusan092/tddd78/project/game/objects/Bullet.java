@@ -3,9 +3,6 @@ package se.liu.ida.gusan092.tddd78.project.game.objects;
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.util.List;
 
 public class Bullet extends GameObject
@@ -32,7 +29,10 @@ public class Bullet extends GameObject
 			controlledObject.addScore(100);
 			break;
 		    case PLAYER:
-			collision.collisionAsGameObject(collision, Side.FRONT);
+			collision.collisionWithGameObject(collision, Side.FRONT);
+			break;
+		    case POWERUP:
+		        collision.collisionWithControlled(controlledObject, Side.FRONT);
 		}
 		handler.remove(this);
 	    }

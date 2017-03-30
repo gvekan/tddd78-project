@@ -95,14 +95,14 @@ public abstract class GameObject
         return r.intersects(getBounds());
     }
 
-    public void powerUpCollision(PowerUp powerUp) {
+    /*public void powerUpCollision(PowerUp powerUp) {
         handler.remove(powerUp);
-    }
+    }*/
 
-    public void collisionAsGameObject(GameObject collision, Side side) {
+    public void collisionWithGameObject(GameObject collision, Side side) {
 	throw new AssertionError("Only to be used with gameobjects with collision handler");
     }
-    public void collisionAsControlled(ControlledObject collision, Side side) {
+    public void collisionWithControlled(ControlledObject collision, Side side) {
 	throw new AssertionError("Only to be used with gameobjects with collision handler");
     }
 

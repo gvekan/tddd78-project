@@ -20,8 +20,8 @@ public class Game extends Canvas implements Runnable
 
     public static final int WIDTH = 500, HEIGHT = 750;
 
-    public static final double INCREASE = 5;
-    public static final double MIN_AMOUNT_OF_TICKS = 60.0;
+    public static final double INCREASE = 0.5;
+    public static final double MIN_AMOUNT_OF_TICKS = 120.0;
     public static final int S_IN_NS = 1000000000;
     private double amountOfTicks = MIN_AMOUNT_OF_TICKS;
     private double ns = S_IN_NS / amountOfTicks;
@@ -69,6 +69,7 @@ public class Game extends Canvas implements Runnable
         double delta = 0;
         long timer = System.currentTimeMillis();
         int frames = 0;
+        boolean powerup = true;
         while (threadRunning) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -89,6 +90,12 @@ public class Game extends Canvas implements Runnable
 
                 speedIncreaser += INCREASE;
 		if (speedIncreaser%1 == 0) {
+		    if (powerup) {
+			handler.add(new Unstoppable(random.nextInt(WIDTH - 25), handler));
+		    } else {
+			handler.add(new Ammo(random.nextInt(WIDTH - 25), handler));
+		    }
+		    powerup = !powerup;
 		    amountOfTicks = speedIncreaser;
 		    ns = 1000000000 / amountOfTicks;
 		    System.out.println("Amount of ticks: " + amountOfTicks);
