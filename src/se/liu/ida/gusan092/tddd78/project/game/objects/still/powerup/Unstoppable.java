@@ -11,7 +11,6 @@ import javax.swing.Timer;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 {
@@ -19,13 +18,35 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
     private int countdown = 5;
     private Timer timer = null;
 
-    public Unstoppable(final int x, final Handler handler)
+    public Unstoppable(final Handler handler)
     {
-	super(x, Color.YELLOW, handler, PowerUpId.UNSTOPPABLE);
+	super(handler, PowerUpId.UNSTOPPABLE, Color.YELLOW);
     }
 
     @Override public void activate(final ControlledObject controlledObject) {
         super.activate(controlledObject);
+        if (activated) {
+	    resume();
+	}
+    }
+
+    @Override public void use() {
+    }
+
+    @Override public void stop() {
+    }
+
+    @Override public void interrupt() {
+        timer.stop();
+	controlledObject.setCollisionHandler(oldCollisionHandeler);
+    }
+
+    @Override protected void reset() {
+	super.reset();
+	controlledObject.setCollisionHandler(oldCollisionHandeler);
+    }
+
+    @Override public void resume() {
 	oldCollisionHandeler = controlledObject.getCollisionHandler();
 	controlledObject.setCollisionHandler(this);
 	ActionListener taskPerformer = new ActionListener() {
@@ -42,34 +63,12 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 	timer.start();
     }
 
-    @Override public void use() {
-
-    }
-
-    @Override public void stop() {
-
-    }
-
     @Override public void collisionHasSamePowerUp() {
-        super.collisionHasSamePowerUp();
 	countdown += 5;
     }
 
-    @Override public String decription() {
+    @Override public String description() {
 	return "Unstoppable: " + countdown;
-    }
-
-    @Override public void collisionWithControlled(final ControlledObject collision, final Side side) {
-	super.collisionWithControlled(collision, side);
-	List<PowerUp> powerUps = collision.getPowerUps();
-	for (int i = 0; i < powerUps.size(); i++) {
-	    PowerUp powerUp = powerUps.get(i);
-	    if (powerUp.getId() == id) {
-		powerUp.collisionHasSamePowerUp();
-		return;
-	    }
-	}
-	activate(collision);
     }
 
     @Override public void collision(final Game game, final Handler handler, final ControlledObject controlledObject,

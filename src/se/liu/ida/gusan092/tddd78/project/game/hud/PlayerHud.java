@@ -44,7 +44,7 @@ public class PlayerHud implements Hud
 	int powerHeight = Game.HEIGHT + (HEIGHT / 2);
 	for (int i = 0; i < powerUps.size(); i++) {
 	    PowerUp powerUp = powerUps.get(i);
-	    g2d.drawString(powerUp.decription(), 10, powerHeight);
+	    g2d.drawString(powerUp.description(), 10, powerHeight);
 	    powerHeight += 10;
 	}
 

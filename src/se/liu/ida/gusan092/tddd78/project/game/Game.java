@@ -6,8 +6,8 @@ import se.liu.ida.gusan092.tddd78.project.game.hud.PlayerHud;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Ammo;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Unstoppable;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.*;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Container;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
 
 import java.awt.*;
@@ -20,8 +20,8 @@ public class Game extends Canvas implements Runnable
 
     public static final int WIDTH = 500, HEIGHT = 750;
 
-    public static final double INCREASE = 0.5;
-    public static final double MIN_AMOUNT_OF_TICKS = 120.0;
+    public static final double INCREASE = 5;
+    public static final double MIN_AMOUNT_OF_TICKS = 60.0;
     public static final int S_IN_NS = 1000000000;
     private double amountOfTicks = MIN_AMOUNT_OF_TICKS;
     private double ns = S_IN_NS / amountOfTicks;
@@ -43,9 +43,6 @@ public class Game extends Canvas implements Runnable
 	handler.add(player);
         this.addKeyListener(new Controller(player));
         hud = new PlayerHud(player);
-
-	handler.add(new Ammo(random.nextInt(WIDTH - 25), handler));
-
     }
 
     public synchronized void start() {
@@ -91,9 +88,9 @@ public class Game extends Canvas implements Runnable
                 speedIncreaser += INCREASE;
 		if (speedIncreaser%1 == 0) {
 		    if (powerup) {
-			handler.add(new Unstoppable(random.nextInt(WIDTH - 25), handler));
+			handler.add(new Container(random.nextInt(WIDTH - 25), handler, new Unstoppable(handler)));
 		    } else {
-			handler.add(new Ammo(random.nextInt(WIDTH - 25), handler));
+			handler.add(new Container(random.nextInt(WIDTH - 25), handler, new Ammo(handler)));
 		    }
 		    powerup = !powerup;
 		    amountOfTicks = speedIncreaser;

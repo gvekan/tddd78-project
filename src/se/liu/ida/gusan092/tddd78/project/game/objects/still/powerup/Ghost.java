@@ -13,7 +13,7 @@ public class Ghost extends PowerUp implements CollisionHandlerControlled
 {
 
     public Ghost(final int x, final Color color, final Handler handler) {
-	super(x, Color.PINK, handler, PowerUpId.GHOST);
+	super(handler, PowerUpId.GHOST, Color.PINK);
     }
 
     @Override public void use() {
@@ -24,11 +24,19 @@ public class Ghost extends PowerUp implements CollisionHandlerControlled
 
     }
 
+    @Override public void interrupt() {
+
+    }
+
+    @Override public void resume() {
+
+    }
+
     @Override public void collisionHasSamePowerUp() {
 
     }
 
-    @Override public String decription() {
+    @Override public String description() {
         return null;
     }
 
