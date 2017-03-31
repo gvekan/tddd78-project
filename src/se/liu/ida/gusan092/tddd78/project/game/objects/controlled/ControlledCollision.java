@@ -15,6 +15,11 @@ public class ControlledCollision implements CollisionHandlerControlled
         switch (collision.getType()) {
 	    case ROADBLOCK:
 		handler.remove(collision);
+		break;
+	    case PLAYER:
+	    case POWERUP:
+	        collision.collisionWithControlled(controlledObject, side);
+	        break;
 	}
 	switch (side) {
 	    case FRONT:
@@ -83,9 +88,6 @@ public class ControlledCollision implements CollisionHandlerControlled
 		}
 		controlledObject.setY(controlledObject.getY() + 1);
 		break;
-	    case POWERUP:
-	        collision.collisionWithControlled(controlledObject, side);
-	        break;
 	}
 	controlledObject.addHealth(healthChange);
 	game.setAmountOfTicks(amountOfTicks + speedChange);
@@ -105,10 +107,6 @@ public class ControlledCollision implements CollisionHandlerControlled
 		    collisionRight(game, handler, controlledObject, collision);
 		}
 		break;
-	    case PLAYER:
-	    case POWERUP:
-	        collision.collisionWithControlled(controlledObject, side);
-	        break;
 	}
     }
 
@@ -143,10 +141,6 @@ public class ControlledCollision implements CollisionHandlerControlled
 		controlledObject.setVelX(0);
 		controlledObject.setX(controlledObject.getX() + 1);
 		break;
-	    case PLAYER:
-	    case POWERUP:
-	        collision.collisionWithControlled(controlledObject, side);
-	        break;
 	}
 	controlledObject.addHealth(healthChange);
 	game.setAmountOfTicks(amountOfTicks + speedChange);
@@ -184,10 +178,6 @@ public class ControlledCollision implements CollisionHandlerControlled
 		controlledObject.setVelX(0);
 		controlledObject.setX(controlledObject.getX() - 1);
 		break;
-	    case PLAYER:
-	    case POWERUP:
-	        collision.collisionWithControlled(controlledObject, side);
-	        break;
 	}
 	controlledObject.addHealth(healthChange);
 	game.setAmountOfTicks(amountOfTicks + speedChange);
