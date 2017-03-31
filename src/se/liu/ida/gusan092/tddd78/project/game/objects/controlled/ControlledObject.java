@@ -111,7 +111,7 @@ public abstract class ControlledObject extends GameObject
     }
 
     protected void addTrail() {
-	game.getEnvironment().add(new Trail(x, y + height - 1, width, 2 - velY, game.getEnvironment(), this));
+	game.getEnvironment().add(new Trail(x, y + height - 1, width, 2 - velY, color, game.getEnvironment()));
     }
 
     @Override public void collisionWithControlled(final ControlledObject collision, final Side side) {

@@ -29,7 +29,7 @@ public class Handler
     	}
         }*/
 
-    public void render(Graphics g) {
+    public void render(final Graphics g) {
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject gameObject = gameObjects.get(i);
 	    if (gameObject != null) {
@@ -46,7 +46,7 @@ public class Handler
         gameObjects.remove(gameObject);
     }
 
-    public boolean hasCollision(Rectangle rectangle, GameObject gameObject) {
+    public boolean hasCollision(final Rectangle rectangle, final GameObject gameObject) {
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
 	    if (!Objects.equals(test, gameObject) && test.hasCollision(rectangle)) {
@@ -56,13 +56,13 @@ public class Handler
 	return false;
     }
 
-    public boolean hasCollision(GameObject gameObject) {
+    public boolean hasCollision(final GameObject gameObject) {
         Rectangle rectangle = gameObject.getBounds();
 	return hasCollision(rectangle,gameObject);
     }
 
-    public ArrayList<GameObject> getCollisions(Rectangle rectangle, GameObject gameObject) {
-        ArrayList<GameObject> collisions = new ArrayList<>();
+    public List<GameObject> getCollisions(final Rectangle rectangle, final GameObject gameObject) {
+        List<GameObject> collisions = new ArrayList<>();
 	for (int i = 0; i < gameObjects.size(); i++) {
 	    final GameObject test = gameObjects.get(i);
 	    if (test != null) {
@@ -74,7 +74,7 @@ public class Handler
     	return collisions;
     }
 
-    public ArrayList<GameObject> getCollisions(GameObject gameObject) {
+    public List<GameObject> getCollisions(final GameObject gameObject) {
         Rectangle rectangle = gameObject.getBounds();
 	return getCollisions(rectangle, gameObject);
     }

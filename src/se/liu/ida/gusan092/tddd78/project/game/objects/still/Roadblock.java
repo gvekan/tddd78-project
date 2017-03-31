@@ -13,7 +13,7 @@ import java.awt.*;
 
 public class Roadblock extends StillObject
 {
-    public Roadblock(final int x, final Type type, Handler handler) {
+    public Roadblock(final int x, final Type type, final Handler handler) {
 	super(x, -5, 25, 5, Color.WHITE, type, handler);
     }
 }

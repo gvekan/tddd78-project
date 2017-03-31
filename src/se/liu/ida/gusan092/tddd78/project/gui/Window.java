@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Window
 {
-    public Window(String title, Game game) {
+    public Window(final String title, final Game game) {
         JFrame frame = new JFrame(title);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

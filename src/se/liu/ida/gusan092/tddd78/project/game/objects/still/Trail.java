@@ -10,22 +10,13 @@ import java.awt.*;
 
 public class Trail extends StillObject
 {
-    private ControlledObject controlledObject;
     private long timer = System.currentTimeMillis();
-
-    //private Color color;
 
     private float alpha = 1;
 
-    public Trail(final int x, final int y, final int width, final int height, final Handler handler,
-		 final ControlledObject controlledObject)
+    public Trail(final int x, final int y, final int width, final int height, final Color color, final Handler handler)
     {
-	super(x, y, width, height, controlledObject.getColor(), Type.TRAIL, handler);
-	this.controlledObject = controlledObject;
-	//setX(controlledObject.getX());
-	//setY(controlledObject.getY());
-	setWidth(controlledObject.getWidth());
-	//setHeight(controlledObject.getHeight());
+	super(x, y, width, height, color, Type.TRAIL, handler);
 	setVelY(5);
 	alpha -= 0.5;
     }
@@ -47,16 +38,12 @@ public class Trail extends StillObject
 
 	g2d.setComposite(makeTransparent(alpha));
 
-	g2d.setColor(color);
-	//g2d.setColor(color);
-	//g2d.fillRect(x+width/5,y,width/5,height);
-	//g2d.fillRect(x+(width/5)*3,y,width/5,height);
-	g2d.fillRect(x,y,width,height);
+	super.render(g);
 
 	g2d.setComposite(makeTransparent(1));
     }
 
-    private AlphaComposite makeTransparent(float alpha) {
+    private AlphaComposite makeTransparent(final float alpha) {
         int type = AlphaComposite.SRC_OVER;
         return (AlphaComposite.getInstance(type,alpha));
     }

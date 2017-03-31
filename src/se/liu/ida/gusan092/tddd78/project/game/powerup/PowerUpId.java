@@ -22,7 +22,7 @@ public enum PowerUpId
 	return color;
     }
 
-    public boolean isIncompatible(PowerUpId test){
+    public boolean isIncompatible(final PowerUpId test){
 	for (int i:
 	     incompatibles) {
 	    if (i == test.id) {

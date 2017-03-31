@@ -39,7 +39,7 @@ public class ControlledCollision implements CollisionHandlerControlled
     }
 
 
-    public void collisionFront(Game game, Handler handler, ControlledObject controlledObject, GameObject collision) {
+    public void collisionFront(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
         Side side = Side.FRONT;
 	Type collisionId = collision.getType();
 	int velY = controlledObject.getVelY();

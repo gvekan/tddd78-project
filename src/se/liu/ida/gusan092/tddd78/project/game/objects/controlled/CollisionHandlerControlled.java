@@ -7,6 +7,6 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 
 public interface CollisionHandlerControlled
 {
-    public void collision(Game game, Handler handler, ControlledObject controlledObject, GameObject collision, Side side);
-    public void collisionWithControlled(Game game, Handler handler, ControlledObject controlledObject, ControlledObject collision, Side side);
+    public void collision(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision, final Side side);
+    public void collisionWithControlled(final Game game, final Handler handler, final ControlledObject controlledObject, final ControlledObject collision, final Side side);
 }

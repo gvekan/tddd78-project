@@ -4,6 +4,6 @@ import java.awt.Graphics;
 
 public interface Hud
 {
-    public void render(Graphics g);
+    public void render(final Graphics g);
     public int getHeight();
 }

@@ -90,7 +90,7 @@ public abstract class GameObject
 	return new Rectangle(x, y, width, height);
     }
 
-    public boolean hasCollision(Rectangle r) {
+    public boolean hasCollision(final Rectangle r) {
         return r.intersects(getBounds());
     }
 
@@ -98,14 +98,14 @@ public abstract class GameObject
         handler.remove(powerUp);
     }*/
 
-    public void collisionWithGameObject(GameObject collision, Side side) {
+    public void collisionWithGameObject(final GameObject collision, final Side side) {
 	throw new AssertionError("Only to be used with gameobjects with collision handler");
     }
-    public void collisionWithControlled(ControlledObject collision, Side side) {
+    public void collisionWithControlled(final ControlledObject collision, final Side side) {
 	throw new AssertionError("Only to be used with gameobjects with collision handler");
     }
 
-    public void render(Graphics g) {
+    public void render(final Graphics g) {
 	Graphics2D g2d = (Graphics2D) g;
 	g2d.setColor(color);
 	g2d.fill(getBounds());
