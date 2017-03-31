@@ -23,7 +23,7 @@ public class Player extends ControlledObject implements Runnable
     public static final int HEIGHT = 45;
     public static final int MAX_HEALTH = 200;
     private boolean halfTick = true;
-    public static final int MAX_Y = Game.HEIGHT-200;
+    public static final int MAX_Y = Game.HEIGHT-150;
 
     public Player(Handler handler, Game game) {
         super((Game.WIDTH - WIDTH) / 2, MAX_Y, WIDTH, HEIGHT, MAX_HEALTH, Type.PLAYER, Color.CYAN, handler, new ControlledCollision(), game);
@@ -40,7 +40,7 @@ public class Player extends ControlledObject implements Runnable
     }
 
     @Override public void setVelY(final int velY) {
-	if (y == MAX_Y && velY > 0) {
+	if ((y == MAX_Y && velY > 0) || (y == 0 && velY <0)) {
 	    this.velY = 0;
 	} else {
 	    this.velY = velY;

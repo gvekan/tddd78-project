@@ -2,12 +2,13 @@ package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class PowerUp
 {
     protected ControlledObject controlledObject = null;
-    protected PowerUp interruptedPowerUp = null;
+    protected List<PowerUp> interruptedPowerUps = new ArrayList<>();
     protected boolean activated = false;
 
     protected PowerUpId id;
@@ -31,7 +32,7 @@ public abstract class PowerUp
 	    if (id.isIncompatible(powerUp.id)) {
 	        powerUps.remove(powerUp);
 		powerUp.interrupt();
-		interruptedPowerUp = powerUp;
+		interruptedPowerUps.add(powerUp);
 		break;
 	    }
 	}
@@ -42,9 +43,12 @@ public abstract class PowerUp
 
     protected void reset() {
 	controlledObject.removePowerUp(this);
-	if (interruptedPowerUp != null) {
-	    controlledObject.addPowerUp(interruptedPowerUp);
-	    interruptedPowerUp.resume();
+	if (!interruptedPowerUps.isEmpty()) {
+	    for (PowerUp powerUp:
+		 interruptedPowerUps) {
+	    controlledObject.addPowerUp(powerUp);
+	    powerUp.resume();
+	}
 	}
 	List<PowerUp> powerUps = controlledObject.getPowerUps();
 	if (powerUps.isEmpty()) {

@@ -43,9 +43,6 @@ public class Hud
 	for (Player player : players) {
 	    float healthPerPixel = (float) healthWidth / player.getMaxHealth();
 	    int health = Math.round(player.getHealth() * healthPerPixel);
-	    System.out.println(player.getMaxHealth());
-	    System.out.println(healthWidth);
-	    System.out.println(healthPerPixel);
 	    Color color = player.getColor();
 	    Color negative = new Color(RGB - color.getRed(), RGB - color.getGreen(), RGB - color.getBlue());
 	    g2d.setColor(negative);
