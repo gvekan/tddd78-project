@@ -4,9 +4,9 @@ import java.awt.Color;
 
 public enum PowerUpId
 {
-    AMMO(Color.MAGENTA,0, 1),
-    GHOST(Color.PINK,1, 0,2),
-    UNSTOPPABLE(Color.YELLOW,2, 1);
+    AMMO(Color.MAGENTA, 0, 1),
+    GHOST(Color.PINK, 1, 0, 2),
+    UNSTOPPABLE(Color.YELLOW, 2, 1);
 
     private final Color color;
     private final int id;

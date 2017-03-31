@@ -9,7 +9,7 @@ public class Bullet extends GameObject
 {
     private ControlledObject controlledObject;
 
-    public Bullet(final int x, final int y, final Handler handler, ControlledObject controlledObject)
+    public Bullet(final int x, final int y, final Handler handler, final ControlledObject controlledObject)
     {
 	super(x, y, 3, 3, controlledObject.getColor(), Type.BULLET, handler);
 	this.controlledObject = controlledObject;
