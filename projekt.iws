@@ -7,7 +7,6 @@
     <list default="true" id="df068188-c51e-47d2-bc69-d637a0eb95f6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projekt.iws" afterPath="$PROJECT_DIR$/projekt.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/controlled/ControlledCollision.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/controlled/ControlledCollision.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Trail.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Trail.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,8 +68,8 @@
       <file leaf-file-name="ControlledCollision.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/controlled/ControlledCollision.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
-              <caret line="89" column="22" lean-forward="false" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
+            <state relative-caret-position="1972">
+              <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -978,7 +977,7 @@
       <workItem from="1490936495443" duration="1899000" />
       <workItem from="1490947784555" duration="1380000" />
       <workItem from="1490956965979" duration="4347000" />
-      <workItem from="1490970648656" duration="7422000" />
+      <workItem from="1490970648656" duration="7765000" />
     </task>
     <task id="LOCAL-00001" summary="Ändrat strukturen och håller på att förfina player, finns en bugg då spelaren spawnas för långt ner på rutan">
       <created>1490453599403</created>
@@ -1120,11 +1119,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490980193145</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="fixade de flesta fel och tog bort onödig kod i sontrolledcollision">
+      <created>1490981127463</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1490981127463</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205710000" />
+    <option name="totallyTimeSpent" value="206053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1715" height="1087" extended-state="0" />
@@ -1238,7 +1244,8 @@
     <MESSAGE value="lade till power ups i en container istället för att de skulle vara gameobjects" />
     <MESSAGE value="hittade en final som fattades" />
     <MESSAGE value="Gjort hud kompatibel till multiplayer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gjort hud kompatibel till multiplayer" />
+    <MESSAGE value="fixade de flesta fel och tog bort onödig kod i sontrolledcollision" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixade de flesta fel och tog bort onödig kod i sontrolledcollision" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1541,8 +1548,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/controlled/ControlledCollision.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="22" lean-forward="false" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
+        <state relative-caret-position="1972">
+          <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
           <folding />
         </state>
       </provider>

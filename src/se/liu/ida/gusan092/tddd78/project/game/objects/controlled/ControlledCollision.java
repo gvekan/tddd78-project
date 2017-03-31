@@ -45,7 +45,6 @@ public class ControlledCollision implements CollisionHandlerControlled
 
 
     public void collisionFront(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
-        Side side = Side.FRONT;
 	Type collisionId = collision.getType();
 	int velY = controlledObject.getVelY();
 	int healthChange = 0;
@@ -94,7 +93,6 @@ public class ControlledCollision implements CollisionHandlerControlled
     }
 
     public void collisionBack(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
-	Side side = Side.BACK;
 	Type collisionId = collision.getType();
 	int velY = controlledObject.getVelY();
 	switch (collisionId) {
@@ -111,13 +109,11 @@ public class ControlledCollision implements CollisionHandlerControlled
     }
 
     public void collisionLeft(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
-	Side side = Side.LEFT;
 	Type collisionId = collision.getType();
 	int velX = controlledObject.getVelX();
 	int healthChange = 0;
 	int speedChange = 0;
 	int amountOfTicks = (int) game.getAmountOfTicks();
-	int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 	switch (collisionId) {
 	    case TRAFFIC_BARRIER:
 		if (velX >= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
@@ -133,6 +129,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		    collisionFront(game, handler, controlledObject, collision);
 		    break;
 		}
+		int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 		healthChange = -speedIncreaseDiff / 8;
 		if (healthChange == 0) {
 		    healthChange = -1;
@@ -148,13 +145,11 @@ public class ControlledCollision implements CollisionHandlerControlled
     }
 
     public void collisionRight(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
-	Side side = Side.RIGHT;
 	Type collisionId = collision.getType();
 	int velX = controlledObject.getVelX();
 	int healthChange = 0;
 	int speedChange = 0;
 	int amountOfTicks = (int) game.getAmountOfTicks();
-	int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 	switch (collisionId) {
 	    case TRAFFIC_BARRIER:
 		if (velX <= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
@@ -170,6 +165,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		    collisionFront(game, handler, controlledObject, collision);
 		    break;
 		}
+		int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 		healthChange = -speedIncreaseDiff / 8;
 		if (healthChange == 0) {
 		    healthChange = -1;
