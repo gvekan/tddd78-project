@@ -19,11 +19,14 @@ import java.util.List;
 
 public class Player extends ControlledObject implements Runnable
 {
+    public static final int WIDTH = 20;
+    public static final int HEIGHT = 45;
+    public static final int MAX_HEALTH = 200;
     private boolean halfTick = true;
-    public static final int MAX_Y = Game.HEIGHT-100;
+    public static final int MAX_Y = Game.HEIGHT-200;
 
-    public Player(final int x, final int y, Handler handler, Game game) {
-        super(x, y, 20, 45, 200, Type.PLAYER,Color.CYAN, handler, new ControlledCollision(), game);
+    public Player(Handler handler, Game game) {
+        super((Game.WIDTH - WIDTH) / 2, MAX_Y, WIDTH, HEIGHT, MAX_HEALTH, Type.PLAYER, Color.CYAN, handler, new ControlledCollision(), game);
 /*	ActionListener taskPerformer = new ActionListener() {
 	    public void actionPerformed(ActionEvent evt) {
 		setX(Game.clamp(getX() + getVelX(), 0, Game.WIDTH - getWidth()));

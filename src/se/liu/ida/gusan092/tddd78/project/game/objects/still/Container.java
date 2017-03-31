@@ -5,7 +5,6 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.StillObject;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.Ammo;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.Ghost;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUpId;
@@ -14,12 +13,13 @@ import se.liu.ida.gusan092.tddd78.project.game.powerup.Unstoppable;
 
 public class Container extends StillObject
 {
+    public static final int DIAMETER = 20;
     private PowerUpId id;
     private boolean collided = false;
 
     public Container(final int x, final Handler handler, final PowerUpId id)
     {
-	super(x,-20, 20, 20, id.getColor(), Type.POWERUP, handler);
+	super(x, -DIAMETER, DIAMETER, DIAMETER, id.getColor(), Type.POWERUP, handler);
     	this.id = id;
     }
 

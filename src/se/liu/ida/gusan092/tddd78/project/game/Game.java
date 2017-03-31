@@ -2,7 +2,6 @@ package se.liu.ida.gusan092.tddd78.project.game;
 
 
 import se.liu.ida.gusan092.tddd78.project.game.hud.Hud;
-import se.liu.ida.gusan092.tddd78.project.game.hud.PlayerHud;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
@@ -18,7 +17,7 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable
 {
 
-    public static final int WIDTH = 500, HEIGHT = 750;
+    public static final int WIDTH = 500, HEIGHT = 850;
 
     public static final double INCREASE = 5;
     public static final double MIN_AMOUNT_OF_TICKS = 60.0;
@@ -39,10 +38,10 @@ public class Game extends Canvas implements Runnable
     private Hud hud;
 
     public Game() {
-        Player player = new Player((WIDTH - 20) / 2, Player.MAX_Y, handler, this);
+        Player player = new Player(handler, this);
 	handler.add(player);
         this.addKeyListener(new Controller(player));
-        hud = new PlayerHud(player);
+        hud = new Hud(player);
     }
 
     public synchronized void start() {
@@ -88,13 +87,13 @@ public class Game extends Canvas implements Runnable
                 speedIncreaser += INCREASE;
 		if (speedIncreaser%1 == 0) {
 		    if (powerup) {
-			handler.add(new Container(random.nextInt(WIDTH - 25), handler, PowerUpId.AMMO));
+			handler.add(new Container(random.nextInt(WIDTH - Container.DIAMETER), handler, PowerUpId.AMMO));
 		    } else {
-			handler.add(new Container(random.nextInt(WIDTH - 25), handler, PowerUpId.UNSTOPPABLE));
+			handler.add(new Container(random.nextInt(WIDTH - Container.DIAMETER), handler, PowerUpId.UNSTOPPABLE));
 		    }
 		    powerup = !powerup;
 		    amountOfTicks = speedIncreaser;
-		    ns = 1000000000 / amountOfTicks;
+		    ns = S_IN_NS / amountOfTicks;
 		    System.out.println("Amount of ticks: " + amountOfTicks);
 		}
 	    }
@@ -103,7 +102,7 @@ public class Game extends Canvas implements Runnable
 
     private void tick() {
         if (spawnTimer == 0) {
-	    handler.add(new Roadblock(random.nextInt(WIDTH - 25), Type.ROADBLOCK, handler));
+	    handler.add(new Roadblock(random.nextInt(WIDTH - Roadblock.WIDTH), Type.ROADBLOCK, handler));
 	    spawnTimer = 60;
 	}
 	environment.tick();
@@ -122,7 +121,7 @@ public class Game extends Canvas implements Runnable
 	Graphics g = bs.getDrawGraphics();
 
         g.setColor(Color.BLACK);
-        g.fillRect(0,0,WIDTH,HEIGHT + hud.getHeight());
+        g.fillRect(0,0,WIDTH,HEIGHT);
 
 	environment.render(g);
         handler.render(g);
@@ -140,7 +139,7 @@ public class Game extends Canvas implements Runnable
     public void setAmountOfTicks(double amountOfTicks) {
         this.amountOfTicks = clamp((int)amountOfTicks, (int)MIN_AMOUNT_OF_TICKS, (int)amountOfTicks + 1);
 	speedIncreaser = this.amountOfTicks;
-	ns = 1000000000 / this.amountOfTicks;
+	ns = S_IN_NS / this.amountOfTicks;
     }
 
     public Handler getEnvironment() {
@@ -158,7 +157,7 @@ public class Game extends Canvas implements Runnable
     }
 
     @Override public Dimension getPreferredSize() {
-	return new Dimension(WIDTH, HEIGHT+hud.getHeight());
+	return new Dimension(WIDTH, HEIGHT);
     }
 
     public static void main(String[] args) {
