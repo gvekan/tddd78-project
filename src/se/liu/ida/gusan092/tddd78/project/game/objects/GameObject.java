@@ -2,7 +2,6 @@ package se.liu.ida.gusan092.tddd78.project.game.objects;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
 
 import java.awt.*;
 

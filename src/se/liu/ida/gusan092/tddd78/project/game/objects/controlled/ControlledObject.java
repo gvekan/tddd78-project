@@ -6,8 +6,7 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Trail;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUpId;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUp;
 
 import java.awt.*;
 import java.util.ArrayList;

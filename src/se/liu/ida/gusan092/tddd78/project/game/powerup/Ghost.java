@@ -1,4 +1,4 @@
-package se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup;
+package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
@@ -6,8 +6,6 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.CollisionHandlerControlled;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
-
-import java.awt.Color;
 
 public class Ghost extends PowerUp implements CollisionHandlerControlled
 {

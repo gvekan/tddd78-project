@@ -1,4 +1,4 @@
-package se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup;
+package se.liu.ida.gusan092.tddd78.project.game.objects.still;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
@@ -6,6 +6,10 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.StillObject;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.Ammo;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.Ghost;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUpId;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.Unstoppable;
 
 
 public class Container extends StillObject

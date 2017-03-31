@@ -1,8 +1,5 @@
-package se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup;
+package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.awt.Color;
 
 public enum PowerUpId

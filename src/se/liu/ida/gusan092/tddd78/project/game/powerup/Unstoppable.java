@@ -1,4 +1,4 @@
-package se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup;
+package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.CollisionHandlerControlled;
 import se.liu.ida.gusan092.tddd78.project.game.Game;
@@ -8,7 +8,6 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
 import javax.swing.Timer;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

@@ -6,8 +6,8 @@ import se.liu.ida.gusan092.tddd78.project.game.hud.PlayerHud;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.*;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.Container;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.*;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.Container;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
 
 import java.awt.*;
@@ -129,7 +129,7 @@ public class Game extends Canvas implements Runnable
 	hud.render(g);
 
 	g.dispose();
-//	Toolkit.getDefaultToolkit().sync();
+	Toolkit.getDefaultToolkit().sync();
 	bs.show();
     }
 

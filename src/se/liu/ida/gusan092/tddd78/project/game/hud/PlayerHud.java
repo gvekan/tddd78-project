@@ -2,7 +2,7 @@ package se.liu.ida.gusan092.tddd78.project.game.hud;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup.PowerUp;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUp;
 
 import java.awt.Color;
 import java.awt.Graphics;

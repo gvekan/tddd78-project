@@ -1,11 +1,8 @@
-package se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup;
+package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Bullet;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledCollision;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
-
-import java.awt.Color;
 
 public class Ammo extends PowerUp
 {
