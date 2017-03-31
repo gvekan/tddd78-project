@@ -12,32 +12,18 @@ public abstract class PowerUp
     protected PowerUp interruptedPowerUp = null;
     protected boolean activated = false;
 
-    protected Handler handler;
     protected PowerUpId id;
-    protected Color color;
 
-    protected PowerUp(final Handler handler, final PowerUpId id, final Color color)
+    protected PowerUp(final PowerUpId id, final ControlledObject controlledObject)
     {
-        this.handler = handler;
 	this.id = id;
-	this.color = color;
-    }
+	this.controlledObject = controlledObject;
 
-    public PowerUpId getId() {
-	return id;
-    }
-
-    public Color getColor() {
-	return color;
-    }
-
-    public void activate(final ControlledObject controlledObject) {
-        this.controlledObject = controlledObject;
 	List<PowerUp> powerUps = controlledObject.getPowerUps();
 	for (int i = 0; i < powerUps.size(); i++) {
 	    PowerUp powerUp = powerUps.get(i);
 	    if (powerUp.id == id) {
-		controlledObject.setColor(color);
+		controlledObject.setColor(id.getColor());
 		powerUp.collisionHasSamePowerUp();
 		return;
 	    }
@@ -51,7 +37,7 @@ public abstract class PowerUp
 		break;
 	    }
 	}
-        controlledObject.setColor(color);
+        controlledObject.setColor(id.getColor());
    	controlledObject.addPowerUp(this);
    	activated = true;
     }
@@ -67,7 +53,7 @@ public abstract class PowerUp
 	    controlledObject.resetColor();
 	} else {
 	    PowerUp powerUp = powerUps.get(powerUps.size()-1);
-	    controlledObject.setColor(powerUp.color);
+	    controlledObject.setColor(powerUp.id.getColor());
 	}
     }
 

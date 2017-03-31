@@ -88,9 +88,9 @@ public class Game extends Canvas implements Runnable
                 speedIncreaser += INCREASE;
 		if (speedIncreaser%1 == 0) {
 		    if (powerup) {
-			handler.add(new Container(random.nextInt(WIDTH - 25), handler, new Unstoppable(handler)));
+			handler.add(new Container(random.nextInt(WIDTH - 25), handler, PowerUpId.AMMO));
 		    } else {
-			handler.add(new Container(random.nextInt(WIDTH - 25), handler, new Ammo(handler)));
+			handler.add(new Container(random.nextInt(WIDTH - 25), handler, PowerUpId.UNSTOPPABLE));
 		    }
 		    powerup = !powerup;
 		    amountOfTicks = speedIncreaser;

@@ -12,8 +12,8 @@ import java.awt.Color;
 public class Ghost extends PowerUp implements CollisionHandlerControlled
 {
 
-    public Ghost(final int x, final Color color, final Handler handler) {
-	super(handler, PowerUpId.GHOST, Color.PINK);
+    public Ghost(final ControlledObject controlledObject) {
+	super(PowerUpId.GHOST, controlledObject);
     }
 
     @Override public void use() {

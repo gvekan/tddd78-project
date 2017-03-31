@@ -18,14 +18,10 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
     private int countdown = 5;
     private Timer timer = null;
 
-    public Unstoppable(final Handler handler)
+    public Unstoppable(final ControlledObject controlledObject)
     {
-	super(handler, PowerUpId.UNSTOPPABLE, Color.YELLOW);
-    }
-
-    @Override public void activate(final ControlledObject controlledObject) {
-        super.activate(controlledObject);
-        if (activated) {
+	super(PowerUpId.UNSTOPPABLE, controlledObject);
+	if (activated) {
 	    resume();
 	}
     }

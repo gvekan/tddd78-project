@@ -3,20 +3,28 @@ package se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.awt.Color;
 
 public enum PowerUpId
 {
-    AMMO(0, 1),
-    GHOST(1, 0,2),
-    UNSTOPPABLE(2, 1);
+    AMMO(Color.MAGENTA,0, 1),
+    GHOST(Color.PINK,1, 0,2),
+    UNSTOPPABLE(Color.YELLOW,2, 1);
 
+    private final Color color;
     private final int id;
     private final int[] incompatibles;
 
-    private PowerUpId(final int id, final int... incompatibles) {
+    private PowerUpId(final Color color, final int id, final int... incompatibles) {
+        this.color = color;
         this.id = id;
 	this.incompatibles = incompatibles;
     }
+
+    public Color getColor() {
+	return color;
+    }
+
     public boolean isIncompatible(PowerUpId test){
 	for (int i:
 	     incompatibles) {

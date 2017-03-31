@@ -2,15 +2,19 @@ package se.liu.ida.gusan092.tddd78.project.game.objects.still.powerup;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Bullet;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledCollision;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
 import java.awt.Color;
 
 public class Ammo extends PowerUp
 {
+    private Handler handler;
     private int ammo = 10;
 
-    public Ammo(final Handler handler) {
-	super(handler, PowerUpId.AMMO, Color.MAGENTA);
+    public Ammo(final ControlledObject controlledObject, final Handler handler) {
+	super(PowerUpId.AMMO, controlledObject);
+	this.handler = handler;
     }
 
     @Override public void use() {
