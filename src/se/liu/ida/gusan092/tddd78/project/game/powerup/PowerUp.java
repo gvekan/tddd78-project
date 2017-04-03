@@ -9,7 +9,7 @@ public abstract class PowerUp
 {
     protected ControlledObject controlledObject = null;
     protected List<PowerUp> interruptedPowerUps = new ArrayList<>();
-    protected boolean activated = false;
+    protected boolean added = false;
 
     protected PowerUpId id;
 
@@ -17,7 +17,27 @@ public abstract class PowerUp
     {
 	this.id = id;
 	this.controlledObject = controlledObject;
+    }
 
+    protected void reset() {
+	controlledObject.removePowerUp(this);
+	if (!interruptedPowerUps.isEmpty()) {
+	    for (PowerUp powerUp:
+		 interruptedPowerUps) {
+	    controlledObject.addPowerUp(powerUp);
+	    powerUp.resume();
+	    }
+	}
+	List<PowerUp> powerUps = controlledObject.getPowerUps();
+	if (powerUps.isEmpty()) {
+	    controlledObject.resetColor();
+	} else {
+	    PowerUp powerUp = powerUps.get(powerUps.size()-1);
+	    controlledObject.setColor(powerUp.id.getColor());
+	}
+    }
+
+    protected void add() {
 	List<PowerUp> powerUps = controlledObject.getPowerUps();
 	for (int i = 0; i < powerUps.size(); i++) {
 	    PowerUp powerUp = powerUps.get(i);
@@ -38,25 +58,7 @@ public abstract class PowerUp
 	}
         controlledObject.setColor(id.getColor());
    	controlledObject.addPowerUp(this);
-   	activated = true;
-    }
-
-    protected void reset() {
-	controlledObject.removePowerUp(this);
-	if (!interruptedPowerUps.isEmpty()) {
-	    for (PowerUp powerUp:
-		 interruptedPowerUps) {
-	    controlledObject.addPowerUp(powerUp);
-	    powerUp.resume();
-	}
-	}
-	List<PowerUp> powerUps = controlledObject.getPowerUps();
-	if (powerUps.isEmpty()) {
-	    controlledObject.resetColor();
-	} else {
-	    PowerUp powerUp = powerUps.get(powerUps.size()-1);
-	    controlledObject.setColor(powerUp.id.getColor());
-	}
+   	added = true;
     }
 
     public abstract void collisionHasSamePowerUp();

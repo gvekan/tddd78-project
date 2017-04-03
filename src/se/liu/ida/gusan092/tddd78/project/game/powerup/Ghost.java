@@ -12,6 +12,7 @@ public class Ghost extends PowerUp implements CollisionHandlerControlled
 
     public Ghost(final ControlledObject controlledObject) {
 	super(PowerUpId.GHOST, controlledObject);
+	add();
     }
 
     @Override public void use() {

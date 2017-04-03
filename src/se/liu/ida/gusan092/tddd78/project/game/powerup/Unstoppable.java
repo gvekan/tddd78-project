@@ -20,7 +20,8 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
     public Unstoppable(final ControlledObject controlledObject)
     {
 	super(PowerUpId.UNSTOPPABLE, controlledObject);
-	if (activated) {
+	add();
+	if (added) {
 	    resume();
 	}
     }

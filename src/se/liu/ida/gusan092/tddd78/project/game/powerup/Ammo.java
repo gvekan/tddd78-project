@@ -12,6 +12,7 @@ public class Ammo extends PowerUp
     public Ammo(final ControlledObject controlledObject, final Handler handler) {
 	super(PowerUpId.AMMO, controlledObject);
 	this.handler = handler;
+	add();
     }
 
     @Override public void use() {
