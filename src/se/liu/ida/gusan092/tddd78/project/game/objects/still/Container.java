@@ -26,7 +26,7 @@ public class Container extends StillObject
     @Override public void tick() {
 	super.tick();
 	if (collided) {
-	    handler.remove(this);
+	    handler.removeAfterTick(this);
 	}
     }
 

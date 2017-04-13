@@ -7,9 +7,18 @@ import java.awt.*;
 
 public class Window
 {
-    public Window(final String title, final Game game) {
-        JFrame frame = new JFrame(title);
+    private JFrame frame = new JFrame("Game");
 
+    public Window() {
+	frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+ 	frame.setResizable(false);
+ 	frame.pack();
+ 	frame.setVisible(true);
+ 	frame.setFocusable(true);
+
+    }
+
+    public Window(final Game game) {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.add(game);

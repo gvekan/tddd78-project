@@ -11,6 +11,7 @@ import java.util.Objects;
 public class Handler
 {
     private List<GameObject> gameObjects = new ArrayList<>(1000);
+    private List<GameObject> objectsToRemove = new ArrayList<>();
     //en fori loop bör användas då objekt kan ändras undertiden
 
     public void tick() {
@@ -20,14 +21,12 @@ public class Handler
 		gameObject.tick();
 	    }
 	}
+	for (int i = objectsToRemove.size()-1; i >= 0 ; i--) {
+	    final GameObject gameObject = objectsToRemove.get(i);
+	    gameObjects.remove(gameObject);
+	}
+	objectsToRemove.clear();
     }
-
-/*    public void maxTick() {
-    	for (int i = 0; i < gameObjects.size(); i++) {
-    	    final GameObject gameObject = gameObjects.get(i);
-    	    gameObject.maxTick();
-    	}
-        }*/
 
     public void render(final Graphics g) {
 	for (int i = 0; i < gameObjects.size(); i++) {
@@ -42,8 +41,8 @@ public class Handler
         gameObjects.add(gameObject);
     }
 
-    public void remove(GameObject gameObject) {
-        gameObjects.remove(gameObject);
+    public void removeAfterTick(GameObject gameObject) {
+        objectsToRemove.add(gameObject);
     }
 
     public boolean hasCollision(final Rectangle rectangle, final GameObject gameObject) {

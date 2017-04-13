@@ -95,7 +95,7 @@ public abstract class GameObject
     }
 
     /*public void powerUpCollision(PowerUp powerUp) {
-        handler.remove(powerUp);
+        handler.removeAfterTick(powerUp);
     }*/
 
     public void collisionWithGameObject(final GameObject collision, final Side side) {

@@ -161,6 +161,6 @@ public class Game extends Canvas implements Runnable
     }
 
     public static void main(String[] args) {
-	Window window = new Window("Test", new Game());
+	Window window = new Window(new Game());
     }
 }

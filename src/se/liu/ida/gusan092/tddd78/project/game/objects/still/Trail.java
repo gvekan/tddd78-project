@@ -29,7 +29,7 @@ public class Trail extends StillObject
     @Override public void tick() {
 	super.tick();
 	if (alpha < MIN_ALPHA) {
-	    handler.remove(this);
+	    handler.removeAfterTick(this);
 	}
 	alpha-= REDUCTION;
     }

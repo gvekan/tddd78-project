@@ -14,7 +14,7 @@ public class ControlledCollision implements CollisionHandlerControlled
     {
         switch (collision.getType()) {
 	    case ROADBLOCK:
-		handler.remove(collision);
+		handler.removeAfterTick(collision);
 		break;
 	    case PLAYER:
 	    case POWERUP:

@@ -25,7 +25,7 @@ public class Bullet extends GameObject
 		switch (collision.getType()) {
 		    case TRAFFIC_BARRIER:
 		    case ROADBLOCK:
-			handler.remove(collision);
+			handler.removeAfterTick(collision);
 			controlledObject.addScore(100);
 			break;
 		    case PLAYER:
@@ -34,11 +34,11 @@ public class Bullet extends GameObject
 		    case POWERUP:
 		        collision.collisionWithControlled(controlledObject, Side.FRONT);
 		}
-		handler.remove(this);
+		handler.removeAfterTick(this);
 	    }
 	}
 	if (y == 0) {
-	    handler.remove(this);
+	    handler.removeAfterTick(this);
 	}
     }
 }

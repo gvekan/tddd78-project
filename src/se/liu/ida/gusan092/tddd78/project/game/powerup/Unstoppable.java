@@ -73,7 +73,7 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
         switch (collision.getType()) {
 	    case TRAFFIC_BARRIER:
 	    case ROADBLOCK:
-	        handler.remove(collision);
+	        handler.removeAfterTick(collision);
 	        controlledObject.addScore(100);
 	        break;
 	    case POWERUP:
