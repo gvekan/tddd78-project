@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GradientPaint;
 import java.util.List;
+import java.awt.Font;
 
 public class Hud
 {
@@ -49,6 +50,7 @@ public class Hud
 	    g2d.fillRect(healthX, HEALTH_Y, healthWidth, HEALTH_HEIGHT);
 	    g2d.setColor(color);
 	    g2d.fillRect(healthX, HEALTH_Y, health, HEALTH_HEIGHT);
+
 
 	    if (players.length == 1) {
 		g2d.setColor(Color.WHITE);

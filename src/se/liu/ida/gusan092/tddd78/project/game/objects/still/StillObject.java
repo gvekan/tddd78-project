@@ -19,8 +19,9 @@ public abstract class StillObject extends GameObject
     }
 
     @Override public void tick() {
-        if (y > Game.HEIGHT) {
+        if (y == Game.HEIGHT) {
             handler.removeAfterTick(this);
+            return;
 	}
         if (halfTick) {
 	    x += velX;

@@ -8,8 +8,11 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.*;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Container;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
-
-import java.awt.*;
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.Dimension;
+import java.awt.Graphics;
 
 import java.awt.image.BufferStrategy;
 import java.util.Random;
