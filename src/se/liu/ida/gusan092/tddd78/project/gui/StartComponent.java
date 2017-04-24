@@ -5,10 +5,10 @@ import java.awt.*;
 
 public class StartComponent extends JComponent
 {
-    private JFrame frame;
+    private Window window;
 
-    public StartComponent(final JFrame frame) {
-        this.frame = frame;
+    public StartComponent(final Window window) {
+        this.window = window;
         this.setLayout(new GridBagLayout());
        	JButton button;
        	GridBagConstraints c = new GridBagConstraints();
@@ -53,6 +53,7 @@ public class StartComponent extends JComponent
 	this.add(label,c);
 
        	button = new JButton("NEW GAME");
+       	button.addActionListener(window::newGame);
        	c.fill = GridBagConstraints.HORIZONTAL;
        	c.ipady = 30;       //reset to default
        	c.ipadx = 30;

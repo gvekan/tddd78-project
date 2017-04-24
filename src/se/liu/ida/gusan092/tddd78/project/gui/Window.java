@@ -9,14 +9,16 @@ import java.awt.event.ActionEvent;
 
 public class Window extends JFrame
 {
-    private Game game;
+    private Game game = null;
     private JMenuBar menu;
+    private Component comp;
 
     public Window() {
         super("Game");
 	this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
  	this.setResizable(false);
- 	this.add(new StartComponent(this));
+ 	comp = new StartComponent(this);
+ 	this.add(comp);
  	this.pack();
  	this.setVisible(true);
  	this.setFocusable(true);
@@ -35,15 +37,23 @@ public class Window extends JFrame
 
 
     public void newGame(final ActionEvent e) { //It has to be a param e
-	game.paus();
-	if (JOptionPane.showConfirmDialog(null, "Vill du verkligen avsluta?", "", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-	    if (game != null) {
+	if (game != null) {
+	    game.paus();
+	    if (JOptionPane.showConfirmDialog(null, "Vill du verkligen avsluta?", "", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 		game.stop();
+	    } else {
+		game.resume();
+		return;
 	    }
-	    game = new Game();
-	} else {
-	    game.resume();
 	}
+	game = new Game();
+	if (comp != null) {
+	    this.remove(comp);
+	}
+	this.add(game);
+	this.pack();
+	game.start();
+	this.repaint();
     }
 
     @Override public Dimension getPreferredSize() {
