@@ -10,14 +10,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.Insets;
 
-public abstract class MenuButton extends JButton
+public abstract class Button extends JButton
 {
     protected JFrame window;
     private Font font;
     private boolean first = true;
 
 
-    public MenuButton(final JFrame window, final String text) {
+    public Button(final JFrame window, final String text) {
         super(text);
         this.window = window;
 	this.setBackground(new Color(59, 89, 182));
@@ -25,6 +25,5 @@ public abstract class MenuButton extends JButton
  	this.setBorderPainted(false);
  	this.setMargin(new Insets(0,0,0,0));
  	this.setFocusPainted(false);
-
     }
 }

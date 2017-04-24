@@ -36,6 +36,7 @@ public class Game extends Canvas implements Runnable
 
     private Random random = new Random();
 
+    private Boolean running = true;
     private Handler handler = new Handler();
     private Handler environment = new Handler();
     private Hud hud;
@@ -74,11 +75,15 @@ public class Game extends Canvas implements Runnable
             delta += (now - lastTime) / ns;
             lastTime = now;
             while (delta >= 1) {
-                tick();
+                if (running) {
+		    tick();
+		}
                 delta--;
 	    }
 	    if (threadRunning) {
-                render();
+                if (running) {
+		    render();
+		}
 	    }
 	    frames++;
 
@@ -86,18 +91,19 @@ public class Game extends Canvas implements Runnable
                 timer += 1000;
                 System.out.println("FPS: " + frames);
                 frames = 0;
-
-                speedIncreaser += INCREASE;
-		if (speedIncreaser%1 == 0) {
-		    if (powerup) {
-			handler.add(new Container(random.nextInt(WIDTH - Container.DIAMETER), handler, PowerUpId.AMMO));
-		    } else {
-			handler.add(new Container(random.nextInt(WIDTH - Container.DIAMETER), handler, PowerUpId.UNSTOPPABLE));
+		if (running) {
+		    speedIncreaser += INCREASE;
+		    if (speedIncreaser % 1 == 0) {
+			if (powerup) {
+			    handler.add(new Container(random.nextInt(WIDTH - Container.DIAMETER), handler, PowerUpId.AMMO));
+			} else {
+			    handler.add(new Container(random.nextInt(WIDTH - Container.DIAMETER), handler, PowerUpId.UNSTOPPABLE));
+			}
+			powerup = !powerup;
+			amountOfTicks = speedIncreaser;
+			ns = S_IN_NS / amountOfTicks;
+			System.out.println("Amount of ticks: " + amountOfTicks);
 		    }
-		    powerup = !powerup;
-		    amountOfTicks = speedIncreaser;
-		    ns = S_IN_NS / amountOfTicks;
-		    System.out.println("Amount of ticks: " + amountOfTicks);
 		}
 	    }
 	}
@@ -161,6 +167,14 @@ public class Game extends Canvas implements Runnable
 
     @Override public Dimension getPreferredSize() {
 	return new Dimension(WIDTH, HEIGHT);
+    }
+
+    public void paus() {
+        running = false;
+    }
+
+    public void resume() {
+        running = true;
     }
 
     public static void main(String[] args) {
