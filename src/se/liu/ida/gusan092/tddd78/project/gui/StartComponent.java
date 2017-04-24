@@ -1,5 +1,7 @@
 package se.liu.ida.gusan092.tddd78.project.gui;
 
+import se.liu.ida.gusan092.tddd78.project.game.Game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -76,5 +78,9 @@ public class StartComponent extends JComponent
 //	c.gridwidth = 2;   //2 columns wide
 	c.gridy = 3;       //third row
 	this.add(button, c);
+    }
+
+    @Override public Dimension getPreferredSize() {
+	return new Dimension(Game.WIDTH, Game.HEIGHT);
     }
 }

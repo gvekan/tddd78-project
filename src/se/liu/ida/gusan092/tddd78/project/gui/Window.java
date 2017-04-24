@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 public class Window extends JFrame
 {
     private Game game = null;
-    private JMenuBar menu;
+    private Menu menu = new Menu(this);
     private Component comp;
 
     public Window() {
@@ -19,6 +19,7 @@ public class Window extends JFrame
  	this.setResizable(false);
  	comp = new StartComponent(this);
  	this.add(comp);
+	this.setJMenuBar(menu);
  	this.pack();
  	this.setVisible(true);
  	this.setFocusable(true);
@@ -28,6 +29,7 @@ public class Window extends JFrame
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.add(game);
+	this.setJMenuBar(menu);
         this.pack();
         this.setVisible(true);
         this.setFocusable(true);
@@ -38,26 +40,32 @@ public class Window extends JFrame
 
     public void newGame(final ActionEvent e) { //It has to be a param e
 	if (game != null) {
-	    game.paus();
+	    game.pause();
 	    if (JOptionPane.showConfirmDialog(null, "Vill du verkligen avsluta?", "", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 		game.stop();
+		this.remove(game);
 	    } else {
 		game.resume();
 		return;
 	    }
 	}
-	game = new Game();
 	if (comp != null) {
 	    this.remove(comp);
 	}
+	menu.setState(ComponentState.GAME);
+	game = new Game();
 	this.add(game);
 	this.pack();
+	repaint();
 	game.start();
-	this.repaint();
     }
 
-    @Override public Dimension getPreferredSize() {
-	return new Dimension(1000,1000);
+    public void pauseGame(final ActionEvent e){
+        game.pause();
+    }
+
+    public void resumeGame(final ActionEvent e){
+        game.resume();
     }
 
     public static void main(String[] args) {

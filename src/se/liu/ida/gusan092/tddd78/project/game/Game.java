@@ -49,14 +49,14 @@ public class Game extends Canvas implements Runnable
     }
 
     public synchronized void start() {
-	thread.start();
 	threadRunning = true;
+	thread.start();
     }
 
     public synchronized void stop() {
         try {
-            thread.join();
 	    threadRunning = false;
+            thread.join();
 	} catch (InterruptedException e) {
 	    e.printStackTrace();
 	}
@@ -169,7 +169,7 @@ public class Game extends Canvas implements Runnable
 	return new Dimension(WIDTH, HEIGHT);
     }
 
-    public void paus() {
+    public void pause() {
         running = false;
     }
 
