@@ -81,9 +81,7 @@ public class Game extends Canvas implements Runnable
                 delta--;
 	    }
 	    if (threadRunning) {
-                if (running) {
-		    render();
-		}
+		render();
 	    }
 	    frames++;
 

@@ -12,6 +12,7 @@ public class Window extends JFrame
     private Game game = null;
     private Menu menu = new Menu(this);
     private Component comp;
+    private boolean paused = false;
 
     public Window() {
         super("Game");
@@ -61,7 +62,12 @@ public class Window extends JFrame
     }
 
     public void pauseGame(final ActionEvent e){
-        game.pause();
+        if (paused) {
+            game.resume();
+	} else {
+	    game.pause();
+	}
+	paused = !paused;
     }
 
     public void resumeGame(final ActionEvent e){

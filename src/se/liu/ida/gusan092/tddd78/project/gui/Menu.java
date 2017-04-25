@@ -1,6 +1,7 @@
 package se.liu.ida.gusan092.tddd78.project.gui;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import java.util.AbstractMap;
@@ -18,20 +19,18 @@ public class Menu extends JMenuBar
     public Menu(final Window window) {
         super();
         List<JMenuItem> gameButtons = new ArrayList<>();
-        JMenu menu = new JMenu("File");
+        JMenu menu = new JMenu("Options");
 
-	JMenuItem item = new JMenuItem("New game",KeyEvent.VK_N);
+	JMenuItem item = new JMenuItem("New",KeyEvent.VK_N);
+	item.setMnemonic(KeyEvent.VK_N);
+	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.ALT_MASK));
  	item.addActionListener(window::newGame);
         menu.add(item);
 
-	item = new JMenuItem("Pause game",KeyEvent.VK_P);
+	item = new JMenuItem("Pause/Resume",KeyEvent.VK_P);
+	item.setMnemonic(KeyEvent.VK_P);
+	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.ALT_MASK));
  	item.addActionListener(window::pauseGame);
- 	item.setEnabled(false);
- 	gameButtons.add(item);
- 	menu.add(item);
-
-	item = new JMenuItem("Resume game",KeyEvent.VK_R);
- 	item.addActionListener(window::resumeGame);
  	item.setEnabled(false);
  	gameButtons.add(item);
  	menu.add(item);
