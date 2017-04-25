@@ -129,7 +129,6 @@ public class Game extends Canvas implements Runnable
         try {
             g = bs.getDrawGraphics();
 	} catch (IllegalStateException ignore) {
-	    this.createBufferStrategy(3);
 	    return;
 	}
 
@@ -146,7 +145,6 @@ public class Game extends Canvas implements Runnable
 	try {
 	    bs.show();
 	} catch (IllegalStateException ignore) {
-	    this.createBufferStrategy(3);
 	}
     }
 

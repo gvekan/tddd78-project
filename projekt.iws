@@ -7,8 +7,6 @@
     <list default="true" id="df068188-c51e-47d2-bc69-d637a0eb95f6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projekt.iws" afterPath="$PROJECT_DIR$/projekt.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartComponent.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartComponent.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -122,12 +120,12 @@
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="460">
-              <caret line="142" column="20" lean-forward="true" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+              <caret line="142" column="43" lean-forward="true" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
               <folding>
-                <element signature="e#4802#4803#0" expanded="true" />
-                <element signature="e#4833#4834#0" expanded="true" />
-                <element signature="e#5110#5111#0" expanded="true" />
-                <element signature="e#5140#5141#0" expanded="true" />
+                <element signature="e#4732#4733#0" expanded="true" />
+                <element signature="e#4763#4764#0" expanded="true" />
+                <element signature="e#5040#5041#0" expanded="true" />
+                <element signature="e#5070#5071#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1145,7 +1143,7 @@
       <workItem from="1492351195589" duration="3493000" />
       <workItem from="1493019777499" duration="2444000" />
       <workItem from="1493057717508" duration="4848000" />
-      <workItem from="1493143327031" duration="9070000" />
+      <workItem from="1493143327031" duration="9404000" />
     </task>
     <task id="LOCAL-00001" summary="Ändrat strukturen och håller på att förfina player, finns en bugg då spelaren spawnas för långt ner på rutan">
       <created>1490453599403</created>
@@ -1343,11 +1341,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493151596744</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Hanterar felen som uppkommer när man byter snabbt mellan componenter dock laggar spelet när det händer">
+      <created>1493152475519</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1493152475519</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="247149000" />
+    <option name="totallyTimeSpent" value="247483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1092" extended-state="0" />
@@ -1442,7 +1447,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Har integrerat en mycket bättre collisionhandeler" />
     <MESSAGE value="Förbettrat DefaultCollision ytterligare och skapat stillobject som är en abstarkt klass för objkt som är stilla" />
     <MESSAGE value="Lade in livet och poängen i player klassen ska nästa gång skapa en hud som använder dem värdena" />
     <MESSAGE value="Lade till en hud interface" />
@@ -1467,7 +1471,8 @@
     <MESSAGE value="fortsatte med att skriva lite på gui" />
     <MESSAGE value="Lade till en meny" />
     <MESSAGE value="Fixade så man kan byta component sedan fortsätta spela" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixade så man kan byta component sedan fortsätta spela" />
+    <MESSAGE value="Hanterar felen som uppkommer när man byter snabbt mellan componenter dock laggar spelet när det händer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hanterar felen som uppkommer när man byter snabbt mellan componenter dock laggar spelet när det händer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1815,12 +1820,12 @@
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
-          <caret line="142" column="20" lean-forward="true" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+          <caret line="142" column="43" lean-forward="true" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
           <folding>
-            <element signature="e#4802#4803#0" expanded="true" />
-            <element signature="e#4833#4834#0" expanded="true" />
-            <element signature="e#5110#5111#0" expanded="true" />
-            <element signature="e#5140#5141#0" expanded="true" />
+            <element signature="e#4732#4733#0" expanded="true" />
+            <element signature="e#4763#4764#0" expanded="true" />
+            <element signature="e#5040#5041#0" expanded="true" />
+            <element signature="e#5070#5071#0" expanded="true" />
           </folding>
         </state>
       </provider>
