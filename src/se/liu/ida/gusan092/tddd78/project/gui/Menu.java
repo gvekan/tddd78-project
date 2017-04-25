@@ -37,17 +37,17 @@ public class Menu extends JMenuBar
  	startDisable.add(item);
  	menu.add(item);
 
-	item = new JMenuItem("Game", KeyEvent.VK_G);
-	item.setMnemonic(KeyEvent.VK_G);
-	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.CTRL_MASK));
+	this.add(menu);
+
+        menu = new JMenu("Game");
+
+	item = new JMenuItem("CONTINUE", KeyEvent.VK_C);
+	item.setMnemonic(KeyEvent.VK_C);
+	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
  	item.addActionListener(window::toGame);
  	item.setEnabled(true);
  	gameDisable.add(item);
  	menu.add(item);
-
-	this.add(menu);
-
-        menu = new JMenu("Game");
 
 	item = new JMenuItem("New", KeyEvent.VK_N);
 	item.setMnemonic(KeyEvent.VK_N);

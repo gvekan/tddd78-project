@@ -54,6 +54,19 @@ public class StartComponent extends JComponent
 	c.gridy = 1;       //third row
 	this.add(label,c);
 
+	button = new JButton("CONTINUE");
+	button.addActionListener(window::toGame);
+	c.fill = GridBagConstraints.HORIZONTAL;
+	c.ipady = 30;       //reset to default
+	c.ipadx = 30;
+	c.weighty = 0;   //request any extra vertical space
+	c.anchor = GridBagConstraints.CENTER; //bottom of space
+	c.insets = new Insets(10,0,0,0);  //top padding
+//	c.gridx = 1;       //aligned with button 2
+//	c.gridwidth = 2;   //2 columns wide
+	c.gridy = 2;       //third row
+	this.add(button, c);
+
        	button = new JButton("NEW GAME");
        	button.addActionListener(window::newGame);
        	c.fill = GridBagConstraints.HORIZONTAL;
@@ -64,7 +77,7 @@ public class StartComponent extends JComponent
        	c.insets = new Insets(10,0,0,0);  //top padding
        //	c.gridx = 1;       //aligned with button 2
        //	c.gridwidth = 2;   //2 columns wide
-       	c.gridy = 2;       //third row
+       	c.gridy = 3;       //third row
        	this.add(button, c);
 
 	button = new JButton("SETTINGS");
@@ -76,7 +89,7 @@ public class StartComponent extends JComponent
 	c.insets = new Insets(10,0,0,0);  //top padding
 //	c.gridx = 1;       //aligned with button 2
 //	c.gridwidth = 2;   //2 columns wide
-	c.gridy = 3;       //third row
+	c.gridy = 4;       //third row
 	this.add(button, c);
     }
 

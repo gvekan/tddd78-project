@@ -118,24 +118,36 @@ public class Game extends Canvas implements Runnable
 
 
     private void render() {
-	BufferStrategy bs = this.getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
-        if (bs == null) {
+	BufferStrategy bs = null;
+	if (render) bs = this.getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
+	if (bs == null) {
 	    this.createBufferStrategy(3);
 	    return;
 	}
 
-	Graphics g = bs.getDrawGraphics();
+	Graphics g;
+        try {
+            g = bs.getDrawGraphics();
+	} catch (IllegalStateException ignore) {
+	    this.createBufferStrategy(3);
+	    return;
+	}
 
-        g.setColor(Color.BLACK);
-        g.fillRect(0,0,WIDTH,HEIGHT);
+	g.setColor(Color.BLACK);
+	g.fillRect(0, 0, WIDTH, HEIGHT);
 
 	environment.render(g);
-        handler.render(g);
+	handler.render(g);
 	hud.render(g);
 
 	g.dispose();
 	Toolkit.getDefaultToolkit().sync();
-	bs.show();
+
+	try {
+	    bs.show();
+	} catch (IllegalStateException ignore) {
+	    this.createBufferStrategy(3);
+	}
     }
 
     public double getAmountOfTicks() {

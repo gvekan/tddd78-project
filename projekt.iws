@@ -7,9 +7,8 @@
     <list default="true" id="df068188-c51e-47d2-bc69-d637a0eb95f6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projekt.iws" afterPath="$PROJECT_DIR$/projekt.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/ComponentState.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/ComponentState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Window.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Window.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartComponent.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartComponent.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +27,7 @@
       <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
+            <state relative-caret-position="935">
               <caret line="103" column="22" lean-forward="false" selection-start-line="103" selection-start-column="22" selection-end-line="103" selection-end-column="22" />
               <folding>
                 <element signature="e#967#968#0" expanded="true" />
@@ -66,11 +65,11 @@
       <file leaf-file-name="StartComponent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartComponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1404">
-              <caret line="83" column="54" lean-forward="false" selection-start-line="83" selection-start-column="54" selection-end-line="83" selection-end-column="54" />
+            <state relative-caret-position="248">
+              <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
               <folding>
-                <element signature="e#2646#2647#0" expanded="true" />
-                <element signature="e#2700#2701#0" expanded="true" />
+                <element signature="e#3119#3120#0" expanded="true" />
+                <element signature="e#3173#3174#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,8 +78,8 @@
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="93" column="13" lean-forward="false" selection-start-line="93" selection-start-column="13" selection-end-line="93" selection-end-column="13" />
+            <state relative-caret-position="442">
+              <caret line="48" column="30" lean-forward="true" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -122,13 +121,13 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="183" column="4" lean-forward="false" selection-start-line="183" selection-start-column="4" selection-end-line="183" selection-end-column="4" />
+            <state relative-caret-position="460">
+              <caret line="142" column="20" lean-forward="true" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
               <folding>
-                <element signature="e#4589#4590#0" expanded="true" />
-                <element signature="e#4620#4621#0" expanded="true" />
-                <element signature="e#4897#4898#0" expanded="true" />
-                <element signature="e#4927#4928#0" expanded="true" />
+                <element signature="e#4802#4803#0" expanded="true" />
+                <element signature="e#4833#4834#0" expanded="true" />
+                <element signature="e#5110#5111#0" expanded="true" />
+                <element signature="e#5140#5141#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -231,10 +230,10 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartMenu.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Button.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/NewGameButton.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartComponent.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/ComponentState.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Window.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartComponent.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" />
       </list>
     </option>
@@ -1146,7 +1145,7 @@
       <workItem from="1492351195589" duration="3493000" />
       <workItem from="1493019777499" duration="2444000" />
       <workItem from="1493057717508" duration="4848000" />
-      <workItem from="1493143327031" duration="8192000" />
+      <workItem from="1493143327031" duration="9070000" />
     </task>
     <task id="LOCAL-00001" summary="Ändrat strukturen och håller på att förfina player, finns en bugg då spelaren spawnas för långt ner på rutan">
       <created>1490453599403</created>
@@ -1337,11 +1336,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493062575608</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Fixade så man kan byta component sedan fortsätta spela">
+      <created>1493151596744</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1493151596744</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246271000" />
+    <option name="totallyTimeSpent" value="247149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1092" extended-state="0" />
@@ -1436,7 +1442,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fortfarande en bugg med grafiken och livet kanske inte funkar" />
     <MESSAGE value="Har integrerat en mycket bättre collisionhandeler" />
     <MESSAGE value="Förbettrat DefaultCollision ytterligare och skapat stillobject som är en abstarkt klass för objkt som är stilla" />
     <MESSAGE value="Lade in livet och poängen i player klassen ska nästa gång skapa en hud som använder dem värdena" />
@@ -1461,7 +1466,8 @@
     <MESSAGE value="Började skriva lite på gui" />
     <MESSAGE value="fortsatte med att skriva lite på gui" />
     <MESSAGE value="Lade till en meny" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lade till en meny" />
+    <MESSAGE value="Fixade så man kan byta component sedan fortsätta spela" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixade så man kan byta component sedan fortsätta spela" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1739,17 +1745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="83" column="54" lean-forward="false" selection-start-line="83" selection-start-column="54" selection-end-line="83" selection-end-column="54" />
-          <folding>
-            <element signature="e#2646#2647#0" expanded="true" />
-            <element signature="e#2700#2701#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/ComponentState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1785,17 +1780,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java">
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/StartComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="93" column="13" lean-forward="false" selection-start-line="93" selection-start-column="13" selection-end-line="93" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="248">
+          <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+          <folding>
+            <element signature="e#3119#3120#0" expanded="true" />
+            <element signature="e#3173#3174#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
+        <state relative-caret-position="935">
           <caret line="103" column="22" lean-forward="false" selection-start-line="103" selection-start-column="22" selection-end-line="103" selection-end-column="22" />
           <folding>
             <element signature="e#967#968#0" expanded="true" />
@@ -1806,15 +1804,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="48" column="30" lean-forward="true" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="183" column="4" lean-forward="false" selection-start-line="183" selection-start-column="4" selection-end-line="183" selection-end-column="4" />
+        <state relative-caret-position="460">
+          <caret line="142" column="20" lean-forward="true" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
           <folding>
-            <element signature="e#4589#4590#0" expanded="true" />
-            <element signature="e#4620#4621#0" expanded="true" />
-            <element signature="e#4897#4898#0" expanded="true" />
-            <element signature="e#4927#4928#0" expanded="true" />
+            <element signature="e#4802#4803#0" expanded="true" />
+            <element signature="e#4833#4834#0" expanded="true" />
+            <element signature="e#5110#5111#0" expanded="true" />
+            <element signature="e#5140#5141#0" expanded="true" />
           </folding>
         </state>
       </provider>
