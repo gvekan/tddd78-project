@@ -55,6 +55,7 @@ public class Player extends ControlledObject implements Runnable
 	this.y = Game.clamp(y, 0, MAX_Y);
     }
 
+
     @Override public void tick() {
         setVelY(velY);
 	if (halfTick) {

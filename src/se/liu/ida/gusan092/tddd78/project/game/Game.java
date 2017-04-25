@@ -178,18 +178,20 @@ public class Game extends Canvas implements Runnable
 
     public void pause() {
         running = false;
+        handler.setRunning(false);
     }
 
     public void resume() {
         running = true;
+        handler.setRunning(true);
         render = true;
     }
 
     public void stopRender() {render = false;}
 
     public void startRender() {
-        render = true;
 	this.createBufferStrategy(3);
+        render = true;
 	this.requestFocus();
     }
     public boolean isRunning() {

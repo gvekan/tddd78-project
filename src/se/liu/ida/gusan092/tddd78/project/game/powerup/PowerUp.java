@@ -10,6 +10,7 @@ public abstract class PowerUp
     protected ControlledObject controlledObject = null;
     protected List<PowerUp> interruptedPowerUps = new ArrayList<>();
     protected boolean added = false;
+    protected boolean running = true;
 
     protected PowerUpId id;
 
@@ -59,6 +60,10 @@ public abstract class PowerUp
         controlledObject.setColor(id.getColor());
    	controlledObject.addPowerUp(this);
    	added = true;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
     }
 
     public abstract void collisionHasSamePowerUp();

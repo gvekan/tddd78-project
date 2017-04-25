@@ -93,16 +93,29 @@ public abstract class ControlledObject extends GameObject
     }
 
     public void usePowerUps(){
-	for (int i = 0; i < powerUps.size(); i++) {
-	    final PowerUp powerUp = powerUps.get(i);
-	    powerUp.use();
+        if (game.isRunning()) {
+	    for (int i = 0; i < powerUps.size(); i++) {
+		final PowerUp powerUp = powerUps.get(i);
+		powerUp.use();
+	    }
 	}
     }
 
     public void stopPowerUps(){
+	if (game.isRunning()) {
+	    for (int i = 0; i < powerUps.size(); i++) {
+		final PowerUp powerUp = powerUps.get(i);
+		powerUp.stop();
+	    }
+	}
+    }
+
+
+    @Override public void setRunning(final boolean running) {
+	super.setRunning(running);
 	for (int i = 0; i < powerUps.size(); i++) {
 	    final PowerUp powerUp = powerUps.get(i);
-	    powerUp.stop();
+	    powerUp.setRunning(running);
 	}
     }
 

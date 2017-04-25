@@ -78,4 +78,13 @@ public class Handler
 	return getCollisions(rectangle, gameObject);
     }
 
+    public void setRunning(boolean running) {
+	for (int i = 0; i < gameObjects.size(); i++) {
+	    final GameObject gameObject = gameObjects.get(i);
+	    if (gameObject != null) {
+		gameObject.setRunning(running);
+	    }
+	}
+    }
+
 }

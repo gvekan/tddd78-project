@@ -11,6 +11,7 @@ public abstract class GameObject
     protected Color color;
     protected Type type;
     protected Handler handler;
+    protected boolean running = true;
 
     protected GameObject(final int x, final int y, final int width, final int height, final Color color, final Type type, final Handler handler) {
 	this.x = x;
@@ -92,6 +93,10 @@ public abstract class GameObject
 
     public boolean hasCollision(final Rectangle r) {
         return r.intersects(getBounds());
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
     }
 
     /*public void powerUpCollision(PowerUp powerUp) {

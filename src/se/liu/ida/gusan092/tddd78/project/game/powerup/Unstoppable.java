@@ -47,11 +47,13 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 	controlledObject.setCollisionHandler(this);
 	ActionListener taskPerformer = new ActionListener() {
 	    public void actionPerformed(ActionEvent evt) {
-		countdown--;
-		if (countdown == 0) {
-		    controlledObject.setCollisionHandler(oldCollisionHandeler);
-		    reset();
-		    timer.stop();
+	        if (running) {
+		    countdown--;
+		    if (countdown == 0) {
+			controlledObject.setCollisionHandler(oldCollisionHandeler);
+			reset();
+			timer.stop();
+		    }
 		}
 	    }
 	};
