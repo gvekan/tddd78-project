@@ -37,6 +37,7 @@ public class Game extends Canvas implements Runnable
     private Random random = new Random();
 
     private Boolean running = true;
+    private Boolean render = true;
     private Handler handler = new Handler();
     private Handler environment = new Handler();
     private Hud hud;
@@ -75,13 +76,11 @@ public class Game extends Canvas implements Runnable
             delta += (now - lastTime) / ns;
             lastTime = now;
             while (delta >= 1) {
-                if (running) {
-		    tick();
-		}
+                if (running) tick();
                 delta--;
 	    }
 	    if (threadRunning) {
-		render();
+		if (render) render();
 	    }
 	    frames++;
 
@@ -173,6 +172,18 @@ public class Game extends Canvas implements Runnable
 
     public void resume() {
         running = true;
+        render = true;
+    }
+
+    public void stopRender() {render = false;}
+
+    public void startRender() {
+        render = true;
+	this.createBufferStrategy(3);
+	this.requestFocus();
+    }
+    public boolean isRunning() {
+        return running;
     }
 
     public static void main(String[] args) {

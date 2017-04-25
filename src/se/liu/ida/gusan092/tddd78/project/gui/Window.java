@@ -11,8 +11,8 @@ public class Window extends JFrame
 {
     private Game game = null;
     private Menu menu = new Menu(this);
-    private Component comp;
-    private boolean paused = false;
+    private JComponent comp;
+
 
     public Window() {
         super("Game");
@@ -38,40 +38,72 @@ public class Window extends JFrame
         game.start();
     }
 
+    private boolean hasGame() {
+        return game != null;
+    }
+
+    private boolean hasComp() {
+        return comp != null;
+    }
+
+    private void replaceState(ComponentState state) {
+	if (hasComp()) this.remove(comp);
+	else {
+	    game.stopRender();
+	    this.remove(game);
+	}
+	comp = null;
+	menu.setState(state);
+    }
+
+    private void setComp(JComponent comp, ComponentState state) {
+        replaceState(state);
+        this.comp = comp;
+        this.add(comp);
+	this.pack();
+        repaint();
+    }
 
     public void newGame(final ActionEvent e) { //It has to be a param e
-	if (game != null) {
-	    game.pause();
-	    if (JOptionPane.showConfirmDialog(null, "Vill du verkligen avsluta?", "", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+	if (hasGame()) {
+	    boolean wasRunning = false;
+	    if (game.isRunning()) {
+		game.pause();
+		wasRunning = true;
+	    }
+	    if (JOptionPane.showConfirmDialog(null, "Do you really want to start a new game?", "", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 		game.stop();
-		this.remove(game);
 	    } else {
-		game.resume();
-		return;
+	        if (wasRunning) game.resume();
+	        return;
 	    }
 	}
-	if (comp != null) {
-	    this.remove(comp);
-	}
-	menu.setState(ComponentState.GAME);
+	replaceState(ComponentState.GAME);
 	game = new Game();
 	this.add(game);
 	this.pack();
-	repaint();
 	game.start();
+	repaint();
     }
 
-    public void pauseGame(final ActionEvent e){
-        if (paused) {
-            game.resume();
-	} else {
-	    game.pause();
-	}
-	paused = !paused;
+    public void repauseGame(final ActionEvent e){
+        if (game.isRunning()) game.pause();
+	else game.resume();
     }
 
-    public void resumeGame(final ActionEvent e){
-        game.resume();
+    public void toStart(final ActionEvent e){
+        if (hasGame()) game.pause();
+        setComp(new StartComponent(this), ComponentState.START);
+    }
+
+    public void toGame(final ActionEvent e) {
+        if (hasGame()) {
+	    replaceState(ComponentState.GAME);
+	    this.add(game);
+	    this.pack();
+	    repaint();
+	    game.startRender();
+	} else newGame(e);
     }
 
     public static void main(String[] args) {
