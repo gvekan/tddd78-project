@@ -21,7 +21,7 @@ public class Player extends ControlledObject implements Runnable
 {
     public static final int WIDTH = 20;
     public static final int HEIGHT = 45;
-    public static final int MAX_HEALTH = 200;
+    public static final int MAX_HEALTH = 10;
     private boolean halfTick = true;
     public static final int MAX_Y = Game.HEIGHT-150;
 

@@ -3,6 +3,7 @@ package se.liu.ida.gusan092.tddd78.project.game;
 
 import se.liu.ida.gusan092.tddd78.project.game.hud.Hud;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.*;
@@ -15,6 +16,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Game extends Canvas implements Runnable
@@ -42,8 +45,11 @@ public class Game extends Canvas implements Runnable
     private Handler environment = new Handler();
     private Hud hud;
 
+    private List<ControlledObject> players = new ArrayList<>();
+
     public Game() {
         Player player = new Player(handler, this);
+        players.add(player);
 	handler.add(player);
         this.addKeyListener(new Controller(player));
         hud = new Hud(player);
@@ -113,6 +119,7 @@ public class Game extends Canvas implements Runnable
 	}
 	environment.tick();
 	handler.tick();
+	if (isGameOver()) gameOver();
 	spawnTimer--;
     }
 
@@ -162,6 +169,20 @@ public class Game extends Canvas implements Runnable
         return environment;
     }
 
+    public boolean isGameOver() {
+        int count = 0;
+	for (ControlledObject controlledObject:
+	     players) {
+	    if (controlledObject.isAlive()) ++count;
+	}
+	if (count == 0 || (players.size() > 1 && count == 1)) return true;
+	else return false;
+    }
+
+    public void gameOver() {
+        pause();
+    }
+
     public static int clamp(int variable, int min, int max) {
         if (variable >= max) {
             return max;
@@ -182,9 +203,10 @@ public class Game extends Canvas implements Runnable
     }
 
     public void resume() {
-        running = true;
-        handler.setRunning(true);
-        render = true;
+        if (!isGameOver()) {
+	    running = true;
+	    handler.setRunning(true);
+	}
     }
 
     public void stopRender() {render = false;}

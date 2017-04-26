@@ -20,6 +20,7 @@ public abstract class ControlledObject extends GameObject
     protected CollisionHandlerControlled collisionHandler;
     protected List<PowerUp> powerUps = new ArrayList<>();
     protected Color originalColor;
+    protected boolean alive = true;
 
     protected ControlledObject(final int x, final int y, final int width, final int height, final int maxHealth, final Type type, Color color,
 			       final Handler handler, final CollisionHandlerControlled collisionHandler, final Game game)
@@ -46,10 +47,15 @@ public abstract class ControlledObject extends GameObject
 
     public void setHealth(final int health) {
 	this.health = Game.clamp(health,0,maxHealth);
+	if (this.health == 0) {
+	    setRunning(false);
+	    alive = false;
+	    handler.removeAfterTick(this);
+	}
     }
 
     public void addHealth(final int health) {
-	this.health = Game.clamp(this.health + health,0,maxHealth);
+	setHealth(this.health + health);
     }
 
     public int getScore() {
@@ -92,8 +98,12 @@ public abstract class ControlledObject extends GameObject
 	powerUps.remove(powerUp);
     }
 
+    public boolean isAlive() {
+        return alive;
+    }
+
     public void usePowerUps(){
-        if (game.isRunning()) {
+        if (running) {
 	    for (int i = 0; i < powerUps.size(); i++) {
 		final PowerUp powerUp = powerUps.get(i);
 		powerUp.use();
@@ -102,7 +112,7 @@ public abstract class ControlledObject extends GameObject
     }
 
     public void stopPowerUps(){
-	if (game.isRunning()) {
+	if (running) {
 	    for (int i = 0; i < powerUps.size(); i++) {
 		final PowerUp powerUp = powerUps.get(i);
 		powerUp.stop();
@@ -112,10 +122,12 @@ public abstract class ControlledObject extends GameObject
 
 
     @Override public void setRunning(final boolean running) {
-	super.setRunning(running);
-	for (int i = 0; i < powerUps.size(); i++) {
-	    final PowerUp powerUp = powerUps.get(i);
-	    powerUp.setRunning(running);
+        if (alive) {
+	    super.setRunning(running);
+	    for (int i = 0; i < powerUps.size(); i++) {
+		final PowerUp powerUp = powerUps.get(i);
+		powerUp.setRunning(running);
+	    }
 	}
     }
 
