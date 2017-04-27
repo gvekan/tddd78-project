@@ -24,24 +24,33 @@ public class Menu extends JMenuBar
     public Menu(final Window window) {
         super();
 	List<JMenuItem> startDisable = new ArrayList<>();
-	List<JMenuItem> gameEnable = new ArrayList<>();
+	List<JMenuItem> highScoreDisable = new ArrayList<>();
 	List<JMenuItem> gameDisable = new ArrayList<>();
+	List<JMenuItem> gameEnable = new ArrayList<>();
 
 	JMenu menu = new JMenu("Navigate to");
 
 	JMenuItem item = new JMenuItem("Start", KeyEvent.VK_S);
 	item.setMnemonic(KeyEvent.VK_S);
-	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
+	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.ALT_MASK));
  	item.addActionListener(window::toStart);
  	item.setEnabled(false);
  	startDisable.add(item);
+ 	menu.add(item);
+
+	item = new JMenuItem("High Scores", KeyEvent.VK_H);
+	item.setMnemonic(KeyEvent.VK_H);
+	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.ALT_MASK));
+ 	item.addActionListener(window::toHighScore);
+ 	item.setEnabled(true);
+ 	highScoreDisable.add(item);
  	menu.add(item);
 
 	this.add(menu);
 
         menu = new JMenu("Game");
 
-	item = new JMenuItem("CONTINUE", KeyEvent.VK_C);
+	item = new JMenuItem("Continue", KeyEvent.VK_C);
 	item.setMnemonic(KeyEvent.VK_C);
 	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
  	item.addActionListener(window::toGame);
@@ -65,9 +74,10 @@ public class Menu extends JMenuBar
 
  	this.add(menu);
 
- 	enableForState.put(ComponentState.GAME, gameEnable);
 	disableForState.put(ComponentState.START, startDisable);
+	disableForState.put(ComponentState.HIGH_SCORE, highScoreDisable);
 	disableForState.put(ComponentState.GAME, gameDisable);
+	enableForState.put(ComponentState.GAME, gameEnable);
 
     }
 

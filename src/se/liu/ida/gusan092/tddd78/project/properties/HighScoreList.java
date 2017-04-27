@@ -23,4 +23,8 @@ public class HighScoreList
     public HighScore get(int index) {
         return highScores.get(index);
     }
+
+    public int size() {
+        return highScores.size();
+    }
 }

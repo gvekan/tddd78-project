@@ -7,10 +7,8 @@ import java.awt.*;
 
 public class StartComponent extends JComponent
 {
-    private Window window;
 
     public StartComponent(final Window window) {
-        this.window = window;
         this.setLayout(new GridBagLayout());
        	JButton button;
        	GridBagConstraints c = new GridBagConstraints();

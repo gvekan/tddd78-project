@@ -1,10 +1,13 @@
 package se.liu.ida.gusan092.tddd78.project.properties;
 
+import se.liu.ida.gusan092.tddd78.project.game.Game;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class AppProperties
@@ -23,10 +26,12 @@ public class AppProperties
 	settings = new Properties(defSettings); //setting defSettings as the default
         read(settings, SETTINGSFILE);
         read(highScores, HIGH_SCORESFILE);
-	for (int i = 1; i < highScores.size()+1; i++) {
+	System.out.println(highScores.size());
+	for (int i = 0; i < highScores.size(); i++) {
+	    System.out.println(i);
 	    String data = highScores.getProperty(Integer.toString(i));
 	    String[] parts = data.split(",");
-	    highScoreList.add(new HighScore(parts[0], Integer.parseInt(parts[2]), LocalDate.parse(parts[1])));
+	    highScoreList.add(new HighScore(parts[0], Integer.parseInt(parts[1]), LocalDate.parse(parts[2])));
 	}
     }
 
@@ -77,8 +82,17 @@ public class AppProperties
 	write(settings, SETTINGSFILE);
     }
 
-    public HighScore getHighScore(int pos) {
-        return highScoreList.get(pos-1);
+    public List<HighScore> getHighScores(int max) {
+        List<HighScore> res = new ArrayList<>();
+	int limit = Game.clamp(max,0, highScoreList.size());
+	for (int i = 0; i < limit; i++) {
+	    res.add(highScoreList.get(i));
+	}
+	return res;
+    }
+
+    public List<HighScore> getHighScores() {
+        return getHighScores(highScoreList.size());
     }
 
     public void addHighScore(HighScore highScore) {

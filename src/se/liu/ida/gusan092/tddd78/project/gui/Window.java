@@ -96,6 +96,11 @@ public class Window extends JFrame
         setComp(new StartComponent(this), ComponentState.START);
     }
 
+    public void toHighScore(final ActionEvent e){
+        if (hasGame()) game.pause();
+        setComp(new HighScoreComponent(), ComponentState.HIGH_SCORE);
+    }
+
     public void toGame(final ActionEvent e) {
         if (hasGame()) {
 	    replaceState(ComponentState.GAME);
