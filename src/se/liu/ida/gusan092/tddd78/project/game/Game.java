@@ -35,8 +35,6 @@ public class Game extends Canvas implements Runnable
     private double ns = S_IN_NS / amountOfTicks;
     private double speedIncreaser = MIN_AMOUNT_OF_TICKS;
 
-    private int spawnTimer = 0;
-
     private Window window;
 
     private Thread thread = new Thread(this);
@@ -48,6 +46,7 @@ public class Game extends Canvas implements Runnable
     private Boolean render = true;
     private Handler handler = new Handler();
     private Handler environment = new Handler();
+    private Spawner spawner = new Spawner(handler, environment);
     private Hud hud;
 
     private List<Player> players = new ArrayList<>();
@@ -103,12 +102,6 @@ public class Game extends Canvas implements Runnable
 		if (running) {
 		    speedIncreaser += INCREASE;
 		    if (speedIncreaser % 1 == 0) {
-			if (powerup) {
-			    handler.add(new Container(random.nextInt(WIDTH - Container.DIAMETER), handler, PowerUpId.AMMO));
-			} else {
-			    handler.add(new Container(random.nextInt(WIDTH - Container.DIAMETER), handler, PowerUpId.UNSTOPPABLE));
-			}
-			powerup = !powerup;
 			amountOfTicks = speedIncreaser;
 			ns = S_IN_NS / amountOfTicks;
 			System.out.println("Amount of ticks: " + amountOfTicks);
@@ -119,31 +112,27 @@ public class Game extends Canvas implements Runnable
     }
 
     private void tick() {
-        if (spawnTimer == 0) {
-	    handler.add(new Roadblock(random.nextInt(WIDTH - Roadblock.WIDTH), Type.ROADBLOCK, handler));
-	    spawnTimer = 60;
-	}
+        spawner.tick();
 	environment.tick();
 	handler.tick();
 	if (isGameOver()) gameOver();
-	spawnTimer--;
     }
 
 
     private void render() {
 	BufferStrategy bs = null;
-	if (render) bs = this.getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
+	bs = this.getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
 	if (bs == null) {
 	    this.createBufferStrategy(3);
 	    return;
 	}
 
 	Graphics g;
-        try {
+//        try {
             g = bs.getDrawGraphics();
-	} catch (IllegalStateException ignore) {
+/*	} catch (IllegalStateException ignore) {
 	    return;
-	}
+	}*/
 
 	g.setColor(Color.BLACK);
 	g.fillRect(0, 0, WIDTH, HEIGHT);
@@ -155,10 +144,10 @@ public class Game extends Canvas implements Runnable
 	g.dispose();
 	Toolkit.getDefaultToolkit().sync();
 
-	try {
+//	try {
 	    bs.show();
-	} catch (IllegalStateException ignore) {
-	}
+/*	} catch (IllegalStateException ignore) {
+	}*/
     }
 
     public double getAmountOfTicks() {
