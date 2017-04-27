@@ -1,24 +1,30 @@
 package se.liu.ida.gusan092.tddd78.project.gui;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
+import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
+import se.liu.ida.gusan092.tddd78.project.gui.Component.State;
+import se.liu.ida.gusan092.tddd78.project.gui.Component.HighScore;
+import se.liu.ida.gusan092.tddd78.project.gui.Component.Start;
+import se.liu.ida.gusan092.tddd78.project.gui.Component.Submit;
+import se.liu.ida.gusan092.tddd78.project.gui.Component.WComponent;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 
 public class Window extends JFrame
 {
     private Game game = null;
     private Menu menu = new Menu(this);
-    private JComponent comp;
+    private WComponent comp;
 
 
     public Window() {
         super("Game");
 	this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
  	this.setResizable(false);
- 	comp = new StartComponent(this);
+ 	comp = new Start(this);
  	this.add(comp);
 	this.setJMenuBar(menu);
  	this.pack();
@@ -46,7 +52,7 @@ public class Window extends JFrame
         return comp != null;
     }
 
-    private void replaceState(ComponentState state) {
+    private void replaceState(State state) {
 	if (hasComp()) this.remove(comp);
 	else {
 	    game.stopRender();
@@ -56,8 +62,8 @@ public class Window extends JFrame
 	menu.setState(state);
     }
 
-    private void setComp(JComponent comp, ComponentState state) {
-        replaceState(state);
+    private void setComp(WComponent comp) {
+        replaceState(comp.getState());
         this.comp = comp;
         this.add(comp);
 	this.pack();
@@ -78,8 +84,8 @@ public class Window extends JFrame
 	        return;
 	    }
 	}
-	replaceState(ComponentState.GAME);
-	game = new Game();
+	replaceState(State.GAME);
+	game = new Game(this);
 	this.add(game);
 	this.pack();
 	game.start();
@@ -93,22 +99,37 @@ public class Window extends JFrame
 
     public void toStart(final ActionEvent e){
         if (hasGame()) game.pause();
-        setComp(new StartComponent(this), ComponentState.START);
+        setComp(new Start(this));
     }
 
     public void toHighScore(final ActionEvent e){
         if (hasGame()) game.pause();
-        setComp(new HighScoreComponent(), ComponentState.HIGH_SCORE);
+        setComp(new HighScore());
     }
 
     public void toGame(final ActionEvent e) {
         if (hasGame()) {
-	    replaceState(ComponentState.GAME);
+            if (game.isGameOver()) {
+                game.gameOver();
+                return;
+	    }
+	    replaceState(State.GAME);
 	    this.add(game);
 	    this.pack();
 	    repaint();
 	    game.startRender();
 	} else newGame(e);
+    }
+
+    public void gameOver(Player player) {
+        setComp(new Submit(this, player));
+    }
+
+    public void gameOver(List<Player> players) {
+    }
+
+    public void removeGame() {
+        game = null;
     }
 
     public static void main(String[] args) {

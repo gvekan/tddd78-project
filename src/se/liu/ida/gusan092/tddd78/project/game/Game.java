@@ -9,12 +9,15 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.*;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Container;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
+
+import javax.swing.*;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,8 @@ public class Game extends Canvas implements Runnable
 
     private int spawnTimer = 0;
 
+    private Window window;
+
     private Thread thread = new Thread(this);
     private boolean threadRunning = false;
 
@@ -45,9 +50,10 @@ public class Game extends Canvas implements Runnable
     private Handler environment = new Handler();
     private Hud hud;
 
-    private List<ControlledObject> players = new ArrayList<>();
+    private List<Player> players = new ArrayList<>();
 
-    public Game() {
+    public Game(final Window window) {
+        this.window = window;
         Player player = new Player(handler, this);
         players.add(player);
 	handler.add(player);
@@ -181,6 +187,8 @@ public class Game extends Canvas implements Runnable
 
     public void gameOver() {
         pause();
+	if (players.size() > 1) window.gameOver(players);
+	else window.gameOver(players.get(0));
     }
 
     public static int clamp(int variable, int min, int max) {
@@ -218,9 +226,5 @@ public class Game extends Canvas implements Runnable
     }
     public boolean isRunning() {
         return running;
-    }
-
-    public static void main(String[] args) {
-	Window window = new Window(new Game());
     }
 }

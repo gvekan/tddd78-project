@@ -5,26 +5,26 @@ import java.util.List;
 
 public class HighScoreList
 {
-    private List<HighScore> highScores = new ArrayList<>();
+    private List<Score> scores = new ArrayList<>();
 
-    public int add(HighScore newHighScore) {
-	for (int i = 0; i < highScores.size(); i++) {
-	    final HighScore highScore = highScores.get(i);
-	    if (newHighScore.getPoints() >= highScore.getPoints()) {
-	        highScores.add(i, newHighScore);
+    public int add(Score newScore) {
+	for (int i = 0; i < scores.size(); i++) {
+	    final Score score = scores.get(i);
+	    if (newScore.getPoints() >= score.getPoints()) {
+	        scores.add(i, newScore);
 	        return i;
 	    }
 	}
-	highScores.add(newHighScore);
-	return highScores.size()-1;
+	scores.add(newScore);
+	return scores.size() - 1;
 
     }
 
-    public HighScore get(int index) {
-        return highScores.get(index);
+    public Score get(int index) {
+        return scores.get(index);
     }
 
     public int size() {
-        return highScores.size();
+        return scores.size();
     }
 }

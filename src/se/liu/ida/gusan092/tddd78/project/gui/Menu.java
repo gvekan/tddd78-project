@@ -1,11 +1,9 @@
 package se.liu.ida.gusan092.tddd78.project.gui;
 
-
-
+import se.liu.ida.gusan092.tddd78.project.gui.Component.State;
 
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -15,16 +13,17 @@ import java.util.Map;
 
 public class Menu extends JMenuBar
 {
-    private Map<ComponentState, List<JMenuItem>> enableForState = new EnumMap<>(ComponentState.class);
-    private Map<ComponentState, List<JMenuItem>> disableForState = new EnumMap<>(ComponentState.class);
+    private Map<State, List<JMenuItem>> enableForState = new EnumMap<>(State.class);
+    private Map<State, List<JMenuItem>> disableForState = new EnumMap<>(State.class);
 
 
-    private ComponentState state = ComponentState.START;
+    private State state = State.START;
 
     public Menu(final Window window) {
         super();
 	List<JMenuItem> startDisable = new ArrayList<>();
 	List<JMenuItem> highScoreDisable = new ArrayList<>();
+	List<JMenuItem> submitDisable = new ArrayList<>();
 	List<JMenuItem> gameDisable = new ArrayList<>();
 	List<JMenuItem> gameEnable = new ArrayList<>();
 
@@ -54,8 +53,8 @@ public class Menu extends JMenuBar
 	item.setMnemonic(KeyEvent.VK_C);
 	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
  	item.addActionListener(window::toGame);
- 	item.setEnabled(true);
  	gameDisable.add(item);
+ 	submitDisable.add(item);
  	menu.add(item);
 
 	item = new JMenuItem("New", KeyEvent.VK_N);
@@ -74,14 +73,15 @@ public class Menu extends JMenuBar
 
  	this.add(menu);
 
-	disableForState.put(ComponentState.START, startDisable);
-	disableForState.put(ComponentState.HIGH_SCORE, highScoreDisable);
-	disableForState.put(ComponentState.GAME, gameDisable);
-	enableForState.put(ComponentState.GAME, gameEnable);
+	disableForState.put(State.START, startDisable);
+	disableForState.put(State.HIGH_SCORE, highScoreDisable);
+	disableForState.put(State.SUBMIT, submitDisable);
+	disableForState.put(State.GAME, gameDisable);
+	enableForState.put(State.GAME, gameEnable);
 
     }
 
-    public void setState(final ComponentState newState) {
+    public void setState(final State newState) {
 	List<JMenuItem> disableItems = enableForState.get(state);
 	if (disableItems != null) {
 	    for (JMenuItem item : disableItems) {

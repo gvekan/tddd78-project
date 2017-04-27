@@ -31,7 +31,7 @@ public class AppProperties
 	    System.out.println(i);
 	    String data = highScores.getProperty(Integer.toString(i));
 	    String[] parts = data.split(",");
-	    highScoreList.add(new HighScore(parts[0], Integer.parseInt(parts[1]), LocalDate.parse(parts[2])));
+	    highScoreList.add(new Score(parts[0], Integer.parseInt(parts[1]), LocalDate.parse(parts[2])));
 	}
     }
 
@@ -82,8 +82,8 @@ public class AppProperties
 	write(settings, SETTINGSFILE);
     }
 
-    public List<HighScore> getHighScores(int max) {
-        List<HighScore> res = new ArrayList<>();
+    public List<Score> getHighScores(int max) {
+        List<Score> res = new ArrayList<>();
 	int limit = Game.clamp(max,0, highScoreList.size());
 	for (int i = 0; i < limit; i++) {
 	    res.add(highScoreList.get(i));
@@ -91,13 +91,13 @@ public class AppProperties
 	return res;
     }
 
-    public List<HighScore> getHighScores() {
+    public List<Score> getHighScores() {
         return getHighScores(highScoreList.size());
     }
 
-    public void addHighScore(HighScore highScore) {
-        int index = highScoreList.add(highScore);
-        String newPlaceHolder = highScore.getName()+ "," + highScore.getPoints()+ "," + highScore.getDate();
+    public void addHighScore(Score score) {
+        int index = highScoreList.add(score);
+        String newPlaceHolder = score.getName() + "," + score.getPoints() + "," + score.getDate();
 	for (int i = index; i < highScores.size(); i++) {
 	    String place = Integer.toString(i);
 	    String oldPlaceHolder = highScores.getProperty(place);
