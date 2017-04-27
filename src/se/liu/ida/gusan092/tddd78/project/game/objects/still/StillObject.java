@@ -24,7 +24,6 @@ public abstract class StillObject extends GameObject
             return;
 	}
         if (halfTick) {
-	    x += velX;
 	    y += velY;
 	}
 	halfTick = !halfTick;

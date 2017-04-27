@@ -2,6 +2,7 @@ package se.liu.ida.gusan092.tddd78.project.game;
 
 
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.Animal;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Container;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUpId;
@@ -24,6 +25,7 @@ public class Spawner
     public void tick() {
 	counter++;
 	if (spawnCounter == 0) {
+	    if (oneTo(2)) handler.add(new Animal(0, handler));
 	    if (counter > 3000) {
 	        if (oneTo(3)) {
 		    for (int i = 0; i < random.nextInt(5) + 1; i++) {

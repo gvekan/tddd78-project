@@ -13,6 +13,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 				    final GameObject collision, final Side side)
     {
         switch (collision.getType()) {
+	    case ANIMAL:
 	    case ROADBLOCK:
 		handler.removeAfterTick(collision);
 		break;
@@ -68,6 +69,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		    controlledObject.setHealth(0);
 		}
 		break;
+	    case ANIMAL:
 	    case ROADBLOCK:
 		if (velY <= 0) {
 		    if (velY == 0) {
@@ -97,6 +99,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 	int velY = controlledObject.getVelY();
 	switch (collisionId) {
 	    case TRAFFIC_BARRIER: //Backcollision can only happen from the side
+	    case ANIMAL:
 	    case ROADBLOCK: //Backcollision can only happen from the side
 		int velX = controlledObject.getVelX();
 		if (velX < 0) {
@@ -124,6 +127,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		speedChange = -1;
 		controlledObject.setX(Game.clamp(controlledObject.getX() + 1, 0, Game.HEIGHT - controlledObject.getHeight()));
 		break;
+	    case ANIMAL:
 	    case ROADBLOCK:
 		if (velX >= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
 		    collisionFront(game, handler, controlledObject, collision);
@@ -160,6 +164,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 		speedChange = -1;
 		controlledObject.setX(Game.clamp(controlledObject.getX() - 1, 0, Game.HEIGHT - controlledObject.getHeight()));
 		break;
+	    case ANIMAL:
 	    case ROADBLOCK:
 		if (velX <= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
 		    collisionFront(game, handler, controlledObject, collision);

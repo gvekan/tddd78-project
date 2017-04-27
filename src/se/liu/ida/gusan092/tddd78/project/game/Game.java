@@ -128,11 +128,11 @@ public class Game extends Canvas implements Runnable
 	}
 
 	Graphics g;
-//        try {
+        try {
             g = bs.getDrawGraphics();
-/*	} catch (IllegalStateException ignore) {
+	} catch (IllegalStateException ignore) {
 	    return;
-	}*/
+	}
 
 	g.setColor(Color.BLACK);
 	g.fillRect(0, 0, WIDTH, HEIGHT);
@@ -144,10 +144,10 @@ public class Game extends Canvas implements Runnable
 	g.dispose();
 	Toolkit.getDefaultToolkit().sync();
 
-//	try {
+	try {
 	    bs.show();
-/*	} catch (IllegalStateException ignore) {
-	}*/
+	} catch (IllegalStateException ignore) {
+	}
     }
 
     public double getAmountOfTicks() {
