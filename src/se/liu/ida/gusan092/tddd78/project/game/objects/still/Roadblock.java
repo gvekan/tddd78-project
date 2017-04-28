@@ -18,6 +18,6 @@ public class Roadblock extends StillObject
     public static final int HEIGHT = 5;
 
     public Roadblock(final int x, final Type type, final Handler handler) {
-	super(x, -HEIGHT, WIDTH, HEIGHT, Color.WHITE, type, handler);
+	super(x, -HEIGHT, WIDTH, HEIGHT, new Color(255,69,0), type, handler);
     }
 }

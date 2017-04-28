@@ -26,7 +26,7 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable
 {
 
-    public static final int WIDTH = 500, HEIGHT = 850;
+    public static final int WIDTH = 500, HEIGHT = 848;
 
     public static final double INCREASE = 5;
     public static final double MIN_AMOUNT_OF_TICKS = 60.0;

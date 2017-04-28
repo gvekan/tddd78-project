@@ -28,6 +28,10 @@ public class Bullet extends GameObject
 			handler.removeAfterTick(collision);
 			controlledObject.addScore(100);
 			break;
+		    case ANIMAL:
+			handler.removeAfterTick(collision);
+			controlledObject.addScore(200);
+			break;
 		    case PLAYER:
 			collision.collisionWithGameObject(collision, Side.FRONT);
 			break;

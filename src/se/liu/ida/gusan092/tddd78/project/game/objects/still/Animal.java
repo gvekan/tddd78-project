@@ -21,9 +21,9 @@ public class Animal extends StillObject
 
     public Animal(final int x, final Handler handler)
     {
-	super(x, -15, 15, 15, Color.GREEN, Type.ANIMAL, handler);
-	if ( x < Game.WIDTH/2) setVelX(4);
-	else setVelX(-4);
+	super(x, -15, 15, 15, new Color(160,82,45), Type.ANIMAL, handler);
+	if ( x < Game.WIDTH/2) setVelX(1);
+	else setVelX(-1);
 
 	ActionListener taskPerformer = new ActionListener() {
 	    public void actionPerformed(ActionEvent evt) {
@@ -34,7 +34,7 @@ public class Animal extends StillObject
 		}
 	    }
 	};
-	Timer timer = new Timer(100, taskPerformer);
+	Timer timer = new Timer(25, taskPerformer);
 	timer.start();
     }
 

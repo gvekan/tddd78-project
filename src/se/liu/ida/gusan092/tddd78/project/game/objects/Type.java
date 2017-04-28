@@ -8,6 +8,7 @@ public enum Type
     POWERUP,
     BULLET,
     TRAIL,
-    ANIMAL
+    ANIMAL,
+    ROAD
 
 }
