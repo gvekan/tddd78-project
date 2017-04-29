@@ -1,12 +1,12 @@
 package se.liu.ida.gusan092.tddd78.project.properties;
 
-import org.omg.CORBA.Environment;
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.Spawner;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUp;
 
 import java.util.List;
 
@@ -19,8 +19,10 @@ public class SavedProperties extends AppProperties
     private final static String ENVIRONMENT_KEY = "environment";
     private final static String E_OBJECT_KEY = "e";
     private final static String SPAWNER_KEY = "spawner";
+    private final static String POWER_UPS_KEY = "power_ups";
+    private final static String POWER_UP_KEY = "p";
     public final static String VALUE_SPLIT = ",";
-    private final static String TYPE_SPLIT = ":";
+    public final static String ENUM_SPLIT = ":";
 
 
     private SavedProperties(final String start) {
@@ -43,9 +45,6 @@ public class SavedProperties extends AppProperties
 	prop.setProperty(HANDLER_KEY, Integer.toString(size));
 	for (int i = 0; i < size; i++) {
 	    final GameObject gameObject = gameObjects.get(i);
-	    switch(gameObject.getType()) {
-
-	    }
 	    prop.setProperty(H_OBJECT_KEY + Integer.toString(i), gameObject.getSaveValues());
 	}
 	handler = game.getEnvironment();
@@ -61,6 +60,24 @@ public class SavedProperties extends AppProperties
 	write();
     }
 
+    public void savePowerUps(final List<PowerUp> powerUps) {
+        int size = powerUps.size();
+	prop.setProperty(POWER_UPS_KEY, Integer.toString(size));
+	recursivePowerUp(powerUps, POWER_UP_KEY);
+    }
+
+    private void recursivePowerUp(final List<PowerUp> powerUps, final String key) {
+	for (int i = 0; i < powerUps.size(); i++) {
+	    final PowerUp powerUp = powerUps.get(i);
+	    List<PowerUp> interrupted = powerUp.getInterrupted();
+	    int size = interrupted.size();
+	    prop.setProperty(key, Integer.toString(size) + VALUE_SPLIT + powerUp.getSaveValues());
+	    if (!interrupted.isEmpty()) {
+		recursivePowerUp(powerUps, key + Integer.toString(i));
+	    }
+	}
+    }
+
     public Game getGame() {
        if (hasGame()) {
             Player player;
@@ -68,7 +85,7 @@ public class SavedProperties extends AppProperties
             String size = prop.getProperty(HANDLER_KEY);
 	    for (int i = 0; i < Integer.parseInt(size); i++) {
 		String gameObject = prop.getProperty(H_OBJECT_KEY + Integer.toString(i));
-		String[] values = gameObject.split(TYPE_SPLIT);
+		String[] values = gameObject.split(ENUM_SPLIT);
 		switch (Type.values()[Integer.parseInt(values[0])]) {
 		    case PLAYER:
 		}

@@ -1,7 +1,6 @@
 package se.liu.ida.gusan092.tddd78.project.game;
 
-import se.liu.ida.gusan092.tddd78.project.game.Game;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUp;
 
 import java.awt.Color;
@@ -10,7 +9,6 @@ import java.awt.Graphics2D;
 import java.awt.GradientPaint;
 import java.util.ArrayList;
 import java.util.List;
-import java.awt.Font;
 
 public class Hud
 {

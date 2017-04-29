@@ -1,7 +1,6 @@
 package se.liu.ida.gusan092.tddd78.project.game.objects;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import java.awt.*;
@@ -89,8 +88,8 @@ public abstract class GameObject
     }
 
     public String getSaveValues() {
-        return Integer.toString(x) + SavedProperties.VALUE_SPLIT + Integer.toString(y) + SavedProperties.VALUE_SPLIT
-	       + Integer.toString(velX) + SavedProperties.VALUE_SPLIT + Integer.toString(velY);
+        return Integer.toString(type.getIndex()) + SavedProperties.ENUM_SPLIT + Integer.toString(x) + SavedProperties.VALUE_SPLIT + Integer.toString(y)
+	       + SavedProperties.VALUE_SPLIT + Integer.toString(velX) + SavedProperties.VALUE_SPLIT + Integer.toString(velY);
     }
 
     public Rectangle getBounds() {
@@ -112,7 +111,7 @@ public abstract class GameObject
     public void collisionWithGameObject(final GameObject collision, final Side side) {
 	throw new AssertionError("Only to be used with gameobjects with collision handler");
     }
-    public void collisionWithControlled(final ControlledObject collision, final Side side) {
+    public void collisionWithPlayer(final Player collision, final Side side) {
 	throw new AssertionError("Only to be used with gameobjects with collision handler");
     }
 

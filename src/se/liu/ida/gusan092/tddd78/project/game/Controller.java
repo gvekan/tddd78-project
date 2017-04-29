@@ -1,6 +1,6 @@
 package se.liu.ida.gusan092.tddd78.project.game;
 
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -8,12 +8,12 @@ import java.util.EnumMap;
 
 public class Controller extends KeyAdapter
 {
-    private ControlledObject controlledObject;
+    private Player player;
     private EnumMap<KeyAction,Integer> keys = new EnumMap<>(KeyAction.class); //kan ersätrtas med hashmap med <Integer,KeyAction> samt switchar i keyPressed/Released
     private EnumMap<KeyAction,Boolean> pressed = new EnumMap<>(KeyAction.class);
 
-    public Controller(final ControlledObject controlledObject) {
-	this.controlledObject = controlledObject;
+    public Controller(final Player player) {
+	this.player = player;
 	//this.keys = keys;
 
 
@@ -46,7 +46,7 @@ public class Controller extends KeyAdapter
 	    moveRight();
 	} else if (key == keys.get(KeyAction.USE_POWERUPS) && !pressed.get(KeyAction.USE_POWERUPS)) {
 	    pressed.put(KeyAction.USE_POWERUPS, true);
-	    controlledObject.usePowerUps();
+	    player.usePowerUps();
 	}
     }
 
@@ -54,47 +54,47 @@ public class Controller extends KeyAdapter
 	int key = e.getKeyCode();
 	if (key == keys.get(KeyAction.MOVE_UP)) {
 	    pressed.put(KeyAction.MOVE_UP, false);
-	    int velY = controlledObject.getVelY();
+	    int velY = player.getVelY();
 	    if (velY < 0 || (pressed.get(KeyAction.MOVE_DOWN) && velY == 0)) {
 		moveDown();
 	    }
 	} else if (key == keys.get(KeyAction.MOVE_DOWN)) {
 	    pressed.put(KeyAction.MOVE_DOWN, false);
-	    int velY = controlledObject.getVelY();
+	    int velY = player.getVelY();
 	    if (velY > 0 || (pressed.get(KeyAction.MOVE_UP) && velY == 0)) {
 		moveUp();
 	    }
 	} else if (key == keys.get(KeyAction.MOVE_LEFT)) {
 	    pressed.put(KeyAction.MOVE_LEFT, false);
-	    int velX = controlledObject.getVelX();
+	    int velX = player.getVelX();
 	    if (velX < 0 || (pressed.get(KeyAction.MOVE_RIGHT) && velX == 0)) {
 		moveRight();
 	    }
 	} else if (key == keys.get(KeyAction.MOVE_RIGHT)) {
 	    pressed.put(KeyAction.MOVE_RIGHT, false);
-	    int velX = controlledObject.getVelX();
+	    int velX = player.getVelX();
 	    if (velX > 0 || (pressed.get(KeyAction.MOVE_LEFT) && velX == 0)) {
 		moveLeft();
 	    }
 	} else if (key == keys.get(KeyAction.USE_POWERUPS)) {
 	    pressed.put(KeyAction.USE_POWERUPS, false);
-   	    controlledObject.stopPowerUps();
+   	    player.stopPowerUps();
    	}
     }
 
     private void moveUp() {
-	controlledObject.setVelY(controlledObject.getVelY() - 1);
+	player.setVelY(player.getVelY() - 1);
     }
 
     private void moveDown() {
-	controlledObject.setVelY(controlledObject.getVelY() + 1);
+	player.setVelY(player.getVelY() + 1);
     }
 
     private void moveLeft() {
-	controlledObject.setVelX(controlledObject.getVelX() - 1);
+	player.setVelX(player.getVelX() - 1);
     }
 
     private void moveRight() {
-	controlledObject.setVelX(controlledObject.getVelX() + 1);
+	player.setVelX(player.getVelX() + 1);
     }
 }

@@ -1,23 +1,24 @@
 package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.CollisionHandlerControlled;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
+import se.liu.ida.gusan092.tddd78.project.game.objects.collision.CollisionHandler;
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
+import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Unstoppable extends PowerUp implements CollisionHandlerControlled
+public class Unstoppable extends PowerUp implements CollisionHandler
 {
-    private CollisionHandlerControlled oldCollisionHandeler = null;
+    private CollisionHandler oldCollisionHandeler = null;
     private int countdown = 5;
     private Timer timer = null;
 
-    public Unstoppable(final ControlledObject controlledObject)
+    public Unstoppable(final Player controlledObject)
     {
 	super(PowerUpId.UNSTOPPABLE, controlledObject);
 	add();
@@ -34,23 +35,23 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 
     @Override public void interrupt() {
         timer.stop();
-	controlledObject.setCollisionHandler(oldCollisionHandeler);
+	player.setCollisionHandler(oldCollisionHandeler);
     }
 
     @Override protected void reset() {
 	super.reset();
-	controlledObject.setCollisionHandler(oldCollisionHandeler);
+	player.setCollisionHandler(oldCollisionHandeler);
     }
 
     @Override public void resume() {
-	oldCollisionHandeler = controlledObject.getCollisionHandler();
-	controlledObject.setCollisionHandler(this);
+	oldCollisionHandeler = player.getCollisionHandler();
+	player.setCollisionHandler(this);
 	ActionListener taskPerformer = new ActionListener() {
 	    public void actionPerformed(ActionEvent evt) {
 	        if (running) {
 		    countdown--;
 		    if (countdown == 0) {
-			controlledObject.setCollisionHandler(oldCollisionHandeler);
+			player.setCollisionHandler(oldCollisionHandeler);
 			reset();
 			timer.stop();
 		    }
@@ -61,6 +62,10 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 	timer.start();
     }
 
+    @Override public String getSaveValues() {
+	return super.getSaveValues() + SavedProperties.ENUM_SPLIT + Integer.toString(countdown);
+    }
+
     @Override public void collisionHasSamePowerUp() {
 	countdown += 5;
     }
@@ -69,7 +74,7 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 	return "Unstoppable: " + countdown;
     }
 
-    @Override public void collision(final Game game, final Handler handler, final ControlledObject controlledObject,
+    @Override public void collision(final Game game, final Handler handler, final Player player,
 				    final GameObject collision, final Side side)
     {
         switch (collision.getType()) {
@@ -77,15 +82,15 @@ public class Unstoppable extends PowerUp implements CollisionHandlerControlled
 	    case ANIMAL:
 	    case ROADBLOCK:
 	        handler.removeAfterTick(collision);
-	        controlledObject.addScore(100);
+	        player.addScore(100);
 	        break;
 	    case POWERUP:
-	        collision.collisionWithControlled(controlledObject, side);
+	        collision.collisionWithPlayer(player, side);
 	}
     }
 
-    @Override public void collisionWithControlled(final Game game, final Handler handler, final ControlledObject controlledObject,
-						  final ControlledObject collision, final Side side)
+    @Override public void collisionWithPlayer(final Game game, final Handler handler, final Player player,
+						  final Player collision, final Side side)
     {
 
     }

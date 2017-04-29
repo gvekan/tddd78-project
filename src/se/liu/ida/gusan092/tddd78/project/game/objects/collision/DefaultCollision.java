@@ -1,15 +1,16 @@
-package se.liu.ida.gusan092.tddd78.project.game.objects.controlled;
+package se.liu.ida.gusan092.tddd78.project.game.objects.collision;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 
-public class ControlledCollision implements CollisionHandlerControlled
+public class DefaultCollision implements CollisionHandler
 {
 
-    @Override public void collision(final Game game, final Handler handler, final ControlledObject controlledObject,
+    @Override public void collision(final Game game, final Handler handler, final Player player,
 				    final GameObject collision, final Side side)
     {
         switch (collision.getType()) {
@@ -19,33 +20,33 @@ public class ControlledCollision implements CollisionHandlerControlled
 		break;
 	    case PLAYER:
 	    case POWERUP:
-	        collision.collisionWithControlled(controlledObject, side);
+	        collision.collisionWithPlayer(player, side);
 	        break;
 	}
 	switch (side) {
 	    case FRONT:
-	        collisionFront(game, handler, controlledObject, collision);
+	        collisionFront(game, handler, player, collision);
 	        break;
 	    case BACK:
-	        collisionBack(game, handler, controlledObject, collision);
+	        collisionBack(game, handler, player, collision);
 	        break;
 	    case LEFT:
-	        collisionLeft(game, handler, controlledObject, collision);
+	        collisionLeft(game, handler, player, collision);
 	        break;
 	    case RIGHT:
-	        collisionRight(game, handler, controlledObject, collision);
+	        collisionRight(game, handler, player, collision);
 	        break;
 	}
     }
 
-    @Override public void collisionWithControlled(final Game game, final Handler handler, final ControlledObject controlledObject,
-						  final ControlledObject collision, final Side side)
+    @Override public void collisionWithPlayer(final Game game, final Handler handler, final Player player,
+					      final Player collision, final Side side)
     {
 
     }
 
 
-    public void collisionFront(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
+    public void collisionFront(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
 	Type collisionId = collision.getType();
 	int velY = controlledObject.getVelY();
 	int healthChange = 0;
@@ -94,7 +95,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 	game.setAmountOfTicks(amountOfTicks + speedChange);
     }
 
-    public void collisionBack(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
+    public void collisionBack(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
 	Type collisionId = collision.getType();
 	int velY = controlledObject.getVelY();
 	switch (collisionId) {
@@ -111,7 +112,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 	}
     }
 
-    public void collisionLeft(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
+    public void collisionLeft(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
 	Type collisionId = collision.getType();
 	int velX = controlledObject.getVelX();
 	int healthChange = 0;
@@ -148,7 +149,7 @@ public class ControlledCollision implements CollisionHandlerControlled
 
     }
 
-    public void collisionRight(final Game game, final Handler handler, final ControlledObject controlledObject, final GameObject collision) {
+    public void collisionRight(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
 	Type collisionId = collision.getType();
 	int velX = controlledObject.getVelX();
 	int healthChange = 0;

@@ -3,15 +3,15 @@ package se.liu.ida.gusan092.tddd78.project.game.powerup;
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.CollisionHandlerControlled;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.collision.CollisionHandler;
 
-public class Ghost extends PowerUp implements CollisionHandlerControlled
+public class Ghost extends PowerUp implements CollisionHandler
 {
 
-    public Ghost(final ControlledObject controlledObject) {
-	super(PowerUpId.GHOST, controlledObject);
+    public Ghost(final Player player) {
+	super(PowerUpId.GHOST, player);
 	add();
     }
 
@@ -39,15 +39,15 @@ public class Ghost extends PowerUp implements CollisionHandlerControlled
         return null;
     }
 
-    @Override public void collision(final Game game, final Handler handler, final ControlledObject controlledObject,
+    @Override public void collision(final Game game, final Handler handler, final Player controlledObject,
 				    final GameObject collision, final Side side)
     {
 
     }
 
     @Override
-    public void collisionWithControlled(final Game game, final Handler handler, final ControlledObject controlledObject,
-					final ControlledObject collision, final Side side)
+    public void collisionWithPlayer(final Game game, final Handler handler, final Player player, final Player collision,
+                                    final Side side)
     {
 
     }

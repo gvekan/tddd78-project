@@ -1,9 +1,7 @@
 package se.liu.ida.gusan092.tddd78.project.game;
 
 
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.Road;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
@@ -229,7 +227,7 @@ public class Game extends Canvas implements Runnable
 
     public boolean isGameOver() {
         int count = 0;
-	for (ControlledObject controlledObject:
+	for (Player controlledObject:
 	     players) {
 	    if (controlledObject.isAlive()) ++count;
 	}

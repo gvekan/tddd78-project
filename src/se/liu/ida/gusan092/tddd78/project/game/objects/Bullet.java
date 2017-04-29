@@ -1,17 +1,17 @@
 package se.liu.ida.gusan092.tddd78.project.game.objects;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 
 import java.util.List;
+import java.awt.Color;
 
 public class Bullet extends GameObject
 {
-    private ControlledObject controlledObject;
+    private Player controlledObject;
 
-    public Bullet(final int x, final int y, final Handler handler, final ControlledObject controlledObject)
+    public Bullet(final int x, final int y, final Handler handler, final Player controlledObject)
     {
-	super(x, y, 3, 3, controlledObject.getColor(), Type.BULLET, handler);
+	super(x, y, 3, 3, Color.BLACK, Type.BULLET, handler);
 	this.controlledObject = controlledObject;
 	setVelY(-1);
     }
@@ -36,7 +36,7 @@ public class Bullet extends GameObject
 			collision.collisionWithGameObject(collision, Side.FRONT);
 			break;
 		    case POWERUP:
-		        collision.collisionWithControlled(controlledObject, Side.FRONT);
+		        collision.collisionWithPlayer(controlledObject, Side.FRONT);
 		}
 		handler.removeAfterTick(this);
 	    }

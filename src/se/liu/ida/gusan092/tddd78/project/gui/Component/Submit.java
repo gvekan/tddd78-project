@@ -1,6 +1,6 @@
 package se.liu.ida.gusan092.tddd78.project.gui.Component;
 
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
 import se.liu.ida.gusan092.tddd78.project.properties.HighScoreProperties;
 import se.liu.ida.gusan092.tddd78.project.properties.Score;

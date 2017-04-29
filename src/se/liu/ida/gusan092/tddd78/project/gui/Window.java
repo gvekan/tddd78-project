@@ -1,7 +1,7 @@
 package se.liu.ida.gusan092.tddd78.project.gui;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.gui.Component.State;
 import se.liu.ida.gusan092.tddd78.project.gui.Component.HighScore;
 import se.liu.ida.gusan092.tddd78.project.gui.Component.Start;

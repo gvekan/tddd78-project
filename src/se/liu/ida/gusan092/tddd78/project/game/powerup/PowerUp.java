@@ -1,49 +1,40 @@
 package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
+import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class PowerUp
 {
-    protected ControlledObject controlledObject = null;
-    protected List<PowerUp> interruptedPowerUps = new ArrayList<>();
+    protected Player player = null;
+    protected List<PowerUp> interrupted = new ArrayList<>();
     protected boolean added = false;
     protected boolean running = true;
 
     protected PowerUpId id;
 
-    protected PowerUp(final PowerUpId id, final ControlledObject controlledObject)
+    protected PowerUp(final PowerUpId id, final Player player)
     {
 	this.id = id;
-	this.controlledObject = controlledObject;
+	this.player = player;
     }
 
     protected void reset() {
-	controlledObject.removePowerUp(this);
-	if (!interruptedPowerUps.isEmpty()) {
-	    for (PowerUp powerUp:
-		 interruptedPowerUps) {
-	    controlledObject.addPowerUp(powerUp);
+	player.removePowerUp(this);
+	if (!interrupted.isEmpty()) {
+	    for (PowerUp powerUp: interrupted) {
+	    player.addPowerUp(powerUp);
 	    powerUp.resume();
 	    }
-	}
-	List<PowerUp> powerUps = controlledObject.getPowerUps();
-	if (powerUps.isEmpty()) {
-	    controlledObject.resetColor();
-	} else {
-	    PowerUp powerUp = powerUps.get(powerUps.size()-1);
-	    controlledObject.setColor(powerUp.id.getColor());
 	}
     }
 
     protected void add() {
-	List<PowerUp> powerUps = controlledObject.getPowerUps();
+	List<PowerUp> powerUps = player.getPowerUps();
 	for (int i = 0; i < powerUps.size(); i++) {
 	    PowerUp powerUp = powerUps.get(i);
 	    if (powerUp.id == id) {
-		controlledObject.setColor(id.getColor());
 		powerUp.collisionHasSamePowerUp();
 		return;
 	    }
@@ -53,17 +44,24 @@ public abstract class PowerUp
 	    if (id.isIncompatible(powerUp.id)) {
 	        powerUps.remove(powerUp);
 		powerUp.interrupt();
-		interruptedPowerUps.add(powerUp);
+		interrupted.add(powerUp);
 		break;
 	    }
 	}
-        controlledObject.setColor(id.getColor());
-   	controlledObject.addPowerUp(this);
+   	player.addPowerUp(this);
    	added = true;
     }
 
     public void setRunning(boolean running) {
         this.running = running;
+    }
+
+    public List<PowerUp> getInterrupted() {
+        return interrupted;
+    }
+
+    public String getSaveValues() {
+        return Integer.toString(id.getIndex());
     }
 
     public abstract void collisionHasSamePowerUp();

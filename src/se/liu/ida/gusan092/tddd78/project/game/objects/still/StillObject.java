@@ -4,6 +4,7 @@ import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
+import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import java.awt.Color;
 
@@ -27,5 +28,12 @@ public abstract class StillObject extends GameObject
 	    y += velY;
 	}
 	halfTick = !halfTick;
+    }
+
+    @Override public String getSaveValues() {
+	String sHalfTick;
+ 	if (halfTick) sHalfTick = "true";
+ 	else sHalfTick = "false";
+ 	return super.getSaveValues() + SavedProperties.VALUE_SPLIT + sHalfTick;
     }
 }

@@ -4,7 +4,6 @@ import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
-import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.Ammo;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.Ghost;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUpId;
@@ -34,7 +33,7 @@ public class Container extends StillObject
 	collided = true;
     }
 
-    @Override public void collisionWithControlled(final ControlledObject collision, final Side side) {
+    @Override public void collisionWithControlled(final Player collision, final Side side) {
         collided = true;
 	switch (id) {
 	    case AMMO:
