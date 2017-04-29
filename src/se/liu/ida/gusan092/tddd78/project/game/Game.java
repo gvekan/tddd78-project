@@ -1,23 +1,18 @@
 package se.liu.ida.gusan092.tddd78.project.game;
 
 
-import se.liu.ida.gusan092.tddd78.project.game.hud.Hud;
-import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
-import se.liu.ida.gusan092.tddd78.project.game.powerup.*;
-import se.liu.ida.gusan092.tddd78.project.game.objects.still.Container;
+import se.liu.ida.gusan092.tddd78.project.game.objects.still.Road;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
+import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
-import javax.swing.*;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
-import java.awt.event.ActionEvent;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,20 +39,38 @@ public class Game extends Canvas implements Runnable
 
     private Boolean running = true;
     private Boolean render = true;
-    private Handler handler = new Handler();
-    private Handler environment = new Handler();
-    private Spawner spawner = new Spawner(handler, environment);
+    private Handler handler;
+    private Handler environment;
+    private Spawner spawner;
     private Hud hud;
 
     private List<Player> players = new ArrayList<>();
 
     public Game(final Window window) {
         this.window = window;
+	this.handler = new Handler();
+ 	this.environment = new Handler();
+ 	this.spawner = new Spawner(handler, environment);
         Player player = new Player(handler, this);
         players.add(player);
 	handler.add(player);
         this.addKeyListener(new Controller(player));
-        hud = new Hud(player);
+        hud = new Hud(players);
+    }
+
+    public Game(final Window window, final double amountOfTicks, final double ns, final double speedIncreaser,
+		final Handler handler, final Handler environment, final Spawner spawner, final Player player)
+    {
+	this.window = window;
+	this.amountOfTicks = amountOfTicks;
+	this.ns = ns;
+	this.speedIncreaser = speedIncreaser;
+	this.handler = handler;
+	this.environment = environment;
+	this.spawner = spawner;
+	players.add(player);
+	this.addKeyListener(new Controller(player));
+	hud = new Hud(players);
     }
 
     public synchronized void start() {
@@ -160,24 +173,20 @@ public class Game extends Canvas implements Runnable
 	ns = S_IN_NS / this.amountOfTicks;
     }
 
+    public String getSaveValues() {
+        return Double.toString(amountOfTicks) + SavedProperties.VALUE_SPLIT + Double.toString(ns) + SavedProperties.VALUE_SPLIT + Double.toString(speedIncreaser);
+    }
+
+    public Handler getHandler() {
+	return handler;
+    }
+
     public Handler getEnvironment() {
-        return environment;
+	return environment;
     }
 
-    public boolean isGameOver() {
-        int count = 0;
-	for (ControlledObject controlledObject:
-	     players) {
-	    if (controlledObject.isAlive()) ++count;
-	}
-	if (count == 0 || (players.size() > 1 && count == 1)) return true;
-	else return false;
-    }
-
-    public void gameOver() {
-        pause();
-	if (players.size() > 1) window.gameOver(players);
-	else window.gameOver(players.get(0));
+    public Spawner getSpawner() {
+	return spawner;
     }
 
     public static int clamp(int variable, int min, int max) {
@@ -213,7 +222,24 @@ public class Game extends Canvas implements Runnable
         render = true;
 	this.requestFocus();
     }
+
     public boolean isRunning() {
         return running;
+    }
+
+    public boolean isGameOver() {
+        int count = 0;
+	for (ControlledObject controlledObject:
+	     players) {
+	    if (controlledObject.isAlive()) ++count;
+	}
+	if (count == 0 || (players.size() > 1 && count == 1)) return true;
+	else return false;
+    }
+
+    public void gameOver() {
+        pause();
+	if (players.size() > 1) window.gameOver(players);
+	else window.gameOver(players.get(0));
     }
 }

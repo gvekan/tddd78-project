@@ -7,6 +7,7 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.still.Container;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Road;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Roadblock;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUpId;
+import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import java.util.Random;
 
@@ -24,6 +25,13 @@ public class Spawner
 	this.environment = environment;
 	environment.add(new Road(0, environment));
 	environment.add(new Road(-Game.HEIGHT, environment));
+    }
+    public Spawner(final Handler handler, final Handler environment, final int counter, final int spawnCounter, final int roadCounter) {
+	this.handler = handler;
+	this.environment = environment;
+	this.counter = counter;
+	this.spawnCounter = spawnCounter;
+	this.roadCounter = roadCounter;
     }
 
     public void tick() {
@@ -77,6 +85,10 @@ public class Spawner
 	    }
 	    spawnCounter = 60;
 	}else spawnCounter--;
+    }
+
+    public String getSaveValues() {
+        return Integer.toString(counter) + SavedProperties.VALUE_SPLIT + Integer.toString(spawnCounter) + SavedProperties.VALUE_SPLIT + Integer.toString(roadCounter);
     }
 
     private boolean oneTo(int n) {

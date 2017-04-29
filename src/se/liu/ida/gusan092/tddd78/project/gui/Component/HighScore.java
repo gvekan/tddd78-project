@@ -1,6 +1,6 @@
 package se.liu.ida.gusan092.tddd78.project.gui.Component;
 
-import se.liu.ida.gusan092.tddd78.project.properties.AppProperties;
+import se.liu.ida.gusan092.tddd78.project.properties.HighScoreProperties;
 import se.liu.ida.gusan092.tddd78.project.properties.Score;
 
 import javax.swing.*;
@@ -12,7 +12,7 @@ public class HighScore extends WComponent
 
     public HighScore() {
 	super(State.HIGH_SCORE);
-	List<Score> scores = AppProperties.getInstance().getHighScores();
+	List<Score> scores = HighScoreProperties.getInstance().getHighScores();
 	this.setLayout(new GridLayout(scores.size(), 0));
 
 	for (int i = 0; i < scores.size(); i++) {

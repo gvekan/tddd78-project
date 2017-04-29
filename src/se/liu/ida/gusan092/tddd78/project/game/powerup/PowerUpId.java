@@ -11,11 +11,17 @@ public enum PowerUpId
     private final Color color;
     private final int id;
     private final int[] incompatibles;
+    private final int index;
 
     private PowerUpId(final Color color, final int id, final int... incompatibles) {
-        this.color = color;
-        this.id = id;
+	this.color = color;
+	this.id = id;
 	this.incompatibles = incompatibles;
+	this.index = ordinal();
+    }
+
+    public int getIndex(){
+	return index;
     }
 
     public Color getColor() {

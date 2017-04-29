@@ -1,4 +1,4 @@
-package se.liu.ida.gusan092.tddd78.project.game.hud;
+package se.liu.ida.gusan092.tddd78.project.game;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GradientPaint;
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.Font;
 
@@ -24,14 +25,15 @@ public class Hud
     private int healthWidth;
     private int healthMargin;
 
-    private Player[] players;
+
+    private List<Player> players = new ArrayList<>();
     private GradientPaint gradientPaint =
 	    new GradientPaint(0, Game.HEIGHT - HUD_HEIGHT, new Color(0, 0, 0, 0), 0, HEALTH_Y, new Color(0, 0, 0));
 
-    public Hud(final Player... players) {
+    public Hud(final List<Player> players) {
 	this.players = players;
-	healthWidth = Game.WIDTH / (2 * players.length);
-	healthMargin = (Game.WIDTH - healthWidth * players.length) / (players.length + 1);
+	healthWidth = Game.WIDTH / (2 * players.size());
+	healthMargin = (Game.WIDTH - healthWidth * players.size()) / (players.size() + 1);
     }
 
     public void render(final Graphics g) {
@@ -52,7 +54,7 @@ public class Hud
 	    g2d.fillRect(healthX, HEALTH_Y, health, HEALTH_HEIGHT);
 
 
-	    if (players.length == 1) {
+	    if (players.size() == 1) {
 		g2d.setColor(Color.WHITE);
 		g2d.drawString("Score: " + player.getScore(), healthX + healthWidth + BETWEEN_MARGIN, HEALTH_Y + DOWN_MARGIN);
 

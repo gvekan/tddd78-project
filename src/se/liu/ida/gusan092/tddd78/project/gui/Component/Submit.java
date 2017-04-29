@@ -2,7 +2,7 @@ package se.liu.ida.gusan092.tddd78.project.gui.Component;
 
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.Player;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
-import se.liu.ida.gusan092.tddd78.project.properties.AppProperties;
+import se.liu.ida.gusan092.tddd78.project.properties.HighScoreProperties;
 import se.liu.ida.gusan092.tddd78.project.properties.Score;
 
 import javax.swing.*;
@@ -37,7 +37,7 @@ public class Submit extends WComponent
     }
 
     public void submit(final ActionEvent e){
-	AppProperties.getInstance().addHighScore(new Score(name.getText(), score, date));
+	HighScoreProperties.getInstance().addHighScore(new Score(name.getText(), score, date));
 	window.removeGame();
 	window.toHighScore(e);
     }

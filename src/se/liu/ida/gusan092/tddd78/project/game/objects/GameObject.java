@@ -2,6 +2,7 @@ package se.liu.ida.gusan092.tddd78.project.game.objects;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.controlled.ControlledObject;
+import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import java.awt.*;
 
@@ -85,6 +86,11 @@ public abstract class GameObject
 
     public void setType(final Type type) {
 	this.type = type;
+    }
+
+    public String getSaveValues() {
+        return Integer.toString(x) + SavedProperties.VALUE_SPLIT + Integer.toString(y) + SavedProperties.VALUE_SPLIT
+	       + Integer.toString(velX) + SavedProperties.VALUE_SPLIT + Integer.toString(velY);
     }
 
     public Rectangle getBounds() {

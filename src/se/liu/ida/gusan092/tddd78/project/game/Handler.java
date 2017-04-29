@@ -87,4 +87,7 @@ public class Handler
 	}
     }
 
+    public List<GameObject> getGameObjects() {
+	return gameObjects;
+    }
 }

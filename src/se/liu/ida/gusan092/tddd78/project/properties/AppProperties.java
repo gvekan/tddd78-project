@@ -1,45 +1,26 @@
 package se.liu.ida.gusan092.tddd78.project.properties;
 
-import se.liu.ida.gusan092.tddd78.project.game.Game;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
-public class AppProperties
+public abstract class AppProperties
 {
-    private final String DEFAULTFILE = "default.properties";
-    private final String SETTINGSFILE = "settings.properties";
-    private final String HIGH_SCORESFILE = "high_scores.properties";
-    private static final AppProperties file = new AppProperties("");
-    private Properties defSettings = new Properties();
-    private Properties settings;
-    private Properties highScores = new Properties();
-    private HighScoreList highScoreList = new HighScoreList();
+    private final String fileName;
+    protected Properties prop = new Properties();
 
-    private AppProperties(String start) {
-        read(defSettings, DEFAULTFILE);
-	settings = new Properties(defSettings); //setting defSettings as the default
-        read(settings, SETTINGSFILE);
-        read(highScores, HIGH_SCORESFILE);
-	System.out.println(highScores.size());
-	for (int i = 0; i < highScores.size(); i++) {
-	    System.out.println(i);
-	    String data = highScores.getProperty(Integer.toString(i));
-	    String[] parts = data.split(",");
-	    highScoreList.add(new Score(parts[0], Integer.parseInt(parts[1]), LocalDate.parse(parts[2])));
-	}
+    protected AppProperties(final String fileName) {
+        this.fileName = fileName;
+        read();
     }
 
-    public static AppProperties getInstance() {
-        return file;
+    protected void read() {
+        read(prop,fileName);
     }
 
-    private void read(final Properties prop, final String fileName) {
+    protected void read(final Properties prop, final String fileName) {
 	FileInputStream in = null;
 	try {
 	    in = new FileInputStream(fileName);
@@ -58,11 +39,15 @@ public class AppProperties
 	}
     }
 
-    private void write(final Properties prop, final String fileName) {
+    protected void write() {
+        write(prop, fileName);
+    }
+
+    protected void write(final Properties prop, final String fileName) {
 	FileOutputStream out = null;
         try {
 	    out = new FileOutputStream(fileName);
-	    prop.store(out, "---No Comment---");
+	    prop.store(out,null);
 	} catch (IOException e) {
 	    System.out.println("Error writing app");
 	    e.printStackTrace();
@@ -76,37 +61,4 @@ public class AppProperties
 	    }
 	}
     }
-
-    public void setDefault() {
-	settings = new Properties(defSettings);
-	write(settings, SETTINGSFILE);
-    }
-
-    public List<Score> getHighScores(int max) {
-        List<Score> res = new ArrayList<>();
-	int limit = Game.clamp(max,0, highScoreList.size());
-	for (int i = 0; i < limit; i++) {
-	    res.add(highScoreList.get(i));
-	}
-	return res;
-    }
-
-    public List<Score> getHighScores() {
-        return getHighScores(highScoreList.size());
-    }
-
-    public void addHighScore(Score score) {
-        int index = highScoreList.add(score);
-        String newPlaceHolder = score.getName() + "," + score.getPoints() + "," + score.getDate();
-	for (int i = index; i < highScores.size(); i++) {
-	    String place = Integer.toString(i);
-	    String oldPlaceHolder = highScores.getProperty(place);
-	    highScores.setProperty(place,newPlaceHolder);
-	    newPlaceHolder = oldPlaceHolder;
-	}
-	highScores.setProperty(Integer.toString(highScores.size()), newPlaceHolder);
-	write(highScores, HIGH_SCORESFILE);
-    }
-
-
 }
