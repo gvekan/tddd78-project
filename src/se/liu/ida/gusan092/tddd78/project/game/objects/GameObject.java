@@ -23,6 +23,16 @@ public abstract class GameObject
 	this.handler = handler;
     }
 
+    protected GameObject(final Color color, final Type type, final Handler handler, final String saveValues) {
+	this.x = x;
+	this.y = y;
+	this.width = width;
+	this.height = height;
+	this.color = color;
+	this.type = type;
+	this.handler = handler;
+    }
+
     public int getX() {
 	return x;
     }

@@ -29,13 +29,21 @@ public class Player extends GameObject
     private List<PowerUp> powerUps = new ArrayList<>();
     private boolean alive = true;
 
-    public Player(Handler handler, Game game) {
+    public Player(final Handler handler, final Game game) {
 	super((Game.WIDTH - WIDTH) / 2, MAX_Y, WIDTH, HEIGHT, Color.CYAN, Type.PLAYER, handler);
 	this.maxHealth = MAX_HEALTH;
 	health = maxHealth;
 	this.collisionHandler = collisionHandler;
 	this.game = game;
     }
+
+    public Player(final Handler handler, final Game game, final String saveValues) {
+    	super((Game.WIDTH - WIDTH) / 2, MAX_Y, WIDTH, HEIGHT, Color.CYAN, Type.PLAYER, handler);
+    	this.maxHealth = MAX_HEALTH;
+    	health = maxHealth;
+    	this.collisionHandler = collisionHandler;
+    	this.game = game;
+        }
 
     @Override public void setVelY(final int velY) {
 	if ((y == MAX_Y && velY > 0) || (y == 0 && velY <0)) {

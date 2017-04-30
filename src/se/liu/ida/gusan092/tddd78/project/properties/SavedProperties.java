@@ -61,19 +61,19 @@ public class SavedProperties extends AppProperties
     }
 
     public void savePowerUps(final List<PowerUp> powerUps) {
-        int size = powerUps.size();
-	prop.setProperty(POWER_UPS_KEY, Integer.toString(size));
-	recursivePowerUp(powerUps, POWER_UP_KEY);
+	recursivePowerUp(powerUps, "");
     }
 
     private void recursivePowerUp(final List<PowerUp> powerUps, final String key) {
+	int size = powerUps.size();
+	prop.setProperty(POWER_UPS_KEY + key, Integer.toString(size));
 	for (int i = 0; i < powerUps.size(); i++) {
+	    String newKey = key + Integer.toString(i);
 	    final PowerUp powerUp = powerUps.get(i);
+	    prop.setProperty(POWER_UP_KEY + newKey, powerUp.getSaveValues());
 	    List<PowerUp> interrupted = powerUp.getInterrupted();
-	    int size = interrupted.size();
-	    prop.setProperty(key, Integer.toString(size) + VALUE_SPLIT + powerUp.getSaveValues());
 	    if (!interrupted.isEmpty()) {
-		recursivePowerUp(powerUps, key + Integer.toString(i));
+		recursivePowerUp(interrupted, newKey);
 	    }
 	}
     }
@@ -88,6 +88,7 @@ public class SavedProperties extends AppProperties
 		String[] values = gameObject.split(ENUM_SPLIT);
 		switch (Type.values()[Integer.parseInt(values[0])]) {
 		    case PLAYER:
+
 		}
 	    }
 	    Handler environment = new Handler();

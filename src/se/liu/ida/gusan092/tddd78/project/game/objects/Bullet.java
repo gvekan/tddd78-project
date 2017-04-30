@@ -16,6 +16,13 @@ public class Bullet extends GameObject
 	setVelY(-1);
     }
 
+    public Bullet(final Handler handler, final Player controlledObject, final String saveValues)
+        {
+    	super(Color.BLACK, Type.BULLET, handler, saveValues);
+    	this.controlledObject = controlledObject;
+    	setVelY(-1);
+        }
+
     @Override public void tick() {
 	y += velY;
 	List<GameObject> collisions = handler.getCollisions(this);

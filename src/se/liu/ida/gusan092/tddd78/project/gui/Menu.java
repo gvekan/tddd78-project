@@ -71,6 +71,14 @@ public class Menu extends JMenuBar
  	gameEnable.add(item);
  	menu.add(item);
 
+	item = new JMenuItem("Save", KeyEvent.VK_S);
+	item.setMnemonic(KeyEvent.VK_S);
+	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
+ 	item.addActionListener(window::saveGame);
+ 	item.setEnabled(false);
+ 	gameEnable.add(item);
+ 	menu.add(item);
+
  	this.add(menu);
 
 	disableForState.put(State.START, startDisable);

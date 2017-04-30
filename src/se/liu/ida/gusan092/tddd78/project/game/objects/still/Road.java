@@ -23,6 +23,16 @@ public class Road extends StillObject
 	}
     }
 
+    public Road(final Handler handler, final String saveValues)
+    {
+	super(Color.BLACK, Type.ROAD, handler, saveValues);
+	try {
+	    img = ImageIO.read(new File("road.png"));
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+    }
+
     @Override public void render(final Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
 		if (img != null) {

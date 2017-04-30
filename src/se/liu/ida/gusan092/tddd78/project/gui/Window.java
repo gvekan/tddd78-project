@@ -7,6 +7,7 @@ import se.liu.ida.gusan092.tddd78.project.gui.Component.HighScore;
 import se.liu.ida.gusan092.tddd78.project.gui.Component.Start;
 import se.liu.ida.gusan092.tddd78.project.gui.Component.Submit;
 import se.liu.ida.gusan092.tddd78.project.gui.Component.WComponent;
+import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -95,6 +96,12 @@ public class Window extends JFrame
     public void repauseGame(final ActionEvent e){
         if (game.isRunning()) game.pause();
 	else game.resume();
+    }
+
+    public void saveGame(final ActionEvent e) {
+	if (game.isRunning()) game.pause();
+	SavedProperties.getInstance().saveGame(game);
+	setComp(new Start(this));
     }
 
     public void toStart(final ActionEvent e){

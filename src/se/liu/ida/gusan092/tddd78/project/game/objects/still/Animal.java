@@ -38,6 +38,23 @@ public class Animal extends StillObject
 	timer.start();
     }
 
+    public Animal(final Handler handler, final String saveValues)
+        {
+    	super(new Color(160,82,45), Type.ANIMAL, handler, saveValues);
+
+    	ActionListener taskPerformer = new ActionListener() {
+    	    public void actionPerformed(ActionEvent evt) {
+    	        if (running) {
+    		    setX(getX() + velX);
+    		    if (velX < 0) handleCollisionLeft();
+    		    else handleCollisionRight();
+    		}
+    	    }
+    	};
+    	Timer timer = new Timer(25, taskPerformer);
+    	timer.start();
+        }
+
     public void handleCollisionLeft() {
 	List<GameObject> collisions = handler.getCollisions(getLeftBound(),this);
 	if (!collisions.isEmpty()) {

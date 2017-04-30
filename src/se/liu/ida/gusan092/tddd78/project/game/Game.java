@@ -56,8 +56,8 @@ public class Game extends Canvas implements Runnable
         hud = new Hud(players);
     }
 
-    public Game(final Window window, final double amountOfTicks, final double ns, final double speedIncreaser,
-		final Handler handler, final Handler environment, final Spawner spawner, final Player player)
+    public Game( final Window window, final Handler handler, final Handler environment, final Spawner spawner,
+		 final Player player, final String saveValues)
     {
 	this.window = window;
 	this.amountOfTicks = amountOfTicks;
@@ -172,7 +172,7 @@ public class Game extends Canvas implements Runnable
     }
 
     public String getSaveValues() {
-        return Double.toString(amountOfTicks) + SavedProperties.VALUE_SPLIT + Double.toString(ns) + SavedProperties.VALUE_SPLIT + Double.toString(speedIncreaser);
+        return Double.toString(amountOfTicks) +  Double.toString(speedIncreaser);
     }
 
     public Handler getHandler() {

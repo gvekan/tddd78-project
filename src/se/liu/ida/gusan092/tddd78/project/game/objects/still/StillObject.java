@@ -19,6 +19,12 @@ public abstract class StillObject extends GameObject
 	setVelY(1);
     }
 
+    protected StillObject(final Color color, final Type type, final Handler handler, final String saveValues)
+        {
+    	super(color, type, handler, saveValues);
+    	setVelY(1);
+        }
+
     @Override public void tick() {
         if (y == Game.HEIGHT) {
             handler.removeAfterTick(this);

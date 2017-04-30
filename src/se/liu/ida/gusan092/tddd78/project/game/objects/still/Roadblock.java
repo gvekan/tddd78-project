@@ -12,7 +12,11 @@ public class Roadblock extends StillObject
     public static final int WIDTH = 25;
     public static final int HEIGHT = 5;
 
-    public Roadblock(final int x, final Type type, final Handler handler) {
-	super(x, -HEIGHT, WIDTH, HEIGHT, new Color(255,69,0), type, handler);
+    public Roadblock(final int x, final Handler handler) {
+    	super(x, -HEIGHT, WIDTH, HEIGHT, new Color(255,69,0), Type.ROADBLOCK, handler);
     }
+
+    public Roadblock(final Handler handler, final String saveValues) {
+        	super(new Color(255,69,0), Type.ROADBLOCK, handler, saveValues);
+        }
 }

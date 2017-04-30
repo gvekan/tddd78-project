@@ -26,7 +26,8 @@ public class Spawner
 	environment.add(new Road(0, environment));
 	environment.add(new Road(-Game.HEIGHT, environment));
     }
-    public Spawner(final Handler handler, final Handler environment, final int counter, final int spawnCounter, final int roadCounter) {
+
+    public Spawner(final Handler handler, final Handler environment, final String saveValues) {
 	this.handler = handler;
 	this.environment = environment;
 	this.counter = counter;
@@ -44,16 +45,16 @@ public class Spawner
 	    if (counter > 4000) {
 	        if (oneTo(3)) {
 		    for (int i = 0; i < random.nextInt(5) + 1; i++) {
-			handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), Type.ROADBLOCK, handler));
+			handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), handler));
 		    }
 		} else if(oneTo(4)) {
 		    switch (random.nextInt(3)) {
 			case 0:
-			    handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), Type.ROADBLOCK, handler));
+			    handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), handler));
 			    break;
 			case 1:
 			    if (oneTo(2)) handler.add(new Container(random.nextInt(Game.WIDTH - Container.DIAMETER), handler, PowerUpId.AMMO));
-			    else handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), Type.ROADBLOCK, handler));
+			    else handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), handler));
 			    break;
 			case 2:
 			    if (oneTo(4)) handler.add(new Container(random.nextInt(Game.WIDTH - Container.DIAMETER), handler, PowerUpId.UNSTOPPABLE));
@@ -63,7 +64,7 @@ public class Spawner
 		}
 	    } else if (counter > 2000) {
 		if (oneTo(2)) {
-		    handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), Type.ROADBLOCK, handler));
+		    handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), handler));
 		}
 		if (oneTo(4)) handler.add(new Animal(random.nextInt(Game.WIDTH), handler));
 		if (oneTo(20)) {
@@ -79,7 +80,7 @@ public class Spawner
 		}
 	    } else {
 		if (oneTo(2)) {
-		    handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH), Type.ROADBLOCK, handler));
+		    handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH), handler));
 		}
 		if (oneTo(20)) handler.add(new Container(random.nextInt(Game.WIDTH - Container.DIAMETER), handler, PowerUpId.AMMO));
 	    }
