@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Road extends StillObject
 {
-    BufferedImage img = null;
+    private BufferedImage img = null;
     public Road(final int y, final Handler handler)
     {
 	super(0, y, Game.WIDTH, Game.HEIGHT, Color.BLACK, Type.ROAD, handler);
@@ -25,7 +25,7 @@ public class Road extends StillObject
 
     public Road(final Handler handler, final String saveValues)
     {
-	super(Color.BLACK, Type.ROAD, handler, saveValues);
+	super(Game.WIDTH,Game.HEIGHT,Color.BLACK, Type.ROAD, handler, saveValues);
 	try {
 	    img = ImageIO.read(new File("road.png"));
 	} catch (IOException e) {
@@ -38,5 +38,9 @@ public class Road extends StillObject
 		if (img != null) {
 		    g2d.drawImage(img,x,y,null);
 		}
+    }
+
+    @Override public void setStillSaveValues(final String[] saveValues) {
+
     }
 }

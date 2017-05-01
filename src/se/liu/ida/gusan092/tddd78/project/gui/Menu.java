@@ -52,7 +52,7 @@ public class Menu extends JMenuBar
 	item = new JMenuItem("Continue", KeyEvent.VK_C);
 	item.setMnemonic(KeyEvent.VK_C);
 	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
- 	item.addActionListener(window::toGame);
+ 	item.addActionListener(window::continueGame);
  	gameDisable.add(item);
  	submitDisable.add(item);
  	menu.add(item);

@@ -34,6 +34,10 @@ public class Trail extends StillObject
 	alpha-= REDUCTION;
     }
 
+    @Override public void setStillSaveValues(final String[] saveValues) {
+
+    }
+
     @Override public void render(final Graphics g) {
 	Graphics2D g2d = (Graphics2D) g;
 

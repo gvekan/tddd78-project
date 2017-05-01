@@ -17,6 +17,10 @@ public class Roadblock extends StillObject
     }
 
     public Roadblock(final Handler handler, final String saveValues) {
-        	super(new Color(255,69,0), Type.ROADBLOCK, handler, saveValues);
+        	super(WIDTH,HEIGHT,new Color(255,69,0), Type.ROADBLOCK, handler, saveValues);
         }
+
+    @Override public void setStillSaveValues(final String[] saveValues) {
+
+    }
 }

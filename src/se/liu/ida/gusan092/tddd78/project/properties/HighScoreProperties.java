@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HighScoreProperties extends AppProperties
+public final class HighScoreProperties extends AppProperties
 {
     private static final HighScoreProperties INSTANCE = new HighScoreProperties("");
     private HighScoreList highScoreList = new HighScoreList();

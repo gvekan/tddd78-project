@@ -1,7 +1,6 @@
 package se.liu.ida.gusan092.tddd78.project.gui.Component;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
-import se.liu.ida.gusan092.tddd78.project.gui.*;
 import se.liu.ida.gusan092.tddd78.project.gui.Window;
 
 import javax.swing.*;
@@ -27,7 +26,7 @@ public class Start extends WComponent
 	this.add(label,c);
 
 	button = new JButton("CONTINUE");
-	button.addActionListener(window::toGame);
+	button.addActionListener(window::continueGame);
 	c.fill = GridBagConstraints.HORIZONTAL;
 	c.ipady = 30;       //reset to default
 	c.ipadx = 30;

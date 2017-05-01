@@ -28,7 +28,7 @@ public class Game extends Canvas implements Runnable
     private double ns = S_IN_NS / amountOfTicks;
     private double speedIncreaser = MIN_AMOUNT_OF_TICKS;
 
-    private Window window;
+    private Window window = null;
 
     private Thread thread = new Thread(this);
     private boolean threadRunning = false;
@@ -37,10 +37,10 @@ public class Game extends Canvas implements Runnable
 
     private Boolean running = true;
     private Boolean render = true;
-    private Handler handler;
-    private Handler environment;
-    private Spawner spawner;
-    private Hud hud;
+    private Handler handler = null;
+    private Handler environment = null;
+    private Spawner spawner = null;
+    private Hud hud = null;
 
     private List<Player> players = new ArrayList<>();
 
@@ -56,13 +56,18 @@ public class Game extends Canvas implements Runnable
         hud = new Hud(players);
     }
 
-    public Game( final Window window, final Handler handler, final Handler environment, final Spawner spawner,
+    public Game() {
+
+    }
+
+    public void setSaveValues(final Window window, final Handler handler, final Handler environment, final Spawner spawner,
 		 final Player player, final String saveValues)
     {
+        String[] values = saveValues.split(SavedProperties.VALUE_SPLIT);
+	this.amountOfTicks = Double.valueOf(values[0]);
+	this.ns = S_IN_NS / amountOfTicks;
+	this.speedIncreaser = Double.valueOf(values[1]);
 	this.window = window;
-	this.amountOfTicks = amountOfTicks;
-	this.ns = ns;
-	this.speedIncreaser = speedIncreaser;
 	this.handler = handler;
 	this.environment = environment;
 	this.spawner = spawner;
@@ -172,7 +177,7 @@ public class Game extends Canvas implements Runnable
     }
 
     public String getSaveValues() {
-        return Double.toString(amountOfTicks) +  Double.toString(speedIncreaser);
+        return Double.toString(amountOfTicks) + SavedProperties.VALUE_SPLIT +  Double.toString(speedIncreaser);
     }
 
     public Handler getHandler() {

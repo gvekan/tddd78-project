@@ -19,9 +19,11 @@ import java.util.List;
 public class Animal extends StillObject
 {
 
+    public static final int SIZE = 15;
+
     public Animal(final int x, final Handler handler)
     {
-	super(x, -15, 15, 15, new Color(160,82,45), Type.ANIMAL, handler);
+	super(x, -SIZE, SIZE, SIZE, new Color(160, 82, 45), Type.ANIMAL, handler);
 	if ( x < Game.WIDTH/2) setVelX(1);
 	else setVelX(-1);
 
@@ -40,8 +42,7 @@ public class Animal extends StillObject
 
     public Animal(final Handler handler, final String saveValues)
         {
-    	super(new Color(160,82,45), Type.ANIMAL, handler, saveValues);
-
+    	super(SIZE, SIZE, new Color(160,82,45), Type.ANIMAL, handler, saveValues);
     	ActionListener taskPerformer = new ActionListener() {
     	    public void actionPerformed(ActionEvent evt) {
     	        if (running) {
@@ -103,5 +104,9 @@ public class Animal extends StillObject
 	Graphics2D g2d = (Graphics2D) g;
 	g2d.setColor(color);
 	g2d.fillOval(x,y,width,height);
+    }
+
+    @Override public void setStillSaveValues(final String[] saveValues) {
+
     }
 }

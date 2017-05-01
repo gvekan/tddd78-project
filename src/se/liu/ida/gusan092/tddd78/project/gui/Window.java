@@ -114,7 +114,7 @@ public class Window extends JFrame
         setComp(new HighScore());
     }
 
-    public void toGame(final ActionEvent e) {
+    public void continueGame(final ActionEvent e) {
         if (hasGame()) {
             if (game.isGameOver()) {
                 game.gameOver();
@@ -125,7 +125,16 @@ public class Window extends JFrame
 	    this.pack();
 	    repaint();
 	    game.startRender();
-	} else newGame(e);
+	}
+	else if (SavedProperties.getInstance().hasGame()) {
+	    game = SavedProperties.getInstance().getGame(this);
+	    replaceState(State.GAME);
+	    this.add(game);
+	    this.pack();
+	    repaint();
+	    game.startRender();
+	}
+	else newGame(e);
     }
 
     public void gameOver(Player player) {

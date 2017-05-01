@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class Player extends GameObject
@@ -21,9 +22,11 @@ public class Player extends GameObject
     public static final int WIDTH = 20;
     public static final int HEIGHT = 45;
     public static final int MAX_HEALTH = 10;
+    public static final String TRUE = "true";
+    public static final String FALSE = "false";
     private boolean halfTick = true;
     public static final int MAX_Y = Game.HEIGHT-150;
-    private int maxHealth, health, score = 0, scorePerPixel = 1;
+    private int maxHealth, health, score, scorePerPixel;
     private Game game;
     private CollisionHandler collisionHandler = new DefaultCollision();
     private List<PowerUp> powerUps = new ArrayList<>();
@@ -33,15 +36,15 @@ public class Player extends GameObject
 	super((Game.WIDTH - WIDTH) / 2, MAX_Y, WIDTH, HEIGHT, Color.CYAN, Type.PLAYER, handler);
 	this.maxHealth = MAX_HEALTH;
 	health = maxHealth;
-	this.collisionHandler = collisionHandler;
 	this.game = game;
+	score = 0;
+	scorePerPixel = 1;
     }
 
     public Player(final Handler handler, final Game game, final String saveValues) {
-    	super((Game.WIDTH - WIDTH) / 2, MAX_Y, WIDTH, HEIGHT, Color.CYAN, Type.PLAYER, handler);
+    	super(WIDTH,HEIGHT,Color.CYAN, Type.PLAYER, handler, saveValues);
     	this.maxHealth = MAX_HEALTH;
     	health = maxHealth;
-    	this.collisionHandler = collisionHandler;
     	this.game = game;
         }
 
@@ -74,6 +77,24 @@ public class Player extends GameObject
 	}
 	controllCollision();
 	halfTick = !halfTick;
+    }
+
+    @Override public void setSaveValues(final String[] saveValues) {
+	if (Objects.equals(saveValues[0], TRUE)) halfTick = true;
+	else halfTick = false;
+	health = Integer.parseInt(saveValues[1]);
+	maxHealth = Integer.parseInt(saveValues[2]);
+	score = Integer.parseInt(saveValues[3]);
+	scorePerPixel = Integer.parseInt(saveValues[4]);
+    }
+
+    @Override public String getSaveValues() {
+        String sHalfTick;
+        if (halfTick) sHalfTick = TRUE;
+        else sHalfTick = FALSE;
+        SavedProperties.getInstance().savePowerUps(powerUps);
+        return super.getSaveValues() + SavedProperties.VALUE_SPLIT + sHalfTick + SavedProperties.VALUE_SPLIT + Integer.toString(health) + SavedProperties.VALUE_SPLIT
+		+ Integer.toString(maxHealth) + SavedProperties.VALUE_SPLIT + Integer.toString(score) + SavedProperties.VALUE_SPLIT + Integer.toString(scorePerPixel);
     }
 
     @Override public void render(final Graphics g) {
@@ -138,14 +159,6 @@ public class Player extends GameObject
 	}
     }
 
-    @Override public String getSaveValues() {
-        String sHalfTick;
-        if (halfTick) sHalfTick = "true";
-        else sHalfTick = "false";
-        SavedProperties.getInstance().savePowerUps(powerUps);
-        return super.getSaveValues() + SavedProperties.VALUE_SPLIT + sHalfTick + SavedProperties.VALUE_SPLIT + Integer.toString(health) + SavedProperties.VALUE_SPLIT
-		+ Integer.toString(maxHealth) + SavedProperties.VALUE_SPLIT + Integer.toString(score) + SavedProperties.VALUE_SPLIT + Integer.toString(scorePerPixel);
-    }
 
         public int getMaxHealth() {
     	return maxHealth;

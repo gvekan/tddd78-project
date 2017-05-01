@@ -4,6 +4,7 @@ import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import java.awt.*;
+import java.util.Arrays;
 
 public abstract class GameObject
 {
@@ -23,14 +24,19 @@ public abstract class GameObject
 	this.handler = handler;
     }
 
-    protected GameObject(final Color color, final Type type, final Handler handler, final String saveValues) {
-	this.x = x;
-	this.y = y;
+    protected GameObject(final int width, final int height, Color color, final Type type, final Handler handler, final String saveValues) {
 	this.width = width;
 	this.height = height;
 	this.color = color;
 	this.type = type;
 	this.handler = handler;
+	running = false;
+	String[] values = saveValues.split(SavedProperties.VALUE_SPLIT);
+	x = Integer.parseInt(values[0]);
+	y = Integer.parseInt(values[1]);
+	velX = Integer.parseInt(values[2]);
+	velY = Integer.parseInt(values[3]);
+	setSaveValues(Arrays.copyOfRange(values, 4, values.length));
     }
 
     public int getX() {
@@ -132,5 +138,5 @@ public abstract class GameObject
     }
 
     public abstract void tick();
-//    public abstract void maxTick();
+    public abstract void setSaveValues(final String[] saveValues);
 }

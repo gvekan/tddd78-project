@@ -9,8 +9,12 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.collision.CollisionHandle
 
 public class Ghost extends PowerUp implements CollisionHandler
 {
-
     public Ghost(final Player player) {
+    	super(PowerUpId.GHOST, player);
+    	add();
+    }
+
+    public Ghost(final Player player, final String saveValues) {
 	super(PowerUpId.GHOST, player);
 	add();
     }

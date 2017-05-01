@@ -18,13 +18,20 @@ public class Unstoppable extends PowerUp implements CollisionHandler
     private int countdown = 5;
     private Timer timer = null;
 
-    public Unstoppable(final Player controlledObject)
+    public Unstoppable(final Player player)
     {
-	super(PowerUpId.UNSTOPPABLE, controlledObject);
+	super(PowerUpId.UNSTOPPABLE, player);
 	add();
 	if (added) {
 	    resume();
 	}
+    }
+
+    public Unstoppable(final Player player, final String saveValues)
+    {
+	super(PowerUpId.UNSTOPPABLE, player);
+	add();
+	countdown = Integer.parseInt(saveValues);
     }
 
     @Override public void use() {
@@ -34,8 +41,8 @@ public class Unstoppable extends PowerUp implements CollisionHandler
     }
 
     @Override public void interrupt() {
-        timer.stop();
-	player.setCollisionHandler(oldCollisionHandeler);
+        if (timer != null) timer.stop();
+        if (oldCollisionHandeler != null) player.setCollisionHandler(oldCollisionHandeler);
     }
 
     @Override protected void reset() {

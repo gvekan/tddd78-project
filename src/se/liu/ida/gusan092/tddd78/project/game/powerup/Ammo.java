@@ -15,6 +15,12 @@ public class Ammo extends PowerUp
 	this.handler = handler;
 	add();
     }
+    public Ammo(final Player player, final Handler handler, final String saveValues) {
+    	super(PowerUpId.AMMO, player);
+    	this.handler = handler;
+    	add();
+	ammo = Integer.parseInt(saveValues);
+    }
 
     @Override public void use() {
 	handler.add(new Bullet(player.getX() + player.getWidth() / 2, player.getY() - 4, handler, player));
