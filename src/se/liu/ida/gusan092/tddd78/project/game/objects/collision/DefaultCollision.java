@@ -7,6 +7,9 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 
+/**
+ * The default CollisionHandler to use with single player
+ */
 public class DefaultCollision implements CollisionHandler
 {
 
@@ -19,7 +22,7 @@ public class DefaultCollision implements CollisionHandler
 		handler.removeAfterTick(collision);
 		break;
 	    case PLAYER:
-	    case POWERUP:
+	    case CONTAINER:
 	        collision.collisionWithPlayer(player, side);
 	        break;
 	}
@@ -54,22 +57,6 @@ public class DefaultCollision implements CollisionHandler
 	int amountOfTicks = (int) game.getAmountOfTicks();
 	int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 	switch (collisionId) {
-	    case TRAFFIC_BARRIER:
-		if (velY == 0) {
-		    healthChange = -1;
-		} else if (velY < 0) {
-		    healthChange = -speedIncreaseDiff / 4;
-		    if (healthChange == 0) {
-			healthChange = -1;
-		    }
-		}
-		speedChange = healthChange * 2;
-		int testY = controlledObject.getY() + 1;
-		controlledObject.setY(testY);
-		if (controlledObject.getY() != testY) {
-		    controlledObject.setHealth(0);
-		}
-		break;
 	    case ANIMAL:
 	    case ROADBLOCK:
 		if (velY <= 0) {
@@ -97,10 +84,8 @@ public class DefaultCollision implements CollisionHandler
 
     public void collisionBack(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
 	Type collisionId = collision.getType();
-	int velY = controlledObject.getVelY();
 	switch (collisionId) {
-	    case TRAFFIC_BARRIER: //Backcollision can only happen from the side
-	    case ANIMAL:
+	    case ANIMAL: //Backcollision can only happen from the side
 	    case ROADBLOCK: //Backcollision can only happen from the side
 		int velX = controlledObject.getVelX();
 		if (velX < 0) {
@@ -119,15 +104,6 @@ public class DefaultCollision implements CollisionHandler
 	int speedChange = 0;
 	int amountOfTicks = (int) game.getAmountOfTicks();
 	switch (collisionId) {
-	    case TRAFFIC_BARRIER:
-		if (velX >= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
-		    collisionFront(game, handler, controlledObject, collision);
-		    break;
-		}
-		healthChange = -1;
-		speedChange = -1;
-		controlledObject.setX(Game.clamp(controlledObject.getX() + 1, 0, Game.HEIGHT - controlledObject.getHeight()));
-		break;
 	    case ANIMAL:
 	    case ROADBLOCK:
 		if (velX >= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
@@ -156,15 +132,6 @@ public class DefaultCollision implements CollisionHandler
 	int speedChange = 0;
 	int amountOfTicks = (int) game.getAmountOfTicks();
 	switch (collisionId) {
-	    case TRAFFIC_BARRIER:
-		if (velX <= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0
-		    collisionFront(game, handler, controlledObject, collision);
-		    break;
-		}
-		healthChange = -1;
-		speedChange = -1;
-		controlledObject.setX(Game.clamp(controlledObject.getX() - 1, 0, Game.HEIGHT - controlledObject.getHeight()));
-		break;
 	    case ANIMAL:
 	    case ROADBLOCK:
 		if (velX <= 0) { //Correct defect because side-collisionWithGameObject can not happen if velX == 0

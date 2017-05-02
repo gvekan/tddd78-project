@@ -10,14 +10,38 @@ import java.awt.GradientPaint;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Displaying information about players
+ */
 public class Hud
 {
+    /**
+     * The height of the hud
+     */
     public static final int HUD_HEIGHT = 100;
+    /**
+     * The Y position of the hud
+     */
     public static final int HUD_Y = Game.HEIGHT - HUD_HEIGHT;
+    /**
+     * The height of the healthbar
+     */
     public static final int HEALTH_HEIGHT = 25;
+    /**
+     * The Y position of the healthbar
+     */
     public static final int HEALTH_Y = Game.HEIGHT - HEALTH_HEIGHT - 20;
+    /**
+     * The maxvalue for RGB
+     */
     public static final int RGB = 255;
+    /**
+     * The horizontal margin between objects drawn in render
+     */
     public static final int BETWEEN_MARGIN = 10;
+    /**
+     * The margin under objects drawn in render
+     */
     public static final int DOWN_MARGIN = 15;
 
     private int healthWidth;

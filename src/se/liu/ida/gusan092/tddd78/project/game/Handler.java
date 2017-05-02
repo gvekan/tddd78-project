@@ -8,6 +8,9 @@ import java.awt.Graphics;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * A object containing all gameobjects in a game
+ */
 public class Handler
 {
     private List<GameObject> gameObjects = new ArrayList<>(1000);
@@ -53,11 +56,6 @@ public class Handler
 	    }
 	}
 	return false;
-    }
-
-    public boolean hasCollision(final GameObject gameObject) {
-        Rectangle rectangle = gameObject.getBounds();
-	return hasCollision(rectangle,gameObject);
     }
 
     public List<GameObject> getCollisions(final Rectangle rectangle, final GameObject gameObject) {

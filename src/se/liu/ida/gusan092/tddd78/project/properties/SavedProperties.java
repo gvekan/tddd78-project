@@ -16,14 +16,17 @@ import se.liu.ida.gusan092.tddd78.project.game.powerup.Ghost;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUp;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUpId;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.Unstoppable;
-import se.liu.ida.gusan092.tddd78.project.gui.Window;
+import se.liu.ida.gusan092.tddd78.project.gui.App;
 
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Used as a instance and handling the saved properties for a game
+ */
 public final class SavedProperties extends AppProperties
 {
-    private static final SavedProperties INSTANCE = new SavedProperties("");
+    private static final SavedProperties INSTANCE = new SavedProperties();
     private final static String GAME_KEY = "game";
     private final static String HANDLER_KEY = "handler";
     private final static String H_OBJECT_KEY = "h";
@@ -32,11 +35,17 @@ public final class SavedProperties extends AppProperties
     private final static String SPAWNER_KEY = "spawner";
     private final static String POWER_UPS_KEY = "power_ups";
     private final static String POWER_UP_KEY = "p";
+    /**
+     * The string used to distinguish values
+     */
     public final static String VALUE_SPLIT = ",";
+    /**
+     * The string used to distinguish enum and value
+     */
     public final static String ENUM_SPLIT = ":";
 
 
-    private SavedProperties(final String start) {
+    private SavedProperties() {
 	super("saved.properties");
     }
 
@@ -89,7 +98,7 @@ public final class SavedProperties extends AppProperties
 	}
     }
 
-    public Game getGame(final Window window) {
+    public Game getGame(final App app) {
 	if (hasGame()) {
 	    Game game = new Game();
 	    Player player = null;
@@ -113,7 +122,7 @@ public final class SavedProperties extends AppProperties
 		    case BULLET:
 		        handler.add(new Bullet(handler,player,values[1]));
 		        break;
-		    case POWERUP:
+		    case CONTAINER:
 		        handler.add(new Container(handler, values[1]));
 		        break;
 		}
@@ -153,7 +162,7 @@ public final class SavedProperties extends AppProperties
 
 	    Spawner spawner = new Spawner(handler, environment, prop.getProperty(SPAWNER_KEY));
 
-	    game.setSaveValues(window, handler,environment,spawner,player,prop.getProperty(GAME_KEY));
+	    game.setSaveValues(app, handler, environment, spawner, player, prop.getProperty(GAME_KEY));
 	    game.pause();
 	    game.stopRender();
 	    game.start();

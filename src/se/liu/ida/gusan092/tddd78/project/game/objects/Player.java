@@ -17,14 +17,35 @@ import java.util.List;
 import java.util.Objects;
 
 
+/**
+ * A GameObject controlled by and representing a user
+ */
 public class Player extends GameObject
 {
+    /**
+     * The width of the player
+     */
     public static final int WIDTH = 20;
+    /**
+     * The height of the player
+     */
     public static final int HEIGHT = 45;
+    /**
+     * The max height of the player
+     */
     public static final int MAX_HEALTH = 10;
+    /**
+     * The string representing true
+     */
     public static final String TRUE = "true";
+    /**
+     * The String representing false
+     */
     public static final String FALSE = "false";
-    private boolean halfTick = true;
+    private boolean halfTick;
+    /**
+     * The max Y position of the player
+     */
     public static final int MAX_Y = Game.HEIGHT-150;
     private int maxHealth, health, score, scorePerPixel;
     private Game game;
@@ -39,13 +60,21 @@ public class Player extends GameObject
 	this.game = game;
 	score = 0;
 	scorePerPixel = 1;
+	halfTick = true;
     }
 
+    /**
+     * @param handler the handler it is in
+     * @param saveValues values to use when restoring a saved file
+     * Note that the id and color will be set by setStillSaveValues
+     */
     public Player(final Handler handler, final Game game, final String saveValues) {
-    	super(WIDTH,HEIGHT,Color.CYAN, Type.PLAYER, handler, saveValues);
+    	super(WIDTH,HEIGHT,Color.CYAN, Type.PLAYER, handler);
     	this.maxHealth = MAX_HEALTH;
     	health = maxHealth;
     	this.game = game;
+	halfTick = true;
+    	setSaveValues(saveValues);
         }
 
     @Override public void setVelY(final int velY) {
@@ -60,7 +89,7 @@ public class Player extends GameObject
 	this.x = Game.clamp(x, 0, Game.WIDTH - width);
     }
 
-    @Override public void setY(final int y) {
+    public void setY(final int y) {
 	this.y = Game.clamp(y, 0, MAX_Y);
     }
 
@@ -164,11 +193,7 @@ public class Player extends GameObject
     	return maxHealth;
         }
 
-        public void setMaxHealth(final int maxHealth) {
-    	this.maxHealth = maxHealth;
-        }
-
-        public int getHealth() {
+    public int getHealth() {
     	return health;
         }
 
@@ -189,11 +214,7 @@ public class Player extends GameObject
     	return score;
         }
 
-        public void setScore(final int score) {
-    	this.score = score;
-        }
-
-        public void addScore(final int score) {
+    public void addScore(final int score) {
             this.score = Game.clamp(this.score + score, 0, this.score + score + 1);
         }
 

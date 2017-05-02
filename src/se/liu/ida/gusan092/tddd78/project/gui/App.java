@@ -2,11 +2,11 @@ package se.liu.ida.gusan092.tddd78.project.gui;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
-import se.liu.ida.gusan092.tddd78.project.gui.Component.State;
-import se.liu.ida.gusan092.tddd78.project.gui.Component.HighScore;
-import se.liu.ida.gusan092.tddd78.project.gui.Component.Start;
-import se.liu.ida.gusan092.tddd78.project.gui.Component.Submit;
-import se.liu.ida.gusan092.tddd78.project.gui.Component.WComponent;
+import se.liu.ida.gusan092.tddd78.project.gui.component.State;
+import se.liu.ida.gusan092.tddd78.project.gui.component.HighScore;
+import se.liu.ida.gusan092.tddd78.project.gui.component.Start;
+import se.liu.ida.gusan092.tddd78.project.gui.component.Submit;
+import se.liu.ida.gusan092.tddd78.project.gui.component.WComponent;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import javax.swing.*;
@@ -14,14 +14,17 @@ import java.awt.event.ActionEvent;
 import java.util.List;
 
 
-public class Window extends JFrame
+/**
+ * The frame of the app, displaying different components
+ */
+public class App extends JFrame
 {
     private Game game = null;
     private Menu menu = new Menu(this);
     private WComponent comp;
 
 
-    public Window() {
+    public App() {
         super("Game");
 	this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
  	this.setResizable(false);
@@ -31,18 +34,6 @@ public class Window extends JFrame
  	this.pack();
  	this.setVisible(true);
  	this.setFocusable(true);
-    }
-
-    public Window(final Game game) {
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setResizable(false);
-        this.add(game);
-	this.setJMenuBar(menu);
-        this.pack();
-        this.setVisible(true);
-        this.setFocusable(true);
-        this.game = game;
-        game.start();
     }
 
     private boolean hasGame() {
@@ -93,23 +84,23 @@ public class Window extends JFrame
 	repaint();
     }
 
-    public void repauseGame(final ActionEvent e){
+    public void repauseGame(final ActionEvent e){ //It has to be a param e
         if (game.isRunning()) game.pause();
 	else game.resume();
     }
 
-    public void saveGame(final ActionEvent e) {
+    public void saveGame(final ActionEvent e) { //It has to be a param e
 	if (game.isRunning()) game.pause();
 	SavedProperties.getInstance().saveGame(game);
 	setComp(new Start(this));
     }
 
-    public void toStart(final ActionEvent e){
+    public void toStart(final ActionEvent e){ //It has to be a param e
         if (hasGame()) game.pause();
         setComp(new Start(this));
     }
 
-    public void toHighScore(final ActionEvent e){
+    public void toHighScore(final ActionEvent e){ //It has to be a param e
         if (hasGame()) game.pause();
         setComp(new HighScore());
     }
@@ -149,6 +140,6 @@ public class Window extends JFrame
     }
 
     public static void main(String[] args) {
-	new Window();
+	App app = new App();
     }
 }

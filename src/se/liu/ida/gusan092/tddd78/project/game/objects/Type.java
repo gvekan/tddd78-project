@@ -1,15 +1,37 @@
 package se.liu.ida.gusan092.tddd78.project.game.objects;
-
+/**
+ * Representing each GameObject
+ */
 public enum Type
 {
-    PLAYER(),
-    ROADBLOCK(),
-    TRAFFIC_BARRIER(),
-    POWERUP(),
-    BULLET(),
-    TRAIL(),
-    ANIMAL(),
-    ROAD();
+    /**
+     * Representing Player
+     */
+    PLAYER,
+    /**
+     * Representing Roadblock
+     */
+    ROADBLOCK,
+    /**
+     * Representing container
+     */
+    CONTAINER,
+    /**
+     * Representing bullet
+     */
+    BULLET,
+    /**
+     * Representing trail
+     */
+    TRAIL,
+    /**
+     * Representing animal
+     */
+    ANIMAL,
+    /**
+     * Representing road
+     */
+    ROAD;
 
     private final int index;
 
@@ -23,8 +45,7 @@ public enum Type
 
     public static void main(String[] args) {
         Type test = Type.PLAYER;
-	int v = test.getIndex();
-        if (test == Type.values()[v]) System.out.println("sant");
+	if (test == Type.values()[test.index]) System.out.println("sant");
         else System.out.println("falskt");
 
     }

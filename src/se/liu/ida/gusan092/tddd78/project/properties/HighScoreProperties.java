@@ -6,13 +6,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Used as a instance and handling the highscore properties
+ */
 public final class HighScoreProperties extends AppProperties
 {
-    private static final HighScoreProperties INSTANCE = new HighScoreProperties("");
+    private static final HighScoreProperties INSTANCE = new HighScoreProperties();
     private HighScoreList highScoreList = new HighScoreList();
     private static final String SPLIT = ",";
 
-    private HighScoreProperties(String start) {
+    private HighScoreProperties() {
         super("high_scores.properties");
 	System.out.println(prop.size());
 	for (int i = 0; i < prop.size(); i++) {

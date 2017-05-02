@@ -7,24 +7,47 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 
-import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 import java.util.List;
 
+/**
+ * A still obstacle with horizontal movements, it changes direction when colliding with other obstacles
+ */
 public class Animal extends StillObject
 {
 
+    /**
+     * The size of the animal
+     */
     public static final int SIZE = 15;
+    /**
+     * Delay time of horizontal movements
+     */
+    public static final int DELAY = 25;
+    /**
+     * The red value of a RGB
+     */
+    public static final int RED = 160;
+    /**
+     * The green value of a RGB
+     */
+    public static final int GREEN = 82;
+    /**
+     * The blue value of a RGB
+     */
+    public static final int BLUE = 45;
 
+    /**
+     * @param x the start x value
+     * @param handler the handler it is in
+     */
     public Animal(final int x, final Handler handler)
     {
-	super(x, -SIZE, SIZE, SIZE, new Color(160, 82, 45), Type.ANIMAL, handler);
-	if ( x < Game.WIDTH/2) setVelX(1);
+	super(x, -SIZE, SIZE, SIZE, new Color(RED, GREEN, BLUE), Type.ANIMAL, handler);
+	if ( x < Game.WIDTH/2) setVelX(1); // start going towards the middle
 	else setVelX(-1);
 
 	ActionListener taskPerformer = new ActionListener() {
@@ -36,13 +59,18 @@ public class Animal extends StillObject
 		}
 	    }
 	};
-	Timer timer = new Timer(25, taskPerformer);
+	Timer timer = new Timer(DELAY, taskPerformer);
 	timer.start();
     }
 
-    public Animal(final Handler handler, final String saveValues)
-        {
-    	super(SIZE, SIZE, new Color(160,82,45), Type.ANIMAL, handler, saveValues);
+    /**
+     * @param handler the handler it is in
+     * @param saveValues values to use when restoring a saved file
+     * note that running is set false in GameObject
+     */
+    public Animal(final Handler handler, final String saveValues) {
+    	super(SIZE, SIZE, new Color(RED, GREEN, BLUE), Type.ANIMAL, handler);
+    	setSaveValues(saveValues);
     	ActionListener taskPerformer = new ActionListener() {
     	    public void actionPerformed(ActionEvent evt) {
     	        if (running) {
@@ -52,17 +80,19 @@ public class Animal extends StillObject
     		}
     	    }
     	};
-    	Timer timer = new Timer(25, taskPerformer);
+    	Timer timer = new Timer(DELAY, taskPerformer);
     	timer.start();
-        }
+    }
 
+    /**
+     * Handles possible collision with other GameObjects from the left
+     */
     public void handleCollisionLeft() {
 	List<GameObject> collisions = handler.getCollisions(getLeftBound(),this);
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
 		switch (collision.getType()) {
-		    case TRAFFIC_BARRIER:
 		    case ROADBLOCK:
 			velX = -velX;
 			x += velX;
@@ -70,21 +100,30 @@ public class Animal extends StillObject
 		    case PLAYER:
 			collision.collisionWithGameObject(collision, Side.LEFT);
 			break;
-		    case POWERUP:
+		    case BULLET:
+		        collision.collisionWithGameObject(this, Side.LEFT);
+		        break;
+		    case CONTAINER:
 			handler.removeAfterTick(collision);
 		}
 	    }
 	}
     }
+
+    /**
+     * @return a rectangle with the width of 1 and the height of the animal on the left side
+     */
     public Rectangle getLeftBound() {return new Rectangle(x, y,1,height);}
 
+    /**
+     * Handles possible collision with other GameObjects from the left
+     */
     public void handleCollisionRight() {
 	List<GameObject> collisions = handler.getCollisions(getRightBound(),this);
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
 		switch (collision.getType()) {
-		    case TRAFFIC_BARRIER:
 		    case ROADBLOCK:
 		        velX = -velX;
 		        x += velX;
@@ -92,12 +131,20 @@ public class Animal extends StillObject
 		    case PLAYER:
 			collision.collisionWithGameObject(collision, Side.RIGHT);
 			break;
-		    case POWERUP:
+		    case BULLET:
+		        collision.collisionWithGameObject(this, Side.RIGHT);
+		        break;
+		    case CONTAINER:
 			handler.removeAfterTick(collision);
 		}
 	    }
 	}
     }
+
+
+    /**
+     * @return a rectangle with the width of 1 and the height of the animal on the right side
+     */
     public Rectangle getRightBound() {return new Rectangle(x+width-1, y,1,height);}
 
     @Override public void render(final Graphics g) {
@@ -106,6 +153,9 @@ public class Animal extends StillObject
 	g2d.fillOval(x,y,width,height);
     }
 
+    /**
+     * Not used because nothing has to be saved
+     */
     @Override public void setStillSaveValues(final String[] saveValues) {
 
     }

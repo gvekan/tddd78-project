@@ -1,7 +1,7 @@
-package se.liu.ida.gusan092.tddd78.project.gui.Component;
+package se.liu.ida.gusan092.tddd78.project.gui.component;
 
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
-import se.liu.ida.gusan092.tddd78.project.gui.Window;
+import se.liu.ida.gusan092.tddd78.project.gui.App;
 import se.liu.ida.gusan092.tddd78.project.properties.HighScoreProperties;
 import se.liu.ida.gusan092.tddd78.project.properties.Score;
 
@@ -10,18 +10,25 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
 
+/**
+ * A component used to submit a users game to the highscore property
+ */
 public class Submit extends WComponent
 {
+    /**
+     * The amount of columns in the textfield
+     */
+    public static final int COLUMNS = 20;
     private int score;
     private LocalDate date;
-    private JTextField name = new JTextField(20);
-    private Window window;
+    private JTextField name = new JTextField(COLUMNS);
+    private App app;
 
-    public Submit(final Window window, final Player player) {
+    public Submit(final App app, final Player player) {
 	super(State.SUBMIT);
 	score = player.getScore();
     	date = LocalDate.now();
-    	this.window = window;
+    	this.app = app;
     	this.setLayout(new GridLayout(2,0));
     	JPanel panel = new JPanel(new BorderLayout());
     	panel.add(new JLabel(Integer.toString(score)), BorderLayout.CENTER);
@@ -38,7 +45,7 @@ public class Submit extends WComponent
 
     public void submit(final ActionEvent e){
 	HighScoreProperties.getInstance().addHighScore(new Score(name.getText(), score, date));
-	window.removeGame();
-	window.toHighScore(e);
+	app.removeGame();
+	app.toHighScore(e);
     }
 }

@@ -7,6 +7,9 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.collision.CollisionHandler;
 
+/**
+ * A powerup that changes the players collisionhandler in use
+ */
 public class Ghost extends PowerUp implements CollisionHandler
 {
     public Ghost(final Player player) {
@@ -43,7 +46,7 @@ public class Ghost extends PowerUp implements CollisionHandler
         return null;
     }
 
-    @Override public void collision(final Game game, final Handler handler, final Player controlledObject,
+    @Override public void collision(final Game game, final Handler handler, final Player player,
 				    final GameObject collision, final Side side)
     {
 

@@ -3,9 +3,11 @@ package se.liu.ida.gusan092.tddd78.project.properties;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Properties;
 
+/**
+ * The abstract class for classes that handles a property
+ */
 public abstract class AppProperties
 {
     private final String fileName;

@@ -1,6 +1,6 @@
 package se.liu.ida.gusan092.tddd78.project.gui;
 
-import se.liu.ida.gusan092.tddd78.project.gui.Component.State;
+import se.liu.ida.gusan092.tddd78.project.gui.component.State;
 
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -11,6 +11,9 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The JMenuBar for the App
+ */
 public class Menu extends JMenuBar
 {
     private Map<State, List<JMenuItem>> enableForState = new EnumMap<>(State.class);
@@ -19,7 +22,7 @@ public class Menu extends JMenuBar
 
     private State state = State.START;
 
-    public Menu(final Window window) {
+    public Menu(final App app) {
         super();
 	List<JMenuItem> startDisable = new ArrayList<>();
 	List<JMenuItem> highScoreDisable = new ArrayList<>();
@@ -32,7 +35,7 @@ public class Menu extends JMenuBar
 	JMenuItem item = new JMenuItem("Start", KeyEvent.VK_S);
 	item.setMnemonic(KeyEvent.VK_S);
 	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.ALT_MASK));
- 	item.addActionListener(window::toStart);
+ 	item.addActionListener(app::toStart);
  	item.setEnabled(false);
  	startDisable.add(item);
  	menu.add(item);
@@ -40,7 +43,7 @@ public class Menu extends JMenuBar
 	item = new JMenuItem("High Scores", KeyEvent.VK_H);
 	item.setMnemonic(KeyEvent.VK_H);
 	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.ALT_MASK));
- 	item.addActionListener(window::toHighScore);
+ 	item.addActionListener(app::toHighScore);
  	item.setEnabled(true);
  	highScoreDisable.add(item);
  	menu.add(item);
@@ -52,7 +55,7 @@ public class Menu extends JMenuBar
 	item = new JMenuItem("Continue", KeyEvent.VK_C);
 	item.setMnemonic(KeyEvent.VK_C);
 	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
- 	item.addActionListener(window::continueGame);
+ 	item.addActionListener(app::continueGame);
  	gameDisable.add(item);
  	submitDisable.add(item);
  	menu.add(item);
@@ -60,13 +63,13 @@ public class Menu extends JMenuBar
 	item = new JMenuItem("New", KeyEvent.VK_N);
 	item.setMnemonic(KeyEvent.VK_N);
 	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
- 	item.addActionListener(window::newGame);
+ 	item.addActionListener(app::newGame);
         menu.add(item);
 
 	item = new JMenuItem("Pause/Resume", KeyEvent.VK_P);
 	item.setMnemonic(KeyEvent.VK_P);
 	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_MASK));
- 	item.addActionListener(window::repauseGame);
+ 	item.addActionListener(app::repauseGame);
  	item.setEnabled(false);
  	gameEnable.add(item);
  	menu.add(item);
@@ -74,7 +77,7 @@ public class Menu extends JMenuBar
 	item = new JMenuItem("Save", KeyEvent.VK_S);
 	item.setMnemonic(KeyEvent.VK_S);
 	item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
- 	item.addActionListener(window::saveGame);
+ 	item.addActionListener(app::saveGame);
  	item.setEnabled(false);
  	gameEnable.add(item);
  	menu.add(item);

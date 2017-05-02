@@ -3,6 +3,9 @@ package se.liu.ida.gusan092.tddd78.project.properties;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A object containing and handling scores
+ */
 public class HighScoreList
 {
     private List<Score> scores = new ArrayList<>();

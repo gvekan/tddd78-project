@@ -2,10 +2,22 @@ package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
 import java.awt.Color;
 
+/**
+ * Representing each power up and the incompability between them
+ */
 public enum PowerUpId
 {
+    /**
+     * Representing Ammo
+     */
     AMMO(Color.MAGENTA, 1, 2),
+    /**
+     * Representing Ghost
+     */
     GHOST(Color.PINK, 0, 2),
+    /**
+     * Representing Unstoppable
+     */
     UNSTOPPABLE(Color.YELLOW, 1, 0);
 
     private final Color color;

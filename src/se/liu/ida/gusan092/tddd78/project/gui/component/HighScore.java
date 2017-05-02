@@ -1,4 +1,4 @@
-package se.liu.ida.gusan092.tddd78.project.gui.Component;
+package se.liu.ida.gusan092.tddd78.project.gui.component;
 
 import se.liu.ida.gusan092.tddd78.project.properties.HighScoreProperties;
 import se.liu.ida.gusan092.tddd78.project.properties.Score;
@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.util.List;
 import java.awt.*;
 
+/**
+ * A component displaying the highscores
+ */
 public class HighScore extends WComponent
 {
 

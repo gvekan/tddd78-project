@@ -2,7 +2,7 @@ package se.liu.ida.gusan092.tddd78.project.game;
 
 
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
-import se.liu.ida.gusan092.tddd78.project.gui.Window;
+import se.liu.ida.gusan092.tddd78.project.gui.App;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import java.awt.Canvas;
@@ -14,26 +14,44 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
+/**
+ * The game working as a engine and contains all objects relating the game
+ */
 public class Game extends Canvas implements Runnable
 {
 
-    public static final int WIDTH = 500, HEIGHT = 848;
+    /**
+     * The width of the gameboard
+     */
+    public static final int WIDTH = 500;
 
+    /**
+     *The height of the gameboard
+     */
+    public static final int HEIGHT = 848;
+
+    /**
+     * The increase of amountOfTicks
+     */
     public static final double INCREASE = 5;
+
+    /**
+     * Minimum ticks per second
+     */
     public static final double MIN_AMOUNT_OF_TICKS = 60.0;
+    /**
+     * 1 second in nanoseconds
+     */
     public static final int S_IN_NS = 1000000000;
     private double amountOfTicks = MIN_AMOUNT_OF_TICKS;
     private double ns = S_IN_NS / amountOfTicks;
     private double speedIncreaser = MIN_AMOUNT_OF_TICKS;
 
-    private Window window = null;
+    private App app = null;
 
     private Thread thread = new Thread(this);
     private boolean threadRunning = false;
-
-    private Random random = new Random();
 
     private Boolean running = true;
     private Boolean render = true;
@@ -44,8 +62,8 @@ public class Game extends Canvas implements Runnable
 
     private List<Player> players = new ArrayList<>();
 
-    public Game(final Window window) {
-        this.window = window;
+    public Game(final App app) {
+        this.app = app;
 	this.handler = new Handler();
  	this.environment = new Handler();
  	this.spawner = new Spawner(handler, environment);
@@ -60,14 +78,14 @@ public class Game extends Canvas implements Runnable
 
     }
 
-    public void setSaveValues(final Window window, final Handler handler, final Handler environment, final Spawner spawner,
-		 final Player player, final String saveValues)
+    public void setSaveValues(final App app, final Handler handler, final Handler environment, final Spawner spawner,
+			      final Player player, final String saveValues)
     {
         String[] values = saveValues.split(SavedProperties.VALUE_SPLIT);
 	this.amountOfTicks = Double.valueOf(values[0]);
 	this.ns = S_IN_NS / amountOfTicks;
 	this.speedIncreaser = Double.valueOf(values[1]);
-	this.window = window;
+	this.app = app;
 	this.handler = handler;
 	this.environment = environment;
 	this.spawner = spawner;
@@ -76,12 +94,12 @@ public class Game extends Canvas implements Runnable
 	hud = new Hud(players);
     }
 
-    public synchronized void start() {
+    public void start() {
 	threadRunning = true;
 	thread.start();
     }
 
-    public synchronized void stop() {
+    public void stop() {
         try {
 	    threadRunning = false;
             thread.join();
@@ -97,7 +115,6 @@ public class Game extends Canvas implements Runnable
         double delta = 0;
         long timer = System.currentTimeMillis();
         int frames = 0;
-        boolean powerup = true;
         while (threadRunning) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -136,8 +153,7 @@ public class Game extends Canvas implements Runnable
 
 
     private void render() {
-	BufferStrategy bs = null;
-	bs = this.getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
+	BufferStrategy bs = this.getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
 	if (bs == null) {
 	    this.createBufferStrategy(3);
 	    return;
@@ -242,7 +258,7 @@ public class Game extends Canvas implements Runnable
 
     public void gameOver() {
         pause();
-	if (players.size() > 1) window.gameOver(players);
-	else window.gameOver(players.get(0));
+	if (players.size() > 1) app.gameOver(players);
+	else app.gameOver(players.get(0));
     }
 }

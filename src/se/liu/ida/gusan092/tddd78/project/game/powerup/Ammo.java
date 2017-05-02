@@ -5,6 +5,9 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Bullet;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
+/**
+ * A powerup that creates bullets with use
+ */
 public class Ammo extends PowerUp
 {
     private Handler handler;

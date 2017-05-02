@@ -5,6 +5,9 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The abstract class for a PowerUp
+ */
 public abstract class PowerUp
 {
     protected Player player = null;

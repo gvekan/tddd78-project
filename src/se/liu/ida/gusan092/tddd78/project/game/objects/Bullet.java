@@ -1,28 +1,42 @@
 package se.liu.ida.gusan092.tddd78.project.game.objects;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
-import se.liu.ida.gusan092.tddd78.project.gui.Window;
 
 import java.util.List;
 import java.awt.Color;
 
+/**
+ * A GameObject created by a player with the PowerUp Ammo, works like a extension of the player at removes when it collids with a GameObject
+ */
 public class Bullet extends GameObject
 {
+    /**
+     * the size of the bullet
+     */
     public static final int SIZE = 3;
-    private Player controlledObject;
+    /**
+     * Score given for shooting a animal
+     */
+    public static final int ANIMAL_SCORE = 200;
+    private Player player;
 
-    public Bullet(final int x, final int y, final Handler handler, final Player controlledObject)
+    public Bullet(final int x, final int y, final Handler handler, final Player player)
     {
 	super(x, y, SIZE, SIZE, Color.BLACK, Type.BULLET, handler);
-	this.controlledObject = controlledObject;
+	this.player = player;
 	setVelY(-1);
     }
 
-    public Bullet(final Handler handler, final Player controlledObject, final String saveValues)
+    /**
+     * @param handler the handler it is in
+     * @param player the player that created the bullet
+     * @param saveValues values to use when restoring a saved file
+     */
+    public Bullet(final Handler handler, final Player player, final String saveValues)
         {
-    	super(SIZE, SIZE,Color.BLACK, Type.BULLET, handler, saveValues);
-    	this.controlledObject = controlledObject;
-    	setVelY(-1);
+    	super(SIZE, SIZE, Color.BLACK, Type.BULLET, handler);
+    	this.player = player;
+    	setSaveValues(saveValues);
         }
 
     @Override public void tick() {
@@ -32,20 +46,19 @@ public class Bullet extends GameObject
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
 		switch (collision.getType()) {
-		    case TRAFFIC_BARRIER:
 		    case ROADBLOCK:
 			handler.removeAfterTick(collision);
-			controlledObject.addScore(100);
+			player.addScore(100);
 			break;
 		    case ANIMAL:
 			handler.removeAfterTick(collision);
-			controlledObject.addScore(200);
+			player.addScore(ANIMAL_SCORE);
 			break;
 		    case PLAYER:
 			collision.collisionWithGameObject(collision, Side.FRONT);
 			break;
-		    case POWERUP:
-		        collision.collisionWithPlayer(controlledObject, Side.FRONT);
+		    case CONTAINER:
+		        collision.collisionWithPlayer(player, Side.FRONT);
 		}
 		handler.removeAfterTick(this);
 	    }

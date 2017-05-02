@@ -1,15 +1,22 @@
-package se.liu.ida.gusan092.tddd78.project.gui.Component;
+package se.liu.ida.gusan092.tddd78.project.gui.component;
 
-import se.liu.ida.gusan092.tddd78.project.game.Game;
-import se.liu.ida.gusan092.tddd78.project.gui.Window;
+import se.liu.ida.gusan092.tddd78.project.gui.App;
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The start component for window
+ */
 public class Start extends WComponent
 {
 
-    public Start(final Window window) {
+    /**
+     * The padding used between buttons
+     */
+    public static final int PADDING = 30;
+
+    public Start(final App app) {
 	super(State.START);
 	this.setLayout(new GridBagLayout());
        	JButton button;
@@ -17,8 +24,8 @@ public class Start extends WComponent
 
 	JLabel label = new JLabel("A CAR GAME");
 	c.fill = GridBagConstraints.HORIZONTAL;
-	c.ipady = 30;       //reset to default
-	c.ipadx = 30;
+	c.ipady = PADDING;       //reset to default
+	c.ipadx = PADDING;
 	c.weighty = 0;   //request any extra vertical space
 	c.anchor = GridBagConstraints.CENTER; //bottom of space
 	c.insets = new Insets(10,0,0,0);  //top padding
@@ -26,10 +33,10 @@ public class Start extends WComponent
 	this.add(label,c);
 
 	button = new JButton("CONTINUE");
-	button.addActionListener(window::continueGame);
+	button.addActionListener(app::continueGame);
 	c.fill = GridBagConstraints.HORIZONTAL;
-	c.ipady = 30;       //reset to default
-	c.ipadx = 30;
+	c.ipady = PADDING;       //reset to default
+	c.ipadx = PADDING;
 	c.weighty = 0;   //request any extra vertical space
 	c.anchor = GridBagConstraints.CENTER; //bottom of space
 	c.insets = new Insets(10,0,0,0);  //top padding
@@ -39,10 +46,10 @@ public class Start extends WComponent
 	this.add(button, c);
 
        	button = new JButton("NEW GAME");
-       	button.addActionListener(window::newGame);
+       	button.addActionListener(app::newGame);
        	c.fill = GridBagConstraints.HORIZONTAL;
-       	c.ipady = 30;       //reset to default
-       	c.ipadx = 30;
+       	c.ipady = PADDING;       //reset to default
+       	c.ipadx = PADDING;
        	c.weighty = 0;   //request any extra vertical space
        	c.anchor = GridBagConstraints.CENTER; //bottom of space
        	c.insets = new Insets(10,0,0,0);  //top padding
@@ -51,10 +58,11 @@ public class Start extends WComponent
        	c.gridy = 3;       //third row
        	this.add(button, c);
 
-	button = new JButton("SETTINGS");
+	button = new JButton("HIGH SCORES");
+	button.addActionListener(app::toHighScore);
 	c.fill = GridBagConstraints.HORIZONTAL;
-	c.ipady = 30;       //reset to default
-	c.ipadx = 30;
+	c.ipady = PADDING;       //reset to default
+	c.ipadx = PADDING;
 	c.weighty = 0;   //request any extra vertical space
 	c.anchor = GridBagConstraints.CENTER; //bottom of space
 	c.insets = new Insets(10,0,0,0);  //top padding
@@ -62,9 +70,5 @@ public class Start extends WComponent
 //	c.gridwidth = 2;   //2 columns wide
 	c.gridy = 4;       //third row
 	this.add(button, c);
-    }
-
-    @Override public Dimension getPreferredSize() {
-	return new Dimension(Game.WIDTH, Game.HEIGHT);
     }
 }

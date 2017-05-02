@@ -12,6 +12,9 @@ import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * A powerUp changing the players collisionhandler
+ */
 public class Unstoppable extends PowerUp implements CollisionHandler
 {
     private CollisionHandler oldCollisionHandeler = null;
@@ -85,13 +88,12 @@ public class Unstoppable extends PowerUp implements CollisionHandler
 				    final GameObject collision, final Side side)
     {
         switch (collision.getType()) {
-	    case TRAFFIC_BARRIER:
 	    case ANIMAL:
 	    case ROADBLOCK:
 	        handler.removeAfterTick(collision);
 	        player.addScore(100);
 	        break;
-	    case POWERUP:
+	    case CONTAINER:
 	        collision.collisionWithPlayer(player, side);
 	}
     }

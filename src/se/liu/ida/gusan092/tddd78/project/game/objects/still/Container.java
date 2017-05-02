@@ -1,61 +1,87 @@
 package se.liu.ida.gusan092.tddd78.project.game.objects.still;
 
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
-import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.Ammo;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.Ghost;
-import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUp;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUpId;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.Unstoppable;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 
-import java.awt.Color;
-
-
+/**
+ * A still object that carries a PowerUp and will create a PowerUp with the id to the player it collids with
+ */
 public class Container extends StillObject
 {
+    /**
+     * The size of the container
+     */
     public static final int SIZE = 20;
-    private PowerUpId id; //Ger fel vid null men inte om man anger från början en Type
 
+    /**
+     * The PowerUpId it carries
+     * Ignore error: Can not be initalized because it is set by setStillSaveValues
+     */
+    private PowerUpId id;
+
+    /**
+     * @param x the start x value
+     * @param handler the handler it is in
+     * @param id the PowerUpId it will carrie
+     */
     public Container(final int x, final Handler handler, final PowerUpId id)
-        {
-    	super(x, -SIZE, SIZE, SIZE, id.getColor(), Type.POWERUP, handler);
-	    this.id = id;
-        }
-
-    public Container(final Handler handler, final String saveValues)
     {
-	super(SIZE,SIZE, null, Type.POWERUP, handler, saveValues);
+	super(x, -SIZE, SIZE, SIZE, id.getColor(), Type.CONTAINER, handler);
+	this.id = id;
     }
 
+    /**
+     * @param handler the handler it is in
+     * @param saveValues values to use when restoring a saved file
+     * Note that the id and color will be set by setStillSaveValues
+     */
+    public Container(final Handler handler, final String saveValues)
+    {
+	super(SIZE, SIZE, null, Type.CONTAINER, handler);
+	id = null;
+	setSaveValues(saveValues);
+    }
+
+    /**
+     * @return the PowerUpIds index
+     */
     @Override public String getSaveValues() {
 	return super.getSaveValues() + SavedProperties.VALUE_SPLIT + Integer.toString(id.getIndex());
     }
 
+    /**
+     * @param saveValues a list with the PowerUpIds index
+     * sets the id and color
+     */
     @Override public void setStillSaveValues(final String[] saveValues) {
 	id = PowerUpId.values()[Integer.parseInt(saveValues[0])];
 	System.out.println(id);
 	color = id.getColor();
     }
 
-    @Override public void collisionWithGameObject(final GameObject collision, final Side side) {
-	handler.removeAfterTick(this);
-    }
-
+    /**
+     * @param collision the player it collided with
+     * @param side ignored
+     * creates a new powerup for the player
+     */
     @Override public void collisionWithPlayer(final Player collision, final Side side) {
 	handler.removeAfterTick(this);
 	System.out.println(id);
 	switch (id) {
 	    case AMMO:
-	        new Ammo(collision, handler);
-	        break;
+		new Ammo(collision, handler);
+		break;
 	    case GHOST:
-	        new Ghost(collision);
-	        break;
+		new Ghost(collision);
+		break;
 	    case UNSTOPPABLE:
 	        new Unstoppable(collision);
 	        break;

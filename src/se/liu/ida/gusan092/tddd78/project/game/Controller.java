@@ -6,6 +6,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.EnumMap;
 
+/**
+ * The keyadapter for a player
+ */
 public class Controller extends KeyAdapter
 {
     private Player player;
