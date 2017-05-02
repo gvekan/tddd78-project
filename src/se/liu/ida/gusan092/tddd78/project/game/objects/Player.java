@@ -5,7 +5,11 @@ import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.collision.CollisionHandler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.collision.DefaultCollision;
 import se.liu.ida.gusan092.tddd78.project.game.objects.still.Trail;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.Ammo;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.Ghost;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUp;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUpId;
+import se.liu.ida.gusan092.tddd78.project.game.powerup.Unstoppable;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import java.awt.Graphics2D;
@@ -69,13 +73,13 @@ public class Player extends GameObject
      * Note that the id and color will be set by setStillSaveValues
      */
     public Player(final Handler handler, final Game game, final String saveValues) {
-    	super(WIDTH,HEIGHT,Color.CYAN, Type.PLAYER, handler);
-    	this.maxHealth = MAX_HEALTH;
-    	health = maxHealth;
-    	this.game = game;
+	super(WIDTH,HEIGHT,Color.CYAN, Type.PLAYER, handler);
+	this.maxHealth = MAX_HEALTH;
+	health = maxHealth;
+	this.game = game;
 	halfTick = true;
-    	setSaveValues(saveValues);
-        }
+	setSaveValues(saveValues);
+    }
 
     @Override public void setVelY(final int velY) {
 	if ((y == MAX_Y && velY > 0) || (y == 0 && velY <0)) {
@@ -95,7 +99,7 @@ public class Player extends GameObject
 
 
     @Override public void tick() {
-        setVelY(velY);
+	setVelY(velY);
 	if (halfTick) {
 	    if (velY <= 0) {
 		score += scorePerPixel - velY;
@@ -118,12 +122,12 @@ public class Player extends GameObject
     }
 
     @Override public String getSaveValues() {
-        String sHalfTick;
-        if (halfTick) sHalfTick = TRUE;
-        else sHalfTick = FALSE;
-        SavedProperties.getInstance().savePowerUps(powerUps);
-        return super.getSaveValues() + SavedProperties.VALUE_SPLIT + sHalfTick + SavedProperties.VALUE_SPLIT + Integer.toString(health) + SavedProperties.VALUE_SPLIT
-		+ Integer.toString(maxHealth) + SavedProperties.VALUE_SPLIT + Integer.toString(score) + SavedProperties.VALUE_SPLIT + Integer.toString(scorePerPixel);
+	String sHalfTick;
+	if (halfTick) sHalfTick = TRUE;
+	else sHalfTick = FALSE;
+	SavedProperties.getInstance().savePowerUps(powerUps);
+	return super.getSaveValues() + SavedProperties.VALUE_SPLIT + sHalfTick + SavedProperties.VALUE_SPLIT + Integer.toString(health) + SavedProperties.VALUE_SPLIT
+	       + Integer.toString(maxHealth) + SavedProperties.VALUE_SPLIT + Integer.toString(score) + SavedProperties.VALUE_SPLIT + Integer.toString(scorePerPixel);
     }
 
     @Override public void render(final Graphics g) {
@@ -189,105 +193,140 @@ public class Player extends GameObject
     }
 
 
-        public int getMaxHealth() {
-    	return maxHealth;
-        }
+    public int getMaxHealth() {
+	return maxHealth;
+    }
 
     public int getHealth() {
-    	return health;
-        }
+	return health;
+    }
 
-        public void setHealth(final int health) {
-    	this.health = Game.clamp(health,0,maxHealth);
-    	if (this.health == 0) {
-    	    setRunning(false);
-    	    alive = false;
-    	    handler.removeAfterTick(this);
-    	}
-        }
+    public void setHealth(final int health) {
+	this.health = Game.clamp(health,0,maxHealth);
+	if (this.health == 0) {
+	    setRunning(false);
+	    alive = false;
+	    handler.removeAfterTick(this);
+	}
+    }
 
-        public void addHealth(final int health) {
-    	setHealth(this.health + health);
-        }
+    public void addHealth(final int health) {
+	setHealth(this.health + health);
+    }
 
-        public int getScore() {
-    	return score;
-        }
+    public int getScore() {
+	return score;
+    }
 
     public void addScore(final int score) {
-            this.score = Game.clamp(this.score + score, 0, this.score + score + 1);
-        }
+	this.score = Game.clamp(this.score + score, 0, this.score + score + 1);
+    }
 
-        public int getScorePerPixel() {
-    	return scorePerPixel;
-        }
+    public int getScorePerPixel() {
+	return scorePerPixel;
+    }
 
-        public void setScorePerPixel(final int scorePerPixel) {
-    	this.scorePerPixel = scorePerPixel;
-        }
+    public void setScorePerPixel(final int scorePerPixel) {
+	this.scorePerPixel = scorePerPixel;
+    }
 
-        public CollisionHandler getCollisionHandler() {
-    	return collisionHandler;
-        }
+    public CollisionHandler getCollisionHandler() {
+	return collisionHandler;
+    }
 
-        public void setCollisionHandler(final CollisionHandler collisionHandler) {
-    	this.collisionHandler = collisionHandler;
-        }
+    public void setCollisionHandler(final CollisionHandler collisionHandler) {
+	this.collisionHandler = collisionHandler;
+    }
 
-        public void addPowerUp(final PowerUp powerUp) {
-    	powerUps.add(powerUp);
-        }
+    public void addPowerUp(final PowerUp powerUp) {
+	powerUps.add(powerUp);
+    }
 
-        public void removePowerUp(final PowerUp powerUp) {
-    	powerUps.remove(powerUp);
-        }
+    public void newPowerUp(final PowerUpId id) {
+	for (int i = 0; i < powerUps.size(); i++) {
+	    final PowerUp powerUp = powerUps.get(i);
+	    if (powerUp.getId() == id) {
+		powerUp.collisionHasSamePowerUp();
+		return;
+	    }
+	}
+	PowerUp powerUp = null;
+	switch (id) {
+	    case AMMO:
+		powerUp = new Ammo(this, handler);
+		break;
+	    case GHOST:
+		powerUp = new Ghost(this);
+		break;
+	    case UNSTOPPABLE:
+	        powerUp = new Unstoppable(this);
+	        break;
+	}
+	for (int i = 0; i < powerUps.size(); i++) {
+	    final PowerUp interrupted = powerUps.get(i);
+	    if (id.isIncompatible(interrupted.getId())) {
+	        powerUps.remove(interrupted);
+		interrupted.interrupt();
+		powerUp.addInterrupted(interrupted);
+		break;
+	    }
+	}
+	addPowerUp(powerUp);
+    }
 
-        public boolean isAlive() {
-            return alive;
-        }
+    public int getPowerUpsSize() {
+        return powerUps.size();
+    }
+    public String getPowerUpDescription(final int index) {
+    	return powerUps.get(index).description();
+    }
 
-        public void usePowerUps(){
-            if (running) {
-    	    for (int i = 0; i < powerUps.size(); i++) {
-    		final PowerUp powerUp = powerUps.get(i);
-    		powerUp.use();
-    	    }
-    	}
-        }
+    public void removePowerUp(final PowerUp powerUp) {
+	powerUps.remove(powerUp);
+    }
 
-        public void stopPowerUps(){
-    	if (running) {
-    	    for (int i = 0; i < powerUps.size(); i++) {
-    		final PowerUp powerUp = powerUps.get(i);
-    		powerUp.stop();
-    	    }
-    	}
-        }
+    public boolean isAlive() {
+	return alive;
+    }
+
+    public void usePowerUps(){
+	if (running) {
+	    for (int i = 0; i < powerUps.size(); i++) {
+		final PowerUp powerUp = powerUps.get(i);
+		powerUp.use();
+	    }
+	}
+    }
+
+    public void stopPowerUps(){
+	if (running) {
+	    for (int i = 0; i < powerUps.size(); i++) {
+		final PowerUp powerUp = powerUps.get(i);
+		powerUp.stop();
+	    }
+	}
+    }
 
 
-        @Override public void setRunning(final boolean running) {
-            if (alive) {
-    	    super.setRunning(running);
-    	    for (int i = 0; i < powerUps.size(); i++) {
-    		final PowerUp powerUp = powerUps.get(i);
-    		powerUp.setRunning(running);
-    	    }
-    	}
-        }
+    @Override public void setRunning(final boolean running) {
+	if (alive) {
+	    super.setRunning(running);
+	    for (int i = 0; i < powerUps.size(); i++) {
+		final PowerUp powerUp = powerUps.get(i);
+		powerUp.setRunning(running);
+	    }
+	}
+    }
 
-        public List<PowerUp> getPowerUps() {
-            return powerUps;
-        }
+    protected void addTrail() {
+	game.getEnvironment().add(new Trail(x, y + height - 1, width, 2 - velY, color, game.getEnvironment()));
+    }
 
-        protected void addTrail() {
-    	game.getEnvironment().add(new Trail(x, y + height - 1, width, 2 - velY, color, game.getEnvironment()));
-        }
+    public void collisionWithPlayer(final Player collision, final Side side) {
+	collisionHandler.collisionWithPlayer(game, handler, this, collision, side);
+    }
 
-        public void collisionWithPlayer(final Player collision, final Side side) {
-    	collisionHandler.collisionWithPlayer(game, handler, this, collision, side);
-        }
-
-        @Override public void collisionWithGameObject(final GameObject collision, final Side side) {
-    	collisionHandler.collision(game,handler,this, collision, side);
-        }
+    @Override public void collisionWithGameObject(final GameObject collision, final Side side) {
+	collisionHandler.collision(game,handler,this, collision, side);
+    }
 }

@@ -23,6 +23,10 @@ public abstract class PowerUp
 	this.player = player;
     }
 
+    public PowerUpId getId() {
+	return id;
+    }
+
     protected void reset() {
 	player.removePowerUp(this);
 	if (!interrupted.isEmpty()) {
@@ -33,26 +37,8 @@ public abstract class PowerUp
 	}
     }
 
-    protected void add() {
-	List<PowerUp> powerUps = player.getPowerUps();
-	for (int i = 0; i < powerUps.size(); i++) {
-	    PowerUp powerUp = powerUps.get(i);
-	    if (powerUp.id == id) {
-		powerUp.collisionHasSamePowerUp();
-		return;
-	    }
-	}
-	for (int i = 0; i < powerUps.size(); i++) {
-	    PowerUp powerUp = powerUps.get(i);
-	    if (id.isIncompatible(powerUp.id)) {
-	        powerUps.remove(powerUp);
-		powerUp.interrupt();
-		interrupted.add(powerUp);
-		break;
-	    }
-	}
-   	player.addPowerUp(this);
-   	added = true;
+    public void addInterrupted(final PowerUp powerUp) {
+	interrupted.add(powerUp);
     }
 
     public void setRunning(boolean running) {

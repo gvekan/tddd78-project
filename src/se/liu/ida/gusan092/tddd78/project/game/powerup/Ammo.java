@@ -16,12 +16,10 @@ public class Ammo extends PowerUp
     public Ammo(final Player player, final Handler handler) {
 	super(PowerUpId.AMMO, player);
 	this.handler = handler;
-	add();
     }
     public Ammo(final Player player, final Handler handler, final String saveValues) {
     	super(PowerUpId.AMMO, player);
     	this.handler = handler;
-    	add();
 	ammo = Integer.parseInt(saveValues);
     }
 

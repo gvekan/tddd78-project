@@ -80,11 +80,9 @@ public class Hud
 		g2d.setColor(Color.WHITE);
 		g2d.drawString("Score: " + player.getScore(), healthX + healthWidth + BETWEEN_MARGIN, HEALTH_Y + DOWN_MARGIN);
 
-		List<PowerUp> powerUps = player.getPowerUps();
 		int powerY = HEALTH_Y + DOWN_MARGIN;
-		for (int i = 0; i < powerUps.size(); i++) {
-		    PowerUp powerUp = powerUps.get(i);
-		    g2d.drawString(powerUp.description(), BETWEEN_MARGIN, powerY);
+		for (int i = 0; i < player.getPowerUpsSize(); i++) {
+		    g2d.drawString(player.getPowerUpDescription(i), BETWEEN_MARGIN, powerY);
 		    powerY += DOWN_MARGIN;
 		}
 	    }

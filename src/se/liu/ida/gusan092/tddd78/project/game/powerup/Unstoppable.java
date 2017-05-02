@@ -24,16 +24,12 @@ public class Unstoppable extends PowerUp implements CollisionHandler
     public Unstoppable(final Player player)
     {
 	super(PowerUpId.UNSTOPPABLE, player);
-	add();
-	if (added) {
-	    resume();
-	}
+	resume();
     }
 
     public Unstoppable(final Player player, final String saveValues)
     {
 	super(PowerUpId.UNSTOPPABLE, player);
-	add();
 	countdown = Integer.parseInt(saveValues);
     }
 

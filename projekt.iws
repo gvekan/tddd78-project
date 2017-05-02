@@ -6,42 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="df068188-c51e-47d2-bc69-d637a0eb95f6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projekt.iws" afterPath="$PROJECT_DIR$/projekt.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Controller.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Handler.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Handler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Hud.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Hud.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/KeyAction.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/KeyAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Spawner.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Spawner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Bullet.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Bullet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/GameObject.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/GameObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Side.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Side.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Type.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Type.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/collision/CollisionHandler.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/collision/CollisionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/collision/DefaultCollision.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/collision/DefaultCollision.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Animal.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Animal.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Container.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Container.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Road.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Road.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Roadblock.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Roadblock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/StillObject.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/StillObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Trail.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Trail.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUp.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUpId.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUpId.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Unstoppable.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Unstoppable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/AppProperties.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/AppProperties.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/HighScoreList.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/HighScoreList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/HighScoreProperties.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/HighScoreProperties.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/SavedProperties.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/SavedProperties.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/Score.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/Score.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Component/HighScore.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/HighScore.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Component/Start.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Start.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Component/State.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/State.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Component/Submit.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Submit.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Component/WComponent.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/WComponent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Window.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,21 +31,68 @@
       <file leaf-file-name="Container.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Container.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="79" column="44" lean-forward="true" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
+            <state relative-caret-position="-69">
+              <caret line="40" column="66" lean-forward="true" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java">
+      <file leaf-file-name="Hud.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Hud.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="142" column="18" lean-forward="false" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
+            <state relative-caret-position="643">
+              <caret line="81" column="16" lean-forward="true" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PowerUp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
               <folding>
-                <element signature="e#3598#3599#0" expanded="true" />
-                <element signature="e#3626#3627#0" expanded="true" />
+                <element signature="e#595#596#0" expanded="true" />
+                <element signature="e#613#614#0" expanded="true" />
+                <element signature="e#874#875#0" expanded="true" />
+                <element signature="e#907#908#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ammo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Unstoppable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Unstoppable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ghost.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+              <folding>
+                <element signature="e#615#616#0" expanded="true" />
+                <element signature="e#658#659#0" expanded="true" />
+                <element signature="e#724#725#0" expanded="true" />
+                <element signature="e#763#764#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,7 +111,7 @@
       <file leaf-file-name="SavedProperties.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/SavedProperties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
+            <state relative-caret-position="626">
               <caret line="186" column="24" lean-forward="false" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="24" />
               <folding />
             </state>
@@ -113,49 +131,14 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="75" column="24" lean-forward="false" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Animal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Animal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="125" column="46" lean-forward="false" selection-start-line="125" selection-start-column="46" selection-end-line="125" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bullet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Bullet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="47" column="46" lean-forward="false" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultCollision.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/collision/DefaultCollision.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="133" column="30" lean-forward="false" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ghost.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="48" column="95" lean-forward="false" selection-start-line="48" selection-start-column="95" selection-end-line="48" selection-end-column="95" />
-              <folding />
+            <state relative-caret-position="441">
+              <caret line="280" column="49" lean-forward="false" selection-start-line="280" selection-start-column="49" selection-end-line="280" selection-end-column="49" />
+              <folding>
+                <element signature="e#8183#8184#0" expanded="true" />
+                <element signature="e#8221#8222#0" expanded="true" />
+                <element signature="e#8280#8281#0" expanded="true" />
+                <element signature="e#8333#8334#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -217,12 +200,10 @@
         <option value="$PROJECT_DIR$/high_scores.properties" />
         <option value="$PROJECT_DIR$/saved.properties" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/collision/CollisionHandler.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Container.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Roadblock.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/StillObject.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Road.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Trail.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/AppProperties.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Controller.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/GameObject.java" />
@@ -230,10 +211,8 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Component/HighScore.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/HighScoreList.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/HighScoreProperties.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Hud.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/KeyAction.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUp.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUpId.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/SavedProperties.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/Score.java" />
@@ -245,16 +224,20 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Component/WComponent.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Window.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Spawner.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Unstoppable.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Frame.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/AppFrame.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Animal.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Bullet.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/collision/DefaultCollision.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUp.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Unstoppable.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Container.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Hud.java" />
       </list>
     </option>
   </component>
@@ -1088,7 +1071,7 @@
       <workItem from="1493465375169" duration="9003000" />
       <workItem from="1493554122773" duration="4208000" />
       <workItem from="1493648111886" duration="10783000" />
-      <workItem from="1493727299996" duration="10734000" />
+      <workItem from="1493727299996" duration="12652000" />
     </task>
     <task id="LOCAL-00001" summary="Ändrat strukturen och håller på att förfina player, finns en bugg då spelaren spawnas för långt ner på rutan">
       <created>1490453599403</created>
@@ -1384,11 +1367,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493661777447</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Har gjort en kodgranskning och snyggat till i koden">
+      <created>1493742501045</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1493742501045</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="333369000" />
+    <option name="totallyTimeSpent" value="335287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
@@ -1425,6 +1415,38 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.399384" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3255578" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892057" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23225152" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.228125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.326572" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1451,7 +1473,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lade till power ups i en container istället för att de skulle vara gameobjects" />
     <MESSAGE value="hittade en final som fattades" />
     <MESSAGE value="Gjort hud kompatibel till multiplayer" />
     <MESSAGE value="fixade de flesta fel och tog bort onödig kod i sontrolledcollision" />
@@ -1476,7 +1497,8 @@
     <MESSAGE value="Lagt till många getSaveValues men ingen i container samt är funktionen savedproperties" />
     <MESSAGE value="Provade att spara ett spel, ser bra ut, kom ihåg att inte återskapa trail och att ha en återskaps funktion i gameobjects eftersom saveValues måste upp till huvudklassen" />
     <MESSAGE value="Nu funkar det att spara spelet notera att variabler utanför konstruktorn skapas efter om de inte anropas av konstruktorn detta kan skapa ett problem när man skapar ett spel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nu funkar det att spara spelet notera att variabler utanför konstruktorn skapas efter om de inte anropas av konstruktorn detta kan skapa ett problem när man skapar ett spel" />
+    <MESSAGE value="Har gjort en kodgranskning och snyggat till i koden" />
+    <option name="LAST_COMMIT_MESSAGE" value="Har gjort en kodgranskning och snyggat till i koden" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1569,14 +1591,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saved.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Roadblock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -1639,14 +1653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1663,14 +1669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Hud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="42" column="47" lean-forward="false" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/KeyAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1683,14 +1681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1783,22 +1773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Unstoppable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="89" column="38" lean-forward="false" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="48" column="95" lean-forward="false" selection-start-line="48" selection-start-column="95" selection-end-line="48" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
@@ -1807,46 +1781,6 @@
             <element signature="e#3598#3599#0" expanded="true" />
             <element signature="e#3626#3627#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Container.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="79" column="44" lean-forward="true" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/SavedProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="186" column="24" lean-forward="false" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="117" column="31" lean-forward="false" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/AppProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="75" column="24" lean-forward="false" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1870,6 +1804,109 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="133" column="30" lean-forward="false" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saved.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="117" column="31" lean-forward="false" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/SavedProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="186" column="24" lean-forward="false" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/AppProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding>
+            <element signature="e#615#616#0" expanded="true" />
+            <element signature="e#658#659#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding>
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#613#614#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+            <element signature="e#907#908#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Unstoppable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/still/Container.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-69">
+          <caret line="40" column="66" lean-forward="true" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="280" column="49" lean-forward="false" selection-start-line="280" selection-start-column="49" selection-end-line="280" selection-end-column="49" />
+          <folding>
+            <element signature="e#8183#8184#0" expanded="true" />
+            <element signature="e#8221#8222#0" expanded="true" />
+            <element signature="e#8280#8281#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Hud.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="81" column="16" lean-forward="true" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
           <folding />
         </state>
       </provider>

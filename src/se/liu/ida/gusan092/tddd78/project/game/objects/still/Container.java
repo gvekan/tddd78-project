@@ -4,15 +4,13 @@ import se.liu.ida.gusan092.tddd78.project.game.Handler;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Type;
-import se.liu.ida.gusan092.tddd78.project.game.powerup.Ammo;
-import se.liu.ida.gusan092.tddd78.project.game.powerup.Ghost;
 import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUpId;
-import se.liu.ida.gusan092.tddd78.project.game.powerup.Unstoppable;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 
+
 /**
- * A still object that carries a PowerUp and will create a PowerUp with the id to the player it collids with
+ * A still object that carries a PowerUp and will give that id to the player it collides with
  */
 public class Container extends StillObject
 {
@@ -74,17 +72,6 @@ public class Container extends StillObject
      */
     @Override public void collisionWithPlayer(final Player collision, final Side side) {
 	handler.removeAfterTick(this);
-	System.out.println(id);
-	switch (id) {
-	    case AMMO:
-		new Ammo(collision, handler);
-		break;
-	    case GHOST:
-		new Ghost(collision);
-		break;
-	    case UNSTOPPABLE:
-	        new Unstoppable(collision);
-	        break;
-	}
+	collision.newPowerUp(id);
     }
 }
