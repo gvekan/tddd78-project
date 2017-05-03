@@ -139,15 +139,12 @@ public final class SavedProperties extends AppProperties
 	    size = Integer.parseInt(prop.getProperty(POWER_UPS_KEY));
 	    for (int i = 0; i < size; i++) {
 		String newKey = Integer.toString(i);
-		if (prop.getProperty(POWER_UPS_KEY + newKey) != null) {
-		    getPowerUpRecursive(newKey, player, handler);
-		}
 		String powerUpData = prop.getProperty(POWER_UP_KEY + newKey);
 		String[] values = powerUpData.split(ENUM_SPLIT);
 		PowerUp powerUp = null;
 		switch (PowerUpId.values()[Integer.parseInt(values[0])]) {
 		    case AMMO:
-			powerUp = new Ammo(player, handler,values[1]);
+			powerUp = new Ammo(player, handler, values[1]);
 			break;
 		    case GHOST:
 			powerUp = new Ghost(player, values[1]);
@@ -156,8 +153,14 @@ public final class SavedProperties extends AppProperties
 			powerUp = new Unstoppable(player, values[1]);
 			break;
 		}
+		if (prop.getProperty(POWER_UPS_KEY + newKey) != null) {
+		    getPowerUpRecursive(powerUp, newKey, player, handler);
+		}
 		powerUp.setRunning(false);
 		powerUp.resume();
+		if (player != null) {
+		    player.addPowerUp(powerUp);
+		}
 	    }
 
 	    Spawner spawner = new Spawner(handler, environment, prop.getProperty(SPAWNER_KEY));
@@ -173,25 +176,27 @@ public final class SavedProperties extends AppProperties
 	return null;
     }
 
-    private void getPowerUpRecursive(final String key, final Player player, final Handler handler) {
+    private void getPowerUpRecursive(final PowerUp parent, final String key, final Player player, final Handler handler) {
 	int size = Integer.parseInt(prop.getProperty(POWER_UPS_KEY + key));
 	for (int i = 0; i < size; i++) {
 	    String newKey = key + Integer.toString(i);
-	    if (prop.getProperty(POWER_UPS_KEY + newKey) != null) {
-		getPowerUpRecursive(newKey, player, handler);
-	    }
 	    String powerUp = prop.getProperty(POWER_UP_KEY + newKey);
 	    String[] values = powerUp.split(ENUM_SPLIT);
+	    PowerUp child = null;
 	    switch (PowerUpId.values()[Integer.parseInt(values[0])]) {
 		case AMMO:
-		    new Ammo(player, handler,values[1]);
+		    child = new Ammo(player, handler, values[1]);
 		    break;
 		case GHOST:
-		    new Ghost(player, values[1]);
+		    child = new Ghost(player, values[1]);
 		    break;
 		case UNSTOPPABLE:
-		    new Unstoppable(player, values[1]);
+		    child = new Unstoppable(player, values[1]);
 		    break;
+	    }
+	    parent.addInterrupted(child);
+	    if (prop.getProperty(POWER_UPS_KEY + newKey) != null) {
+		getPowerUpRecursive(child, newKey, player, handler);
 	    }
 	}
     }
