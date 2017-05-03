@@ -2,7 +2,6 @@ package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
 import se.liu.ida.gusan092.tddd78.project.game.Game;
 import se.liu.ida.gusan092.tddd78.project.game.Handler;
-import se.liu.ida.gusan092.tddd78.project.game.objects.Bullet;
 import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
@@ -18,7 +17,12 @@ import java.awt.event.ActionListener;
 public class Ghost extends PowerUp implements CollisionHandler
 {
     private CollisionHandler oldCollisionHandeler = null;
-    private float countdown = 5;
+
+    private int countSec = 5;
+    private int countTenOfaSec = 0;
+    /**
+     * Ten of a second in milliseconds
+     */
     public static final int DELAY = 100;
 
     public Ghost(final Player player) {
@@ -32,10 +36,12 @@ public class Ghost extends PowerUp implements CollisionHandler
     private void createTimer() {
 	ActionListener taskPerformer = new ActionListener() {
 	    public void actionPerformed(ActionEvent evt) {
-	        countdown -= 0.1;
-		if (countdown == 0) {
+		if (countSec == 0 && countTenOfaSec == 0) {
 		    reset();
-		}
+		}else if (countTenOfaSec == 0) {
+	            countTenOfaSec = 9;
+	            countSec--;
+		} else countTenOfaSec--;
 	    }
 	};
 	timer = new Timer(DELAY, taskPerformer);
@@ -50,18 +56,18 @@ public class Ghost extends PowerUp implements CollisionHandler
     }
 
     @Override public void stop() {
-	timer.stop();
-	player.setCollisionHandler(oldCollisionHandeler);
-	timer = null;
+	interrupt();
     }
 
     @Override public void interrupt() {
-	stop();
+	if (timer != null) timer.stop();
+	if (oldCollisionHandeler != null) player.setCollisionHandler(oldCollisionHandeler);
+	timer = null;
     }
 
     @Override protected void reset() {
 	super.reset();
-	if (timer != null) stop();
+	interrupt();
     }
 
     @Override public void resume() {
@@ -69,10 +75,11 @@ public class Ghost extends PowerUp implements CollisionHandler
     }
 
     @Override public void collisionHasSamePowerUp() {
+        countSec += 5;
     }
 
     @Override public String description() {
-        return null;
+        return "Ghost: " + countSec + ".0" + countTenOfaSec;
     }
 
     @Override public void collision(final Game game, final Handler handler, final Player player,

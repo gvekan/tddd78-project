@@ -90,6 +90,7 @@ public class Spawner
     }
 
     private void level1() {
+	handler.add(new Container(random.nextInt(Game.WIDTH - Container.SIZE), handler, PowerUpId.GHOST));
 	if (oneTo(2)) {
 	    handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH), handler));
 	}

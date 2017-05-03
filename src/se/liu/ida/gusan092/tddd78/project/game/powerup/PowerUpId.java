@@ -10,7 +10,7 @@ public enum PowerUpId
     /**
      * Representing Ammo
      */
-    AMMO(Color.MAGENTA, 1, 2),
+    AMMO(Color.MAGENTA),
     /**
      * Representing Ghost
      */
@@ -18,7 +18,7 @@ public enum PowerUpId
     /**
      * Representing Unstoppable
      */
-    UNSTOPPABLE(Color.YELLOW, 1, 0);
+    UNSTOPPABLE(Color.YELLOW);
 
     private final Color color;
     private final int[] incompatibles;
