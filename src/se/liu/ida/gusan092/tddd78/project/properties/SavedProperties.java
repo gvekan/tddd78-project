@@ -141,26 +141,15 @@ public final class SavedProperties extends AppProperties
 		String newKey = Integer.toString(i);
 		String powerUpData = prop.getProperty(POWER_UP_KEY + newKey);
 		String[] values = powerUpData.split(ENUM_SPLIT);
-		PowerUp powerUp = null;
-		switch (PowerUpId.values()[Integer.parseInt(values[0])]) {
-		    case AMMO:
-			powerUp = new Ammo(player, handler, values[1]);
-			break;
-		    case GHOST:
-			powerUp = new Ghost(player, values[1]);
-			break;
-		    case UNSTOPPABLE:
-			powerUp = new Unstoppable(player, values[1]);
-			break;
-		}
+		PowerUp powerUp = getPowerUp(PowerUpId.values()[Integer.parseInt(values[0])], values[1],player, handler);
 		if (prop.getProperty(POWER_UPS_KEY + newKey) != null) {
 		    getPowerUpRecursive(powerUp, newKey, player, handler);
 		}
+		assert powerUp != null;
 		powerUp.setRunning(false);
 		powerUp.resume();
-		if (player != null) {
-		    player.addPowerUp(powerUp);
-		}
+		assert player != null;
+		player.addPowerUp(powerUp);
 	    }
 
 	    Spawner spawner = new Spawner(handler, environment, prop.getProperty(SPAWNER_KEY));
@@ -182,22 +171,22 @@ public final class SavedProperties extends AppProperties
 	    String newKey = key + Integer.toString(i);
 	    String powerUp = prop.getProperty(POWER_UP_KEY + newKey);
 	    String[] values = powerUp.split(ENUM_SPLIT);
-	    PowerUp child = null;
-	    switch (PowerUpId.values()[Integer.parseInt(values[0])]) {
-		case AMMO:
-		    child = new Ammo(player, handler, values[1]);
-		    break;
-		case GHOST:
-		    child = new Ghost(player, values[1]);
-		    break;
-		case UNSTOPPABLE:
-		    child = new Unstoppable(player, values[1]);
-		    break;
-	    }
+	    PowerUp child = getPowerUp(PowerUpId.values()[Integer.parseInt(values[0])], values[1],player, handler);
 	    parent.addInterrupted(child);
 	    if (prop.getProperty(POWER_UPS_KEY + newKey) != null) {
 		getPowerUpRecursive(child, newKey, player, handler);
 	    }
 	}
+    }
+    private PowerUp getPowerUp(final PowerUpId id, final String values, final Player player, final Handler handler) {
+	switch (id) {
+	    case AMMO:
+		return new Ammo(player, handler, values);
+	    case GHOST:
+		return new Ghost(player, values);
+	    case UNSTOPPABLE:
+		return new Unstoppable(player, values);
+	}
+	return null;
     }
 }

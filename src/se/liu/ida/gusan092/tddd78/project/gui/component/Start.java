@@ -8,7 +8,7 @@ import java.awt.*;
 /**
  * The start component for window
  */
-public class Start extends WComponent
+public class Start extends AComponent
 {
 
     /**

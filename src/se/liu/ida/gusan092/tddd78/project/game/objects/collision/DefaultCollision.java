@@ -48,18 +48,17 @@ public class DefaultCollision implements CollisionHandler
 
     }
 
-
     public void collisionFront(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
 	Type collisionId = collision.getType();
 	int velY = controlledObject.getVelY();
 	int healthChange = 0;
 	int speedChange = 0;
 	int amountOfTicks = (int) game.getAmountOfTicks();
-	int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 	switch (collisionId) {
 	    case ANIMAL:
 	    case ROADBLOCK:
 		if (velY <= 0) {
+		    int speedIncreaseDiff = amountOfTicks - (int) Game.MIN_AMOUNT_OF_TICKS;
 		    if (velY == 0) {
 			healthChange = -speedIncreaseDiff / 8;
 		    } else {

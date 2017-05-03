@@ -10,7 +10,7 @@ import java.awt.*;
 /**
  * A component displaying the highscores
  */
-public class HighScore extends WComponent
+public class HighScore extends AComponent
 {
 
     public HighScore() {

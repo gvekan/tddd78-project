@@ -45,27 +45,32 @@ public class Bullet extends GameObject
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
-		switch (collision.getType()) {
-		    case ROADBLOCK:
-			handler.removeAfterTick(collision);
-			player.addScore(100);
-			break;
-		    case ANIMAL:
-			handler.removeAfterTick(collision);
-			player.addScore(ANIMAL_SCORE);
-			break;
-		    case PLAYER:
-			collision.collisionWithGameObject(collision, Side.FRONT);
-			break;
-		    case CONTAINER:
-		        collision.collisionWithPlayer(player, Side.FRONT);
-		}
+		collisionWithGameObject(collision, Side.FRONT);
 		handler.removeAfterTick(this);
 	    }
 	}
 	if (y == 0) {
 	    handler.removeAfterTick(this);
 	}
+    }
+
+    @Override public void collisionWithGameObject(final GameObject collision, final Side side) {
+	switch (collision.getType()) {
+	    case ROADBLOCK:
+		handler.removeAfterTick(collision);
+		player.addScore(100);
+		break;
+	    case ANIMAL:
+		handler.removeAfterTick(collision);
+		player.addScore(ANIMAL_SCORE);
+		break;
+	    case PLAYER:
+		collision.collisionWithGameObject(collision, Side.FRONT);
+		break;
+	    case CONTAINER:
+	        collision.collisionWithPlayer(player, Side.FRONT);
+	}
+
     }
 
     @Override public void setSaveValues(final String[] saveValues) {

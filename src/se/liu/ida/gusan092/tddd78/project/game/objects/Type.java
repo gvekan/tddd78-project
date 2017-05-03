@@ -42,11 +42,4 @@ public enum Type
     public int getIndex(){
         return index;
     }
-
-    public static void main(String[] args) {
-        Type test = Type.PLAYER;
-	if (test == Type.values()[test.index]) System.out.println("sant");
-        else System.out.println("falskt");
-
-    }
 }

@@ -2,6 +2,7 @@ package se.liu.ida.gusan092.tddd78.project.game.powerup;
 
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +13,8 @@ public abstract class PowerUp
 {
     protected Player player = null;
     protected List<PowerUp> interrupted = new ArrayList<>();
-    protected boolean added = false;
     protected boolean running = true;
+    protected Timer timer;
 
     protected PowerUpId id;
 
@@ -21,6 +22,7 @@ public abstract class PowerUp
     {
 	this.id = id;
 	this.player = player;
+	timer = null;
     }
 
     public PowerUpId getId() {

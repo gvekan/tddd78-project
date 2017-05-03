@@ -40,6 +40,8 @@ public class Animal extends StillObject
      */
     public static final int BLUE = 45;
 
+    private Timer timer;
+
     /**
      * @param x the start x value
      * @param handler the handler it is in
@@ -49,18 +51,8 @@ public class Animal extends StillObject
 	super(x, -SIZE, SIZE, SIZE, new Color(RED, GREEN, BLUE), Type.ANIMAL, handler);
 	if ( x < Game.WIDTH/2) setVelX(1); // start going towards the middle
 	else setVelX(-1);
-
-	ActionListener taskPerformer = new ActionListener() {
-	    public void actionPerformed(ActionEvent evt) {
-	        if (running) {
-		    setX(getX() + velX);
-		    if (velX < 0) handleCollisionLeft();
-		    else handleCollisionRight();
-		}
-	    }
-	};
-	Timer timer = new Timer(DELAY, taskPerformer);
-	timer.start();
+	timer = null;
+	createTimer();
     }
 
     /**
@@ -71,23 +63,28 @@ public class Animal extends StillObject
     public Animal(final Handler handler, final String saveValues) {
     	super(SIZE, SIZE, new Color(RED, GREEN, BLUE), Type.ANIMAL, handler);
     	setSaveValues(saveValues);
-    	ActionListener taskPerformer = new ActionListener() {
-    	    public void actionPerformed(ActionEvent evt) {
-    	        if (running) {
-    		    setX(getX() + velX);
-    		    if (velX < 0) handleCollisionLeft();
-    		    else handleCollisionRight();
-    		}
-    	    }
-    	};
-    	Timer timer = new Timer(DELAY, taskPerformer);
-    	timer.start();
+	timer = null;
+    	createTimer();
+    }
+
+    private void createTimer() {
+	ActionListener taskPerformer = new ActionListener() {
+	    public void actionPerformed(ActionEvent evt) {
+	        if (running) {
+		    setX(getX() + velX);
+		    if (velX < 0) handleCollisionLeft();
+		    else handleCollisionRight();
+		}
+	    }
+	};
+	timer = new Timer(DELAY, taskPerformer);
+	timer.start();
     }
 
     /**
      * Handles possible collision with other GameObjects from the left
      */
-    public void handleCollisionLeft() {
+    private void handleCollisionLeft() {
 	List<GameObject> collisions = handler.getCollisions(getLeftBound(),this);
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
@@ -113,12 +110,12 @@ public class Animal extends StillObject
     /**
      * @return a rectangle with the width of 1 and the height of the animal on the left side
      */
-    public Rectangle getLeftBound() {return new Rectangle(x, y,1,height);}
+    private Rectangle getLeftBound() {return new Rectangle(x, y, 1, height);}
 
     /**
      * Handles possible collision with other GameObjects from the left
      */
-    public void handleCollisionRight() {
+    private void handleCollisionRight() {
 	List<GameObject> collisions = handler.getCollisions(getRightBound(),this);
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
@@ -145,7 +142,12 @@ public class Animal extends StillObject
     /**
      * @return a rectangle with the width of 1 and the height of the animal on the right side
      */
-    public Rectangle getRightBound() {return new Rectangle(x+width-1, y,1,height);}
+    private Rectangle getRightBound() {return new Rectangle(x + width - 1, y, 1, height);}
+
+    @Override public void tick() {
+	super.tick();
+	if (y == Game.HEIGHT) timer.stop();
+    }
 
     @Override public void render(final Graphics g) {
 	Graphics2D g2d = (Graphics2D) g;

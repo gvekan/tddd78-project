@@ -1,7 +1,6 @@
 package se.liu.ida.gusan092.tddd78.project.game;
 
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
-import se.liu.ida.gusan092.tddd78.project.game.powerup.PowerUp;
 
 import java.awt.Color;
 import java.awt.Graphics;

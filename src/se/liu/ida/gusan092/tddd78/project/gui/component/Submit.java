@@ -13,7 +13,7 @@ import java.time.LocalDate;
 /**
  * A component used to submit a users game to the highscore property
  */
-public class Submit extends WComponent
+public class Submit extends AComponent
 {
     /**
      * The amount of columns in the textfield

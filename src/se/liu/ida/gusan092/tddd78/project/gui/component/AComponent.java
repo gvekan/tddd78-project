@@ -8,11 +8,11 @@ import java.awt.*;
 /**
  * The abstract class for a component in App
  */
-public abstract class WComponent extends JComponent
+public abstract class AComponent extends JComponent
 {
     private final State state;
 
-    protected WComponent(final State state) {
+    protected AComponent(final State state) {
 	this.state = state;
     }
 

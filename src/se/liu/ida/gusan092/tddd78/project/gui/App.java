@@ -6,7 +6,7 @@ import se.liu.ida.gusan092.tddd78.project.gui.component.State;
 import se.liu.ida.gusan092.tddd78.project.gui.component.HighScore;
 import se.liu.ida.gusan092.tddd78.project.gui.component.Start;
 import se.liu.ida.gusan092.tddd78.project.gui.component.Submit;
-import se.liu.ida.gusan092.tddd78.project.gui.component.WComponent;
+import se.liu.ida.gusan092.tddd78.project.gui.component.AComponent;
 import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import javax.swing.*;
@@ -21,7 +21,7 @@ public class App extends JFrame
 {
     private Game game = null;
     private Menu menu = new Menu(this);
-    private WComponent comp;
+    private AComponent comp;
 
 
     public App() {
@@ -54,7 +54,7 @@ public class App extends JFrame
 	menu.setState(state);
     }
 
-    private void setComp(WComponent comp) {
+    private void setComp(AComponent comp) {
         replaceState(comp.getState());
         this.comp = comp;
         this.add(comp);

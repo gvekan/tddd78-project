@@ -115,7 +115,7 @@ public class Game extends Canvas implements Runnable
         double delta = 0;
         long timer = System.currentTimeMillis();
         int frames = 0;
-        while (threadRunning) {
+        while (threadRunning) { //Stopped
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
