@@ -16,15 +16,8 @@ import java.io.IOException;
  */
 public class Road extends StillObject
 {
-    /**
-     * The BufferedImage used in render
-     */
     private BufferedImage img = null;
 
-    /**
-     * @param y the start y value, often the -Game.HEIGHT
-     * @param handler the handler it is in (environment)
-     */
     public Road(final int y, final Handler handler)
     {
 	super(0, y, Game.WIDTH, Game.HEIGHT, Color.BLACK, Type.ROAD, handler);
@@ -36,13 +29,12 @@ public class Road extends StillObject
     }
 
     /**
-     * @param handler the handler it is in
-     * @param saveValues values to use when restoring a saved file
+     * Used to restore a saved game
      */
     public Road(final Handler handler, final String saveValues)
     {
 	super(Game.WIDTH,Game.HEIGHT,Color.BLACK, Type.ROAD, handler);
-	setSaveValues(saveValues);
+	restoreSaveValues(saveValues);
 	try {
 	    img = ImageIO.read(new File("road.png"));
 	} catch (IOException e) {

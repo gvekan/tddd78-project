@@ -27,21 +27,16 @@ public class Roadblock extends StillObject
      */
     public static final Color COLOR = new Color(255,69,0);
 
-    /**
-     * @param x the start x value
-     * @param handler the handler it is in
-     */
     public Roadblock(final int x, final Handler handler) {
     	super(x, -HEIGHT, WIDTH, HEIGHT, COLOR, Type.ROADBLOCK, handler);
     }
 
     /**
-     * @param handler the handler it is in
-     * @param saveValues values to use when restoring a saved file
+     * Used to restore a saved game
      */
     public Roadblock(final Handler handler, final String saveValues) {
 	super(WIDTH,HEIGHT,COLOR, Type.ROADBLOCK, handler);
-	setSaveValues(saveValues);
+	restoreSaveValues(saveValues);
     }
 
 

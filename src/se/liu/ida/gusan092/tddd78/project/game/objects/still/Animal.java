@@ -56,13 +56,12 @@ public class Animal extends StillObject
     }
 
     /**
-     * @param handler the handler it is in
-     * @param saveValues values to use when restoring a saved file
+     * Used to restore a saved game
      * note that running is set false in GameObject
      */
     public Animal(final Handler handler, final String saveValues) {
     	super(SIZE, SIZE, new Color(RED, GREEN, BLUE), Type.ANIMAL, handler);
-    	setSaveValues(saveValues);
+    	restoreSaveValues(saveValues);
 	timer = null;
     	createTimer();
     }

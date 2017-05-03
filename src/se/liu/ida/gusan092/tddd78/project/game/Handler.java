@@ -48,16 +48,6 @@ public class Handler
         objectsToRemove.add(gameObject);
     }
 
-    public boolean hasCollision(final Rectangle rectangle, final GameObject gameObject) {
-	for (int i = 0; i < gameObjects.size(); i++) {
-	    final GameObject test = gameObjects.get(i);
-	    if (!Objects.equals(test, gameObject) && test.hasCollision(rectangle)) {
-		return true;
-	    }
-	}
-	return false;
-    }
-
     public List<GameObject> getCollisions(final Rectangle rectangle, final GameObject gameObject) {
         List<GameObject> collisions = new ArrayList<>();
 	for (int i = 0; i < gameObjects.size(); i++) {
@@ -69,11 +59,6 @@ public class Handler
 	    }
 	}
     	return collisions;
-    }
-
-    public List<GameObject> getCollisions(final GameObject gameObject) {
-        Rectangle rectangle = gameObject.getBounds();
-	return getCollisions(rectangle, gameObject);
     }
 
     public void setRunning(boolean running) {

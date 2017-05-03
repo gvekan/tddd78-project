@@ -28,20 +28,18 @@ public class Bullet extends GameObject
     }
 
     /**
-     * @param handler the handler it is in
-     * @param player the player that created the bullet
-     * @param saveValues values to use when restoring a saved file
+     * Used to restore a saved game
      */
     public Bullet(final Handler handler, final Player player, final String saveValues)
         {
     	super(SIZE, SIZE, Color.BLACK, Type.BULLET, handler);
     	this.player = player;
-    	setSaveValues(saveValues);
+    	restoreSaveValues(saveValues);
         }
 
     @Override public void tick() {
 	y += velY;
-	List<GameObject> collisions = handler.getCollisions(this);
+	List<GameObject> collisions = handler.getCollisions(getBounds(), this);
 	if (!collisions.isEmpty()) {
 	    for (int i = 0; i < collisions.size(); i++) {
 		final GameObject collision = collisions.get(i);
@@ -73,7 +71,7 @@ public class Bullet extends GameObject
 
     }
 
-    @Override public void setSaveValues(final String[] saveValues) {
+    @Override public void restoreSaveValues(final String[] saveValues) {
 
     }
 }

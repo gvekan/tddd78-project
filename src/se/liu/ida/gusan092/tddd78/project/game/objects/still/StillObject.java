@@ -25,9 +25,6 @@ public abstract class StillObject extends GameObject
      */
     public static final String FALSE = "false";
 
-    /**
-     * If true then tick else not
-     */
     private boolean halfTick;
 
     protected StillObject(final int x, final int y, final int width, final int height, final Color color, final Type type,
@@ -38,6 +35,9 @@ public abstract class StillObject extends GameObject
 	setVelY(1);
     }
 
+    /**
+     * Used to restore a saved game
+     */
     protected StillObject(final int width, final int height, final Color color, final Type type, final Handler handler)
         {
     	super(width, height, color, type, handler);
@@ -56,15 +56,12 @@ public abstract class StillObject extends GameObject
 	halfTick = !halfTick;
     }
 
-    @Override public void setSaveValues(final String[] saveValues) {
+    @Override public void restoreSaveValues(final String[] saveValues) {
 	if (Objects.equals(saveValues[0], TRUE)) halfTick = true;
 	else halfTick = false;
 	setStillSaveValues(Arrays.copyOfRange(saveValues, 1, saveValues.length));
     }
 
-    /**
-     * @return the state of halfTick represented as a String
-     */
     @Override public String getSaveValues() {
 	String sHalfTick;
  	if (halfTick) sHalfTick = TRUE;
@@ -73,8 +70,8 @@ public abstract class StillObject extends GameObject
     }
 
     /**
-     * @param saveValues values to use when restoring a saved file
-     * used by setSaveValues
+     * Used by StillObject.restoreSaveValues
+     * @param saveValues the rest of the values belonging subclass
      */
-    public abstract void setStillSaveValues(final String[] saveValues);
+    protected abstract void setStillSaveValues(final String[] saveValues);
 }

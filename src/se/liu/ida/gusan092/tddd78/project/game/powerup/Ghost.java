@@ -6,6 +6,7 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.GameObject;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Player;
 import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 import se.liu.ida.gusan092.tddd78.project.game.objects.collision.CollisionHandler;
+import se.liu.ida.gusan092.tddd78.project.properties.SavedProperties;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -31,6 +32,9 @@ public class Ghost extends PowerUp implements CollisionHandler
 
     public Ghost(final Player player, final String saveValues) {
 	super(PowerUpId.GHOST, player);
+	String[] values = saveValues.split(SavedProperties.VALUE_SPLIT);
+	countSec = Integer.parseInt(values[0]);
+	countTenOfaSec = Integer.parseInt(values[1]);
     }
 
     private void createTimer() {
@@ -80,6 +84,10 @@ public class Ghost extends PowerUp implements CollisionHandler
 
     @Override public String description() {
         return "Ghost: " + countSec + ".0" + countTenOfaSec;
+    }
+
+    @Override public String getSaveValues() {
+	return super.getSaveValues() + SavedProperties.ENUM_SPLIT + Integer.toString(countSec) + SavedProperties.VALUE_SPLIT + Integer.toString(countTenOfaSec);
     }
 
     @Override public void collision(final Game game, final Handler handler, final Player player,

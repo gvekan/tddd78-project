@@ -132,6 +132,11 @@ public class App extends JFrame
         setComp(new Submit(this, player));
     }
 
+    /**
+     * Not done, will be used in a extension for multiplaying
+     * Should only be used when multiplaying
+     * @param players the players in a game
+     */
     public void gameOver(List<Player> players) {
     }
 

@@ -68,9 +68,7 @@ public class Player extends GameObject
     }
 
     /**
-     * @param handler the handler it is in
-     * @param saveValues values to use when restoring a saved file
-     * Note that the id and color will be set by setStillSaveValues
+     * Used to restore a saved game
      */
     public Player(final Handler handler, final Game game, final String saveValues) {
 	super(WIDTH,HEIGHT,Color.CYAN, Type.PLAYER, handler);
@@ -78,7 +76,7 @@ public class Player extends GameObject
 	health = maxHealth;
 	this.game = game;
 	halfTick = true;
-	setSaveValues(saveValues);
+	restoreSaveValues(saveValues);
     }
 
     @Override public void setVelY(final int velY) {
@@ -112,7 +110,7 @@ public class Player extends GameObject
 	halfTick = !halfTick;
     }
 
-    @Override public void setSaveValues(final String[] saveValues) {
+    @Override public void restoreSaveValues(final String[] saveValues) {
 	if (Objects.equals(saveValues[0], TRUE)) halfTick = true;
 	else halfTick = false;
 	health = Integer.parseInt(saveValues[1]);

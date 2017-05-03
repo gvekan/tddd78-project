@@ -25,11 +25,6 @@ public class Container extends StillObject
      */
     private PowerUpId id;
 
-    /**
-     * @param x the start x value
-     * @param handler the handler it is in
-     * @param id the PowerUpId it will carrie
-     */
     public Container(final int x, final Handler handler, final PowerUpId id)
     {
 	super(x, -SIZE, SIZE, SIZE, id.getColor(), Type.CONTAINER, handler);
@@ -37,15 +32,14 @@ public class Container extends StillObject
     }
 
     /**
-     * @param handler the handler it is in
-     * @param saveValues values to use when restoring a saved file
+     * Used to restore a saved game
      * Note that the id and color will be set by setStillSaveValues
      */
     public Container(final Handler handler, final String saveValues)
     {
 	super(SIZE, SIZE, null, Type.CONTAINER, handler);
 	id = null;
-	setSaveValues(saveValues);
+	restoreSaveValues(saveValues);
     }
 
     /**

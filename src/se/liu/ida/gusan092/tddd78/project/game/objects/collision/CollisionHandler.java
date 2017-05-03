@@ -12,15 +12,12 @@ import se.liu.ida.gusan092.tddd78.project.game.objects.Side;
 public interface CollisionHandler
 {
     /**
-     * @param game the game the player is in
-     * @param handler the handler the player is in
-     * @param player the player
-     * @param collision the gameobject it has collided with
-     * @param side the side the collision happend
+     * Used to handle a collision with a GameObject
      */
     public void collision(final Game game, final Handler handler, final Player player, final GameObject collision, final Side side);
 
     /**
+     * Not done, will be used in a extension for multiplaying
      * Used in multiplayer to handle collision between players
      */
     public void collisionWithPlayer(final Game game, final Handler handler, final Player player, final Player collision, final Side side);

@@ -18,11 +18,10 @@ public class DefaultCollision implements CollisionHandler
     {
         switch (collision.getType()) {
 	    case ANIMAL:
-	    case ROADBLOCK:
+	    case ROADBLOCK: //Both should be removed after a collision
 		handler.removeAfterTick(collision);
 		break;
-	    case PLAYER:
-	    case CONTAINER:
+	    case CONTAINER: //Side is not important when colliding with Container
 	        collision.collisionWithPlayer(player, side);
 	        break;
 	}
@@ -48,7 +47,11 @@ public class DefaultCollision implements CollisionHandler
 
     }
 
-    public void collisionFront(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
+    /**
+     * Will decrease Game.amountOfTicks and Player.health depending on side it collided with
+     */
+    private void collisionFront(final Game game, final Handler handler, final Player controlledObject,
+				final GameObject collision) {
 	Type collisionId = collision.getType();
 	int velY = controlledObject.getVelY();
 	int healthChange = 0;
@@ -81,11 +84,15 @@ public class DefaultCollision implements CollisionHandler
 	game.setAmountOfTicks(amountOfTicks + speedChange);
     }
 
-    public void collisionBack(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
+    /**
+     * Backcollision with still GameObjects is impossible, it can only have happend from the side, look at Player.tick() and getLeftBounds()
+     */
+    private void collisionBack(final Game game, final Handler handler, final Player controlledObject,
+			       final GameObject collision) {
 	Type collisionId = collision.getType();
 	switch (collisionId) {
-	    case ANIMAL: //Backcollision can only happen from the side
-	    case ROADBLOCK: //Backcollision can only happen from the side
+	    case ANIMAL:
+	    case ROADBLOCK:
 		int velX = controlledObject.getVelX();
 		if (velX < 0) {
 		    collisionLeft(game, handler, controlledObject, collision);
@@ -96,7 +103,8 @@ public class DefaultCollision implements CollisionHandler
 	}
     }
 
-    public void collisionLeft(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
+    private void collisionLeft(final Game game, final Handler handler, final Player controlledObject,
+			       final GameObject collision) {
 	Type collisionId = collision.getType();
 	int velX = controlledObject.getVelX();
 	int healthChange = 0;
@@ -124,7 +132,8 @@ public class DefaultCollision implements CollisionHandler
 
     }
 
-    public void collisionRight(final Game game, final Handler handler, final Player controlledObject, final GameObject collision) {
+    private void collisionRight(final Game game, final Handler handler, final Player controlledObject,
+				final GameObject collision) {
 	Type collisionId = collision.getType();
 	int velX = controlledObject.getVelX();
 	int healthChange = 0;
