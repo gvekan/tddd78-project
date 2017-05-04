@@ -37,7 +37,7 @@ public class Player extends GameObject
     /**
      * The max height of the player
      */
-    public static final int MAX_HEALTH = 10;
+    public static final int MAX_HEALTH = 200;
     /**
      * The string representing true
      */
@@ -260,17 +260,36 @@ public class Player extends GameObject
 	        powerUp = new Unstoppable(this);
 	        break;
 	}
-	for (int i = 0; i < powerUps.size(); i++) {
+	int size = powerUps.size();
+	for (int i = size - 1; i >= 0; i--) {
 	    final PowerUp interrupted = powerUps.get(i);
 	    if (id.isIncompatible(interrupted.getId())) {
 	        powerUps.remove(interrupted);
 		interrupted.interrupt();
 		powerUp.addInterrupted(interrupted);
-		break;
 	    }
 	}
 	addPowerUp(powerUp);
+	powerUp.resume();
     }
+
+    public void addInterruptedPowerUp(PowerUp interrupted) {
+	int size = powerUps.size();
+	boolean added = false;
+	for (int i = 0; i < size; i++) {
+	    final PowerUp powerUp = powerUps.get(i);
+	    if (powerUp.getId().isIncompatible(interrupted.getId())) {
+		powerUp.addInterrupted(interrupted);
+		added = true;
+		break;
+	    }
+	}
+	if (!added) {
+	    addPowerUp(interrupted);
+	    interrupted.resume();
+	}
+    }
+
 
     public int getPowerUpsSize() {
         return powerUps.size();

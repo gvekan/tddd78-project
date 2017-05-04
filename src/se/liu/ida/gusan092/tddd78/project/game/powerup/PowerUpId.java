@@ -42,13 +42,13 @@ public enum PowerUpId
 	for (int i:
 	     incompatibles) {
 	    if (i == test.index) {
-	        return true;
+		return true;
 	    }
 	}
 	for (int i:
 	     test.incompatibles) {
 	    if (i == index) {
-	        return true;
+		return true;
 	    }
 	}
 	return false;

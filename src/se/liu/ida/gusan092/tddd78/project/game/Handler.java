@@ -24,7 +24,8 @@ public class Handler
 		gameObject.tick();
 	    }
 	}
-	for (int i = objectsToRemove.size()-1; i >= 0 ; i--) {
+	int size = objectsToRemove.size();
+	for (int i = size-1; i >= 0 ; i--) {
 	    final GameObject gameObject = objectsToRemove.get(i);
 	    gameObjects.remove(gameObject);
 	}

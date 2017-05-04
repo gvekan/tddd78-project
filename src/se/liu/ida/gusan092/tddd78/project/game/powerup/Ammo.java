@@ -61,11 +61,6 @@ public class Ammo extends PowerUp
  	timer = null;
     }
 
-    @Override protected void reset() {
-	super.reset();
-	interrupt();
-    }
-
     @Override public void resume() {
     }
 

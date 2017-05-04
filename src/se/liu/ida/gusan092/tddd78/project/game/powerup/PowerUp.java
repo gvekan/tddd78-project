@@ -29,12 +29,15 @@ public abstract class PowerUp
 	return id;
     }
 
+    /**
+     * If overrided this should be runned in the end
+     */
     protected void reset() {
+        this.interrupt();
 	player.removePowerUp(this);
 	if (!interrupted.isEmpty()) {
 	    for (PowerUp powerUp: interrupted) {
-	    player.addPowerUp(powerUp);
-	    powerUp.resume();
+	        player.addInterruptedPowerUp(powerUp);
 	    }
 	}
     }
@@ -59,6 +62,10 @@ public abstract class PowerUp
     public abstract void use();
     public abstract void stop();
     public abstract void interrupt();
+
+    /**
+     * Should be called when added to the players power ups
+     */
     public abstract void resume();
     public abstract String description();
 }

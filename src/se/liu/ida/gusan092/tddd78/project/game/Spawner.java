@@ -90,7 +90,6 @@ public class Spawner
     }
 
     private void level1() {
-	handler.add(new Container(random.nextInt(Game.WIDTH - Container.SIZE), handler, PowerUpId.GHOST));
 	if (oneTo(2)) {
 	    handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH), handler));
 	}
@@ -103,16 +102,9 @@ public class Spawner
 	}
 	if (oneTo(4)) handler.add(new Animal(random.nextInt(Game.WIDTH), handler));
 	if (oneTo(L1_PU_ODDS)) {
-	    switch (random.nextInt(2)) {
-		case 0:
-		    handler.add(new Container(random.nextInt(Game.WIDTH - Container.SIZE), handler, PowerUpId.AMMO));
-		    break;
-		case 1:
-		    if (oneTo(2)) handler.add(
-			    new Container(random.nextInt(Game.WIDTH - Container.SIZE), handler, PowerUpId.UNSTOPPABLE));
-		    else handler.add(new Container(random.nextInt(Game.WIDTH - Container.SIZE), handler, PowerUpId.AMMO));
-		    break;
-	    }
+	   PowerUpId id = PowerUpId.AMMO;
+	   if (oneTo(4)) id = PowerUpId.GHOST;
+	   handler.add(new Container(random.nextInt(Game.WIDTH - Container.SIZE), handler, id));
 	}
     }
 
@@ -121,20 +113,12 @@ public class Spawner
 	    for (int i = 0; i < random.nextInt(5) + 1; i++) {
 		handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), handler));
 	    }
-	} else if(oneTo(4)) {
-	    switch (random.nextInt(3)) {
-		case 0:
-		    handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), handler));
-		    break;
-		case 1:
-		    if (oneTo(2)) handler.add(new Container(random.nextInt(Game.WIDTH - Container.SIZE), handler, PowerUpId.AMMO));
-		    else handler.add(new Roadblock(random.nextInt(Game.WIDTH - Roadblock.WIDTH + 1), handler));
-		    break;
-		case 2:
-		    if (oneTo(4)) handler.add(new Container(random.nextInt(Game.WIDTH - Container.SIZE), handler, PowerUpId.UNSTOPPABLE));
-		    else handler.add(new Animal(random.nextInt(Game.WIDTH), handler));
-		    break;
-	    }
+	}
+	if(oneTo(10)) {
+	    PowerUpId id = PowerUpId.AMMO;
+	    if (oneTo(4)) id = PowerUpId.GHOST;
+	    if (oneTo(8)) id = PowerUpId.UNSTOPPABLE;
+	    handler.add(new Container(random.nextInt(Game.WIDTH - Container.SIZE), handler, id));
 	}
     }
 }

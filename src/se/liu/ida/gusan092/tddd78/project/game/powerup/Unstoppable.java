@@ -23,7 +23,6 @@ public class Unstoppable extends PowerUp implements CollisionHandler
     public Unstoppable(final Player player)
     {
 	super(PowerUpId.UNSTOPPABLE, player);
-	resume(); //Sets the collisionHandler and creates the timer
     }
 
     public Unstoppable(final Player player, final String saveValues)
@@ -41,12 +40,6 @@ public class Unstoppable extends PowerUp implements CollisionHandler
     @Override public void interrupt() {
         if (timer != null) timer.stop();
         if (oldCollisionHandeler != null) player.setCollisionHandler(oldCollisionHandeler);
-    }
-
-    @Override protected void reset() {
-	super.reset();
-	player.setCollisionHandler(oldCollisionHandeler);
-	timer.stop();
     }
 
     @Override public void resume() {

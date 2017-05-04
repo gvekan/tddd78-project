@@ -69,11 +69,6 @@ public class Ghost extends PowerUp implements CollisionHandler
 	timer = null;
     }
 
-    @Override protected void reset() {
-	super.reset();
-	interrupt();
-    }
-
     @Override public void resume() {
 
     }
