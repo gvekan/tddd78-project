@@ -27,7 +27,7 @@ public enum PowerUpId
     private PowerUpId(final Color color, final int... incompatibles) {
 	this.color = color;
 	this.incompatibles = incompatibles;
-	this.index = ordinal();
+	index = ordinal();
     }
 
     public int getIndex(){

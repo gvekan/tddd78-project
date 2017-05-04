@@ -17,7 +17,6 @@ public class Controller extends KeyAdapter
 
     public Controller(final Player player) {
 	this.player = player;
-	//this.keys = keys;
 
 
 	keys.put(KeyAction.MOVE_UP, KeyEvent.VK_UP);

@@ -59,7 +59,7 @@ public class Player extends GameObject
 
     public Player(final Handler handler, final Game game) {
 	super((Game.WIDTH - WIDTH) / 2, MAX_Y, WIDTH, HEIGHT, Color.CYAN, Type.PLAYER, handler);
-	this.maxHealth = MAX_HEALTH;
+	maxHealth = MAX_HEALTH;
 	health = maxHealth;
 	this.game = game;
 	score = 0;
@@ -72,7 +72,7 @@ public class Player extends GameObject
      */
     public Player(final Handler handler, final Game game, final String saveValues) {
 	super(WIDTH,HEIGHT,Color.CYAN, Type.PLAYER, handler);
-	this.maxHealth = MAX_HEALTH;
+	maxHealth = MAX_HEALTH;
 	health = maxHealth;
 	this.game = game;
 	halfTick = true;

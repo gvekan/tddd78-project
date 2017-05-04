@@ -44,6 +44,10 @@ public class Game extends Canvas implements Runnable
      * 1 second in nanoseconds
      */
     public static final int S_IN_NS = 1000000000;
+    /**
+     * Frames per second for render
+     */
+    public static final double FPS = 60;
     private double amountOfTicks = MIN_AMOUNT_OF_TICKS;
     private double ns = S_IN_NS / amountOfTicks;
     private double speedIncreaser = MIN_AMOUNT_OF_TICKS;
@@ -64,13 +68,13 @@ public class Game extends Canvas implements Runnable
 
     public Game(final App app) {
         this.app = app;
-	this.handler = new Handler();
- 	this.environment = new Handler();
- 	this.spawner = new Spawner(handler, environment);
+	handler = new Handler();
+ 	environment = new Handler();
+ 	spawner = new Spawner(handler, environment);
         Player player = new Player(handler, this);
         players.add(player);
 	handler.add(player);
-        this.addKeyListener(new Controller(player));
+        addKeyListener(new Controller(player));
         hud = new Hud(players);
     }
 
@@ -82,15 +86,15 @@ public class Game extends Canvas implements Runnable
 			      final Player player, final String saveValues)
     {
         String[] values = saveValues.split(SavedProperties.VALUE_SPLIT);
-	this.amountOfTicks = Double.valueOf(values[0]);
-	this.ns = S_IN_NS / amountOfTicks;
-	this.speedIncreaser = Double.valueOf(values[1]);
+	amountOfTicks = Double.valueOf(values[0]);
+	ns = S_IN_NS / amountOfTicks;
+	speedIncreaser = Double.valueOf(values[1]);
 	this.app = app;
 	this.handler = handler;
 	this.environment = environment;
 	this.spawner = spawner;
 	players.add(player);
-	this.addKeyListener(new Controller(player));
+	addKeyListener(new Controller(player));
 	hud = new Hud(players);
     }
 
@@ -110,29 +114,28 @@ public class Game extends Canvas implements Runnable
 
 
     @Override public void run() {
-        this.requestFocus();
+        requestFocus();
         long lastTime = System.nanoTime();
         double delta = 0;
         double deltaRender = 0;
-        double fps = S_IN_NS / 60;
+        double nsRender = S_IN_NS / FPS;
         long timer = System.currentTimeMillis();
         int frames = 0;
         while (threadRunning) { //Stopped
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
-            deltaRender += (now - lastTime) / fps;
             lastTime = now;
             while (delta >= 1) {
 		if (running) tick();
 		delta--;
-		if (deltaRender >= 1) {
-		    if (threadRunning) {
-			if (render) render();
-		    }
-		    deltaRender--;
-		}
 	    }
-	    frames++;
+	    if (now >= deltaRender) {
+		if (threadRunning) {
+		    if (render) render();
+		}
+		deltaRender = now + nsRender;
+		frames++;
+	    }
 
 	    if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
@@ -159,9 +162,9 @@ public class Game extends Canvas implements Runnable
 
 
     private void render() {
-	BufferStrategy bs = this.getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
+	BufferStrategy bs = getBufferStrategy(); //Funkar inte om jag försöker använda jcomponent
 	if (bs == null) {
-	    this.createBufferStrategy(3);
+	    createBufferStrategy(3);
 	    return;
 	}
 
@@ -243,9 +246,9 @@ public class Game extends Canvas implements Runnable
     public void stopRender() {render = false;}
 
     public void startRender() {
-	this.createBufferStrategy(3);
+	createBufferStrategy(3);
         render = true;
-	this.requestFocus();
+	requestFocus();
     }
 
     public boolean isRunning() {

@@ -36,7 +36,7 @@ public enum Type
     private final int index;
 
     private Type() {
-        this.index = ordinal();
+        index = ordinal();
     }
 
     public int getIndex(){

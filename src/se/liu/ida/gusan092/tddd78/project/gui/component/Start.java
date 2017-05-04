@@ -18,7 +18,7 @@ public class Start extends AComponent
 
     public Start(final App app) {
 	super(State.START);
-	this.setLayout(new GridBagLayout());
+	setLayout(new GridBagLayout());
        	JButton button;
        	GridBagConstraints c = new GridBagConstraints();
 
@@ -30,7 +30,7 @@ public class Start extends AComponent
 	c.anchor = GridBagConstraints.CENTER; //bottom of space
 	c.insets = new Insets(10,0,0,0);  //top padding
 	c.gridy = 1;       //third row
-	this.add(label,c);
+	add(label,c);
 
 	button = new JButton("CONTINUE");
 	button.addActionListener(app::continueGame);
@@ -43,7 +43,7 @@ public class Start extends AComponent
 //	c.gridx = 1;       //aligned with button 2
 //	c.gridwidth = 2;   //2 columns wide
 	c.gridy = 2;       //third row
-	this.add(button, c);
+	add(button, c);
 
        	button = new JButton("NEW GAME");
        	button.addActionListener(app::newGame);
@@ -56,7 +56,7 @@ public class Start extends AComponent
        //	c.gridx = 1;       //aligned with button 2
        //	c.gridwidth = 2;   //2 columns wide
        	c.gridy = 3;       //third row
-       	this.add(button, c);
+       	add(button, c);
 
 	button = new JButton("HIGH SCORES");
 	button.addActionListener(app::toHighScore);
@@ -69,6 +69,6 @@ public class Start extends AComponent
 //	c.gridx = 1;       //aligned with button 2
 //	c.gridwidth = 2;   //2 columns wide
 	c.gridy = 4;       //third row
-	this.add(button, c);
+	add(button, c);
     }
 }

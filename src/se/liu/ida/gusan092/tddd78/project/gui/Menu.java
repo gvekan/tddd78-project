@@ -48,7 +48,7 @@ public class Menu extends JMenuBar
  	highScoreDisable.add(item);
  	menu.add(item);
 
-	this.add(menu);
+	add(menu);
 
         menu = new JMenu("Game");
 
@@ -82,7 +82,7 @@ public class Menu extends JMenuBar
  	gameEnable.add(item);
  	menu.add(item);
 
- 	this.add(menu);
+ 	add(menu);
 
 	disableForState.put(State.START, startDisable);
 	disableForState.put(State.HIGH_SCORE, highScoreDisable);

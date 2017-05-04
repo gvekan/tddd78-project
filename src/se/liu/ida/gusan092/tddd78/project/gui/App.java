@@ -26,14 +26,14 @@ public class App extends JFrame
 
     public App() {
         super("Game");
-	this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
- 	this.setResizable(false);
+	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+ 	setResizable(false);
  	comp = new Start(this);
- 	this.add(comp);
-	this.setJMenuBar(menu);
- 	this.pack();
- 	this.setVisible(true);
- 	this.setFocusable(true);
+ 	add(comp);
+	setJMenuBar(menu);
+ 	pack();
+ 	setVisible(true);
+ 	setFocusable(true);
     }
 
     private boolean hasGame() {
@@ -45,10 +45,10 @@ public class App extends JFrame
     }
 
     private void replaceState(State state) {
-	if (hasComp()) this.remove(comp);
+	if (hasComp()) remove(comp);
 	else {
 	    game.stopRender();
-	    this.remove(game);
+	    remove(game);
 	}
 	comp = null;
 	menu.setState(state);
@@ -57,8 +57,8 @@ public class App extends JFrame
     private void setComp(AComponent comp) {
         replaceState(comp.getState());
         this.comp = comp;
-        this.add(comp);
-	this.pack();
+        add(comp);
+	pack();
         repaint();
     }
 
@@ -78,8 +78,8 @@ public class App extends JFrame
 	}
 	replaceState(State.GAME);
 	game = new Game(this);
-	this.add(game);
-	this.pack();
+	add(game);
+	pack();
 	game.start();
 	repaint();
     }
@@ -112,16 +112,16 @@ public class App extends JFrame
                 return;
 	    }
 	    replaceState(State.GAME);
-	    this.add(game);
-	    this.pack();
+	    add(game);
+	    pack();
 	    repaint();
 	    game.startRender();
 	}
 	else if (SavedProperties.getInstance().hasGame()) {
 	    game = SavedProperties.getInstance().getGame(this);
 	    replaceState(State.GAME);
-	    this.add(game);
-	    this.pack();
+	    add(game);
+	    pack();
 	    repaint();
 	    game.startRender();
 	}

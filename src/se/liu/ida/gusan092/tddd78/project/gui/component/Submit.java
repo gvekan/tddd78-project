@@ -29,10 +29,10 @@ public class Submit extends AComponent
 	score = player.getScore();
     	date = LocalDate.now();
     	this.app = app;
-    	this.setLayout(new GridLayout(2,0));
+    	setLayout(new GridLayout(2,0));
     	JPanel panel = new JPanel(new BorderLayout());
     	panel.add(new JLabel(Integer.toString(score)), BorderLayout.CENTER);
-    	this.add(panel);
+    	add(panel);
 	panel = new JPanel(new FlowLayout());
 	JLabel label = new JLabel("Name: ");
 	JButton button = new JButton("Submit");
@@ -40,7 +40,7 @@ public class Submit extends AComponent
 	panel.add(label);
     	panel.add(name);
     	panel.add(button);
-	this.add(panel);
+	add(panel);
     }
 
     public void submit(final ActionEvent e){
