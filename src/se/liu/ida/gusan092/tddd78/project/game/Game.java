@@ -113,22 +113,28 @@ public class Game extends Canvas implements Runnable
         this.requestFocus();
         long lastTime = System.nanoTime();
         double delta = 0;
+        double deltaRender = 0;
+        double fps = S_IN_NS / 60;
         long timer = System.currentTimeMillis();
         int frames = 0;
         while (threadRunning) { //Stopped
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
+            deltaRender += (now - lastTime) / fps;
             lastTime = now;
             while (delta >= 1) {
-                if (running) tick();
-                delta--;
-	    }
-	    if (threadRunning) {
-		if (render) render();
+		if (running) tick();
+		delta--;
+		if (deltaRender >= 1) {
+		    if (threadRunning) {
+			if (render) render();
+		    }
+		    deltaRender--;
+		}
 	    }
 	    frames++;
 
-            if (System.currentTimeMillis() - timer > 1000) {
+	    if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
                 System.out.println("FPS: " + frames);
                 frames = 0;

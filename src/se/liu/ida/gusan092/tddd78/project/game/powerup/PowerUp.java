@@ -33,7 +33,7 @@ public abstract class PowerUp
      * If overrided this should be runned in the end
      */
     protected void reset() {
-        this.interrupt();
+        interrupt();
 	player.removePowerUp(this);
 	if (!interrupted.isEmpty()) {
 	    for (PowerUp powerUp: interrupted) {

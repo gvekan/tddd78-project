@@ -57,9 +57,9 @@ public class Spawner
 	this.handler = handler;
 	this.environment = environment;
 	String[] values = saveValues.split(SavedProperties.VALUE_SPLIT);
-	this.counter = Integer.parseInt(values[0]);
-	this.spawnCounter = Integer.parseInt(values[1]);
-	this.roadCounter = Integer.parseInt(values[2]);
+	counter = Integer.parseInt(values[0]);
+	spawnCounter = Integer.parseInt(values[1]);
+	roadCounter = Integer.parseInt(values[2]);
     }
 
     public void tick() {
