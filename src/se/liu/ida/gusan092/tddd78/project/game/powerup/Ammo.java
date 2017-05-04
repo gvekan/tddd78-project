@@ -35,11 +35,11 @@ public class Ammo extends PowerUp
     private void createTimer() {
 	ActionListener taskPerformer = new ActionListener() {
 	    public void actionPerformed(ActionEvent evt) {
-		handler.add(new Bullet(player.getX() + player.getWidth() / 2, player.getY() - 4, handler, player));
-		ammo--;
 		if (ammo == 0) {
 		    reset();
 		}
+		handler.add(new Bullet(player.getX() + player.getWidth() / 2, player.getY() - 4, handler, player));
+		ammo--;
 	    }
 	};
 	timer = new Timer(DELAY, taskPerformer);
@@ -48,7 +48,17 @@ public class Ammo extends PowerUp
 
 
     @Override public void use() {
-        createTimer();
+	if (ammo == 0) {
+	    reset();
+	    return;
+	}
+	handler.add(new Bullet(player.getX() + player.getWidth() / 2, player.getY() - 4, handler, player));
+	ammo--;
+	if (ammo == 0) {
+	    reset();
+	    return;
+	}
+	createTimer();
     }
 
     @Override public void stop() {

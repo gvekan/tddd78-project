@@ -4,18 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df068188-c51e-47d2-bc69-d637a0eb95f6" name="Default" comment="">
+    <list default="true" id="df068188-c51e-47d2-bc69-d637a0eb95f6" name="Default" comment="Fixade så render ligger på 60 fps samt tog bort onödiga this">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projekt.iws" afterPath="$PROJECT_DIR$/projekt.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Controller.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Type.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Type.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUpId.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUpId.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/HighScore.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/HighScore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Start.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Start.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Submit.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Submit.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,30 +23,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Hud.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Hud.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="54" column="8" lean-forward="false" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PowerUpId.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUpId.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="806">
               <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
               <folding />
             </state>
@@ -64,28 +36,18 @@
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-179">
-              <caret line="84" column="8" lean-forward="false" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+            <state relative-caret-position="1134">
+              <caret line="83" column="32" lean-forward="false" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HighScore.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/HighScore.java">
+      <file leaf-file-name="Ammo.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Start.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Start.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="71" column="8" lean-forward="false" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+            <state relative-caret-position="594">
+              <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -94,18 +56,18 @@
       <file leaf-file-name="Submit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Submit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
+            <state relative-caret-position="449">
               <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Controller.java">
+      <file leaf-file-name="HighScoreProperties.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/HighScoreProperties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+            <state relative-caret-position="190">
+              <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -114,33 +76,52 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
+            <state relative-caret-position="1019">
               <caret line="94" column="8" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
               <folding>
-                <element signature="e#2735#2736#0" expanded="true" />
-                <element signature="e#2789#2790#0" expanded="true" />
                 <element signature="e#2826#2827#0" expanded="true" />
                 <element signature="e#2867#2868#0" expanded="true" />
-                <element signature="e#6552#6553#0" expanded="true" />
-                <element signature="e#6592#6593#0" expanded="true" />
-                <element signature="e#6687#6688#0" expanded="true" />
-                <element signature="e#6766#6767#0" expanded="true" />
-                <element signature="e#6893#6894#0" expanded="true" />
-                <element signature="e#6936#6937#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Type.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Type.java">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-              <folding>
-                <element signature="e#557#558#0" expanded="true" />
-                <element signature="e#590#591#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="3250">
+              <caret line="250" column="8" lean-forward="false" selection-start-line="250" selection-start-column="8" selection-end-line="250" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="34" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="State.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/State.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -177,6 +158,7 @@
       <find>tick</find>
       <find>highScores</find>
       <find>this.</find>
+      <find>submit</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -227,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Bullet.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Unstoppable.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ghost.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Handler.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUp.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Spawner.java" />
@@ -236,11 +217,12 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Type.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUpId.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/HighScore.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Start.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Submit.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Controller.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java" />
       </list>
     </option>
   </component>
@@ -251,7 +233,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1928" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1096" />
@@ -1162,7 +1144,7 @@
       <workItem from="1493799153391" duration="5779000" />
       <workItem from="1493826496384" duration="6280000" />
       <workItem from="1493888936667" duration="4873000" />
-      <workItem from="1493902528913" duration="1506000" />
+      <workItem from="1493902528913" duration="6476000" />
     </task>
     <task id="LOCAL-00001" summary="Ändrat strukturen och håller på att förfina player, finns en bugg då spelaren spawnas för långt ner på rutan">
       <created>1490453599403</created>
@@ -1493,14 +1475,21 @@
       <option name="project" value="LOCAL" />
       <updated>1493893220578</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Fixade så render ligger på 60 fps samt tog bort onödiga this">
+      <created>1493904076291</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1493904076291</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="353725000" />
+    <option name="totallyTimeSpent" value="358695000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1513,7 +1502,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23123732" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23123732" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1560,7 +1549,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tog bort onödig kod" />
     <MESSAGE value="förhindrade ett fel som skulle kunna uppstå i handlern" />
     <MESSAGE value="Började skriva lite på gui" />
     <MESSAGE value="fortsatte med att skriva lite på gui" />
@@ -1585,7 +1573,8 @@
     <MESSAGE value="Ghost fungerar korrekt" />
     <MESSAGE value="Allt fungerar" />
     <MESSAGE value="Redo för demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redo för demo" />
+    <MESSAGE value="Fixade så render ligger på 60 fps samt tog bort onödiga this" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixade så render ligger på 60 fps samt tog bort onödiga this" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1617,16 +1606,8 @@
         <state relative-caret-position="898">
           <caret line="263" column="9" lean-forward="false" selection-start-line="263" selection-start-column="9" selection-end-line="263" selection-end-column="9" />
           <folding>
-            <element signature="e#2735#2736#0" expanded="true" />
-            <element signature="e#2789#2790#0" expanded="true" />
             <element signature="e#2826#2827#0" expanded="true" />
             <element signature="e#2867#2868#0" expanded="true" />
-            <element signature="e#6552#6553#0" expanded="true" />
-            <element signature="e#6592#6593#0" expanded="true" />
-            <element signature="e#6687#6688#0" expanded="true" />
-            <element signature="e#6766#6767#0" expanded="true" />
-            <element signature="e#6893#6894#0" expanded="true" />
-            <element signature="e#6936#6937#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1663,20 +1644,6 @@
         <state relative-caret-position="340">
           <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/HighScoreProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1765,41 +1732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="34" selection-end-column="7" />
-          <folding>
-            <element signature="e#1316#1317#0" expanded="false" />
-            <element signature="e#1333#1334#0" expanded="false" />
-            <element signature="e#1370#1371#0" expanded="false" />
-            <element signature="e#1389#1390#0" expanded="false" />
-            <element signature="e#1414#1415#0" expanded="false" />
-            <element signature="e#1431#1432#0" expanded="false" />
-            <element signature="e#1460#1461#0" expanded="false" />
-            <element signature="e#1481#1482#0" expanded="false" />
-            <element signature="e#1509#1510#0" expanded="false" />
-            <element signature="e#1529#1530#0" expanded="false" />
-            <element signature="e#1572#1573#0" expanded="false" />
-            <element signature="e#1597#1598#0" expanded="false" />
-            <element signature="e#1625#1626#0" expanded="false" />
-            <element signature="e#1645#1646#0" expanded="false" />
-            <element signature="e#1688#1689#0" expanded="false" />
-            <element signature="e#1713#1714#0" expanded="false" />
-            <element signature="e#1744#1745#0" expanded="false" />
-            <element signature="e#1765#1766#0" expanded="false" />
-            <element signature="e#1794#1795#0" expanded="false" />
-            <element signature="e#1814#1815#0" expanded="false" />
-            <element signature="e#3203#3204#0" expanded="false" />
-            <element signature="e#3253#3254#0" expanded="false" />
-            <element signature="e#3436#3437#0" expanded="false" />
-            <element signature="e#3477#3478#0" expanded="false" />
-            <element signature="e#3524#3525#0" expanded="false" />
-            <element signature="e#3555#3556#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1878,23 +1810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-          <folding>
-            <element signature="e#1358#1359#0" expanded="false" />
-            <element signature="e#1387#1388#0" expanded="false" />
-            <element signature="e#1423#1424#0" expanded="false" />
-            <element signature="e#1450#1451#0" expanded="false" />
-            <element signature="e#1647#1648#0" expanded="false" />
-            <element signature="e#1666#1667#0" expanded="false" />
-            <element signature="e#1711#1712#0" expanded="false" />
-            <element signature="e#1742#1743#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/PowerUp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -1921,38 +1836,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3100">
-          <caret line="250" column="8" lean-forward="false" selection-start-line="250" selection-start-column="8" selection-end-line="250" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Hud.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="54" column="8" lean-forward="false" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="94" column="8" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-          <folding>
-            <element signature="e#2735#2736#0" expanded="true" />
-            <element signature="e#2789#2790#0" expanded="true" />
-            <element signature="e#2826#2827#0" expanded="true" />
-            <element signature="e#2867#2868#0" expanded="true" />
-            <element signature="e#6552#6553#0" expanded="true" />
-            <element signature="e#6592#6593#0" expanded="true" />
-            <element signature="e#6687#6688#0" expanded="true" />
-            <element signature="e#6766#6767#0" expanded="true" />
-            <element signature="e#6893#6894#0" expanded="true" />
-            <element signature="e#6936#6937#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1975,22 +1863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-179">
-          <caret line="84" column="8" lean-forward="false" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/HighScore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -2007,18 +1879,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="83" column="32" lean-forward="false" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/gui/component/Submit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
+        <state relative-caret-position="449">
           <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/properties/HighScoreProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3250">
+          <caret line="250" column="8" lean-forward="false" selection-start-line="250" selection-start-column="8" selection-end-line="250" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="34" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/objects/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1019">
+          <caret line="94" column="8" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+          <folding>
+            <element signature="e#2826#2827#0" expanded="true" />
+            <element signature="e#2867#2868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="306">
           <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/gusan092/tddd78/project/game/powerup/Ammo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
           <folding />
         </state>
       </provider>

@@ -72,6 +72,7 @@ public class Menu extends JMenuBar
  	item.addActionListener(app::repauseGame);
  	item.setEnabled(false);
  	gameEnable.add(item);
+	submitDisable.add(item);
  	menu.add(item);
 
 	item = new JMenuItem("Save", KeyEvent.VK_S);
@@ -80,6 +81,7 @@ public class Menu extends JMenuBar
  	item.addActionListener(app::saveGame);
  	item.setEnabled(false);
  	gameEnable.add(item);
+	submitDisable.add(item);
  	menu.add(item);
 
  	add(menu);
