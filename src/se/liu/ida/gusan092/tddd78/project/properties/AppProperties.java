@@ -7,6 +7,7 @@ import java.util.Properties;
 
 /**
  * The abstract class for classes that handles a property
+ * It should not have any abstract method because it works more lika a helpclass
  */
 public abstract class AppProperties
 {

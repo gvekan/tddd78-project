@@ -58,6 +58,7 @@ public final class SavedProperties extends AppProperties
     }
 
     public void saveGame(final Game game) {
+	prop = new Properties();
 	prop.setProperty(GAME_KEY, game.getSaveValues());
 	Handler handler = game.getHandler();
 	List<GameObject> gameObjects = handler.getGameObjects();

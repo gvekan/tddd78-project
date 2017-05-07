@@ -50,7 +50,6 @@ public class Game extends Canvas implements Runnable
     public static final double FPS = 60;
     private double amountOfTicks = MIN_AMOUNT_OF_TICKS;
     private double ns = S_IN_NS / amountOfTicks;
-    private double speedIncreaser = MIN_AMOUNT_OF_TICKS;
 
     private App app = null;
 
@@ -88,7 +87,6 @@ public class Game extends Canvas implements Runnable
         String[] values = saveValues.split(SavedProperties.VALUE_SPLIT);
 	amountOfTicks = Double.valueOf(values[0]);
 	ns = S_IN_NS / amountOfTicks;
-	speedIncreaser = Double.valueOf(values[1]);
 	this.app = app;
 	this.handler = handler;
 	this.environment = environment;
@@ -121,7 +119,7 @@ public class Game extends Canvas implements Runnable
         double nsRender = S_IN_NS / FPS;
         long timer = System.currentTimeMillis();
         int frames = 0;
-        while (threadRunning) { //Stopped
+        while (threadRunning) { //Is stopped by App by removeGame() or newGame()
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
@@ -138,16 +136,13 @@ public class Game extends Canvas implements Runnable
 	    }
 
 	    if (System.currentTimeMillis() - timer > 1000) {
-                timer += 1000;
-                System.out.println("FPS: " + frames);
-                frames = 0;
+		timer += 1000;
+		System.out.println("FPS: " + frames);
+		frames = 0;
 		if (running) {
-		    speedIncreaser += INCREASE;
-		    if (speedIncreaser % 1 == 0) {
-			amountOfTicks = speedIncreaser;
-			ns = S_IN_NS / amountOfTicks;
-			System.out.println("Amount of ticks: " + amountOfTicks);
-		    }
+		    amountOfTicks += INCREASE;
+		    ns = S_IN_NS / amountOfTicks;
+		    System.out.println("Amount of ticks: " + amountOfTicks);
 		}
 	    }
 	}
@@ -197,12 +192,11 @@ public class Game extends Canvas implements Runnable
 
     public void setAmountOfTicks(double amountOfTicks) {
         this.amountOfTicks = clamp((int)amountOfTicks, (int)MIN_AMOUNT_OF_TICKS, (int)amountOfTicks + 1);
-	speedIncreaser = this.amountOfTicks;
 	ns = S_IN_NS / this.amountOfTicks;
     }
 
     public String getSaveValues() {
-        return Double.toString(amountOfTicks) + SavedProperties.VALUE_SPLIT +  Double.toString(speedIncreaser);
+        return Double.toString(amountOfTicks);
     }
 
     public Handler getHandler() {

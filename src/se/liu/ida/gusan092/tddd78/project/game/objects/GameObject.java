@@ -144,7 +144,7 @@ public abstract class GameObject
 
 
     /**
-     * Used by Players when colliding with other Players or Bullets
+     * Used by Players when colliding with other Players or Container
      * @param collision the Player that has detected the collision
      * @param side the side it collided with, use Side.FRONT if it is unknown
      * Will throw a error if it is used for a GameObject that would not need it

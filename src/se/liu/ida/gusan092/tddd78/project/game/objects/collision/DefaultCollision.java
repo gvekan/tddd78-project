@@ -41,14 +41,9 @@ public class DefaultCollision implements CollisionHandler
 	}
     }
 
-    @Override public void collisionWithPlayer(final Game game, final Handler handler, final Player player,
-					      final Player collision, final Side side)
-    {
-
-    }
-
     /**
      * Will decrease Game.amountOfTicks and Player.health depending on side it collided with
+     * handler could be used by some GameObject in the future
      */
     private void collisionFront(final Game game, final Handler handler, final Player controlledObject,
 				final GameObject collision) {

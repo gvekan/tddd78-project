@@ -16,9 +16,4 @@ public interface CollisionHandler
      */
     public void collision(final Game game, final Handler handler, final Player player, final GameObject collision, final Side side);
 
-    /**
-     * Not done, will be used in a extension for multiplaying
-     * Used in multiplayer to handle collision between players
-     */
-    public void collisionWithPlayer(final Game game, final Handler handler, final Player player, final Player collision, final Side side);
 }

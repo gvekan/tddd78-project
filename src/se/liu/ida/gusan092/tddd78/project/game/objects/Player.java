@@ -37,7 +37,7 @@ public class Player extends GameObject
     /**
      * The max height of the player
      */
-    public static final int MAX_HEALTH = 200;
+    public static final int MAX_HEALTH = 100;
     /**
      * The string representing true
      */
@@ -220,10 +220,16 @@ public class Player extends GameObject
 	this.score = Game.clamp(this.score + score, 0, this.score + score + 1);
     }
 
+    /**
+     * Will be used in future by PowerUp
+     */
     public int getScorePerPixel() {
 	return scorePerPixel;
     }
 
+    /**
+     * Will be used in future by PowerUp
+     */
     public void setScorePerPixel(final int scorePerPixel) {
 	this.scorePerPixel = scorePerPixel;
     }
@@ -337,10 +343,6 @@ public class Player extends GameObject
 
     protected void addTrail() {
 	game.getEnvironment().add(new Trail(x, y + height - 1, width, 2 - velY, color, game.getEnvironment()));
-    }
-
-    public void collisionWithPlayer(final Player collision, final Side side) {
-	collisionHandler.collisionWithPlayer(game, handler, this, collision, side);
     }
 
     @Override public void collisionWithGameObject(final GameObject collision, final Side side) {

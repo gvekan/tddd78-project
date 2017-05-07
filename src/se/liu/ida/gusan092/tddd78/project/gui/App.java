@@ -141,6 +141,7 @@ public class App extends JFrame
     }
 
     public void removeGame() {
+	game.stop();
         game = null;
     }
 
